@@ -8,18 +8,20 @@
 
 Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
+    O objetivo do projeto consiste no desnvolvimento de um sistema de um cardápio digital, destinado as lanchonetes da universidade PUC Minas, com a finalidade de trazer conforto e otimizar o tempo dos clientes (universitários, funcionários, professores e visitantes). O cardápio deve oferecer ao usuário uma interface intuitiva e dinâmica, contendo imagens e descrição detalhada de cada produto com seu respectivo valor e restrições alimentares, além da opção de selecionar unidades e lanchonetes distintas, apresentar diversas formas de pagamento, campo de pesquisa, carrinho de compras e login do usuário. 
+
+
 ## Integrantes
 
 * Nome completo do aluno 1
 * Nome completo do aluno 2
 * Nome completo do aluno 3
-* Nome completo do aluno 4
+* Larissa Nogueira Manna
 * Nome completo do aluno 5
-* Nome completo do aluno 6
 
 ## Professor
 
-* Nome completo do(a) professor(a)
+* Leonardo Vilela Cardoso
 
 ## Instruções de utilização
 
