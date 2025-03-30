@@ -13,11 +13,11 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
+* Cristiane de Oliveira Santos
+* Eric Abreu Gualberto de Moura
+* Heitor Habaeb Moreira
 * Larissa Nogueira Manna
-* Nome completo do aluno 5
+* Lucas César de Lima Amaral
 
 ## Professor
 
