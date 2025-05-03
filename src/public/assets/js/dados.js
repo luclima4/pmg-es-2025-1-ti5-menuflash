@@ -1,138 +1,146 @@
-//JSON
-
 let dados = [
     {
         "id": 1,
         "titulo": "Água",
-        "valor": "R$5,00",
+        "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
+        "valor": "R$3,50",
         "imagem": "src/public/assets/imgs/agua.png",
         "disponivel": true,
         "favorito": false,
-        "quantidade": 13,
-        
-        "semLactose": false,
+        "quantidade": 17,
+        "semLactose": true,
         "semGluten": true
-
     },
     {
         "id": 2,
         "titulo": "Guaraná lata",
+        "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
         "valor": "R$5,00",
         "imagem": "src/public/assets/imgs/guaranaLata.png",
         "disponivel": true,
-        "favorito": false,
-        "quantidade": 13,
-        "semLactose": false,
-        "semGluten": true
+        "favorito": true,
+        "quantidade": 11,
+        "semLactose": true,
+        "semGluten": false
     },
     {
         "id": 3,
         "titulo": "Açaí",
-        "valor": "R$5,00",
+        "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
+        "valor": "R$7,00",
         "imagem": "src/public/assets/imgs/acai.png",
         "disponivel": true,
-        "favorito": false,
-        "quantidade": 13,
+        "favorito": true,
+        "quantidade": 9,
         "semLactose": false,
         "semGluten": true
     },
     {
         "id": 4,
         "titulo": "Coxinha",
-        "valor": "R$5,00",
-        "imagem": "src/public/assets/imgs/coxinha.png", //mudar imagem
+        "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+        "valor": "R$6,00",
+        "imagem": "src/public/assets/imgs/coxinha.png",
         "disponivel": true,
         "favorito": false,
-        "quantidade": 13,
+        "quantidade": 14,
         "semLactose": false,
-        "semGluten": true
+        "semGluten": false
     },
     {
         "id": 5,
         "titulo": "Pão de queijo",
-        "valor": "R$5,00",
-        "imagem": "src/public/assets/imgs/paoDeQueijo.png", //mudar imagem
+        "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
+        "valor": "R$5,50",
+        "imagem": "src/public/assets/imgs/paoDeQueijo.png",
         "disponivel": true,
-        "favorito": false,
-        "quantidade": 13,
+        "favorito": true,
+        "quantidade": 20,
         "semLactose": false,
-        "semGluten": true
+        "semGluten": false
     },
     {
         "id": 6,
         "titulo": "Empada",
-        "valor": "R$5,00",
-        "imagem": "src/public/assets/imgs/empada.png", //mudar imagem
+        "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
+        "valor": "R$6,50",
+        "imagem": "src/public/assets/imgs/empada.png",
         "disponivel": true,
         "favorito": false,
-        "quantidade": 13,
+        "quantidade": 5,
         "semLactose": false,
-        "semGluten": true
+        "semGluten": false
     },
     {
         "id": 7,
         "titulo": "Coca-Cola lata",
-        "valor": "R$5,00",
+        "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+        "valor": "R$5,50",
         "imagem": "src/public/assets/imgs/cocaLata.png",
         "disponivel": true,
-        "favorito": false,
+        "favorito": true,
         "quantidade": 13,
-        "semLactose": false,
+        "semLactose": true,
         "semGluten": true
     },
     {
         "id": 8,
         "titulo": "Sanduíche",
-        "valor": "R$5,00",
-        "imagem": "src/public/assets/imgs/sanduiche.png", //imagem pequena
+        "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
+        "valor": "R$7,50",
+        "imagem": "src/public/assets/imgs/sanduiche.png",
         "disponivel": true,
         "favorito": false,
-        "quantidade": 13,
+        "quantidade": 6,
         "semLactose": false,
-        "semGluten": true
+        "semGluten": false
     },
     {
         "id": 9,
         "titulo": "Trident",
-        "valor": "R$5,00",
+        "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
+        "valor": "R$2,00",
         "imagem": "src/public/assets/imgs/trident.png",
         "disponivel": true,
-        "favorito": false,
-        "quantidade": 13,
-        "semLactose": false,
+        "favorito": true,
+        "quantidade": 19,
+        "semLactose": true,
         "semGluten": true
     },
     {
         "id": 10,
         "titulo": "Trento",
-        "valor": "R$5,00",
+        "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
+        "valor": "R$4,50",
         "imagem": "src/public/assets/imgs/trento.png",
         "disponivel": true,
         "favorito": false,
-        "quantidade": 13,
+        "quantidade": 7,
         "semLactose": false,
-        "semGluten": true
+        "semGluten": false
     },
     {
         "id": 11,
         "titulo": "Suco lata",
+        "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
         "valor": "R$5,00",
         "imagem": "src/public/assets/imgs/sucoLata.png",
         "disponivel": true,
-        "favorito": false,
-        "quantidade": 13,
-        "semLactose": false,
+        "favorito": true,
+        "quantidade": 18,
+        "semLactose": true,
         "semGluten": true
     },
     {
         "id": 12,
         "titulo": "Coca-Cola 200ml",
-        "valor": "R$5,00",
+        "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
+        "valor": "R$4,00",
         "imagem": "src/public/assets/imgs/coca.png",
-        "disponivel": true,
+        "disponivel": false,
         "favorito": false,
-        "quantidade": 13,
-        "semLactose": false,
+        "quantidade": 4,
+        "semLactose": true,
         "semGluten": true
     }
-]
+];
