@@ -27,7 +27,8 @@ function mostraDetalhes(id){
                             <div class="modal-body">
                                 <img src="${item.imagem}"class="img-fluid mb-2 w-75 d-block mx-auto" style="max-width: 20rem;">
                                 <p>${item.descricao}</p>
-                                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
+                                    <div id="divQuantidade"> 
+                                    </div>
                                 <div class="alert alert-success d-inline-block" role="alert">Produto sem Lactose e sem Gluten!</div>
                             </div>
                             <div class="modal-footer">
@@ -40,6 +41,7 @@ function mostraDetalhes(id){
                     </div>
                     ` 
                     document.getElementById("modalContent").innerHTML = modalContent
+                    mostraQuantidade(item)
                     return;
 
                     }else if(item.semLactose){
@@ -53,7 +55,8 @@ function mostraDetalhes(id){
                             <div class="modal-body">
                                 <img src="${item.imagem}"class="img-fluid mb-2 w-75 d-block mx-auto" style="max-width: 20rem;">
                                 <p>${item.descricao}</p>
-                                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
+                                    <div id="divQuantidade"> 
+                                    </div>
                                 <div class="alert alert-success d-inline-block" role="alert">Produto sem Lactose!</div>
                             </div>
                             <div class="modal-footer">
@@ -65,6 +68,7 @@ function mostraDetalhes(id){
                     </div>
                     ` 
                     document.getElementById("modalContent").innerHTML = modalContent
+                    mostraQuantidade(item)
                     return;
                     
                     }else if(item.semGluten){
@@ -78,7 +82,8 @@ function mostraDetalhes(id){
                             <div class="modal-body">
                                 <img src="${item.imagem}"class="img-fluid mb-2 w-75 d-block mx-auto" style="max-width: 20rem;">
                                 <p>${item.descricao}</p>
-                                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
+                                    <div id="divQuantidade"> 
+                                    </div>
                                 <div class="alert alert-success d-inline-block" role="alert">Produto sem Gluten!</div>
                             </div>
                             <div class="modal-footer">
@@ -90,6 +95,7 @@ function mostraDetalhes(id){
                     </div>
                     ` 
                     document.getElementById("modalContent").innerHTML = modalContent
+                    mostraQuantidade(item)
                     return;
                     }else{
                         let modalContent = `
@@ -102,7 +108,8 @@ function mostraDetalhes(id){
                             <div class="modal-body">
                                 <img src="${item.imagem}"class="img-fluid mb-2 w-75 d-block mx-auto" style="max-width: 20rem;">
                                 <p>${item.descricao}</p>
-                                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
+                                    <div id="divQuantidade"> 
+                                    </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -113,6 +120,7 @@ function mostraDetalhes(id){
                     </div>
                     ` 
                     document.getElementById("modalContent").innerHTML = modalContent
+                    mostraQuantidade(item)
                     return;
                 }
             }
@@ -121,113 +129,34 @@ function mostraDetalhes(id){
 }
 
 
+function mostraQuantidade (item){
 
-/* document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener("click", function (event) {
-        if (event.target.closest("a[data-id]")) {
-            const id = event.target.closest("a[data-id]").getAttribute("data-id");
-            mostraDetalhes(id);
-        }
-    });
-});
+    let divQuantidade = document.getElementById("divQuantidade")
 
-function mostraDetalhes (id){
-    let dado = dados.find((dados) => dados.id == id)
+    let cardHTML = ""
 
-    let lanchonete = dado.lanchonetes[i]
-
-    let item = dado.lanchonete.itens[i]
-
-    if (dado.semGluten == true && dado.semLactose == true){
-        let item = dado.lanchonetes.itens
-        let modalContent = `
-            <div class="modal-header">
-                <h5 class="modal-title">${item.titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="${item.imagem}"class="img-fluid mb-2">
-                <p>${item.descricao}</p>
-                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
-                <div class="alert alert-success d-inline-block" role="alert">Produto sem Lactose e sem Gluten!</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-                
-                </div>
-            </div>
-        </div>
-    </div>
-    ` 
-    document.getElementById("modalContent").innerHTML = modalContent
-    
-    
-    }else if(dado.semLactose == true){
-        let modalContent = `
-            <div class="modal-header">
-                <h5 class="modal-title">${item.titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="${item.imagem}"class="img-fluid mb-2">
-                <p>${item.descricao}</p>
-                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
-                <div class="alert alert-success d-inline-block" role="alert">Produto sem Lactose!</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    ` 
-    document.getElementById("modalContent").innerHTML = modalContent
-
-
-    }else if(dado.semGluten == true){
-        let modalContent = `
-            <div class="modal-header">
-                <h5 class="modal-title">${item.titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="${item.imagem}"class="img-fluid mb-2">
-                <p>${item.descricao}</p>
-                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
-                <div class="alert alert-success d-inline-block" role="alert">Produto sem Gluten!</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    ` 
-    document.getElementById("modalContent").innerHTML = modalContent
+    if(item.quantidade == 1){
+        cardHTML = `
+            <p><strong>Última únidade disponível!</p>
+        `
     }else{
-        let modalContent = `
-            <div class="modal-header">
-                <h5 class="modal-title">${item.titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="${item.imagem}"class="img-fluid mb-2">
-                <p>${item.descricao}</p>
-                <p><strong>${item.quantidade}</strong> unidades disponíveis</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    ` 
-    document.getElementById("modalContent").innerHTML = modalContent
+        if(item.quantidade < 5){
+            cardHTML = `
+                <p><strong>Últimas unidades disponíveis! (${item.quantidade})<strong></p>
+            `
+        }else{
+            if(item.quantidade < 10){
+                cardHTML = `
+                <p><strong>Restam algumas unidades disponíveis! (${item.quantidade})<strong></p>
+            `
+            }else{
+                cardHTML = `
+                <p><strong>Restam ${item.quantidade} disponíveis <strong></p>
+            `
+            }
+        }
+        divQuantidade.innerHTML = cardHTML
     }
 }
 
-*/
+

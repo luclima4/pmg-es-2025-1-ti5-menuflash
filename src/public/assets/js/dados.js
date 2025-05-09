@@ -12,7 +12,7 @@ let dados = {
                     "imagem": "src/public/assets/imgs/agua.png",
                     "disponivel": true,
                     "favorito": false,
-                    "quantidade": 17,
+                    "quantidade": 4,
                     "semLactose": true,
                     "semGluten": true
                 },
@@ -24,7 +24,7 @@ let dados = {
                     "imagem": "src/public/assets/imgs/guaranaLata.png",
                     "disponivel": true,
                     "favorito": true,
-                    "quantidade": 11,
+                    "quantidade": 1,
                     "semLactose": true,
                     "semGluten": false
                 },
@@ -36,7 +36,7 @@ let dados = {
                     "imagem": "src/public/assets/imgs/acai.png",
                     "disponivel": true,
                     "favorito": true,
-                    "quantidade": 9,
+                    "quantidade": 1,
                     "semLactose": false,
                     "semGluten": true
 
