@@ -1,5 +1,5 @@
 // LARISSA - Criação de Cards  
-function criaCards() {;
+function criaCards() {
     for (let i = 0; i < dados.lanchonetes.length; i++) {
         let lanchonete = dados.lanchonetes[i];
         for(let j = 0; j < lanchonete.itens.length; j++){
@@ -22,7 +22,7 @@ function criaCards() {;
                     </div>
                 </div>
             `
-            // adicionar ele no HTML da minha divCards
+            // adicionar ele no HTML da divCards
             let divCard = document.getElementById("divCards");
             divCard.innerHTML += card;
     
@@ -79,7 +79,7 @@ function cardRestricoes(){
                                 </div>
                             </div>
                             <div class="d-inline-block d-flex justify-content-center">
-                                <div class="alert alert-success d-inline-block" role="alert">Sem Lactose e sem Gluten</div>
+                                <div class="alert alert-success d-inline-block py-1 px-2 small" role="alert">Sem Lactose e sem Gluten</div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ function cardRestricoes(){
                                 </div>
                             </div>
                             <div class="d-inline-block d-flex justify-content-center">
-                                <div class="alert alert-success d-inline-block" role="alert">Sem Lactose</div>
+                                <div class="alert alert-success d-inline-block py-1 px-2 small" role="alert">Sem Lactose</div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ function cardRestricoes(){
                                 </div>
                             </div>
                             <div class="d-inline-block d-flex justify-content-center">
-                                <div class="alert alert-success d-inline-block" role="alert">Sem Gluten</div>
+                                <div class="alert alert-success d-inline-block py-1 px-2 small" role="alert">Sem Gluten</div>
                             </div>
                         </div>
                     </div>
