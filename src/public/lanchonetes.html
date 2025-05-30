@@ -4,15 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Flash</title>
-</head>
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     
-    <div id="botoesLanchonete">
-        <button type="button" class="btn btn-light">Lanchonete 1</button>
-        <button type="button" class="btn btn-light">Lanchonete 2</button>
-        <button type="button" class="btn btn-light">Lanchonete 3</button>
-        <button type="button" class="btn btn-light">Sem preferência</button>
-    </div>
+</head>
 
+<style>
+  body {
+    background-color: red;
+  }
+  body {
+    background-color: #a00000;
+  }
+
+  .logo-container {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .logo-img {
+    max-height: 130px;
+  }
+</style>
+
+<body>
+
+  <header class="bg-white py-3 px-4 d-flex align-items-center">
+          <div class="logo-container">
+           <img src="assets/imgs/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img">
+          </div>
+  
+          <div class="fw-bold text-dark px-5">
+            <a href="login.html" class="text-decoration-none text-dark me-2">Entrar</a> |
+            <a href="cadastro.html" class="text-decoration-none text-dark ms-2">Cadastrar</a>
+          </div>
+      </header>
+
+<!--NAVBAR-->
+    <!--barra de navegaçao generica, mudar depois-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Menu Flash</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="lanchonetes.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Alterar Lanchonete</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pecaNovamente.html">Peça Novamente</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mais opções
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Histórico de pedidos</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+<!--CARDS-->
+
+<div class="container py-5 d-flex flex-column align-items-center mt-4" id="cardLanchonetes">
+    <!--cards dinamicos-->
+</div>
+
+
+
+
+    <!-- <script src="dados.js"></script> -->
+    <script src="assets/scripts/index.js"></script>
+    <script src="assets/scripts/lanchonetes.js"></script>
 </body>
 </html>
