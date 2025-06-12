@@ -1,0 +1,29 @@
+#divDentro{
+    
+    border: double 4px #2c3e50;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#divFora{
+    border: 2px solid #00000091;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(139, 139, 139);
+    padding: 20px;
+}
+
+#divHistorico{
+    max-height: 28rem;
+    overflow-y: auto;
+    padding-right: 10px;
+    min-height: 5rem;
+}
+
+@media (max-width: 768px) {
+    #body {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+}

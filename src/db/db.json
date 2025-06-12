@@ -1,25 +1,315 @@
 {
   "usuarios": [
     {
+      "id": "1",
+      "email": "lucassilva@gmail.com",
+      "historico_de_pedidos": [
+        {
+          "pedido_id": "1",
+          "lanchonete_id": "4",
+          "data": "2025-05-18",
+          "hora": "20:15:09",
+          "total": 19.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "3",
+              "nome": "Coxinha",
+              "quantidade": 2,
+              "preco_unitario": 6.0,
+              "subtotal": 12.0
+            },
+            {
+              "produto_id": "4",
+              "nome": "Suco de Laranja",
+              "quantidade": 1,
+              "preco_unitario": 7.5,
+              "subtotal": 7.5
+            }
+          ]
+        },
+        {
+          "pedido_id": "2",
+          "lanchonete_id": "2",
+          "data": "2025-05-20",
+          "hora": "13:30:57",
+          "total": 14.5,
+          "forma_pagamento": "Crédito",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "6",
+              "nome": "Pão de Queijo Recheado",
+              "quantidade": 1,
+              "preco_unitario": 7.5,
+              "subtotal": 7.5
+            },
+            {
+              "produto_id": "8",
+              "nome": "Refrigerante",
+              "quantidade": 1,
+              "preco_unitario": 7.0,
+              "subtotal": 7.0
+            }
+          ]
+        },
+        {
+          "pedido_id": "3",
+          "lanchonete_id": "1",
+          "data": "2025-06-01",
+          "hora": "18:45:34",
+          "total": 10.0,
+          "forma_pagamento": "Débito",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "9",
+              "nome": "Pão de Queijo",
+              "quantidade": 1,
+              "preco_unitario": 4.0,
+              "subtotal": 4.0
+            },
+            {
+              "produto_id": "10",
+              "nome": "Suco Dell Vale",
+              "quantidade": 1,
+              "preco_unitario": 6.0,
+              "subtotal": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "email": "claudiopc@gmail.com",
+      "historico_de_pedidos": [
+        {
+          "pedido_id": "1",
+          "lanchonete_id": "4",
+          "data": "2025-05-18",
+          "hora": "20:05:52",
+          "total": 24.0,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "11",
+              "nome": "Açaí 300ml",
+              "quantidade": 1,
+              "preco_unitario": 12.0,
+              "subtotal": 12.0
+            },
+            {
+              "produto_id": "12",
+              "nome": "Torta de Frango",
+              "quantidade": 1,
+              "preco_unitario": 12.0,
+              "subtotal": 12.0
+            }
+          ]
+        },
+        {
+          "pedido_id": "2",
+          "lanchonete_id": "2",
+          "data": "2025-05-23",
+          "hora": "10:03:24",
+          "total": 10.0,
+          "forma_pagamento": "Crédito",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "13",
+              "nome": "Pão de Queijo",
+              "quantidade": 2,
+              "preco_unitario": 5.0,
+              "subtotal": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "email": "julioaurelio@gmail.com",
+      "historico_de_pedidos": []
+    }
+  ],
+  "lanchonetes": [
+    {
       "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "nome": "Paçaki",
+      "itens": [
+        {
+          "id": 1,
+          "titulo": "Água",
+          "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
+          "valor": "R$3,50",
+          "conteudo": "500ml",
+          "imagem": "assets/images/itens/agua.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 17,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 2,
+          "titulo": "Guaraná lata",
+          "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
+          "valor": "R$5,00",
+          "conteudo": "350ml",
+          "imagem": "assets/images/itens/guaranaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 11,
+          "semLactose": true,
+          "semGluten": false
+        },
+        {
+          "id": 3,
+          "titulo": "Açaí",
+          "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
+          "valor": "R$7,00",
+          "conteudo": "500ml",
+          "imagem": "assets/images/itens/acai.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 9,
+          "semLactose": false,
+          "semGluten": true
+        },
+        {
+          "id": 4,
+          "titulo": "Coxinha",
+          "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+          "valor": "R$6,00",
+          "conteudo": "",
+          "imagem": "assets/images/itens/coxinha.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 14,
+          "semLactose": false,
+          "semGluten": false
+        }
+      ]
     },
     {
       "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "nome": "DoBão",
+      "itens": [
+        {
+          "id": 5,
+          "titulo": "Pão de queijo",
+          "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
+          "valor": "R$5,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/paoDeQueijo.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 20,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 6,
+          "titulo": "Empada",
+          "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
+          "valor": "R$6,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/empada.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 5,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 7,
+          "titulo": "Coca-Cola lata",
+          "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+          "valor": "R$5,50",
+          "conteudo": "350ml",
+          "imagem": "assets/images/itens/cocaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 13,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 8,
+          "titulo": "Sanduíche",
+          "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
+          "valor": "R$7,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/sanduiche.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 6,
+          "semLactose": false,
+          "semGluten": false
+        }
+      ]
     },
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": 3,
+      "nome": "Starbucks",
+      "itens": [
+        {
+          "id": 9,
+          "titulo": "Trident",
+          "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
+          "valor": "R$2,00",
+          "conteudo": "",
+          "imagem": "assets/images/itens/trident.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 19,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 10,
+          "titulo": "Trento",
+          "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
+          "valor": "R$4,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/trento.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 7,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 11,
+          "titulo": "Suco lata",
+          "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
+          "valor": "R$5,00",
+          "conteudo": "400ml",
+          "imagem": "assets/images/itens/sucoLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 18,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 12,
+          "titulo": "Coca-Cola 200ml",
+          "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
+          "valor": "R$4,00",
+          "conteudo": "200ml",
+          "imagem": "assets/images/itens/coca.png",
+          "disponivel": false,
+          "favorito": false,
+          "quantidade": 4,
+          "semLactose": true,
+          "semGluten": true
+        }
+      ]
     }
   ]
 }
