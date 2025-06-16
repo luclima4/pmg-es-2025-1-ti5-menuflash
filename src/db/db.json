@@ -2,7 +2,9 @@
   "usuarios": [
     {
       "id": "1",
+      "nome": "",
       "email": "lucassilva@gmail.com",
+      "senha": "",
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
@@ -16,6 +18,7 @@
             {
               "produto_id": "3",
               "nome": "Coxinha",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 2,
               "preco_unitario": 6.0,
               "subtotal": 12.0
@@ -23,6 +26,7 @@
             {
               "produto_id": "4",
               "nome": "Suco de Laranja",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -41,6 +45,7 @@
             {
               "produto_id": "6",
               "nome": "Pão de Queijo Recheado",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -48,6 +53,7 @@
             {
               "produto_id": "8",
               "nome": "Refrigerante",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 7.0,
               "subtotal": 7.0
@@ -66,6 +72,7 @@
             {
               "produto_id": "9",
               "nome": "Pão de Queijo",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 4.0,
               "subtotal": 4.0
@@ -73,6 +80,7 @@
             {
               "produto_id": "10",
               "nome": "Suco Dell Vale",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 6.0,
               "subtotal": 6.0
@@ -83,7 +91,9 @@
     },
     {
       "id": "2",
+      "nome": "",
       "email": "claudiopc@gmail.com",
+      "senha": "",
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
@@ -97,6 +107,7 @@
             {
               "produto_id": "11",
               "nome": "Açaí 300ml",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 12.0,
               "subtotal": 12.0
@@ -104,6 +115,7 @@
             {
               "produto_id": "12",
               "nome": "Torta de Frango",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 1,
               "preco_unitario": 12.0,
               "subtotal": 12.0
@@ -122,6 +134,7 @@
             {
               "produto_id": "13",
               "nome": "Pão de Queijo",
+              "imagem": "public/assets/images/itens/",
               "quantidade": 2,
               "preco_unitario": 5.0,
               "subtotal": 10.0
@@ -132,7 +145,9 @@
     },
     {
       "id": "3",
+      "nome": "",
       "email": "julioaurelio@gmail.com",
+      "senha": "",
       "historico_de_pedidos": []
     }
   ],
@@ -309,6 +324,98 @@
           "semLactose": true,
           "semGluten": true
         }
+      ]
+    }
+  ],
+  "carrinho": {
+    "id": 2,
+    "itens": [
+      
+    ]
+  },
+  "campus": [
+    {
+      "nome": "PUC MINAS - Coração Eucarístico",
+      "mapa": "mapaCoreu.html",
+      "lanchonetes": [
+        {
+          "id": "lanchonete-a",
+          "nome": "Lanchonete A"
+          
+        },
+        {
+          "id": "lanchonete-b",
+          "nome": "Lanchonete B"
+          
+        },
+        {
+          "id": "lanchonete-c",
+          "nome": "Lanchonete C"
+          
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - Contagem",
+      "mapa": "mapaContagem.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - Barreiro",
+      "mapa": "mapaBarreiro.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - São Gabriel",
+      "mapa": "mapaSaoGabriel.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": 1,
+      "tipo": "lanchonete",
+      "referenciaId": 101,
+      "notas": [
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "tipo": "item",
+      "referenciaId": 202,
+      "notas": [
+        4,
+        5
       ]
     }
   ]
