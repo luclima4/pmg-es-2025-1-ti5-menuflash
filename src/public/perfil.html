@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/perfil.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-light" id="body">
+
+    <!-- Essa parte é só ilustrativa. Não faz parte da minha funcionalidade, favor não avaliar. -->
+    <div class="container my-5 px-3" id="divFora">
+        <div class="p-4">
+            <div class="row align-items-center justify-content-center">
+
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <img src="assets/imagens/imagemPerfil.jpg" class="img-fluid rounded-circle border border-secondary"
+                        alt="Foto do Usuário" style="width: 150px; height: 150px; object-fit: cover;">
+                    <p class="mt-2 text-muted">Foto do usuário</p>
+                </div>
+
+                <!-- Informações -->
+                <div class="col-md-8">
+                    <h4 class="mb-3">Informações do Usuário</h4>
+                    <p class="mb-2"><strong>Nome:</strong> João da Silva</p>
+                    <p class="mb-2"><strong>Email:</strong> joao@email.com</p>
+                    <p class="mb-0"><strong>Telefone:</strong> (31) 99999-9999</p>
+                </div>
+
+                <!-- Essa parte é só ilustrativa. Não faz parte da minha funcionalidade, favor não avaliar. -->
+
+                <!-- Aqui, dentro de "insereHistorico" serão inseridas as informações do histórico do usuário (que nesse momento está setado como 1, pois configuração de login não é o objetivo dessa funcionalidade) -->
+
+
+                <h2 class="mt-5">Histórico de Itens</h2>
+                <hr style="border-color: black;">
+                <div id="divHistorico">
+
+                    <div id="insereHistorico" class="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Setando id com 1, buscando assim as informações do usuário ID 1. -->
+
+    <script src="assets/js/perfil.js"></script>
+    <script>
+        localStorage.setItem("id_usuario_logado", "1")
+    </script>
+
+</body>
+
+</html> 

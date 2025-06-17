@@ -1,412 +1,422 @@
 {
-    "dados": {
-        "usuarios": [
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "",
+      "email": "lucassilva@gmail.com",
+      "senha": "",
+      "historico_de_pedidos": [
+        {
+          "pedido_id": "1",
+          "lanchonete_id": "4",
+          "data": "2025-05-18",
+          "hora": "20:15:09",
+          "total": 19.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "itens": [
             {
-                "usuario_id": "1",
-                "nome": "Jose Orivaldo Da Silva Pinto",
-                "email": "josemetralha@gmail.com.br",
-                "favoritos": {
-                    "produtos": [
-                        "1.1",
-                        "2.3"
-                    ]
-                },
-                "historico_de_pedidos": [
-                    {
-                        "pedido_id": "20250518001",
-                        "lanchonete_id": "1",
-                        "data": "2025-05-18",
-                        "hora": "20:15:00",
-                        "total": 16.5,
-                        "forma_pagamento": "pix",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "1.4",
-                                "nome": "Coxinha",
-                                "imagem": "assets/imgs/coxinha.png",
-                                "quantidade": 2,
-                                "preco_unitario": 6.0,
-                                "subtotal": 12.0
-                            },
-                            {
-                                "produto_id": "1.5",
-                                "nome": "Guaraná",
-                                "imagem": "assets/imgs/guaranaLata.png",
-                                "quantidade": 1,
-                                "preco_unitario": 4.5,
-                                "subtotal": 4.5
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518002",
-                        "lanchonete_id": "2",
-                        "data": "2025-05-19",
-                        "hora": "18:30:00",
-                        "total": 11.0,
-                        "forma_pagamento": "dinheiro",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "2.1",
-                                "nome": "Pão de Queijo",
-                                "imagem": "assets/imgs/paoDeQueijo.png",
-                                "quantidade": 2,
-                                "preco_unitario": 5.5,
-                                "subtotal": 11.0
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518003",
-                        "lanchonete_id": "3",
-                        "data": "2025-05-20",
-                        "hora": "12:00:00",
-                        "total": 8.5,
-                        "forma_pagamento": "cartão",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "3.2",
-                                "nome": "Trento",
-                                "imagem": "assets/imgs/trento.png",
-                                "quantidade": 1,
-                                "preco_unitario": 4.5,
-                                "subtotal": 4.5
-                            },
-                            {
-                                "produto_id": "3.3",
-                                "nome": "Água",
-                                "imagem": "assets/imgs/agua.png",
-                                "quantidade": 1,
-                                "preco_unitario": 4.0,
-                                "subtotal": 4.0
-                            }
-                        ]
-                    }
-                ]
+              "produto_id": "3",
+              "nome": "Coxinha",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 2,
+              "preco_unitario": 6.0,
+              "subtotal": 12.0
             },
             {
-                "usuario_id": "2",
-                "nome": "Maria Fernanda",
-                "email": "mfernanda@gmail.com",
-                "favoritos": {
-                    "produtos": [
-                        "2.1",
-                        "3.2"
-                    ]
-                },
-                "historico_de_pedidos": [
-                    {
-                        "pedido_id": "20250518004",
-                        "lanchonete_id": "1",
-                        "data": "2025-05-18",
-                        "hora": "21:00:00",
-                        "total": 14.0,
-                        "forma_pagamento": "pix",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "1.3",
-                                "nome": "Açaí",
-                                "imagem": "assets/imgs/acai.png",
-                                "quantidade": 2,
-                                "preco_unitario": 7.0,
-                                "subtotal": 14.0
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518005",
-                        "lanchonete_id": "2",
-                        "data": "2025-05-19",
-                        "hora": "19:45:00",
-                        "total": 10.0,
-                        "forma_pagamento": "cartão",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "2.4",
-                                "nome": "Suco Lata",
-                                "imagem": "assets/imgs/sucoLata.png",
-                                "quantidade": 2,
-                                "preco_unitario": 5.0,
-                                "subtotal": 10.0
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518006",
-                        "lanchonete_id": "3",
-                        "data": "2025-05-20",
-                        "hora": "11:15:00",
-                        "total": 12.5,
-                        "forma_pagamento": "dinheiro",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "3.1",
-                                "nome": "Sanduíche Natural",
-                                "imagem": "assets/imgs/sanduiche.png",
-                                "quantidade": 1,
-                                "preco_unitario": 8.5,
-                                "subtotal": 8.5
-                            },
-                            {
-                                "produto_id": "3.4",
-                                "nome": "Coca-cola 200ml",
-                                "imagem": "assets/imgs/coca.png",
-                                "quantidade": 1,
-                                "preco_unitario": 4.0,
-                                "subtotal": 4.0
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "usuario_id": "3",
-                "nome": "Carlos Eduardo",
-                "email": "carlosedu@gmail.com",
-                "favoritos": {
-                    "produtos": [
-                        "1.3",
-                        "3.3"
-                    ]
-                },
-                "historico_de_pedidos": [
-                    {
-                        "pedido_id": "20250518007",
-                        "lanchonete_id": "1",
-                        "data": "2025-05-18",
-                        "hora": "17:45:00",
-                        "total": 3.0,
-                        "forma_pagamento": "pix",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "1.1",
-                                "nome": "Trident",
-                                "imagem": "assets/imgs/trident.png",
-                                "quantidade": 1,
-                                "preco_unitario": 3.0,
-                                "subtotal": 3.0
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518008",
-                        "lanchonete_id": "2",
-                        "data": "2025-05-19",
-                        "hora": "20:20:00",
-                        "total": 6.0,
-                        "forma_pagamento": "pix",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "2.2",
-                                "nome": "Coxinha",
-                                "imagem": "assets/imgs/coxinha.png",
-                                "quantidade": 1,
-                                "preco_unitario": 6.0,
-                                "subtotal": 6.0
-                            }
-                        ]
-                    },
-                    {
-                        "pedido_id": "20250518009",
-                        "lanchonete_id": "3",
-                        "data": "2025-05-20",
-                        "hora": "13:00:00",
-                        "total": 11.0,
-                        "forma_pagamento": "cartão",
-                        "status": "Entregue",
-                        "itens": [
-                            {
-                                "produto_id": "3.5",
-                                "nome": "Pão de Queijo",
-                                "imagem": "assets/imgs/paoDeQueijo.png",
-                                "quantidade": 1,
-                                "preco_unitario": 5.5,
-                                "subtotal": 5.5
-                            },
-                            {
-                                "produto_id": "3.6",
-                                "nome": "Coca-cola",
-                                "imagem": "assets/imgs/cocaLata.png",
-                                "quantidade": 1,
-                                "preco_unitario": 5.5,
-                                "subtotal": 5.5
-                            }
-                        ]
-                    }
-                ]
+              "produto_id": "4",
+              "nome": "Suco de Laranja",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 7.5,
+              "subtotal": 7.5
             }
-        ],
-        "lanchonetes": [
+          ]
+        },
+        {
+          "pedido_id": "2",
+          "lanchonete_id": "2",
+          "data": "2025-05-20",
+          "hora": "13:30:57",
+          "total": 14.5,
+          "forma_pagamento": "Crédito",
+          "status": "Entregue",
+          "itens": [
             {
-                "id": 1,
-                "nome": "Paçaki",
-                "itens": [
-                    {
-                        "id": 1,
-                        "titulo": "Água",
-                        "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
-                        "valor": "R$3,50",
-                        "imagem": "assets/imgs/agua.png",
-                        "disponivel": true,
-                        "favorito": false,
-                        "quantidade": 17,
-                        "semLactose": true,
-                        "semGluten": true
-                    },
-                    {
-                        "id": 2,
-                        "titulo": "Guaraná lata",
-                        "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
-                        "valor": "R$5,00",
-                        "imagem": "assets/imgs/guaranaLata.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 11,
-                        "semLactose": true,
-                        "semGluten": false
-                    },
-                    {
-                        "id": 3,
-                        "titulo": "Açaí",
-                        "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
-                        "valor": "R$7,00",
-                        "imagem": "assets/imgs/acai.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 9,
-                        "semLactose": false,
-                        "semGluten": true
-                    },
-                    {
-                        "id": 4,
-                        "titulo": "Coxinha",
-                        "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
-                        "valor": "R$6,00",
-                        "imagem": "assets/imgs/coxinha.png",
-                        "disponivel": true,
-                        "favorito": false,
-                        "quantidade": 14,
-                        "semLactose": false,
-                        "semGluten": false
-                    }
-                ]
+              "produto_id": "6",
+              "nome": "Pão de Queijo Recheado",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 7.5,
+              "subtotal": 7.5
             },
             {
-                "id": 2,
-                "nome": "DoBão",
-                "itens": [
-                    {
-                        "id": 5,
-                        "titulo": "Pão de queijo",
-                        "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
-                        "valor": "R$5,50",
-                        "imagem": "assets/imgs/paoDeQueijo.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 20,
-                        "semLactose": false,
-                        "semGluten": false
-                    },
-                    {
-                        "id": 6,
-                        "titulo": "Empada",
-                        "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
-                        "valor": "R$6,50",
-                        "imagem": "assets/imgs/empada.png",
-                        "disponivel": true,
-                        "favorito": false,
-                        "quantidade": 5,
-                        "semLactose": false,
-                        "semGluten": false
-                    },
-                    {
-                        "id": 7,
-                        "titulo": "Coca-Cola lata",
-                        "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
-                        "valor": "R$5,50",
-                        "imagem": "assets/imgs/cocaLata.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 13,
-                        "semLactose": true,
-                        "semGluten": true
-                    },
-                    {
-                        "id": 8,
-                        "titulo": "Sanduíche",
-                        "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
-                        "valor": "R$7,50",
-                        "imagem": "assets/imgs/sanduiche.png",
-                        "disponivel": true,
-                        "favorito": false,
-                        "quantidade": 6,
-                        "semLactose": false,
-                        "semGluten": false
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "nome": "Starbucks",
-                "itens": [
-                    {
-                        "id": 9,
-                        "titulo": "Trident",
-                        "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
-                        "valor": "R$3,00",
-                        "imagem": "assets/imgs/trident.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 19,
-                        "semLactose": true,
-                        "semGluten": true
-                    },
-                    {
-                        "id": 10,
-                        "titulo": "Trento",
-                        "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
-                        "valor": "R$4,50",
-                        "imagem": "assets/imgs/trento.png",
-                        "disponivel": true,
-                        "favorito": false,
-                        "quantidade": 7,
-                        "semLactose": false,
-                        "semGluten": false
-                    },
-                    {
-                        "id": 11,
-                        "titulo": "Suco lata",
-                        "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
-                        "valor": "R$5,00",
-                        "imagem": "assets/imgs/sucoLata.png",
-                        "disponivel": true,
-                        "favorito": true,
-                        "quantidade": 18,
-                        "semLactose": true,
-                        "semGluten": true
-                    },
-                    {
-                        "id": 12,
-                        "titulo": "Coca-Cola 200ml",
-                        "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
-                        "valor": "R$4,00",
-                        "imagem": "assets/imgs/coca.png",
-                        "disponivel": false,
-                        "favorito": false,
-                        "quantidade": 4,
-                        "semLactose": true,
-                        "semGluten": true
-                    }
-                ]
+              "produto_id": "8",
+              "nome": "Refrigerante",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 7.0,
+              "subtotal": 7.0
             }
-        ]
+          ]
+        },
+        {
+          "pedido_id": "3",
+          "lanchonete_id": "1",
+          "data": "2025-06-01",
+          "hora": "18:45:34",
+          "total": 10.0,
+          "forma_pagamento": "Débito",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "9",
+              "nome": "Pão de Queijo",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 4.0,
+              "subtotal": 4.0
+            },
+            {
+              "produto_id": "10",
+              "nome": "Suco Dell Vale",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 6.0,
+              "subtotal": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nome": "",
+      "email": "claudiopc@gmail.com",
+      "senha": "",
+      "historico_de_pedidos": [
+        {
+          "pedido_id": "1",
+          "lanchonete_id": "4",
+          "data": "2025-05-18",
+          "hora": "20:05:52",
+          "total": 24.0,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "11",
+              "nome": "Açaí 300ml",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 12.0,
+              "subtotal": 12.0
+            },
+            {
+              "produto_id": "12",
+              "nome": "Torta de Frango",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 1,
+              "preco_unitario": 12.0,
+              "subtotal": 12.0
+            }
+          ]
+        },
+        {
+          "pedido_id": "2",
+          "lanchonete_id": "2",
+          "data": "2025-05-23",
+          "hora": "10:03:24",
+          "total": 10.0,
+          "forma_pagamento": "Crédito",
+          "status": "Entregue",
+          "itens": [
+            {
+              "produto_id": "13",
+              "nome": "Pão de Queijo",
+              "imagem": "public/assets/images/itens/",
+              "quantidade": 2,
+              "preco_unitario": 5.0,
+              "subtotal": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nome": "",
+      "email": "julioaurelio@gmail.com",
+      "senha": "",
+      "historico_de_pedidos": []
     }
+  ],
+  "lanchonetes": [
+    {
+      "id": 1,
+      "nome": "Paçaki",
+      "itens": [
+        {
+          "id": 1,
+          "titulo": "Água",
+          "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
+          "valor": "R$3,50",
+          "conteudo": "500ml",
+          "imagem": "assets/images/itens/agua.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 17,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 2,
+          "titulo": "Guaraná lata",
+          "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
+          "valor": "R$5,00",
+          "conteudo": "350ml",
+          "imagem": "assets/images/itens/guaranaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 11,
+          "semLactose": true,
+          "semGluten": false
+        },
+        {
+          "id": 3,
+          "titulo": "Açaí",
+          "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
+          "valor": "R$7,00",
+          "conteudo": "500ml",
+          "imagem": "assets/images/itens/acai.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 9,
+          "semLactose": false,
+          "semGluten": true
+        },
+        {
+          "id": 4,
+          "titulo": "Coxinha",
+          "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+          "valor": "R$6,00",
+          "conteudo": "",
+          "imagem": "assets/images/itens/coxinha.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 14,
+          "semLactose": false,
+          "semGluten": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "DoBão",
+      "itens": [
+        {
+          "id": 5,
+          "titulo": "Pão de queijo",
+          "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
+          "valor": "R$5,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/paoDeQueijo.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 20,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 6,
+          "titulo": "Empada",
+          "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
+          "valor": "R$6,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/empada.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 5,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 7,
+          "titulo": "Coca-Cola lata",
+          "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+          "valor": "R$5,50",
+          "conteudo": "350ml",
+          "imagem": "assets/images/itens/cocaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 13,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 8,
+          "titulo": "Sanduíche",
+          "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
+          "valor": "R$7,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/sanduiche.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 6,
+          "semLactose": false,
+          "semGluten": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Starbucks",
+      "itens": [
+        {
+          "id": 9,
+          "titulo": "Trident",
+          "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
+          "valor": "R$2,00",
+          "conteudo": "",
+          "imagem": "assets/images/itens/trident.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 19,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 10,
+          "titulo": "Trento",
+          "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
+          "valor": "R$4,50",
+          "conteudo": "",
+          "imagem": "assets/images/itens/trento.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 7,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 11,
+          "titulo": "Suco lata",
+          "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
+          "valor": "R$5,00",
+          "conteudo": "400ml",
+          "imagem": "assets/images/itens/sucoLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 18,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 12,
+          "titulo": "Coca-Cola 200ml",
+          "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
+          "valor": "R$4,00",
+          "conteudo": "200ml",
+          "imagem": "assets/images/itens/coca.png",
+          "disponivel": false,
+          "favorito": false,
+          "quantidade": 4,
+          "semLactose": true,
+          "semGluten": true
+        }
+      ]
+    }
+  ],
+  "carrinho": {
+    "id": 2,
+    "itens": [
+      
+    ]
+  },
+  "campus": [
+    {
+      "nome": "PUC MINAS - Coração Eucarístico",
+      "mapa": "mapaCoreu.html",
+      "lanchonetes": [
+        {
+          "id": "lanchonete-a",
+          "nome": "Lanchonete A"
+          
+        },
+        {
+          "id": "lanchonete-b",
+          "nome": "Lanchonete B"
+          
+        },
+        {
+          "id": "lanchonete-c",
+          "nome": "Lanchonete C"
+          
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - Contagem",
+      "mapa": "mapaContagem.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - Barreiro",
+      "mapa": "mapaBarreiro.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    },
+    {
+      "nome": "PUC MINAS - São Gabriel",
+      "mapa": "mapaSaoGabriel.html",
+      "lanchonetes": [
+        {
+          "nome": "Lanchonete A",
+          "id": "lanchonete-a"
+        },
+        {
+          "nome": "Lanchonete B",
+          "id": "lanchonete-b"
+        }
+      ]
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": 1,
+      "tipo": "lanchonete",
+      "referenciaId": 101,
+      "notas": [
+        5,
+        4,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "tipo": "item",
+      "referenciaId": 202,
+      "notas": [
+        4,
+        5
+      ]
+    }
+  ]
 }
