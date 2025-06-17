@@ -20,11 +20,6 @@ cadastroForm.addEventListener('submit', event => {
                 return
             }
 
-            if (senha.length < 6) {
-                alert('Sua senha deve ter mais de 6 caracteres!')
-                return
-            }
-
             let novoId = usuarios.length > 0 ? usuarios[usarios.length - 1].id + 1 : 1
 
             let cadastroUsuario = {
@@ -55,7 +50,7 @@ cadastroForm.addEventListener('submit', event => {
         .catch(error => {
             console.log('Erro ao obter usuários', error)
         })
-        
+
 })
 
 

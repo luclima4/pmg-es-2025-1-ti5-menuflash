@@ -24,16 +24,18 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
     <header>
-        <a href="index.html">
-            <h2 id="voltar"> Voltar</h2>
-        </a>
+        
     </header>
 
     <!-- py: padding eixo y -->
     <!-- px: padding eixo x -->
     <main id="mainCadastro" class="py-4 w-100 m-auto">
         <form id="cadastroForm">
-            <h1 class="h3 mb-3 fw-normal">Insira suas Informações</h1>
+            <h1 class="h2 mb-3 fw-normal">Insira suas Informações</h1>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" placeholder="Nome" id="inputNome" required>
+                <label for="floatingInput">Nome</label>
+            </div>
             <div class="form-floating mb-2">
                 <input type="email" class="form-control" placeholder="Email" id="inputEmail" required>
                 <label for="floatingInput">Email</label>
@@ -41,10 +43,6 @@
             <div class="form-floating mb-2">
                 <input type="password" class="form-control" placeholder="Senha" id="inputSenha" required>
                 <label for="floatingInput">Senha</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="number" class="form-control" placeholder="Telefone" id="inputTelefone" required>
-                <label for="floatingInput">Telefone</label>
             </div>
 
             <div id="passwordAlert">
@@ -71,7 +69,7 @@
         </form>
     </main>
 
-    <script src="assets/scripts/cadastro.js"></script>
+    <script src="assets/scripts/login.js"></script>
 </body>
 
 <script>
@@ -85,7 +83,7 @@
         // Div em que a mensagem vai
         let passwordAlert = document.getElementById('passwordAlert')
 
-        if(senha.length > 0 && senha.length < 8){
+        if(senha.length > 0 && senha.length < 6){
             passwordAlert.innerHTML = `
                 <div class="alert alert-danger py-1" role="alert" style="wheight: 50px; font-size:15px"> 
                     Insira uma senha com mais de 8 caracteres
