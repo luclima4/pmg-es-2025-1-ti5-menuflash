@@ -20,8 +20,8 @@
               "nome": "Coxinha",
               "imagem": "public/assets/images/itens/",
               "quantidade": 2,
-              "preco_unitario": 6.0,
-              "subtotal": 12.0
+              "preco_unitario": 6,
+              "subtotal": 12
             },
             {
               "produto_id": "4",
@@ -55,17 +55,25 @@
               "nome": "Refrigerante",
               "imagem": "public/assets/images/itens/",
               "quantidade": 1,
-              "preco_unitario": 7.0,
-              "subtotal": 7.0
+              "preco_unitario": 7,
+              "subtotal": 7
             }
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "nome": "lucas",
+      "email": "usuario@gmail.com",
+      "senha": "123456",
+      "tipo": "padrão",
+      "historico": []
     }
   ],
   "lanchonetes": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Paçaki",
       "itens": [
         {
@@ -123,7 +131,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "DoBão",
       "itens": [
         {
@@ -181,7 +189,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "Starbucks",
       "itens": [
         {
@@ -241,9 +249,7 @@
   ],
   "carrinho": {
     "id": 2,
-    "itens": [
-      
-    ]
+    "itens": []
   },
   "campus": [
     {
@@ -253,19 +259,17 @@
         {
           "id": "lanchonete-a",
           "nome": "Lanchonete A"
-          
         },
         {
           "id": "lanchonete-b",
           "nome": "Lanchonete B"
-          
         },
         {
           "id": "lanchonete-c",
           "nome": "Lanchonete C"
-          
         }
-      ]
+      ],
+      "id": "05c0"
     },
     {
       "nome": "PUC MINAS - Contagem",
@@ -279,7 +283,8 @@
           "nome": "Lanchonete B",
           "id": "lanchonete-b"
         }
-      ]
+      ],
+      "id": "6da5"
     },
     {
       "nome": "PUC MINAS - Barreiro",
@@ -293,7 +298,8 @@
           "nome": "Lanchonete B",
           "id": "lanchonete-b"
         }
-      ]
+      ],
+      "id": "7f2a"
     },
     {
       "nome": "PUC MINAS - São Gabriel",
@@ -307,12 +313,13 @@
           "nome": "Lanchonete B",
           "id": "lanchonete-b"
         }
-      ]
+      ],
+      "id": "485b"
     }
   ],
   "avaliacoes": [
     {
-      "id": 1,
+      "id": "1",
       "tipo": "lanchonete",
       "referenciaId": 101,
       "notas": [
@@ -322,7 +329,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "tipo": "item",
       "referenciaId": 202,
       "notas": [

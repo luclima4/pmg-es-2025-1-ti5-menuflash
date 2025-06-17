@@ -69,32 +69,11 @@
         </form>
     </main>
 
-    <script src="assets/scripts/login.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 <script>
-    // Checar se a senha tem o mínimo de caracteres 
     
-    inputSenha = document.querySelector('#inputSenha')
-    inputSenha.addEventListener('blur', event =>{
-
-        // Pega o valor atual da senha
-        let senha = inputSenha.value
-        // Div em que a mensagem vai
-        let passwordAlert = document.getElementById('passwordAlert')
-
-        if(senha.length > 0 && senha.length < 6){
-            passwordAlert.innerHTML = `
-                <div class="alert alert-danger py-1" role="alert" style="wheight: 50px; font-size:15px"> 
-                    Insira uma senha com mais de 8 caracteres
-                </div>
-            `
-        }else{
-            passwordAlert.innerHTML = '';
-        }
-    })
-
-
     
 
 </script>
