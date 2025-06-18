@@ -2,9 +2,9 @@
   "usuarios": [
     {
       "id": "1",
-      "nome": "",
+      "nome": "Lucas",
       "email": "lucassilva@gmail.com",
-      "senha": "",
+      "senha": "123456",
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
@@ -64,9 +64,9 @@
     },
     {
       "id": 2,
-      "nome": "lucas",
+      "nome": "Lucas",
       "email": "usuario@gmail.com",
-      "senha": "123456",
+      "senha": "senha123",
       "tipo": "padrão",
       "historico": []
     }

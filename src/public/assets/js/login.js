@@ -1,82 +1,36 @@
-// Cadastro que leva os dados do usuário para o JSON
+// ============================================================
+// ------------------- Verificação de Login -------------------  
+// ============================================================
 
 const apiURL_usuarios = '/usuarios'
 
-let cadastroForm = document.getElementById('cadastroForm')
-const inputSenha = document.querySelector('#inputSenha') 
-const passwordAlert = document.getElementById('passwordAlert'); 
+let loginForm = document.getElementById('loginForm')
 
-cadastroForm.addEventListener('submit', event => {
+loginForm.addEventListener('submit', event => {
     event.preventDefault()
 
-    if (!cadastroForm.checkValidity()) {
-        cadastroForm.reportValidity()
-        return
+    let loginUsuario = {
+        email: document.getElementById('inputEmail').value,
+        senha: document.getElementById('inputSenha').value
     }
-
-    const email = document.getElementById('inputEmail').value
-    const senha = inputSenha.value // Pega o valor da senha
-
-    // **A VERIFICAÇÃO DE BLOQUEIO VEM AQUI!**
-    if (senha.length < 6) {
-        alert('A senha deve ter no mínimo 6 caracteres para realizar o cadastro.');
-        return; // **ESTE RETURN É ESSENCIAL PARA BLOQUEAR O ENVIO**
-    }
-
-    // O resto do código só executa se a senha for válida
+    // Verificar se existe o usuário
     fetch(apiURL_usuarios)
         .then(res => res.json())
         .then(usuarios => {
-            const usuarioExistente = usuarios.find(u => u.email === email)
 
-            if (usuarioExistente) {
-                alert('Este email já foi cadastrado!')
-                return
+            const loginCorreto = usuarios.find(u => u.email === loginUsuario.email && u.senha === loginUsuario.senha)
+
+            if (loginCorreto) {
+                alert('Login feito com sucesso!')
+                sessionStorage.setItem('usuarioLogado', JSON.stringify(loginCorreto))
+                window.location.href = 'botoesLanchonetes.html'
+            } else {
+                alert('Email ou senha incorreto.')
             }
 
-            let novoId = usuarios.length > 0 ? Number(usuarios[usuarios.length - 1].id) + 1 : 1;
-
-            let cadastroUsuario = {
-                id: novoId,
-                nome: document.getElementById('inputNome').value,
-                email: email,
-                senha: senha,
-                tipo: document.querySelector('input[name="tipo"]:checked').value,
-                historico: [],
-            }
-
-            fetch(apiURL_usuarios, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(cadastroUsuario),
-            })
-            .then(() => {
-                alert('Cadastro realizado com sucesso.')
-                window.location.href = "login.html"
-            })
-            .catch(error => {
-                console.log('Erro ao cadastrar usuário', error)
-            })
         })
         .catch(error => {
-            console.log('Erro ao obter usuários', error)
+            console.log('Erro ao verificar login', error);
+            alert('Ocorreu um erro ao tentar fazer login.');
         })
-})
-
-// Para mostrar o aviso
-inputSenha.addEventListener('blur', event => {
-
-    let senha = inputSenha.value 
-    
-    if (senha.length > 0 && senha.length < 6) {
-        passwordAlert.innerHTML = `
-            <div class="alert alert-danger py-1" role="alert" style="font-size:15px"> 
-                A senha deve ter no mínimo 6 caracteres.
-            </div>
-        `
-    } else {
-        passwordAlert.innerHTML = ''
-    }
 })
