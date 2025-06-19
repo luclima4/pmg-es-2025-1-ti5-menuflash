@@ -61,14 +61,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": 2,
-      "nome": "Lucas",
-      "email": "usuario@gmail.com",
-      "senha": "senha123",
-      "tipo": "padrão",
-      "historico": []
     }
   ],
   "lanchonetes": [

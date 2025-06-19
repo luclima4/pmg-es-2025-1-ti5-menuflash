@@ -23,7 +23,7 @@ loginForm.addEventListener('submit', event => {
             if (loginCorreto) {
                 alert('Login feito com sucesso!')
                 sessionStorage.setItem('usuarioLogado', JSON.stringify(loginCorreto))
-                window.location.href = 'botoesLanchonetes.html'
+                window.location.href = '/botoesLanchonetes.html'
             } else {
                 alert('Email ou senha incorreto.')
             }
