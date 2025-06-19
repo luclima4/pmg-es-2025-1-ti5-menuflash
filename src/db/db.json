@@ -257,16 +257,16 @@
       "mapa": "mapaCoreu.html",
       "lanchonetes": [
         {
-          "id": "lanchonete-a",
-          "nome": "Lanchonete A"
+          "id": "lanch-central",
+          "nome": "Lanchonete Central"
         },
         {
-          "id": "lanchonete-b",
-          "nome": "Lanchonete B"
+          "id": "lanch-18",
+          "nome": "Lanchonete Prédio 18"
         },
         {
-          "id": "lanchonete-c",
-          "nome": "Lanchonete C"
+          "id": "lanch-29",
+          "nome": "Lanchonete Prédio 29"
         }
       ],
       "id": "05c0"
@@ -276,45 +276,15 @@
       "mapa": "mapaContagem.html",
       "lanchonetes": [
         {
-          "nome": "Lanchonete A",
-          "id": "lanchonete-a"
+          "id": "lanch-pracaki",
+          "nome": "Lanchonete Praçaki"
         },
         {
-          "nome": "Lanchonete B",
-          "id": "lanchonete-b"
+          "id": "lanch-pracali",
+          "nome": "Lanchonete Praçali"
         }
       ],
       "id": "6da5"
-    },
-    {
-      "nome": "PUC MINAS - Barreiro",
-      "mapa": "mapaBarreiro.html",
-      "lanchonetes": [
-        {
-          "nome": "Lanchonete A",
-          "id": "lanchonete-a"
-        },
-        {
-          "nome": "Lanchonete B",
-          "id": "lanchonete-b"
-        }
-      ],
-      "id": "7f2a"
-    },
-    {
-      "nome": "PUC MINAS - São Gabriel",
-      "mapa": "mapaSaoGabriel.html",
-      "lanchonetes": [
-        {
-          "nome": "Lanchonete A",
-          "id": "lanchonete-a"
-        },
-        {
-          "nome": "Lanchonete B",
-          "id": "lanchonete-b"
-        }
-      ],
-      "id": "485b"
     }
   ],
   "avaliacoes": [
