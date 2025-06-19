@@ -115,37 +115,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="account-social-links">
+
+                        <!-- Histórico de Pedidos -->
+                        <div class="tab-pane fade" id="account-social-links" style="min-height: 30rem;">
                             <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Twitter</label>
-                                    <input type="text" class="form-control" value="https://twitter.com/user">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Facebook</label>
-                                    <input type="text" class="form-control" value="https://www.facebook.com/user">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Google+</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">LinkedIn</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Instagram</label>
-                                    <input type="text" class="form-control" value="https://www.instagram.com/user">
+                                <div id="divHistorico">
+                                    <div id="insereHistorico" class=""></div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <button type="button" class="btn btn-default">Cancel</button>
+        <div id="action-buttons-wrapper" class="text-right mt-3">
+            <button id="btnSaveChanges" type="button" class="btn btn-primary">Salvar Mudanças</button>&nbsp;
+            <button id="btnCancel" type="button" class="btn btn-default">Cancelar</button>
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
@@ -154,15 +141,43 @@
     <script type="text/javascript">
 
     </script>
+
+    <script src="js/perfil.js"></script>
+
+    <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Selecionar os elementos com os quais vamos trabalhar.
+    const navLinks = document.querySelectorAll('.account-settings-links a[data-toggle="list"]');
+    const actionButtonsWrapper = document.getElementById('action-buttons-wrapper');
+    const linkHistorico = document.querySelector('a[href="#account-social-links"]');
+
+    // 2. Criar a função que decide se os botões devem ser mostrados ou escondidos.
+    function gerenciarVisibilidadeBotoes(abaAtiva) {
+        // Verifica se a aba que está ativa é a aba do histórico.
+        if (abaAtiva === linkHistorico) {
+            actionButtonsWrapper.style.display = 'none'; // Esconde os botões.
+        } else {
+            actionButtonsWrapper.style.display = 'block'; // Mostra os botões.
+        }
+    }
+
+    // 3. Adicionar um "ouvinte" para o clique em cada link da navegação.
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            
+            gerenciarVisibilidadeBotoes(event.currentTarget);
+        });
+    });
+
+    const abaInicialAtiva = document.querySelector('.account-settings-links a.active');
+    if (abaInicialAtiva) {
+        gerenciarVisibilidadeBotoes(abaInicialAtiva);
+    }
+});
+    </script>
 </body>
 
 </html>
 
-
-<!-- 
-    <h2 class="mt-5">Histórico de Itens</h2>
-                <hr style="border-color: black;">
-                <div id="divHistorico">
-                    <div id="insereHistorico" class=""></div>
-                </div>
--->
