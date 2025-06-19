@@ -71,14 +71,6 @@
       "historico": []
     },
     {
-      "id": 3,
-      "nome": "admin",
-      "email": "admin@gmail.com",
-      "senha": "1234567",
-      "tipo": "padrão",
-      "historico": []
-    },
-    {
       "id": 4,
       "nome": "admin1",
       "email": "admin1@gmail.com",

@@ -1,3 +1,4 @@
+// Histórico de itens (Ainda não percorre o usuário)
 fetch('http://localhost:3000/usuarios')
   .then(res => res.json())
   .then(usuarios => {
