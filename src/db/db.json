@@ -66,8 +66,16 @@
       "id": 2,
       "nome": "Lucas",
       "email": "usuario@gmail.com",
-      "senha": "senha123",
+      "senha": "1234567",
       "tipo": "padrão",
+      "historico": []
+    },
+    {
+      "id": 4,
+      "nome": "admin1",
+      "email": "admin1@gmail.com",
+      "senha": "1234567",
+      "tipo": "administrador",
       "historico": []
     }
   ],
@@ -257,15 +265,15 @@
       "mapa": "mapaCoreu.html",
       "lanchonetes": [
         {
-          "id": "lanch-central",
+          "id": "1",
           "nome": "Lanchonete Central"
         },
         {
-          "id": "lanch-18",
+          "id": "2",
           "nome": "Lanchonete Prédio 18"
         },
         {
-          "id": "lanch-29",
+          "id": "3",
           "nome": "Lanchonete Prédio 29"
         }
       ],
@@ -276,11 +284,11 @@
       "mapa": "mapaContagem.html",
       "lanchonetes": [
         {
-          "id": "lanch-pracaki",
+          "id": "4",
           "nome": "Lanchonete Praçaki"
         },
         {
-          "id": "lanch-pracali",
+          "id": "5",
           "nome": "Lanchonete Praçali"
         }
       ],

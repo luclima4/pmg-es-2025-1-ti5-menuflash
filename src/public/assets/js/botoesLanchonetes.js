@@ -1,36 +1,46 @@
-//LARISSA - botões de escolher a lanchonete
+// assets/js/botoesLanchonetes.js (CORRIGIDO)
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado, iniciando fetch...');
-    fetch('http://localhost:3000/lanchonetes')
-        .then(response => response.json())
-        .then(lanchonetes => {
-            criaBotoesLanchonete(lanchonetes);
-            console.log("botoes das dados recebidos:", lanchonetes);
-            console.log('fetch dados.js carregado');
-        })
-        .catch(error => console.error('Erro no fetch:', error));
+    
+    const apiUrl = 'http://localhost:3000/lanchonetes';
+    const botoesContainer = document.getElementById('botoesLanchonete');
+
+    if (!botoesContainer) {
+        console.error('Elemento #botoesLanchonete não encontrado na página.');
+        return;
+    }
+
+    async function criarLinksDeLanchonetes() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            
+            // --- PONTO DA CORREÇÃO ---
+            // A variável 'lanchonetes' agora recebe diretamente o 'data',
+            // pois o erro indica que 'data' já é o array que queremos.
+            const lanchonetes = data; 
+            
+            // Verificação de segurança: garantimos que 'lanchonetes' é de fato um array.
+            if (!Array.isArray(lanchonetes)) {
+                console.error("Os dados recebidos não são um array. Verifique o seu arquivo JSON.", lanchonetes);
+                // Lançamos um erro para que ele seja pego pelo bloco catch.
+                throw new Error("Formato de dados inválido."); 
+            }
+
+            lanchonetes.forEach(lanchonete => {
+                const link = document.createElement('a');
+                link.href = `criaCards.html?id=${lanchonete.id}`;
+                link.className = 'btn btn-light btn-lg';
+                link.textContent = lanchonete.nome;
+                botoesContainer.appendChild(link);
+            });
+
+        } catch (error) {
+            console.error('Falha ao criar links das lanchonetes:', error);
+            botoesContainer.innerHTML = '<p class="text-white">Não foi possível carregar as lanchonetes.</p>';
+        }
+    }
+
+    criarLinksDeLanchonetes();
 });
 
-function criaBotoesLanchonete(lanchonetes) {
-    const botoes = document.getElementById('botoesLanchonete');
-    botoes.innerHTML = '';
-
-    lanchonetes.forEach(lanchonete => {
-        const botao = document.createElement('button');
-        botao.className = "btn btn-light m-1 p-3 align-items-center";
-        botao.textContent = lanchonete.nome;
-        botao.onclick = () => mostrarLanchonete(lanchonete.id);
-        botoes.appendChild(botao);
-    });
-
-    const botaoTodas = document.createElement('button');
-    botaoTodas.className = "btn btn-light m-1 p-3 align-items-center";
-    botaoTodas.textContent = "Sem preferência";
-    botaoTodas.onclick = () => mostrarLanchonete(0);
-    botoes.appendChild(botaoTodas);
-}
-
-function mostrarLanchonete(id) {
-    window.location.href = "/criaCards.html?id=" + id;
-}

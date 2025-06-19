@@ -1,30 +1,20 @@
-body {
-    background-color: #a00000;
-  }
-  
-  .logo-container {
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .logo-img {
-    max-height: 130px;
-  }
-  .mapa-coreu {
-    max-width: 70%;
-    height: auto;
-  }
-  .botao-mapa {
-    width: 200px;
-    text-align: left;
-    background-color: #CD853F;
-    border: 2px solid #CD853F;
-  }
-
-  .botao-mapa:hover {
-    background-color: #CD853F;
-    border-color: #CD853F;
-  }
-  .card-img {
-    filter: brightness(50%);
+body 
+{
+  background-color: #a00000;
+}
+.header-cor
+{
+  background-color: white;
+}
+.logo-container 
+{
+  flex: 1;
+  justify-content: center;
+}
+.logo-img 
+{
+  max-height: 130px;
+}
+.card-img {
+  filter: brightness(50%);
   }
