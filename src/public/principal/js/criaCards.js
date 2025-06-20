@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!Array.isArray(lanchonetes)) throw new Error("Formato de dados inválido.");
 
-            cardsContainer.innerHTML = ''; // Limpa antes de adicionar qualquer coisa
+            cardsContainer.innerHTML = '';
 
             if (idLanchonete == 0 && campusSelecionado) {
                 const lanchonetesDoCampus = lanchonetes.filter(l => l.campus === campusSelecionado);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
 
-                renderizarCards(todosOsItens); // Renderiza os itens e inicializa suas avaliações
+                renderizarCards(todosOsItens);
             } else {
                 const lanchoneteSelecionada = lanchonetes.find(l => l.id == idLanchonete);
 
@@ -47,11 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nomeLanchonete = document.createElement("h3");
                 nomeLanchonete.textContent = lanchoneteSelecionada.nome;
 
-                // Aqui é onde você cria o container de estrelas para a lanchonete
                 const containerEstrelasLanchonete = document.createElement("div");
                 containerEstrelasLanchonete.className = "avaliacao-estrelas mb-2";
-                containerEstrelasLanchonete.setAttribute("data-id", lanchoneteSelecionada.id); // Adicionei o data-id para referência
-                containerEstrelasLanchonete.setAttribute("data-tipo", "lanchonete"); // Indicando que é uma lanchonete
+                containerEstrelasLanchonete.setAttribute("data-id", lanchoneteSelecionada.id);
+                containerEstrelasLanchonete.setAttribute("data-tipo", "lanchonete");
 
                 for (let i = 1; i <= 5; i++) {
                     const estrela = document.createElement("i");
@@ -64,15 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 lanchoneteHeader.appendChild(containerEstrelasLanchonete);
                 cardsContainer.appendChild(lanchoneteHeader);
 
-                // Inicializa as estrelas da lanchonete ANTES de renderizar os itens
-                // Use a função genérica para a lanchonete
                 inicializarEstrelasGenerico(containerEstrelasLanchonete, `avaliacaoLanchonete_${lanchoneteSelecionada.id}`);
 
                 lanchoneteSelecionada.itens.forEach(item => {
                     todosOsItens.push({ ...item, nomeLanchonete: lanchoneteSelecionada.nome });
                 });
 
-                renderizarCards(todosOsItens); // Renderiza os itens e inicializa suas avaliações
+                renderizarCards(todosOsItens);
             }
         })
         .catch(error => {
@@ -80,7 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cardsContainer.innerHTML = `<p class="text-white">Erro ao carregar dados.</p>`;
         });
 
+    // 🔍 Modificações aqui:
     btnBusca.addEventListener('click', executarBusca);
+
+    campoBusca.addEventListener('input', executarBusca); // busca ao digitar
+
     campoBusca.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') executarBusca();
     });
@@ -111,26 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderizarCards(itens) {
-        // Encontra o último child para verificar se é o header da lanchonete
         const lastChild = cardsContainer.lastElementChild;
         let elementsToAppendTo = cardsContainer;
 
-        // Se o último elemento for o header da lanchonete, adicione os cards DEPOIS dele
         if (lastChild && lastChild.classList.contains('text-center') && lastChild.querySelector('h3')) {
-            elementsToAppendTo = document.createElement('div'); // Cria um novo div para os cards dos itens
-            elementsToAppendTo.className = "row justify-content-center w-100"; // Adicione classes para layout, se necessário
+            elementsToAppendTo = document.createElement('div');
+            elementsToAppendTo.className = "row justify-content-center w-100";
             cardsContainer.appendChild(elementsToAppendTo);
         } else {
-             // Limpa apenas os cards de itens se o header da lanchonete não estiver presente
-             cardsContainer.innerHTML = '';
-             elementsToAppendTo = cardsContainer; // Volta a adicionar diretamente no cardsContainer
+            cardsContainer.innerHTML = '';
+            elementsToAppendTo = cardsContainer;
         }
-
 
         itens.forEach(item => {
             const estiloIndisponivel = !item.disponivel ? 'style="filter: opacity(40%);"' : '';
             const botaoDesabilitado = !item.disponivel ? 'disabled' : '';
-            const idAvaliacao = `avaliacao-${item.id}`; // Isso não é necessário para o seletor, mas pode manter para outros usos.
 
             const cardHTML = `
                 <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
@@ -151,18 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
-            elementsToAppendTo.innerHTML += cardHTML; // Adiciona ao elementsToAppendTo
+            elementsToAppendTo.innerHTML += cardHTML;
         });
 
-        // Chama a função genérica para inicializar as avaliações dos itens
-        // Seleciona APENAS as avaliações que são de itens
         document.querySelectorAll(".avaliacao-estrelas[data-tipo='item']").forEach(container => {
-             const itemId = container.dataset.id;
-             inicializarEstrelasGenerico(container, `avaliacaoItem_${itemId}`);
+            const itemId = container.dataset.id;
+            inicializarEstrelasGenerico(container, `avaliacaoItem_${itemId}`);
         });
     }
 
-    // Função genérica para inicializar estrelas, usada tanto para lanchonetes quanto para itens
     function inicializarEstrelasGenerico(container, chaveLocal) {
         const estrelas = container.querySelectorAll(".estrela");
         const notaSalva = localStorage.getItem(chaveLocal);
