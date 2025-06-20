@@ -42,7 +42,7 @@ cadastroForm.addEventListener('submit', event => {
                 nome: document.getElementById('inputNome').value,
                 email: email,
                 senha: senha,
-                tipo: document.querySelector('input[name="tipo"]:checked').value,
+                tipo: "padrao",
                 historico: [],
             }
 

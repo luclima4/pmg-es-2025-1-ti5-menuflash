@@ -50,4 +50,19 @@
 
 </body>
 
+  <script>
+    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
+    document.addEventListener('DOMContentLoaded', function () {
+        const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
+
+        if (linkParaLogin) {
+            const urlAtual = window.location.href;
+            // A mágica acontece aqui:
+            // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
+            // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
+            linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+        }
+    });
+  </script>
+
 </html>

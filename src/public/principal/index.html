@@ -12,14 +12,14 @@
 
 <body>
     <header class="bg-white py-3 px-4 d-flex align-items-center">
-    <div class="logo-container">
-      <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img">
-    </div>
+        <div class="logo-container">
+            <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img">
+        </div>
 
-    <div class="fw-bold text-dark px-5">
-      <a href="login.html" class="text-decoration-none text-dark me-2">Entrar</a>
-    </div>
-  </header>
+        <div class="fw-bold text-dark px-5 d-flex gap-4" id="linksDoUsuario">
+
+        </div>
+    </header>
 
     <main class="py-5 px-4 container text-center text-white">
         <h1 id="nome-campus" class="mb-4">Escolha seu campus</h1>
@@ -63,3 +63,99 @@
 </body>
 
 </html>
+
+<script>
+    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
+    document.addEventListener('DOMContentLoaded', function () {
+        const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
+
+        if (linkParaLogin) {
+            const urlAtual = window.location.href;
+            // A mágica acontece aqui:
+            // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
+            // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
+            linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+        }
+    });
+
+
+    // Ver se o usuario esta logado 
+    let usuario = null;
+
+    function checarUsuarioLogado() {
+        const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
+        if (!usuarioLogadoStr) {
+            return false;
+        }
+        usuario = JSON.parse(usuarioLogadoStr);
+        return true;
+    }
+    // Função para remover Login do Session
+    function sairUsuario(event) {
+        event.preventDefault();
+        sessionStorage.removeItem('usuarioLogado');
+        window.location.href = "cadastro_login/login.html";
+    }
+
+    window.onload = () => {
+
+        const linksContainer = document.querySelector('#linksDoUsuario');
+        let linksHTML = '';
+
+        if (checarUsuarioLogado()) {
+            if (usuario.tipo === 'administrador') {
+                // Links para administrador
+                linksHTML = `
+            <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link fs-5" href="#">Cadastro de Itens</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5" href="../perfil/perfil.html">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair da Conta</a>
+                </li>
+            </ul>
+        `;
+            } else {
+                // Links para usuário padrão
+                linksHTML = `
+            <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link fs-5" href="../perfil/perfil.html">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair</a>
+                </li>
+            </ul>
+        `;
+            }
+        } else {
+            // Links para usuário deslogado.
+            linksHTML = `
+        <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
+            <li class="nav-item">
+                <a class="nav-link fs-5" href="../cadastro_login/login.html">Entrar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fs-5" href="../cadastro_login/cadastroUsuario.html">Cadastre-se</a>
+            </li>
+        </ul>
+    `;
+        }
+
+
+        if (linksContainer) {
+            linksContainer.innerHTML = linksHTML;
+        }
+
+        if (checarUsuarioLogado()) {
+            const sairLink = document.querySelector('#sairLink');
+            if (sairLink) {
+                sairLink.addEventListener('click', sairUsuario);
+            }
+        }
+    };
+
+</script>
