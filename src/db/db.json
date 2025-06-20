@@ -11,25 +11,25 @@
           "lanchonete_id": "4",
           "data": "2025-05-18",
           "hora": "20:15:09",
-          "total": 19.5,
+          "total": 16,
           "forma_pagamento": "Pix",
           "status": "Entregue",
           "itens": [
             {
               "produto_id": "3",
               "nome": "Coxinha",
-              "imagem": "principal/img/itens/",
+              "imagem": "../principal/img/itens/coxinha.png",
               "quantidade": 2,
               "preco_unitario": 6,
               "subtotal": 12
             },
             {
-              "produto_id": "4",
-              "nome": "Suco de Laranja",
-              "imagem": "principal/img/itens/",
-              "quantidade": 1,
-              "preco_unitario": 7.5,
-              "subtotal": 7.5
+              "produto_id": "9",
+              "nome": "Trident",
+              "imagem": "../principal/img/itens/trident.png",
+              "quantidade": 2,
+              "preco_unitario": 2,
+              "subtotal": 4
             }
           ]
         },
@@ -38,7 +38,7 @@
           "lanchonete_id": "2",
           "data": "2025-05-20",
           "hora": "13:30:57",
-          "total": 14.5,
+          "total": 13,
           "forma_pagamento": "Crédito",
           "status": "Entregue",
           "itens": [
@@ -51,12 +51,12 @@
               "subtotal": 7.5
             },
             {
-              "produto_id": "8",
-              "nome": "Refrigerante",
-              "imagem": "principal/img/itens/",
+              "produto_id": "7",
+              "nome": "Coca-Cola lata",
+              "imagem": "principal/img/itens/cocaLata.png",
               "quantidade": 1,
-              "preco_unitario": 7,
-              "subtotal": 7
+              "preco_unitario": 5.50,
+              "subtotal": 5.50
             }
           ]
         }
@@ -81,13 +81,15 @@
             {
               "produto_id": "3",
               "nome": "Coxinha",
+              "imagem": "principal/img/itens/",
               "quantidade": 2,
-              "preco_unitario": 6.0,
-              "subtotal": 12.0
+              "preco_unitario": 6,
+              "subtotal": 12
             },
             {
               "produto_id": "4",
               "nome": "Suco de Laranja",
+              "imagem": "../principal/img/itens/",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -99,23 +101,25 @@
           "lanchonete_id": "2",
           "data": "2025-05-20",
           "hora": "13:30:57",
-          "total": 14.5,
+          "total": 13.5,
           "forma_pagamento": "Crédito",
           "status": "Entregue",
           "itens": [
             {
               "produto_id": "6",
-              "nome": "Pão de Queijo Recheado",
+              "nome": "Empada",
+              "imagem": "../principal/img/itens/empada.png",
               "quantidade": 1,
-              "preco_unitario": 7.5,
-              "subtotal": 7.5
+              "preco_unitario": 6.5,
+              "subtotal": 6.5
             },
             {
               "produto_id": "8",
               "nome": "Refrigerante",
+              "imagem": "../principal/img/itens/",
               "quantidade": 1,
-              "preco_unitario": 7.0,
-              "subtotal": 7.0
+              "preco_unitario": 7,
+              "subtotal": 7
             }
           ]
         },
@@ -124,23 +128,25 @@
           "lanchonete_id": "1",
           "data": "2025-06-01",
           "hora": "18:45:34",
-          "total": 10.0,
+          "total": 10,
           "forma_pagamento": "Débito",
           "status": "Entregue",
           "itens": [
             {
               "produto_id": "9",
               "nome": "Pão de Queijo",
+              "imagem": "../principal/img/itens/paoDeQueijo.png",
               "quantidade": 1,
-              "preco_unitario": 4.0,
-              "subtotal": 4.0
+              "preco_unitario": 4,
+              "subtotal": 4
             },
             {
               "produto_id": "10",
               "nome": "Suco Dell Vale",
+              "imagem": "../principal/img/itens/sucoLata.png",
               "quantidade": 1,
-              "preco_unitario": 6.0,
-              "subtotal": 6.0
+              "preco_unitario": 6,
+              "subtotal": 6
             }
           ]
         }
@@ -158,7 +164,16 @@
       "nome": "Lavinia",
       "email": "lavi@gmail.com",
       "senha": "1234567",
-      "tipo": "administrador"
+      "tipo": "administrador",
+      "historico": []
+    },
+    {
+      "id": 5,
+      "nome": "usuario1",
+      "email": "usuario1@gmail.com",
+      "senha": "usuario1",
+      "tipo": "padrão",
+      "historico": []
     }
   ],
   "lanchonetes": [
