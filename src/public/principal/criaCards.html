@@ -45,9 +45,11 @@
       <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 80px;">
     </div>
 
-    <div class="fw-bold text-dark px-5">
-      <ul id="linksDoUsuario" class="navbar-nav ms-auto mb-2 mb-lg-0"></ul>
+    <!-- Login/ Perfil/ Cadastre-se/ Cadastrar Item  -->
+    <div class="fw-bold text-dark px-5 d-flex gap-4" id="linksDoUsuario">
+
     </div>
+
   </header>
 
   <!--NAVBAR-->
@@ -151,136 +153,22 @@
   </script>
 
 
-<script>
-  // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
-    document.addEventListener('DOMContentLoaded', function () {
-        const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
-
-        if (linkParaLogin) {
-            const urlAtual = window.location.href;
-            // A mágica acontece aqui:
-            // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
-            // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
-            linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
-        }
-    });
-
-    
-
-
-
-
-  let usuario = null;
-
-    function checarUsuarioLogado() {
-      const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
-    function checarUsuarioLogado() {
-      const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
-
-      if (!usuarioLogadoStr) {
-        return false;
-      }
-      if (!usuarioLogadoStr) {
-        return false;
-      }
-
-      usuario = JSON.parse(usuarioLogadoStr);
-      return true;
-    }
-      usuario = JSON.parse(usuarioLogadoStr);
-      return true;
-    }
-
-    // Função para remover Login do Session
-    function sairUsuario(event) {
-      event.preventDefault();
-      sessionStorage.removeItem('usuarioLogado');
-      window.location.href = "login.html";
-    }
-    // Função para remover Login do Session
-    function sairUsuario(event) {
-      event.preventDefault();
-      sessionStorage.removeItem('usuarioLogado');
-      window.location.href = "login.html";
-    }
-
-    window.onload = () => {
-
-      const linksContainer = document.querySelector('#linksDoUsuario');
-      let linksHTML = '';
-
-      if (checarUsuarioLogado()) {
-
-        if (usuario.tipo === 'administrador') {
-          // Links para administrador
-          linksHTML = `
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cadastro de Itens</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="perfil.html">Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair da Conta</a>
-            </li>
-          `;
-        } else {
-          // Links para usuário padrão
-          linksHTML = `
-            <li class="nav-item">
-              <a class="nav-link" href="perfil.html">Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair</a>
-            </li>
-          `;
-        }
-      } else {
-        // Links para usuário deslogado.
-        linksHTML = `
-          <li class="nav-item">
-            <a class="nav-link" href="../cadastro_login/login.html">Entrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../cadastro_login/cadastroUsuario.html">Cadastrar</a>
-          </li>
-        `;
-      }
-
-      if (linksContainer) {
-        linksContainer.innerHTML = linksHTML;
-      }
-
-      if (checarUsuarioLogado()) {
-        const sairLink = document.querySelector('#sairLink');
-        if (sairLink) {
-          sairLink.addEventListener('click', sairUsuario);
-        }
-      }
-    };
-
-  </script>
-
+  <script src="../cadastro_login/js/inserirLogin.js"></script>
+  
   <script>
-    //PECA NOVAMENTE só aparece logado
-  document.addEventListener("DOMContentLoaded", () => {
-    const usuarioLogado = sessionStorage.getItem('usuarioLogado');
+    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
+    document.addEventListener('DOMContentLoaded', function () {
+      const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
 
-    if (usuarioLogado) {
-      const pecaNav = document.getElementById("navPecaNovamente");
-      if (pecaNav) {
-        pecaNav.style.display = "block";
+      if (linkParaLogin) {
+        const urlAtual = window.location.href;
+        // A mágica acontece aqui:
+        // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
+        // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
+        linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
       }
-    }
-
-    if (usuarioLogado) {
-      const historico = document.getElementById("navHistorico");
-      if (historico) {
-        historico.style.display = "block";
-      }
-    }
-  });
-</script>
+    });
+  </script>
 
 </body>
 

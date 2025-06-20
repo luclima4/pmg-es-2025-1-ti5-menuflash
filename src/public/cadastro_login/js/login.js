@@ -34,3 +34,4 @@ loginForm.addEventListener('submit', event => {
             alert('Ocorreu um erro ao tentar fazer login.');
         })
 })
+

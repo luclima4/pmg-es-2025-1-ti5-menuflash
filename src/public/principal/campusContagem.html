@@ -20,9 +20,12 @@
       </a>
     </div>
 
-    <div class="fw-bold text-dark px-5">
-      <ul id="linksDoUsuario" class="navbar-nav ms-auto mb-2 mb-lg-0"></ul>
+    <!-- Login/ Perfil/ Cadastre-se/ Cadastrar Item  -->
+    <div class="fw-bold text-dark px-5 d-flex gap-4" id="linksDoUsuario">
+
     </div>
+
+
   </header>
 
   <!--NAVBAR-->
@@ -76,21 +79,25 @@
   <script src="js/botoesLanchonetes.js"></script>
   <script src="js/criaCards.js"></script>
 
+
+  <script src="../cadastro_login/js/inserirLogin.js"></script>
+
+<script>
+  // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
+  document.addEventListener('DOMContentLoaded', function () {
+    const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
+
+    if (linkParaLogin) {
+      const urlAtual = window.location.href;
+      // A mágica acontece aqui:
+      // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
+      // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
+      linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+    }
+  });
+</script>
 </body>
 
-  <script>
-    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
-    document.addEventListener('DOMContentLoaded', function () {
-        const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
 
-        if (linkParaLogin) {
-            const urlAtual = window.location.href;
-            // A mágica acontece aqui:
-            // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
-            // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
-            linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
-        }
-    });
-  </script>
 
 </html>
