@@ -263,4 +263,3 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erro ao buscar ou processar os dados:', error);
         });
 });
-
