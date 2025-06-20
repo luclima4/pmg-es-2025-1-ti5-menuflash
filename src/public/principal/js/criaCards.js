@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const idLanchonete = params.get("id");
+
+  if (idLanchonete) {
+    fetch("http://localhost:3000/lanchonetes")
+      .then(res => res.json())
+      .then(lanchonetes => {
+        const lanchonete = lanchonetes.find(l => l.id == idLanchonete);
+        if (lanchonete) {
+          sessionStorage.setItem("campusAnterior", lanchonete.campus);
+          sessionStorage.setItem("lanchoneteAnterior", lanchonete.id);
+        }
+      });
+  }
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const idLanchonete = params.get('id');
@@ -37,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lanchoneteSelecionada = lanchonetes.find(l => l.id == idLanchonete);
 
                 if (!lanchoneteSelecionada) {
-                    cardsContainer.innerHTML = `<p class="text-white">Lanchonete não encontrada.</p>`;
                     return;
                 }
 

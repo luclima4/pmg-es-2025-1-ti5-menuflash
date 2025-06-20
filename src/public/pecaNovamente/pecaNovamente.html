@@ -50,195 +50,137 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Menu Flash</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link text-dark" href="../principal/index.html">Alterar Campus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Alterar Lanchonete</a>
+              <a class="nav-link text-dark" href="#">Alterar Lanchonete</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link text-dark" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="pecaNovamente.html">Peça Novamente</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Mais opções
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Histórico de pedidos</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
+              <a class="nav-link text-dark" href="">Histórico de pedidos</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-
     <!--CARDS-->
-
-    <h2 class="text-center text-light p-3">Selecione um usuário</h2>
-    <div id="botoesUsuarios" class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-      <!-- botoes pra escolher o usuario -->
-      <!-- alternativa improvisada pra funcionar o meu requisito -->
-    </div>
 
     <h1 class="mb-0 text-center text-light pb-0 pt-4">Peça Novamente</h1>
     <div id="pecaNovamente" class="container py-5 d-flex flex-column align-items-center mt-4">
       <!-- cards de peça novamente -->
     </div>
 
+    <script>
+      //alterar lanchonete na navbar
+      ddocument.addEventListener('DOMContentLoaded', () => {
+        const linkAlterarLanchonete = document.querySelector(".nav-link[href='#']");
 
+        const campus = sessionStorage.getItem("campusAtual");
+        const lanchoneteId = sessionStorage.getItem("lanchoneteAtualId");
+
+        if (linkAlterarLanchonete && campus) {
+          if (campus === "Coração Eucarístico") {
+            linkAlterarLanchonete.href = `../campus/campusCoreu.html`;
+          } else if (campus === "Contagem") {
+            linkAlterarLanchonete.href = `../campus/campusContagem.html`;
+          }
+        }
+
+        // Para voltar diretamente para os cards da lanchonete anterior:
+        const btnVoltarLanchonete = document.createElement("button");
+        btnVoltarLanchonete.className = "btn btn-warning mt-3";
+        btnVoltarLanchonete.textContent = "Voltar";
+
+        btnVoltarLanchonete.onclick = () => {
+          if (lanchoneteId && campus) {
+            window.location.href = `../criaCards.html?id=${lanchoneteId}&campus=${campus}`;
+          }
+        };
+
+        const container = document.getElementById("pecaNovamente");
+        if (container) {
+          container.appendChild(btnVoltarLanchonete);
+        }
+      });
+
+    </script>
 
     <script>
 
-
-      // const usuarioLogadoId = 1; // ID do usuário logado
-
-      // fetch('http://localhost:3000/dados')
-      //   .then(res => res.json())
-      //   .then(json => {
-      //     //acessa o array de usuarios dentro do objeto retornado
-      //     const usuarios = json.usuarios;  
-      //     //renderiza os pedidos anteriores de cada usuario     
-      //     renderizar(usuarios);
-      //   })
-      //   .catch(error => {
-      //   console.error('Erro ao buscar os dados:', error);
-      // });
-
-      // //funcao cria e mostra os cards de peca novamente
-      // function renderizar(usuarios) {
-      //   const container = document.getElementById('pecaNovamente');
-      //   container.innerHTML = ''; // limpa o conteudo do container (caso seja chamado mais de uma vez)
-      //   //percorre cada usuario no array
-      //   usuarios.forEach(usuario => {
-      //     const pedidos = usuario.historico_de_pedidos;
-      //     //se o usuario nao tiver pedidos, pula pro proximo
-      //     if (pedidos.length === 0) return;
-
-      //     //pega o ultimo pedido do usuario (o mais recente)
-      //     const ultimo = pedidos[pedidos.length - 1];
-      //     //cria um card pra exibir o pedido
-      //     const card = document.createElement('div');
-      //     card.className = 'card mb-3';
-      //     card.innerHTML = `
-      //   <div class="card-header text-dark" style="background-color: #ffaf00;">
-      //     ${usuario.nome} – Pedido #${ultimo.pedido_id} – ${ultimo.data} às ${ultimo.hora}
-      //   </div>
-      //   <ul class="list-group list-group-flush">
-      //     ${ultimo.itens.map(i =>
-      //       `<li class="list-group-item">
-      //         ${i.nome} (${i.quantidade}x) – R\$${i.subtotal.toFixed(2).replace('.', ',')}
-      //       </li>`
-      //     ).join('')}
-      //   </ul>
-      // `;
-      //     //coloca o card no container da pagina
-      //     container.appendChild(card);
-      //   });
-      // }
-
-
-
       document.addEventListener('DOMContentLoaded', () => {
-        // console.log('DOM lachonetes.js carregado, iniciando fetch...');
-        // let params = new URLSearchParams(window.location.search);
-        // let id = params.get("usuario_id");
+        const cardPecaNovamente = document.getElementById("pecaNovamente");
+
+        // Pega o usuário logado do sessionStorage
+        const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
+        if (!usuarioLogadoJSON) {
+          alert("Você precisa estar logado para acessar esta página.");
+          window.location.href = "../cadastro_login/login.html";
+          return;
+        }
+
+        const usuario = JSON.parse(usuarioLogadoJSON);
+        const usuario_id = usuario.usuario_id || usuario.id;
 
         fetch('http://localhost:3000/usuarios')
           .then(res => res.json())
           .then(json => {
-            const usuarios = json.usuarios;
-            const botoesUsuarios = document.getElementById("botoesUsuarios");
-            const cardPecaNovamente = document.getElementById("pecaNovamente");
+            const usuarios = json.usuarios || json;
 
-            if (!usuarios || usuarios.length === 0) {
-              botoesUsuarios.innerHTML = "Nenhum usuário encontrado.";
+            const usuarioEncontrado = usuarios.find(u => u.usuario_id == usuario_id || u.id == usuario_id);
+            if (!usuarioEncontrado) {
+              alert("Usuário não encontrado.");
               return;
             }
 
-            //limpa conteiners antes de preencher
-            botoesUsuarios.innerHTML = "";
-            cardPecaNovamente.innerHTML = "";
-
-            usuarios.forEach(usuario => {
-              let botao = document.createElement("button");
-              botao.textContent = usuario.nome;
-              botao.className = "btn btn-warning";
-              botao.onclick = () => carregarPedidos(usuario.usuario_id, usuarios);
-              botoesUsuarios.appendChild(botao);
-            });
+            carregarPedidos(usuarioEncontrado);
+          })
+          .catch(error => {
+            console.error("Erro ao buscar usuários:", error);
           });
-      });
 
-      function carregarPedidos(usuario_id, usuarios) {
+        function carregarPedidos(usuario) {
+          const pedidos = usuario.historico_de_pedidos || usuario.historico;
 
-        let usuario = usuarios.find(u => u.usuario_id == usuario_id);
-        //se nao tem usuario
-        if (!usuario) {
-          console.log('Usuário não encontrado:', usuario);
-          return;
-        }
+          if (!pedidos || pedidos.length === 0) {
+            cardPecaNovamente.innerHTML = "<p class='text-white'>Você ainda não fez nenhum pedido.</p>";
+            return;
+          }
 
-        let pedidos = usuario.historico_de_pedidos;
-        //se nao tem pedidos
-        if (!pedidos || pedidos.length === 0) {
-          console.log("Usuário não tem pedidos");
-          return;
-        }
+          pedidos.sort((a, b) => new Date(`${b.data}T${b.hora}`) - new Date(`${a.data}T${a.hora}`));
+          const ultimoPedido = pedidos[0];
 
+          cardPecaNovamente.innerHTML = "";
 
-        //ordena por data e hora do mais recente pro mais antigo
-        pedidos.sort((a, b) => { //compara todos os elementos do array varias vezes ate que esteja na ordem
-          //junta a data e a hora do pedido A, e cria um objeto Date
-          let dataA = new Date(`${a.data}T${a.hora}`);
-          //junta a data e a hora do pedido B, e cria um objeto Date
-          let dataB = new Date(`${b.data}T${b.hora}`);
-          //subtrai as datas: se dataB for mais recente que dataA, retorna positivo
-          return dataB - dataA;
-        });
-
-        let ultimoPedido = pedidos[0]; //o primeiro item do array é o mais recente
-
-        let cardPecaNovamente = document.getElementById('pecaNovamente');
-        cardPecaNovamente.innerHTML = "";
-
-        //cria o html de um card
-        ultimoPedido.itens.forEach(item => {
-          let cardHTML = `
-                <div class="card-header text-dark p-2 mt-3" style="background-color: #ffaf00;">
-                  ${usuario.nome} – Pedido #${ultimoPedido.pedido_id} – ${ultimoPedido.data} às ${ultimoPedido.hora}
-                </div>
-                <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
-                  <div class="card h-100 w-100 shadow-sm">     
-                    <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
-                    <div class="card-body text-center d-flex flex-column">
-                      <h5 class="card-title">${item.nome}</h5>
-                      <p>${item.quantidade} x R\$${item.preco_unitario.toFixed(2).replace('.', ',')}</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="fw-bold">R\$${item.subtotal.toFixed(2).replace('.', ',')}</span>
-                        <button disabled type="button" class="btn btn-outline-secondary btn-sm">Adicionar ao carrinho</button>
-                      </div>
+          ultimoPedido.itens.forEach(item => {
+            let cardHTML = `
+              <div class="card-header text-dark p-2 mt-3" style="background-color: #ffaf00;">
+                ${usuario.nome} – Pedido #${ultimoPedido.pedido_id} – ${ultimoPedido.data} às ${ultimoPedido.hora}
+              </div>
+              <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
+                <div class="card h-100 w-100 shadow-sm">     
+                  <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
+                  <div class="card-body text-center d-flex flex-column">
+                    <h5 class="card-title">${item.nome}</h5>
+                    <p>${item.quantidade} x R\$${item.preco_unitario.toFixed(2).replace('.', ',')}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="fw-bold">R\$${item.subtotal.toFixed(2).replace('.', ',')}</span>
+                      <button disabled type="button" class="btn btn-outline-secondary btn-sm">Adicionar ao carrinho</button>
                     </div>
                   </div>
                 </div>
-              `;
+              </div>
+            `;
 
-          cardPecaNovamente.innerHTML += cardHTML;
-        });
-      }
+            cardPecaNovamente.innerHTML += cardHTML;
+          });
+        }
+      });
 
     </script>
 
