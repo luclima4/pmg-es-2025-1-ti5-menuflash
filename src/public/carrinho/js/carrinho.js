@@ -54,11 +54,32 @@ document.getElementById('adicionar-observacao').onclick = function() {
     if (obs) localStorage.setItem('observacao', obs);
 };
 
-document.getElementById('finalizar-pedido').onclick = function() {
-    alert('Pedido finalizado!');
-    carrinho = [];
-    salvarCarrinho();
-    renderizarCarrinho();
+document.getElementById('finalizar-pedido').onclick = async function() {
+    if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+    // Salvar pedido no JSON Server
+    try {
+        const response = await fetch('http://localhost:3000/pedidos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                itens: carrinho,
+                observacao: localStorage.getItem('observacao') || '',
+                data: new Date().toISOString()
+            })
+        });
+        if (!response.ok) throw new Error('Erro ao salvar pedido');
+        // Limpa carrinho local
+        carrinho = [];
+        salvarCarrinho();
+        renderizarCarrinho();
+        // Redireciona para forma de pagamento
+        window.location.href = '../forma de pagamento/index.html';
+    } catch (e) {
+        alert('Erro ao finalizar pedido. Tente novamente.');
+    }
 };
 
 renderizarCarrinho();
