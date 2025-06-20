@@ -39,9 +39,9 @@
 
 <body>
 
-  <header class="bg-white py-3 px-4 d-flex align-items-center">
+  <header class="bg-white py-1 px-2 d-flex align-items-center">
     <div class="logo-container my-3">
-      <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 120px;">
+      <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 80px;">
     </div>
 
     <div class="fw-bold text-dark px-5">
@@ -151,6 +151,8 @@
 
   <script>
     let usuario = null;
+  <script>
+    let usuario = null;
 
     function checarUsuarioLogado() {
       const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
@@ -226,29 +228,5 @@
       }
     };
 
-  </script>
-
-  <script>
-    //PECA NOVAMENTE só aparece logado
-  document.addEventListener("DOMContentLoaded", () => {
-    const usuarioLogado = sessionStorage.getItem('usuarioLogado');
-
-    if (usuarioLogado) {
-      const pecaNav = document.getElementById("navPecaNovamente");
-      if (pecaNav) {
-        pecaNav.style.display = "block";
-      }
-    }
-
-    if (usuarioLogado) {
-      const historico = document.getElementById("navHistorico");
-      if (historico) {
-        historico.style.display = "block";
-      }
-    }
-  });
 </script>
-
-</body>
-
 </html>
