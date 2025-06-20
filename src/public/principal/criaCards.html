@@ -30,6 +30,7 @@
     max-height: 130px;
   }
 
+
   .avaliacao-estrelas {
     color: gold;
     font-size: 1.3rem;
@@ -149,14 +150,18 @@
 
   </script>
 
-  <script>
-    let usuario = null;
+
   <script>
     let usuario = null;
 
     function checarUsuarioLogado() {
       const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
+    function checarUsuarioLogado() {
+      const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
 
+      if (!usuarioLogadoStr) {
+        return false;
+      }
       if (!usuarioLogadoStr) {
         return false;
       }
@@ -164,7 +169,16 @@
       usuario = JSON.parse(usuarioLogadoStr);
       return true;
     }
+      usuario = JSON.parse(usuarioLogadoStr);
+      return true;
+    }
 
+    // Função para remover Login do Session
+    function sairUsuario(event) {
+      event.preventDefault();
+      sessionStorage.removeItem('usuarioLogado');
+      window.location.href = "login.html";
+    }
     // Função para remover Login do Session
     function sairUsuario(event) {
       event.preventDefault();
@@ -182,39 +196,38 @@
         if (usuario.tipo === 'administrador') {
           // Links para administrador
           linksHTML = `
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cadastro de Itens</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="perfil.html">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair da Conta</a>
-                        </li>
-                    `;
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cadastro de Itens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="perfil.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair da Conta</a>
+            </li>
+          `;
         } else {
           // Links para usuário padrão
           linksHTML = `
-                        <li class="nav-item">
-                            <a class="nav-link" href="perfil.html">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair</a>
-                        </li>
-                    `;
+            <li class="nav-item">
+              <a class="nav-link" href="perfil.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a id="sairLink" class="nav-link" href="../cadastro_login/login.html">Sair</a>
+            </li>
+          `;
         }
       } else {
         // Links para usuário deslogado.
         linksHTML = `
-                    <li class="nav-item">
-                        <a class="nav-link" href="../cadastro_login/login.html">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../cadastro_login/cadastroUsuario.html">Cadastrar</a>
-                    </li>
-                `;
+          <li class="nav-item">
+            <a class="nav-link" href="../cadastro_login/login.html">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../cadastro_login/cadastroUsuario.html">Cadastrar</a>
+          </li>
+        `;
       }
-
 
       if (linksContainer) {
         linksContainer.innerHTML = linksHTML;
@@ -228,5 +241,29 @@
       }
     };
 
+  </script>
+
+  <script>
+    //PECA NOVAMENTE só aparece logado
+  document.addEventListener("DOMContentLoaded", () => {
+    const usuarioLogado = sessionStorage.getItem('usuarioLogado');
+
+    if (usuarioLogado) {
+      const pecaNav = document.getElementById("navPecaNovamente");
+      if (pecaNav) {
+        pecaNav.style.display = "block";
+      }
+    }
+
+    if (usuarioLogado) {
+      const historico = document.getElementById("navHistorico");
+      if (historico) {
+        historico.style.display = "block";
+      }
+    }
+  });
 </script>
+
+</body>
+
 </html>
