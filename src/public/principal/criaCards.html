@@ -29,6 +29,7 @@
   .logo-img {
     max-height: 130px;
   }
+
   .avaliacao-estrelas {
     color: gold;
     font-size: 1.3rem;
@@ -38,9 +39,9 @@
 
 <body>
 
-  <header class="bg-white py-3 px-4 d-flex align-items-center">
+  <header class="bg-white py-1 px-2 d-flex align-items-center">
     <div class="logo-container my-3">
-      <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 120px;">
+      <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 80px;">
     </div>
 
     <div class="fw-bold text-dark px-5">
@@ -48,28 +49,68 @@
     </div>
   </header>
 
-  <!--NAVBAR-->
+  <!--CARDS-->
+  <main>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="index.html">Alterar Campus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#">Alterar Lanchonete</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#">Peça Novamente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#">Histórico de pedidos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </main>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="index.html">Alterar Campus</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Alterar Lanchonete</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Peça Novamente</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Histórico de pedidos</a>
-          </li>
-        </ul>
+  <div class="container my-4">
+    <div class="input-group">
+      <input type="text" id="campoBusca" class="form-control" placeholder="Buscar item por nome...">
+      <button id="btnBusca" class="btn btn-primary">Buscar</button>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row justify-content-center" id="divCards">
+    </div>
+  </div>
+
+  <!--Modal Detalhes-->
+
+  <div id="insereModal">
+    <div class="modal fade" id="modalExemplo" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content " id="modalContent">
+          <!-- Conteúdo inserido via JS -->
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <footer class="bg-light text-black text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <script src="js/criaCards.js"></script>
+  <script src="modal/js/modal.js"></script>
+  <script src="js/botoesLanchonetes.js"></script>
+
+  <!--NAVBAR-->
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
@@ -106,71 +147,37 @@
     });
   </script>
 
-  <!--CARDS-->
+  <script>
+    let usuario = null;
 
-  <div class="container my-4">
-    <div class="input-group">
-      <input type="text" id="campoBusca" class="form-control" placeholder="Buscar item por nome...">
-      <button id="btnBusca" class="btn btn-primary">Buscar</button>
-    </div>
-  </div>
+    function checarUsuarioLogado() {
+      const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
 
+      if (!usuarioLogadoStr) {
+        return false;
+      }
 
-  <div class="container">
-    <div class="row justify-content-center" id="divCards">
-    </div>
-  </div>
-
-  <!--Modal Detalhes-->
-
-  <div id="insereModal">
-    <div class="modal fade" id="modalExemplo" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content " id="modalContent">
-          <!-- Conteúdo inserido via JS -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  <script src="js/criaCards.js"></script>
-  <script src="modal/js/modal.js"></script>
-  <script src="js/botoesLanchonetes.js"></script>
-
-</body>
-
-<script>
-  let usuario = null;
-
-  function checarUsuarioLogado() {
-    const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
-
-    if (!usuarioLogadoStr) {
-      return false;
+      usuario = JSON.parse(usuarioLogadoStr);
+      return true;
     }
 
-    usuario = JSON.parse(usuarioLogadoStr);
-    return true;
-  }
+    // Função para remover Login do Session
+    function sairUsuario(event) {
+      event.preventDefault();
+      sessionStorage.removeItem('usuarioLogado');
+      window.location.href = "login.html";
+    }
 
-  // Função para remover Login do Session
-  function sairUsuario(event) {
-    event.preventDefault();
-    sessionStorage.removeItem('usuarioLogado');
-    window.location.href = "login.html";
-  }
+    window.onload = () => {
 
-  window.onload = () => {
+      const linksContainer = document.querySelector('#linksDoUsuario');
+      let linksHTML = '';
 
-    const linksContainer = document.querySelector('#linksDoUsuario');
-    let linksHTML = '';
+      if (checarUsuarioLogado()) {
 
-    if (checarUsuarioLogado()) {
-
-      if (usuario.tipo === 'administrador') {
-        // Links para administrador
-        linksHTML = `
+        if (usuario.tipo === 'administrador') {
+          // Links para administrador
+          linksHTML = `
                         <li class="nav-item">
                             <a class="nav-link" href="#">Cadastro de Itens</a>
                         </li>
@@ -181,9 +188,9 @@
                             <a id="sairLink" class="nav-link" href="/cadastro_login/login.html">Sair da Conta</a>
                         </li>
                     `;
-      } else {
-        // Links para usuário padrão
-        linksHTML = `
+        } else {
+          // Links para usuário padrão
+          linksHTML = `
                         <li class="nav-item">
                             <a class="nav-link" href="perfil.html">Perfil</a>
                         </li>
@@ -191,10 +198,10 @@
                             <a id="sairLink" class="nav-link" href="/cadastro_login/login.html">Sair</a>
                         </li>
                     `;
-      }
-    } else {
-      // Links para usuário deslogado.
-      linksHTML = `
+        }
+      } else {
+        // Links para usuário deslogado.
+        linksHTML = `
                     <li class="nav-item">
                         <a class="nav-link" href="cadastro_login/login.html">Entrar</a>
                     </li>
@@ -202,20 +209,23 @@
                         <a class="nav-link" href="cadastro_login/cadastroUsuario.html">Cadastrar</a>
                     </li>
                 `;
-    }
-
-
-    if (linksContainer) {
-      linksContainer.innerHTML = linksHTML;
-    }
-
-    if (checarUsuarioLogado()) {
-      const sairLink = document.querySelector('#sairLink');
-      if (sairLink) {
-        sairLink.addEventListener('click', sairUsuario);
       }
-    }
-  };
 
-</script>
+
+      if (linksContainer) {
+        linksContainer.innerHTML = linksHTML;
+      }
+
+      if (checarUsuarioLogado()) {
+        const sairLink = document.querySelector('#sairLink');
+        if (sairLink) {
+          sairLink.addEventListener('click', sairUsuario);
+        }
+      }
+    };
+
+  </script>
+
+</body>
+
 </html>
