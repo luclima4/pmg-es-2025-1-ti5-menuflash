@@ -18,7 +18,7 @@
             {
               "produto_id": "3",
               "nome": "Coxinha",
-              "imagem": "public/assets/images/itens/",
+              "imagem": "principal/img/itens/",
               "quantidade": 2,
               "preco_unitario": 6,
               "subtotal": 12
@@ -26,7 +26,7 @@
             {
               "produto_id": "4",
               "nome": "Suco de Laranja",
-              "imagem": "public/assets/images/itens/",
+              "imagem": "principal/img/itens/",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -45,7 +45,7 @@
             {
               "produto_id": "6",
               "nome": "Pão de Queijo Recheado",
-              "imagem": "public/assets/images/itens/",
+              "imagem": "principal/img/itens/",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -53,7 +53,7 @@
             {
               "produto_id": "8",
               "nome": "Refrigerante",
-              "imagem": "public/assets/images/itens/",
+              "imagem": "principal/img/itens/",
               "quantidade": 1,
               "preco_unitario": 7,
               "subtotal": 7
@@ -158,7 +158,8 @@
   "lanchonetes": [
     {
       "id": "1",
-      "nome": "Paçaki",
+      "nome": "Prédio 18",
+      "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 1,
@@ -166,7 +167,7 @@
           "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
           "valor": "R$3,50",
           "conteudo": "500ml",
-          "imagem": "assets/images/itens/agua.png",
+          "imagem": "img/itens/agua.png",
           "disponivel": true,
           "favorito": false,
           "quantidade": 17,
@@ -179,7 +180,7 @@
           "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
           "valor": "R$5,00",
           "conteudo": "350ml",
-          "imagem": "assets/images/itens/guaranaLata.png",
+          "imagem": "img/itens/guaranaLata.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 11,
@@ -192,7 +193,7 @@
           "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
           "valor": "R$7,00",
           "conteudo": "500ml",
-          "imagem": "assets/images/itens/acai.png",
+          "imagem": "img/itens/acai.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 9,
@@ -205,7 +206,7 @@
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
           "valor": "R$6,00",
           "conteudo": "",
-          "imagem": "assets/images/itens/coxinha.png",
+          "imagem": "img/itens/coxinha.png",
           "disponivel": true,
           "favorito": false,
           "quantidade": 14,
@@ -216,7 +217,8 @@
     },
     {
       "id": "2",
-      "nome": "DoBão",
+      "nome": "Central",
+      "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 5,
@@ -224,7 +226,7 @@
           "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
           "valor": "R$5,50",
           "conteudo": "",
-          "imagem": "assets/images/itens/paoDeQueijo.png",
+          "imagem": "img/itens/paoDeQueijo.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 20,
@@ -237,7 +239,7 @@
           "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
           "valor": "R$6,50",
           "conteudo": "",
-          "imagem": "assets/images/itens/empada.png",
+          "imagem": "img/itens/empada.png",
           "disponivel": true,
           "favorito": false,
           "quantidade": 5,
@@ -250,7 +252,7 @@
           "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
           "valor": "R$5,50",
           "conteudo": "350ml",
-          "imagem": "assets/images/itens/cocaLata.png",
+          "imagem": "img/itens/cocaLata.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 13,
@@ -263,7 +265,7 @@
           "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
           "valor": "R$7,50",
           "conteudo": "",
-          "imagem": "assets/images/itens/sanduiche.png",
+          "imagem": "img/itens/sanduiche.png",
           "disponivel": true,
           "favorito": false,
           "quantidade": 6,
@@ -274,7 +276,8 @@
     },
     {
       "id": "3",
-      "nome": "Starbucks",
+      "nome": "Prédio 29",
+      "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 9,
@@ -282,7 +285,7 @@
           "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
           "valor": "R$2,00",
           "conteudo": "",
-          "imagem": "assets/images/itens/trident.png",
+          "imagem": "img/itens/trident.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 19,
@@ -295,7 +298,7 @@
           "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
           "valor": "R$4,50",
           "conteudo": "",
-          "imagem": "assets/images/itens/trento.png",
+          "imagem": "img/itens/trento.png",
           "disponivel": true,
           "favorito": false,
           "quantidade": 7,
@@ -308,7 +311,7 @@
           "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
           "valor": "R$5,00",
           "conteudo": "400ml",
-          "imagem": "assets/images/itens/sucoLata.png",
+          "imagem": "img/itens/sucoLata.png",
           "disponivel": true,
           "favorito": true,
           "quantidade": 18,
@@ -321,12 +324,130 @@
           "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
           "valor": "R$4,00",
           "conteudo": "200ml",
-          "imagem": "assets/images/itens/coca.png",
+          "imagem": "img/itens/coca.png",
           "disponivel": false,
           "favorito": false,
           "quantidade": 4,
           "semLactose": true,
           "semGluten": true
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "nome": "Paçaki",
+      "campus": "Contagem",
+      "itens": [
+        {
+          "id": 1,
+          "titulo": "Água",
+          "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
+          "valor": "R$3,50",
+          "conteudo": "500ml",
+          "imagem": "img/itens/agua.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 17,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 2,
+          "titulo": "Guaraná lata",
+          "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
+          "valor": "R$5,00",
+          "conteudo": "350ml",
+          "imagem": "img/itens/guaranaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 11,
+          "semLactose": true,
+          "semGluten": false
+        },
+        {
+          "id": 3,
+          "titulo": "Açaí",
+          "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
+          "valor": "R$7,00",
+          "conteudo": "500ml",
+          "imagem": "img/itens/acai.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 9,
+          "semLactose": false,
+          "semGluten": true
+        },
+        {
+          "id": 4,
+          "titulo": "Coxinha",
+          "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+          "valor": "R$6,00",
+          "conteudo": "",
+          "imagem": "img/itens/coxinha.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 14,
+          "semLactose": false,
+          "semGluten": false
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "nome": "Paçaí",
+      "campus": "Contagem",
+      "itens": [
+        {
+          "id": 5,
+          "titulo": "Pão de queijo",
+          "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
+          "valor": "R$5,50",
+          "conteudo": "",
+          "imagem": "img/itens/paoDeQueijo.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 20,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 6,
+          "titulo": "Empada",
+          "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
+          "valor": "R$6,50",
+          "conteudo": "",
+          "imagem": "img/itens/empada.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 5,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 7,
+          "titulo": "Coca-Cola lata",
+          "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+          "valor": "R$5,50",
+          "conteudo": "350ml",
+          "imagem": "img/itens/cocaLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 13,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 8,
+          "titulo": "Sanduíche",
+          "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
+          "valor": "R$7,50",
+          "conteudo": "",
+          "imagem": "img/itens/sanduiche.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 6,
+          "semLactose": false,
+          "semGluten": false
         }
       ]
     }

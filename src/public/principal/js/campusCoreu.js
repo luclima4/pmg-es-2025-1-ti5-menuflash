@@ -51,13 +51,13 @@ fetch("http://localhost:3000/campus")
     if (coreu) {
       const container = document.getElementById('lanchonetes-container');
 
-      coreu.lanchonetes.forEach(l => {
-        const botao = document.createElement('a');
-        botao.textContent = l.nome;
-        botao.className = 'btn btn-outline-light mx-2 px-4 py-2 fw-bold';
-        botao.href = `${l.id}.html`;
-        container.appendChild(botao);
-      });
+      // coreu.lanchonetes.forEach(l => {
+      //   const botao = document.createElement('a');
+      //   botao.textContent = l.nome;
+      //   botao.className = 'btn btn-outline-light mx-2 px-4 py-2 fw-bold';
+      //   botao.href = `${l.id}.html`;
+      //   container.appendChild(botao);
+      // });
     }
   })
   .catch(error => console.error("Erro ao carregar dados do campus:", error));
