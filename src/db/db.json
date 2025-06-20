@@ -8,7 +8,7 @@
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
-          "lanchonete_id": "4",
+          "lanchonete_id": "3",
           "data": "2025-05-18",
           "hora": "20:15:09",
           "total": 16,
@@ -55,15 +55,15 @@
               "nome": "Coca-Cola lata",
               "imagem": "principal/img/itens/cocaLata.png",
               "quantidade": 1,
-              "preco_unitario": 5.50,
-              "subtotal": 5.50
+              "preco_unitario": 5.5,
+              "subtotal": 5.5
             }
           ]
         }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Lucas",
       "email": "usuario@gmail.com",
       "senha": "1234567",
@@ -71,7 +71,7 @@
       "historico": [
         {
           "pedido_id": "1",
-          "lanchonete_id": "4",
+          "lanchonete_id": "1",
           "data": "2025-05-18",
           "hora": "20:15:09",
           "total": 19.5,
@@ -81,7 +81,7 @@
             {
               "produto_id": "3",
               "nome": "Coxinha",
-              "imagem": "principal/img/itens/",
+              "imagem": "../principal/img/itens/coxinha.png",
               "quantidade": 2,
               "preco_unitario": 6,
               "subtotal": 12
@@ -115,8 +115,8 @@
             },
             {
               "produto_id": "8",
-              "nome": "Refrigerante",
-              "imagem": "../principal/img/itens/",
+              "nome": "Coca-Cola lata",
+              "imagem": "../principal/img/itens/cocaLata.png",
               "quantidade": 1,
               "preco_unitario": 7,
               "subtotal": 7
@@ -153,14 +153,14 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "Alanzoka",
       "email": "alan@gmail.com",
       "senha": "1234567",
       "tipo": "administrador"
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "Lavinia",
       "email": "lavi@gmail.com",
       "senha": "1234567",
@@ -168,7 +168,7 @@
       "historico": []
     },
     {
-      "id": 5,
+      "id": "5",
       "nome": "usuario1",
       "email": "usuario1@gmail.com",
       "senha": "usuario1",
