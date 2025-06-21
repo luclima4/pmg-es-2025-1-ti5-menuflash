@@ -1,18 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- ELEMENTOS DO DOM ---
-    const initialChoiceEl = document.getElementById('initial-choice');
     const pixSectionEl = document.getElementById('pix-section');
     const cardSectionEl = document.getElementById('card-section');
-    const finalizeSectionEl = document.getElementById('finalize-section');
     
-    const btnShowPix = document.getElementById('btn-show-pix');
-    const btnShowCard = document.getElementById('btn-show-card');
     const btnFinalizeOrder = document.getElementById('btn-finalize-order');
-    const cardForm = document.getElementById('card-form');
+
+    const radioPix = document.getElementById('payment-pix');
+    const radioCard = document.getElementById('payment-card');
 
     const orderSummaryEl = document.getElementById('order-summary');
-    const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
 
     // --- CONFIGURAÇÃO E ESTADO ---
     const jsonServerUrl = 'http://localhost:3000';
@@ -55,83 +52,35 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
-    const salvarCartao = async (event) => {
-        event.preventDefault(); // Impede o recarregamento da página
-        const newCard = {
-            numero: document.getElementById('card-number').value,
-            validade: document.getElementById('card-expiry').value,
-            cvc: document.getElementById('card-cvc').value,
-            nome: document.getElementById('card-name').value,
-        };
-
-        try {
-            const response = await fetch(`${jsonServerUrl}/cartoes`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newCard),
-            });
-            if (!response.ok) throw new Error('Falha ao salvar o cartão.');
-            
-            alert('Cartão salvo com sucesso!');
-            cardForm.reset();
-
-        } catch (error) {
-            console.error('Erro ao salvar cartão:', error);
-            alert('Não foi possível salvar o cartão. Tente novamente.');
-        }
-    };
-
-    const finalizarPedido = async () => {
+    const finalizarPedido = () => {
         if (!metodoPagamentoSelecionado) {
             alert('Por favor, selecione um método de pagamento.');
             return;
         }
 
-        const pedidoFinal = {
-            ...pedidoPendente,
-            metodoPagamento: metodoPagamentoSelecionado,
-            status: 'concluido'
-        };
+        // Remove a lógica de comunicação com o servidor e apenas redireciona
+        localStorage.removeItem('carrinho');
+        localStorage.removeItem('pedidoPendente');
+        window.dispatchEvent(new Event('storageChanged'));
 
-        try {
-            const response = await fetch(`${jsonServerUrl}/pedidos`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(pedidoFinal),
-            });
-            if (!response.ok) throw new Error('Falha ao salvar o pedido.');
-
-            localStorage.removeItem('carrinho');
-            localStorage.removeItem('pedidoPendente');
-            window.dispatchEvent(new Event('storageChanged'));
-
-            confirmationModal.show();
-            setTimeout(() => { window.location.href = '../principal/index.html'; }, 3000);
-
-        } catch (error) {
-            console.error('Erro ao finalizar o pedido:', error);
-            alert('Não foi possível concluir seu pedido. Tente novamente.');
-        }
+        window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
     };
 
     // --- EVENT LISTENERS ---
-    btnShowPix.addEventListener('click', () => {
+    radioPix.addEventListener('change', () => {
         metodoPagamentoSelecionado = 'Pix';
-        initialChoiceEl.style.display = 'none';
         cardSectionEl.style.display = 'none';
         pixSectionEl.style.display = 'block';
-        finalizeSectionEl.style.display = 'block';
+        btnFinalizeOrder.disabled = false;
     });
 
-    btnShowCard.addEventListener('click', () => {
+    radioCard.addEventListener('change', () => {
         metodoPagamentoSelecionado = 'Cartão';
-        initialChoiceEl.style.display = 'none';
         pixSectionEl.style.display = 'none';
         cardSectionEl.style.display = 'block';
-        finalizeSectionEl.style.display = 'block';
+        btnFinalizeOrder.disabled = false;
     });
 
-    cardForm.addEventListener('submit', salvarCartao);
     btnFinalizeOrder.addEventListener('click', finalizarPedido);
 
     // --- INICIALIZAÇÃO ---
