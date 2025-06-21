@@ -3,12 +3,12 @@
     {
       "id": "1",
       "nome": "Lucas",
-      "email": "lucassilva@gmail.com",
+      "email": "lucas@gmail.com",
       "senha": "123456",
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
-          "lanchonete_id": "4",
+          "lanchonete_id": "3",
           "data": "2025-05-18",
           "hora": "20:15:09",
           "total": 16,
@@ -55,23 +55,23 @@
               "nome": "Coca-Cola lata",
               "imagem": "principal/img/itens/cocaLata.png",
               "quantidade": 1,
-              "preco_unitario": 5.50,
-              "subtotal": 5.50
+              "preco_unitario": 5.5,
+              "subtotal": 5.5
             }
           ]
         }
       ]
     },
     {
-      "id": 2,
-      "nome": "Lucas",
-      "email": "usuario@gmail.com",
-      "senha": "1234567",
+      "id": "2",
+      "nome": "Cris",
+      "email": "cris@gmail.com",
+      "senha": "123456",
       "tipo": "padrão",
       "historico": [
         {
           "pedido_id": "1",
-          "lanchonete_id": "4",
+          "lanchonete_id": "1",
           "data": "2025-05-18",
           "hora": "20:15:09",
           "total": 19.5,
@@ -81,7 +81,7 @@
             {
               "produto_id": "3",
               "nome": "Coxinha",
-              "imagem": "principal/img/itens/",
+              "imagem": "../principal/img/itens/coxinha.png",
               "quantidade": 2,
               "preco_unitario": 6,
               "subtotal": 12
@@ -115,8 +115,8 @@
             },
             {
               "produto_id": "8",
-              "nome": "Refrigerante",
-              "imagem": "../principal/img/itens/",
+              "nome": "Coca-Cola lata",
+              "imagem": "../principal/img/itens/cocaLata.png",
               "quantidade": 1,
               "preco_unitario": 7,
               "subtotal": 7
@@ -153,40 +153,41 @@
       ]
     },
     {
-      "id": 4,
-      "nome": "Alanzoka",
+      "id": "3",
+      "nome": "Alan",
       "email": "alan@gmail.com",
-      "senha": "1234567",
-      "tipo": "administrador"
-    },
-    {
-      "id": 4,
-      "nome": "Lavinia",
-      "email": "lavi@gmail.com",
-      "senha": "1234567",
+      "senha": "123456",
       "tipo": "administrador",
-      "historico": []
+      "lanchoneteId": "1"
     },
     {
-      "id": 5,
+      "id": "4",
+      "nome": "Neymar",
+      "email": "neymar@gmail.com",
+      "senha": "123456",
+      "tipo": "administrador",
+      "lanchoneteId": "2"
+    },
+    {
+      "id": "5",
       "nome": "usuario1",
       "email": "usuario1@gmail.com",
       "senha": "usuario1",
       "tipo": "padrão",
-      "historico": []
+      "lanchoneteId": "3"
     }
   ],
   "lanchonetes": [
     {
       "id": "1",
-      "nome": "Prédio 18",
+      "nome": "Prédio 18 ID 1",
       "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 1,
           "titulo": "Água",
           "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
-          "valor": "R$3,50",
+          "valor": 3.5,
           "conteudo": "500ml",
           "imagem": "img/itens/agua.png",
           "disponivel": true,
@@ -199,7 +200,7 @@
           "id": 2,
           "titulo": "Guaraná lata",
           "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
-          "valor": "R$5,00",
+          "valor": 5,
           "conteudo": "350ml",
           "imagem": "img/itens/guaranaLata.png",
           "disponivel": true,
@@ -212,7 +213,7 @@
           "id": 3,
           "titulo": "Açaí",
           "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
-          "valor": "R$7,00",
+          "valor": 7,
           "conteudo": "500ml",
           "imagem": "img/itens/acai.png",
           "disponivel": true,
@@ -225,27 +226,25 @@
           "id": 4,
           "titulo": "Coxinha",
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
-          "valor": "R$6,00",
+          "valor": "",
           "conteudo": "",
-          "imagem": "img/itens/coxinha.png",
           "disponivel": true,
-          "favorito": false,
-          "quantidade": 14,
           "semLactose": false,
-          "semGluten": false
+          "semGluten": false,
+          "imagem": "img/itens/coxinha.png"
         }
       ]
     },
     {
       "id": "2",
-      "nome": "Central",
+      "nome": "Central ID 2",
       "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 5,
           "titulo": "Pão de queijo",
           "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
-          "valor": "R$5,50",
+          "valor": 5.5,
           "conteudo": "",
           "imagem": "img/itens/paoDeQueijo.png",
           "disponivel": true,
@@ -258,7 +257,7 @@
           "id": 6,
           "titulo": "Empada",
           "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
-          "valor": "R$6,50",
+          "valor": 6.5,
           "conteudo": "",
           "imagem": "img/itens/empada.png",
           "disponivel": true,
@@ -271,7 +270,7 @@
           "id": 7,
           "titulo": "Coca-Cola lata",
           "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
-          "valor": "R$5,50",
+          "valor": 5.5,
           "conteudo": "350ml",
           "imagem": "img/itens/cocaLata.png",
           "disponivel": true,
@@ -284,7 +283,7 @@
           "id": 8,
           "titulo": "Sanduíche",
           "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
-          "valor": "R$7,50",
+          "valor": 7.5,
           "conteudo": "",
           "imagem": "img/itens/sanduiche.png",
           "disponivel": true,
@@ -297,14 +296,14 @@
     },
     {
       "id": "3",
-      "nome": "Prédio 29",
+      "nome": "Prédio 29 ID 3",
       "campus": "Coração Eucarístico",
       "itens": [
         {
           "id": 9,
           "titulo": "Trident",
           "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
-          "valor": "R$2,00",
+          "valor": 2,
           "conteudo": "",
           "imagem": "img/itens/trident.png",
           "disponivel": true,
@@ -317,7 +316,7 @@
           "id": 10,
           "titulo": "Trento",
           "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
-          "valor": "R$4,50",
+          "valor": 4.5,
           "conteudo": "",
           "imagem": "img/itens/trento.png",
           "disponivel": true,
@@ -330,7 +329,7 @@
           "id": 11,
           "titulo": "Suco lata",
           "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
-          "valor": "R$5,00",
+          "valor": 5,
           "conteudo": "400ml",
           "imagem": "img/itens/sucoLata.png",
           "disponivel": true,
@@ -343,7 +342,7 @@
           "id": 12,
           "titulo": "Coca-Cola 200ml",
           "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
-          "valor": "R$4,00",
+          "valor": 4,
           "conteudo": "200ml",
           "imagem": "img/itens/coca.png",
           "disponivel": false,
@@ -356,14 +355,14 @@
     },
     {
       "id": "4",
-      "nome": "Paçaki",
+      "nome": "Paçaki ID 4",
       "campus": "Contagem",
       "itens": [
         {
           "id": 1,
           "titulo": "Água",
           "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
-          "valor": "R$3,50",
+          "valor": 3.5,
           "conteudo": "500ml",
           "imagem": "img/itens/agua.png",
           "disponivel": true,
@@ -376,7 +375,7 @@
           "id": 2,
           "titulo": "Guaraná lata",
           "descricao": "Refrigerante de guaraná gelado, ideal para refrescar a qualquer momento.",
-          "valor": "R$5,00",
+          "valor": 5,
           "conteudo": "350ml",
           "imagem": "img/itens/guaranaLata.png",
           "disponivel": true,
@@ -389,7 +388,7 @@
           "id": 3,
           "titulo": "Açaí",
           "descricao": "Açaí na tigela, nutritivo e energético, ideal para um lanche saudável.",
-          "valor": "R$7,00",
+          "valor": 7,
           "conteudo": "500ml",
           "imagem": "img/itens/acai.png",
           "disponivel": true,
@@ -402,7 +401,7 @@
           "id": 4,
           "titulo": "Coxinha",
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
-          "valor": "R$6,00",
+          "valor": 6,
           "conteudo": "",
           "imagem": "img/itens/coxinha.png",
           "disponivel": true,
@@ -415,14 +414,14 @@
     },
     {
       "id": "5",
-      "nome": "Paçaí",
+      "nome": "Paçaí ID 5",
       "campus": "Contagem",
       "itens": [
         {
           "id": 5,
           "titulo": "Pão de queijo",
           "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
-          "valor": "R$5,50",
+          "valor": 5.5,
           "conteudo": "",
           "imagem": "img/itens/paoDeQueijo.png",
           "disponivel": true,
@@ -435,7 +434,7 @@
           "id": 6,
           "titulo": "Empada",
           "descricao": "Empada salgada com recheio cremoso e massa leve, ótima para o lanche.",
-          "valor": "R$6,50",
+          "valor": 6.5,
           "conteudo": "",
           "imagem": "img/itens/empada.png",
           "disponivel": true,
@@ -448,7 +447,7 @@
           "id": 7,
           "titulo": "Coca-Cola lata",
           "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
-          "valor": "R$5,50",
+          "valor": 5.5,
           "conteudo": "350ml",
           "imagem": "img/itens/cocaLata.png",
           "disponivel": true,
@@ -461,7 +460,7 @@
           "id": 8,
           "titulo": "Sanduíche",
           "descricao": "Sanduíche natural leve e saboroso, feito com ingredientes frescos.",
-          "valor": "R$7,50",
+          "valor": 7.5,
           "conteudo": "",
           "imagem": "img/itens/sanduiche.png",
           "disponivel": true,

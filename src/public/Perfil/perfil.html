@@ -1,4 +1,3 @@
-
 <!--Website: wwww.codingdung.com-->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodingDung | Profile Template</title>
     <link rel="stylesheet" href="css/perfil.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,30 +36,15 @@
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
-                            <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
-                                    class="d-block ui-w-80">
-                                <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
-                                        Inserir nova foto
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                    <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
-                                </div>
-                            </div>
                             <hr class="border-light m-0">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="Nelle Maxwell">
+                                    <label class="form-label">Nome</label>
+                                    <input type="text" id="userName" class="form-control" value="">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="nmaxwell@mail.com">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">CPF</label>
-                                    <input type="number" class="form-control" value="3242345355">
+                                    <input type="text" id="userEmail" class="form-control mb-1" value="">
                                 </div>
                             </div>
                         </div>
@@ -68,15 +52,15 @@
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Senha atual</label>
-                                    <input type="password" class="form-control">
+                                    <input id="inputSenha" type="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nova Senha</label>
-                                    <input type="password" class="form-control">
+                                    <input id="inputNovaSenha1" type="password" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Repita a nova senha</label>
-                                    <input type="password" class="form-control">
+                                    <input id="inputNovaSenha2" type="password" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -145,39 +129,94 @@
     <script src="js/perfil.js"></script>
 
     <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener("DOMContentLoaded", () => {
+            const usuarioJSON = sessionStorage.getItem("usuarioLogado");
+            if (!usuarioJSON) return window.location.href = "login.html";
+            window.usuario = JSON.parse(usuarioJSON);
 
-    // 1. Selecionar os elementos com os quais vamos trabalhar.
-    const navLinks = document.querySelectorAll('.account-settings-links a[data-toggle="list"]');
-    const actionButtonsWrapper = document.getElementById('action-buttons-wrapper');
-    const linkHistorico = document.querySelector('a[href="#account-social-links"]');
+            document.getElementById("userName").value = usuario.nome;
+            document.getElementById("userEmail").value = usuario.email;
 
-    // 2. Criar a função que decide se os botões devem ser mostrados ou escondidos.
-    function gerenciarVisibilidadeBotoes(abaAtiva) {
-        // Verifica se a aba que está ativa é a aba do histórico.
-        if (abaAtiva === linkHistorico) {
-            actionButtonsWrapper.style.display = 'none'; // Esconde os botões.
-        } else {
-            actionButtonsWrapper.style.display = 'block'; // Mostra os botões.
-        }
-    }
+            const inputSenha = document.getElementById("inputSenha");
+            const inputNova1 = document.getElementById("inputNovaSenha1");
+            const inputNova2 = document.getElementById("inputNovaSenha2");
+            [inputSenha, inputNova1, inputNova2].forEach(i => i.value = "");
+            inputNova1.disabled = inputNova2.disabled = true;
 
-    // 3. Adicionar um "ouvinte" para o clique em cada link da navegação.
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            
-            gerenciarVisibilidadeBotoes(event.currentTarget);
+            inputSenha.addEventListener("input", () => {
+                const ok = inputSenha.value === usuario.senha;
+                inputNova1.disabled = inputNova2.disabled = !ok;
+            });
         });
-    });
 
-    const abaInicialAtiva = document.querySelector('.account-settings-links a.active');
-    if (abaInicialAtiva) {
-        gerenciarVisibilidadeBotoes(abaInicialAtiva);
-    }
-});
+        document.getElementById("btnSaveChanges").addEventListener("click", () => {
+            const novoNome = document.getElementById("userName").value.trim();
+            const novoEmail = document.getElementById("userEmail").value.trim();
+            const inputSenha = document.getElementById("inputSenha");
+            const inputNova1 = document.getElementById("inputNovaSenha1");
+            const inputNova2 = document.getElementById("inputNovaSenha2");
+
+            const payload = {};
+            if (novoNome !== usuario.nome) payload.nome = novoNome;
+            if (novoEmail !== usuario.email) payload.email = novoEmail;
+
+            // Troca de senha?
+            if (inputSenha.value || inputNova1.value || inputNova2.value) {
+                if (inputSenha.value !== usuario.senha) {
+                    return alert("Senha atual incorreta.");
+                }
+                if (!inputNova1.value || inputNova1.value !== inputNova2.value) {
+                    return alert("As novas senhas não conferem.");
+                }
+                if (inputNova1.value.length < 6) {
+                    return alert("A nova senha deve ter no mínimo 6 caracteres.");
+                }
+                payload.senha = inputNova1.value;
+            }
+
+            if (Object.keys(payload).length === 0) {
+                return alert("Nenhuma alteração a ser salva.");
+            }
+
+            fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+                .then(res => {
+                    if (!res.ok) throw new Error(`Status ${res.status}`);
+                    return res.json();
+                })
+                .then(usuarioAtualizado => {
+                    sessionStorage.setItem("usuarioLogado", JSON.stringify(usuarioAtualizado));
+                    window.usuario = usuarioAtualizado;
+
+                    // limpa campos de senha
+                    document.getElementById("inputSenha").value = "";
+                    inputNova1.value = inputNova2.value = "";
+                    inputNova1.disabled = inputNova2.disabled = true;
+
+                    alert("Perfil atualizado com sucesso!");
+                })
+                .catch(err => {
+                    console.error("Erro ao atualizar perfil:", err);
+                    alert("Não foi possível salvar as mudanças. Tente novamente.");
+
+
+                });
+        });
+
+        document.getElementById("btnCancel").addEventListener("click", () => {
+            document.getElementById("userName").value = usuario.nome;
+            document.getElementById("userEmail").value = usuario.email;
+            const inputSenha = document.getElementById("inputSenha");
+            const inputNova1 = document.getElementById("inputNovaSenha1");
+            const inputNova2 = document.getElementById("inputNovaSenha2");
+            [inputSenha, inputNova1, inputNova2].forEach(i => i.value = "");
+            inputNova1.disabled = inputNova2.disabled = true;
+        });
+
     </script>
 </body>
 
 </html>
-
