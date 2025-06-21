@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("criaCards.js carregado"); // Confirma carregamento do script
+    console.log("Parâmetros da URL:", window.location.search);
+
     // --- SETUP INICIAL ---
     const params = new URLSearchParams(window.location.search);
     const idLanchonete = params.get("id");
@@ -29,14 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const adicionarAoCarrinho = (item) => {
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
         const itemExistente = carrinho.find(i => i.id === item.id);
-        
+
         if (itemExistente) {
             itemExistente.quantidade++;
         } else {
-            // Mapeia os campos corretamente para o objeto do carrinho
             const itemParaCarrinho = {
                 id: item.id,
-                nome: item.titulo, // Correção: usa item.titulo para a propriedade nome
+                nome: item.titulo,
                 imagem: item.imagem,
                 valor: item.valor,
                 nomeLanchonete: item.nomeLanchonete,
@@ -44,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             carrinho.push(itemParaCarrinho);
         }
-        
+
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        window.dispatchEvent(new Event('storageChanged')); // Notifica outras partes da aplicação
+        window.dispatchEvent(new Event('storageChanged'));
         mostrarFeedbackAdicionado(item.titulo);
     };
 
@@ -64,29 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // --- RENDERIZAÇÃO DOS CARDS ---
-    const renderizarCards = (itens) => {
+    function renderizarCards(itens) {
+        console.log("Renderizando cards:", itens); // Ajuda na depuração
+
         const headerLanchonete = cardsContainer.querySelector('.text-center');
         let containerParaRenderizar;
 
         if (headerLanchonete) {
-            // Se o cabeçalho da lanchonete existe, limpa apenas os cards de itens
             const itensAnteriores = cardsContainer.querySelector('.row');
             if (itensAnteriores) itensAnteriores.remove();
-            
+
             containerParaRenderizar = document.createElement('div');
             containerParaRenderizar.className = "row justify-content-center w-100";
             cardsContainer.appendChild(containerParaRenderizar);
         } else {
-            // Se não houver cabeçalho, limpa tudo e cria um novo container
             cardsContainer.innerHTML = '';
-            containerParaRenderizar = cardsContainer;
+            containerParaRenderizar = document.createElement('div');
+            containerParaRenderizar.className = "row justify-content-center w-100";
+            cardsContainer.appendChild(containerParaRenderizar);
         }
+
 
         if (itens.length === 0 && campoBusca.value) {
             containerParaRenderizar.innerHTML = `<p class="text-white">Nenhum item encontrado para "${campoBusca.value}".</p>`;
             return;
         }
-        
+
         itens.forEach(item => {
             const estiloIndisponivel = !item.disponivel ? 'style="filter: opacity(50%); cursor: not-allowed;"' : '';
             const botaoDesabilitado = !item.disponivel ? 'disabled' : '';
@@ -94,23 +99,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardWrapper = document.createElement('div');
             cardWrapper.className = "m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex";
             cardWrapper.innerHTML = `
-                <div class="card h-100 w-100 shadow-sm" ${estiloIndisponivel}>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}">
-                        <img src="${item.imagem}" class="card-img-top" alt="${item.titulo}">
-                    </a>
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title">${item.titulo}</h5>
-                        <div class="avaliacao-estrelas mb-2" data-tipo="item" data-id="${item.id}">
-                            ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela" data-index="${i+1}"></i>`).join('')}
-                        </div>
-                        <div class="mt-auto pt-2">
-                            <p class="fw-bold h5">${item.valor}</p>
-                            <button ${botaoDesabilitado} type="button" class="btn btn-primary w-100 btn-adicionar-carrinho" data-item-id="${item.id}">
-                                <i class="bi bi-cart-plus"></i> Adicionar
-                            </button>
+                <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto" ${estiloIndisponivel} style="width: 320px; transition: transform 0.3s;">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}">
+                    <img src="${item.imagem}" class="card-img-top" alt="${item.titulo}" style="height: 160px; object-fit: cover;">
+                </a>
+
+                <div class="card-body text-center d-flex flex-column px-3 py-3">
+                    <h5 class="card-title fw-semibold text-truncate mb-2" title="${item.titulo}">${item.titulo}</h5>
+
+                    <div class="avaliacao-estrelas mb-2" data-tipo="item" data-id="${item.id}">
+                        ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela text-warning" data-index="${i + 1}"></i>`).join('')}
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-between mt-auto">
+                        <p class="fw-bold h5 mx-3 mb-0">${item.valor}</p>
+
+                        <div class="d-flex align-items-center border rounded-pill px-2 py-1 ms-2">
+                            <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-quantidade" data-operacao="diminuir" data-item-id="${item.id}">−</button>
+                            <span class="mx-2 quantidade-item" data-item-id="${item.id}">0</span>
+                            <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-quantidade" data-operacao="aumentar" data-item-id="${item.id}">+</button>
                         </div>
                     </div>
                 </div>
+            </div>
             `;
             containerParaRenderizar.appendChild(cardWrapper);
         });
@@ -119,84 +130,17 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.addEventListener('click', (e) => {
                 const itemId = parseInt(e.currentTarget.dataset.itemId, 10);
                 const item = todosOsItens.find(i => i.id === itemId);
-                if (item) {
-                    adicionarAoCarrinho(item);
-                }
+                if (item) adicionarAoCarrinho(item);
             });
         });
 
-        // Inicializa as estrelas de avaliação
         containerParaRenderizar.querySelectorAll(".avaliacao-estrelas[data-tipo='item']").forEach(container => {
             const itemId = container.dataset.id;
             inicializarEstrelasGenerico(container, `avaliacaoItem_${itemId}`);
         });
-    };
+    }
 
     // --- LÓGICA DE BUSCA ---
-    const executarBusca = () => {
-        const termo = campoBusca.value.trim();
-        if (termo === "") {
-            renderizarCards(todosOsItens);
-            return;
-        }
-
-        const fuse = new Fuse(todosOsItens, { keys: ['titulo'], threshold: 0.4, ignoreLocation: true });
-        const resultado = fuse.search(termo).map(res => res.item);
-        renderizarCards(resultado);
-    };
-
-    // --- INICIALIZAÇÃO E FETCH DE DADOS ---
-    fetch('http://localhost:3000/lanchonetes')
-        .then(response => response.json())
-        .then(data => {
-            if (!Array.isArray(data)) throw new Error("Formato de dados inválido.");
-
-            cardsContainer.innerHTML = '';
-            
-            let itensParaRenderizar = [];
-            
-            // Caso "Todas as lanchonetes"
-            if (idLanchonete == 0 && campusSelecionado) {
-                const lanchonetesDoCampus = data.filter(l => l.campus === campusSelecionado);
-                lanchonetesDoCampus.forEach(lanchonete => {
-                    lanchonete.itens.forEach(item => {
-                        itensParaRenderizar.push({ ...item, nomeLanchonete: lanchonete.nome });
-                    });
-                });
-            } else { // Caso uma lanchonete específica
-                const lanchonete = data.find(l => l.id == idLanchonete);
-                if (!lanchonete) return;
-
-                const lanchoneteHeader = document.createElement("div");
-                lanchoneteHeader.className = "text-white mt-4 w-100 text-center";
-                lanchoneteHeader.innerHTML = `
-                    <h3>${lanchonete.nome}</h3>
-                    <div class="avaliacao-estrelas mb-2" data-id="${lanchonete.id}" data-tipo="lanchonete">
-                        ${[1,2,3,4,5].map(i => `<i class="fa-regular fa-star estrela" data-index="${i}"></i>`).join('')}
-                    </div>
-                `;
-                cardsContainer.appendChild(lanchoneteHeader);
-                inicializarEstrelasGenerico(lanchoneteHeader.querySelector('.avaliacao-estrelas'), `avaliacaoLanchonete_${lanchonete.id}`);
-                
-                lanchonete.itens.forEach(item => {
-                    itensParaRenderizar.push({ ...item, nomeLanchonete: lanchonete.nome });
-                });
-            }
-            
-            todosOsItens = [...itensParaRenderizar];
-            renderizarCards(todosOsItens);
-        })
-        .catch(error => {
-            console.error('Erro ao buscar ou processar os dados:', error);
-            cardsContainer.innerHTML = `<p class="text-white">Erro ao carregar dados.</p>`;
-        });
-
-    // --- EVENT LISTENERS GERAIS ---
-    if(btnBusca) btnBusca.addEventListener('click', executarBusca);
-    if(campoBusca) campoBusca.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') executarBusca();
-    });
-
     function executarBusca() {
         const termo = campoBusca.value.trim();
         cardsContainer.innerHTML = '';
@@ -222,59 +166,57 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function renderizarCards(itens) {
-        const lastChild = cardsContainer.lastElementChild;
-        let elementsToAppendTo = cardsContainer;
+    // --- FETCH DE DADOS E INICIALIZAÇÃO ---
+    fetch('http://localhost:3000/lanchonetes')
+        .then(response => response.json())
+        .then(data => {
+            console.log("Lanchonetes carregadas:", data); // Para verificar retorno da API
 
-        if (lastChild && lastChild.classList.contains('text-center') && lastChild.querySelector('h3')) {
-            elementsToAppendTo = document.createElement('div');
-            elementsToAppendTo.className = "row justify-content-center w-100";
-            cardsContainer.appendChild(elementsToAppendTo);
-        } else {
+            if (!Array.isArray(data)) throw new Error("Formato de dados inválido.");
+
             cardsContainer.innerHTML = '';
-            elementsToAppendTo = cardsContainer;
-        }
+            let itensParaRenderizar = [];
 
-        itens.forEach(item => {
-            const estiloIndisponivel = !item.disponivel ? 'style="filter: opacity(40%);"' : '';
-            const botaoDesabilitado = !item.disponivel ? 'disabled' : '';
+            if (idLanchonete == 0 && campusSelecionado) {
+                const lanchonetesDoCampus = data.filter(l => l.campus === campusSelecionado);
+                lanchonetesDoCampus.forEach(lanchonete => {
+                    lanchonete.itens.forEach(item => {
+                        itensParaRenderizar.push({ ...item, nomeLanchonete: lanchonete.nome });
+                    });
+                });
+            } else {
+                const lanchonete = data.find(l => l.id == idLanchonete);
+                if (!lanchonete) return;
 
-            const cardHTML = `
-                    <div class="m-0 p-2 mt-3 col-lg-3 col-md-4 col-sm-6 col-12 d-flex">
-                    <div class="card shadow-lg rounded-4 w-100 h-100 border-0" ${estiloIndisponivel} style="transition: transform 0.3s;">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}" class="overflow-hidden rounded-top-4">
-                            <img src="${item.imagem}" class="card-img-top img-fluid rounded-top-4" alt="${item.titulo}" style="height: 180px; object-fit: cover;">
-                        </a>
-                        <div class="card-body d-flex flex-column justify-content-between p-3 text-center">
-                            <h5 class="card-title fw-semibold mb-2 text-dark">${item.titulo}</h5>
-
-                            <div class="avaliacao-estrelas mb-3" data-tipo="item" data-id="${item.id}">
-                                ${[1, 2, 3, 4, 5].map(i => `
-                                    <i class="fa-regular fa-star estrela text-warning" data-index="${i}" style="cursor: pointer;"></i>
-                                `).join('')}
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="fw-bold fs-5">${item.valor}</span>
-
-                                <div class="input-group justify-content-end" style="max-width: 120px;">
-                                    <button ${botaoDesabilitado} class="btn btn-outline-danger btn-sm" onclick="alterarQuantidade(${item.id}, -1)">-</button>
-                                    <input id="quantidade-${item.id}" type="text" class="form-control text-center px-1 py-0" value="0" readonly style="width: 40px;">
-                                    <button ${botaoDesabilitado} class="btn btn-outline-success btn-sm" onclick="alterarQuantidade(${item.id}, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
+                const lanchoneteHeader = document.createElement("div");
+                lanchoneteHeader.className = "text-white mt-4 w-100 text-center";
+                lanchoneteHeader.innerHTML = `
+                    <h3>${lanchonete.nome}</h3>
+                    <div class="avaliacao-estrelas mb-2" data-id="${lanchonete.id}" data-tipo="lanchonete">
+                        ${[1, 2, 3, 4, 5].map(i => `<i class="fa-regular fa-star estrela" data-index="${i}"></i>`).join('')}
                     </div>
-                </div>
-            `;
-            elementsToAppendTo.innerHTML += cardHTML;
+                `;
+                cardsContainer.appendChild(lanchoneteHeader);
+                inicializarEstrelasGenerico(lanchoneteHeader.querySelector('.avaliacao-estrelas'), `avaliacaoLanchonete_${lanchonete.id}`);
+
+                lanchonete.itens.forEach(item => {
+                    itensParaRenderizar.push({ ...item, nomeLanchonete: lanchonete.nome });
+                });
+            }
+
+            todosOsItens = [...itensParaRenderizar];
+            renderizarCards(todosOsItens);
+        })
+        .catch(error => {
+            console.error('Erro ao buscar ou processar os dados:', error);
+            cardsContainer.innerHTML = `<p class="text-white">Erro ao carregar dados.</p>`;
         });
 
-        document.querySelectorAll(".avaliacao-estrelas[data-tipo='item']").forEach(container => {
-            const itemId = container.dataset.id;
-            inicializarEstrelasGenerico(container, `avaliacaoItem_${itemId}`);
-        });
-    }
+    // --- EVENT LISTENERS GERAIS ---
+    if (btnBusca) btnBusca.addEventListener('click', executarBusca);
+    if (campoBusca) campoBusca.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') executarBusca();
+    });
 
     function inicializarEstrelasGenerico(container, chaveLocal) {
         const estrelas = container.querySelectorAll(".estrela");
@@ -289,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 destacarEstrelas(estrelas, index + 1);
             });
         });
-    };
+    }
 
     const destacarEstrelas = (estrelas, nota) => {
         estrelas.forEach((estrela, i) => {
