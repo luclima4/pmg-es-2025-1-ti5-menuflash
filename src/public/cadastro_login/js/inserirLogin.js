@@ -29,13 +29,13 @@
                 linksHTML = `
             <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link fs-5" href="#">Cadastro de Itens</a>
+                    <a class="nav-link fs-5" href="../cadastro_de_itens/cadastroDeItens.html">Cadastro de Itens</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fs-5" href="../perfil/perfil.html">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair da Conta</a>
+                    <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair</a>
                 </li>
             </ul>
         `;
