@@ -14,7 +14,7 @@
   function sairUsuario(event) {
     event.preventDefault();
     sessionStorage.removeItem('usuarioLogado');
-    window.location.href = "cadastro_login/login.html";
+    location.reload(); // isso recarrega a página atual
   }
 
   // Gera os links no cabeçalho assim que a página carrega
@@ -38,7 +38,7 @@
               <a class="nav-link fs-5" href="../perfil/perfil.html">Perfil</a>
             </li>
             <li class="nav-item">
-              <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair</a>
+              <a id="sairLink" class="nav-link fs-5" href="#">Sair</a>
             </li>
           </ul>
         `;
@@ -49,7 +49,7 @@
               <a class="nav-link fs-5" href="../perfil/perfil.html">Perfil</a>
             </li>
             <li class="nav-item">
-              <a id="sairLink" class="nav-link fs-5" href="../cadastro_login/login.html">Sair</a>
+              <a id="sairLink" class="nav-link fs-5" href="#">Sair</a>
             </li>
           </ul>
         `;
