@@ -136,10 +136,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela" data-index="${i+1}"></i>`).join('')}
                     </div>
 
-                    <div class="mt-auto pt-2">
-                         <p class="fw-bold h5">R$ ${typeof item.valor === 'number' ? item.valor.toFixed(2).replace('.', ',') : 'N/A'}</p>
-                        <div class="input-group justify-content-center" ${estiloIndisponivel}>
-                            <button ${botaoDesabilitado} class="btn btn-outline-danger btn-diminuir-qnt" type="button" data-item-id="${item.id}">-</button>
+                    <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
+                        <p class="fw-bold h5 mb-0 mx-2">R$ ${typeof item.valor === 'number' ? item.valor.toFixed(2).replace('.', ',') : 'N/A'}</p>
+                        
+                        <div class="input-group ms-2" style="max-width: 130px;" ${estiloIndisponivel}>
+                            <button ${botaoDesabilitado} class="btn btn-outline-danger btn-diminuir-qnt" type="button" data-item-id="${item.id}">−</button>
                             <input type="text" class="form-control text-center quantity-input" value="${quantidadeNoCarrinho}" readonly data-item-id="${item.id}" style="max-width: 50px; user-select: none; background-color: #fff;">
                             <button ${botaoDesabilitado} class="btn btn-outline-success btn-aumentar-qnt" type="button" data-item-id="${item.id}">+</button>
                         </div>
