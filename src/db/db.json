@@ -177,6 +177,22 @@
       "lanchoneteId": "3"
     }
   ],
+  "carrinhos": [
+    {
+      "id": "0d59",
+      "userId": "1",
+      "itens": [
+        {
+          "id": 3,
+          "nome": "Açaí",
+          "imagem": "img/itens/acai.png",
+          "valor": "7",
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 2
+        }
+      ]
+    }
+  ],
   "lanchonetes": [
     {
       "id": "1",
