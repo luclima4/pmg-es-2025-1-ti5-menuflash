@@ -146,19 +146,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const botaoDesabilitado = !item.disponivel ? 'disabled' : '';
 
             const cardHTML = `
-                <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
-                    <div class="card h-100 w-100 shadow-sm" ${estiloIndisponivel}>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}">
-                            <img src="${item.imagem}" class="card-img-top" alt="${item.titulo}">
+                    <div class="m-0 p-2 mt-3 col-lg-3 col-md-4 col-sm-6 col-12 d-flex">
+                    <div class="card shadow-lg rounded-4 w-100 h-100 border-0" ${estiloIndisponivel} style="transition: transform 0.3s;">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}" class="overflow-hidden rounded-top-4">
+                            <img src="${item.imagem}" class="card-img-top img-fluid rounded-top-4" alt="${item.titulo}" style="height: 180px; object-fit: cover;">
                         </a>
-                        <div class="card-body text-center d-flex flex-column">
-                            <h5 class="card-title">${item.titulo}</h5>
-                            <div class="avaliacao-estrelas mb-2" data-tipo="item" data-id="${item.id}">
-                                ${[1, 2, 3, 4, 5].map(i => `<i class="fa-regular fa-star estrela" data-index="${i}"></i>`).join('')}
+                        <div class="card-body d-flex flex-column justify-content-between p-3 text-center">
+                            <h5 class="card-title fw-semibold mb-2 text-dark">${item.titulo}</h5>
+
+                            <div class="avaliacao-estrelas mb-3" data-tipo="item" data-id="${item.id}">
+                                ${[1, 2, 3, 4, 5].map(i => `
+                                    <i class="fa-regular fa-star estrela text-warning" data-index="${i}" style="cursor: pointer;"></i>
+                                `).join('')}
                             </div>
-                            <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
-                                <span class="fw-bold">${item.valor}</span>
-                                <button ${botaoDesabilitado} type="button" class="btn btn-outline-secondary btn-sm">Adicionar ao carrinho</button>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold fs-5">${item.valor}</span>
+
+                                <div class="input-group justify-content-end" style="max-width: 120px;">
+                                    <button ${botaoDesabilitado} class="btn btn-outline-danger btn-sm" onclick="alterarQuantidade(${item.id}, -1)">-</button>
+                                    <input id="quantidade-${item.id}" type="text" class="form-control text-center px-1 py-0" value="0" readonly style="width: 40px;">
+                                    <button ${botaoDesabilitado} class="btn btn-outline-success btn-sm" onclick="alterarQuantidade(${item.id}, 1)">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
