@@ -45,7 +45,7 @@
             {
               "produto_id": "6",
               "nome": "Pão de Queijo Recheado",
-              "imagem": "principal/img/itens/",
+              "imagem": "../principal/img/itens/paoDeQueijo.png",
               "quantidade": 1,
               "preco_unitario": 7.5,
               "subtotal": 7.5
@@ -53,7 +53,7 @@
             {
               "produto_id": "7",
               "nome": "Coca-Cola lata",
-              "imagem": "principal/img/itens/cocaLata.png",
+              "imagem": "../principal/img/itens/cocaLata.png",
               "quantidade": 1,
               "preco_unitario": 5.5,
               "subtotal": 5.5
