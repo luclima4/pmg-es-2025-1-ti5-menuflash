@@ -180,7 +180,7 @@
   "lanchonetes": [
     {
       "id": "1",
-      "nome": "Prédio 18 ID 1",
+      "nome": "Prédio 18",
       "campus": "Coração Eucarístico",
       "itens": [
         {
@@ -237,7 +237,7 @@
     },
     {
       "id": "2",
-      "nome": "Central ID 2",
+      "nome": "Central",
       "campus": "Coração Eucarístico",
       "itens": [
         {
@@ -296,7 +296,7 @@
     },
     {
       "id": "3",
-      "nome": "Prédio 29 ID 3",
+      "nome": "Prédio 29",
       "campus": "Coração Eucarístico",
       "itens": [
         {
@@ -355,7 +355,7 @@
     },
     {
       "id": "4",
-      "nome": "Paçaki ID 4",
+      "nome": "Paçaki",
       "campus": "Contagem",
       "itens": [
         {
@@ -414,7 +414,7 @@
     },
     {
       "id": "5",
-      "nome": "Paçaí ID 5",
+      "nome": "Paçaí",
       "campus": "Contagem",
       "itens": [
         {
