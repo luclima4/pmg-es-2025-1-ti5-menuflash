@@ -10,25 +10,32 @@
   <link rel="stylesheet" href="css/campusContagem.css">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" /> <!-- MAPBOX CSS -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script> <!-- MAPBOX JS -->
+  <style>
+    .carrinho-icon { position: relative; cursor: pointer; }
+    .carrinho-contador {
+      position: absolute; top: -5px; right: -10px;
+      background-color: #dc3545; color: white;
+      border-radius: 50%; width: 22px; height: 22px;
+      font-size: 0.75rem; display: flex; align-items: center;
+      justify-content: center; font-weight: bold; border: 2px solid white;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="bg-white py-1 px-2 d-flex align-items-center">
-    <div class="logo-container my-3 d-flex align-items-center gap-3">
+  <header class="bg-white py-1 px-2 d-flex align-items-center justify-content-between shadow-sm">
+    <div class="logo-container my-3">
       <a href="index.html">
         <img src="img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid" style="max-height: 80px;">
       </a>
-      <a href="../carrinho/carrinho.html" id="link-carrinho" title="Ver carrinho">
-        <i class="fa fa-shopping-cart" style="font-size: 2rem; color: #ff0000;"></i>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="fw-bold text-dark px-5 d-flex gap-4" id="linksDoUsuario"></div>
+      <a href="../carrinho/index.html" class="carrinho-icon text-dark text-decoration-none">
+        <i class="bi bi-cart3 fs-2"></i>
+        <span class="carrinho-contador" style="display: none;">0</span>
       </a>
     </div>
-
-    <!-- Login/ Perfil/ Cadastre-se/ Cadastrar Item  -->
-    <div class="fw-bold text-dark px-5 d-flex gap-4" id="linksDoUsuario">
-
-    </div>
-
-
   </header>
 
   <!--NAVBAR-->
@@ -82,25 +89,39 @@
   <script src="js/botoesLanchonetes.js"></script>
   <script src="js/criaCards.js"></script>
 
-
   <script src="../cadastro_login/js/inserirLogin.js"></script>
 
-<script>
-  // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
-  document.addEventListener('DOMContentLoaded', function () {
-    const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
+  <script>
+    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
+    document.addEventListener('DOMContentLoaded', function () {
+      const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
 
-    if (linkParaLogin) {
-      const urlAtual = window.location.href;
-      // A mágica acontece aqui:
-      // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
-      // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
-      linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
-    }
-  });
-</script>
+      if (linkParaLogin) {
+        const urlAtual = window.location.href;
+        // A mágica acontece aqui:
+        // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
+        // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
+        linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const atualizarContador = () => {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+        const contador = document.querySelector('.carrinho-contador');
+        if (contador) {
+          contador.textContent = totalItens;
+          contador.style.display = totalItens > 0 ? 'flex' : 'none';
+        }
+      };
+      atualizarContador();
+      window.addEventListener('storageChanged', atualizarContador);
+      window.addEventListener('storage', atualizarContador);
+    });
+  </script>
 </body>
-
-
 
 </html>
