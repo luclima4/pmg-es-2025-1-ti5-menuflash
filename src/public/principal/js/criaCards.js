@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!lanchonete) return;
 
                 const lanchoneteHeader = document.createElement("div");
-                lanchoneteHeader.className = "text-white mt-4 w-100 text-center";
+                lanchoneteHeader.className = " mt-4 w-100 text-center";
                 lanchoneteHeader.innerHTML = `
                     <h3>${lanchonete.nome}</h3>
                     <div class="avaliacao-estrelas mb-2" data-id="${lanchonete.id}" data-tipo="lanchonete">

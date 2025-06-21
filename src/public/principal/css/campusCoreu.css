@@ -1,6 +1,9 @@
 body 
 {
-    background-color: #a00000;
+    background-color: rgb(240, 240, 240);
+}
+header{
+  background-color: #a00000;
 }
 .logo-container 
 {

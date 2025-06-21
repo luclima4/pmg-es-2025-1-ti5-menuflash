@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 lanchonetesFiltradas.forEach(lanchonete => {
                     const btn = document.createElement('button');
                     btn.textContent = lanchonete.nome;
-                    btn.className = 'btn btn-light btn-lg m-1';
+                    btn.className = 'btn btn-light btn-lg m-1 shadow';
+                    btn.style.border = '1px solid #ccc';
                     btn.onclick = () => {
                         window.location.href = `criaCards.html?id=${lanchonete.id}`;
                     };
@@ -99,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Botão "Sem preferência"
             const btnTodos = document.createElement('button');
             btnTodos.textContent = 'Sem preferência';
-            btnTodos.className = 'btn btn-light btn-lg m-1';
+            btnTodos.className = 'btn btn-light btn-lg m-1 shadow';
+            btnTodos.style.border = '1px solid #ccc';
             btnTodos.onclick = () => {
                 const campusParam = encodeURIComponent(campusAtual);
                 window.location.href = `criaCards.html?id=0&campus=${campusParam}`;
