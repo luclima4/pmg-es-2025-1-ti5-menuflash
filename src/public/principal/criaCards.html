@@ -187,9 +187,6 @@
 
       if (linkParaLogin) {
         const urlAtual = window.location.href;
-        // A mágica acontece aqui:
-        // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
-        // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
         linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
       }
     });
