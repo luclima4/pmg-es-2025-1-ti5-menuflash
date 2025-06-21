@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         carrinho.forEach(item => {
             const itemEl = document.createElement('div');
             itemEl.className = 'item-carrinho d-flex justify-content-between align-items-center p-3 border-bottom';
-            const itemPreco = parseFloat(item.valor.replace('R$', '').replace(',', '.'));
+            const itemPreco = typeof item.valor === 'string' 
+                ? parseFloat(item.valor.replace('R$', '').replace(',', '.'))
+                : item.valor;
             const caminhoImagem = item.imagem.startsWith('http') ? item.imagem : `../principal/${item.imagem}`;
 
             itemEl.innerHTML = `
@@ -57,7 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderizarResumo = () => {
         const carrinho = getCarrinho();
         const subtotal = carrinho.reduce((acc, item) => {
-            const preco = parseFloat(item.valor.replace('R$', '').replace(',', '.'));
+            const preco = typeof item.valor === 'string'
+                ? parseFloat(item.valor.replace('R$', '').replace(',', '.'))
+                : item.valor;
             return acc + (preco * item.quantidade);
         }, 0);
 

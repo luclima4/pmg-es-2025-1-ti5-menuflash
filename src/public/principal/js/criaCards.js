@@ -40,20 +40,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 id: item.id,
                 nome: item.titulo,
                 imagem: item.imagem,
-                valor: item.valor,
+                valor: String(item.valor),
                 nomeLanchonete: item.nomeLanchonete,
                 quantidade: 1
             };
             carrinho.push(itemParaCarrinho);
+            mostrarFeedbackAdicionado(item.titulo);
         }
 
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
         window.dispatchEvent(new Event('storageChanged'));
-        mostrarFeedbackAdicionado(item.titulo);
+    };
+
+    const removerUnidadeDoCarrinho = (item) => {
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const itemIndex = carrinho.findIndex(i => i.id === item.id);
+    
+        if (itemIndex > -1) {
+            const itemExistente = carrinho[itemIndex];
+            itemExistente.quantidade--;
+    
+            if (itemExistente.quantidade <= 0) {
+                carrinho.splice(itemIndex, 1);
+            }
+    
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            window.dispatchEvent(new Event('storageChanged'));
+        }
     };
 
     const mostrarFeedbackAdicionado = (nomeItem) => {
+        document.querySelectorAll('.feedback-toast').forEach(t => t.remove());
+
         const toast = document.createElement('div');
+        toast.className = 'feedback-toast';
         toast.style.cssText = `
             position: fixed; top: 20px; right: 20px; background-color: #198754; color: white;
             padding: 1rem 1.5rem; border-radius: 0.5rem; z-index: 1050;
@@ -62,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         toast.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i> <strong>${nomeItem}</strong> foi adicionado ao carrinho!`;
         document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
+        setTimeout(() => toast.remove(), 2000);
     };
 
     // --- RENDERIZAÇÃO DOS CARDS ---
@@ -92,9 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
         itens.forEach(item => {
-            const estiloIndisponivel = !item.disponivel ? 'style="filter: opacity(50%); cursor: not-allowed;"' : '';
+            const estiloIndisponivel = !item.disponivel ? 'style="filter: opacity(50%);"' : '';
             const botaoDesabilitado = !item.disponivel ? 'disabled' : '';
+
+            const itemNoCarrinho = carrinho.find(i => i.id === item.id);
+            const quantidadeNoCarrinho = itemNoCarrinho ? itemNoCarrinho.quantidade : 0;
 
             const cardWrapper = document.createElement('div');
             cardWrapper.className = "m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex";
@@ -108,16 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h5 class="card-title fw-semibold text-truncate mb-2" title="${item.titulo}">${item.titulo}</h5>
 
                     <div class="avaliacao-estrelas mb-2" data-tipo="item" data-id="${item.id}">
-                        ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela text-warning" data-index="${i + 1}"></i>`).join('')}
+                        ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela" data-index="${i+1}"></i>`).join('')}
                     </div>
 
-                    <div class="d-flex align-items-center justify-content-between mt-auto">
-                        <p class="fw-bold h5 mx-3 mb-0">${item.valor}</p>
-
-                        <div class="d-flex align-items-center border rounded-pill px-2 py-1 ms-2">
-                            <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-quantidade" data-operacao="diminuir" data-item-id="${item.id}">−</button>
-                            <span class="mx-2 quantidade-item" data-item-id="${item.id}">0</span>
-                            <button class="btn btn-sm btn-outline-secondary px-2 py-0 btn-quantidade" data-operacao="aumentar" data-item-id="${item.id}">+</button>
+                    <div class="mt-auto pt-2">
+                         <p class="fw-bold h5">R$ ${typeof item.valor === 'number' ? item.valor.toFixed(2).replace('.', ',') : 'N/A'}</p>
+                        <div class="input-group justify-content-center" ${estiloIndisponivel}>
+                            <button ${botaoDesabilitado} class="btn btn-outline-danger btn-diminuir-qnt" type="button" data-item-id="${item.id}">-</button>
+                            <input type="text" class="form-control text-center quantity-input" value="${quantidadeNoCarrinho}" readonly data-item-id="${item.id}" style="max-width: 50px; user-select: none; background-color: #fff;">
+                            <button ${botaoDesabilitado} class="btn btn-outline-success btn-aumentar-qnt" type="button" data-item-id="${item.id}">+</button>
                         </div>
                     </div>
                 </div>
@@ -126,11 +150,34 @@ document.addEventListener("DOMContentLoaded", () => {
             containerParaRenderizar.appendChild(cardWrapper);
         });
 
-        containerParaRenderizar.querySelectorAll(".btn-adicionar-carrinho").forEach(btn => {
+        const atualizarDisplayQuantidade = (itemId) => {
+            const input = containerParaRenderizar.querySelector(`.quantity-input[data-item-id='${itemId}']`);
+            if (input) {
+                const carrinhoAtualizado = JSON.parse(localStorage.getItem('carrinho')) || [];
+                const itemNoCarrinho = carrinhoAtualizado.find(i => i.id === itemId);
+                input.value = itemNoCarrinho ? itemNoCarrinho.quantidade : 0;
+            }
+        };
+
+        containerParaRenderizar.querySelectorAll(".btn-aumentar-qnt").forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const itemId = parseInt(e.currentTarget.dataset.itemId, 10);
                 const item = todosOsItens.find(i => i.id === itemId);
-                if (item) adicionarAoCarrinho(item);
+                if (item) {
+                    adicionarAoCarrinho(item);
+                    atualizarDisplayQuantidade(itemId);
+                }
+            });
+        });
+
+        containerParaRenderizar.querySelectorAll(".btn-diminuir-qnt").forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const itemId = parseInt(e.currentTarget.dataset.itemId, 10);
+                const item = todosOsItens.find(i => i.id === itemId);
+                if (item) {
+                    removerUnidadeDoCarrinho(item);
+                    atualizarDisplayQuantidade(itemId);
+                }
             });
         });
 
