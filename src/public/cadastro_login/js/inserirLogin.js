@@ -10,24 +10,19 @@
     return true;
   }
 
-  // Desloga o usuário e volta para a tela de login (sem redirectUrl)
+  // Desloga o usuário e recarrega página
   function sairUsuario(event) {
     event.preventDefault();
     sessionStorage.removeItem('usuarioLogado');
-    location.reload(); // isso recarrega a página atual
+    location.reload(); 
   }
 
-  // Gera os links no cabeçalho assim que a página carrega
   window.onload = () => {
     const linksContainer = document.querySelector('#linksDoUsuario');
     let linksHTML = '';
 
-    // Prepara o redirectParam para levar o usuário de volta à página atual
-    const redirectParam = encodeURIComponent(window.location.href);
-    const loginHref = `../cadastro_login/login.html?redirectUrl=${redirectParam}`;
-
     if (checarUsuarioLogado()) {
-      // Se já está logado
+      
       if (usuario.tipo === 'administrador') {
         linksHTML = `
           <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
@@ -59,7 +54,7 @@
       linksHTML = `
         <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
           <li class="nav-item">
-            <a class="nav-link fs-5" href="${loginHref}">Entrar</a>
+            <a class="nav-link fs-5" href="../cadastro_login/login.html">Entrar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link fs-5" href="../cadastro_login/cadastroUsuario.html">Cadastre-se</a>
