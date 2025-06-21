@@ -179,7 +179,7 @@
 
   <script src="../cadastro_login/js/inserirLogin.js"></script>
   <script src="../modal/js/modal.js"></script>
-  
+
   <script>
     // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
     document.addEventListener('DOMContentLoaded', function () {
@@ -210,6 +210,20 @@
       // Atualiza ao carregar a página e quando o storage muda
       atualizarContador();
       window.addEventListener('storageChanged', atualizarContador);
+    });
+  </script>
+
+  <script>
+    //PECA NOVAMENTE só aparece logado
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuarioLogado = sessionStorage.getItem('usuarioLogado');
+
+      if (usuarioLogado) {
+        const pecaNav = document.getElementById("navPecaNovamente");
+        if (pecaNav) {
+          pecaNav.style.display = "block";
+        }
+      }
     });
   </script>
 
