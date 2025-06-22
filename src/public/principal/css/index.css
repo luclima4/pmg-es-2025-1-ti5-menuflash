@@ -1,5 +1,4 @@
-body 
-{
+body {
   background-color: rgb(240, 240, 240);
   height: 100%;
   margin: 0;
@@ -7,6 +6,7 @@ body
   display: flex;
   flex-direction: column;
 }
+
 html {
   height: 100%;
   margin: 0;
@@ -14,22 +14,20 @@ html {
   display: flex;
   flex-direction: column;
 }
+
 main {
   flex: 1;
 }
-.header-cor
-{
+
+.header-cor {
   background-color: white;
 }
-.logo-container 
-{
+
+.logo-container {
   flex: 1;
   justify-content: center;
 }
-.logo-img 
-{
-  max-height: 130px;
-}
+
 .card-img {
   filter: brightness(50%);
 }
@@ -37,11 +35,10 @@ main {
 header {
   background-color: #a00000;
 }
+
 footer {
   background-color: #a00000;
 }
-
-
 
 #voltar {
   position: absolute;
@@ -51,12 +48,27 @@ footer {
   color: black;
 }
 
-#tituloPrincipal{
+#tituloPrincipal {
   font-family: "Poppins", sans-serif;
-    margin-top: 7px;
-    font-weight: 200;
-    font-style: normal;
-    color: rgb(0, 0, 0);
-    font-size: 30px; 
+  margin-top: 7px;
+  font-weight: 200;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
 }
 
+.dropdown-menu {
+  background-color: #a00000 !important;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item {
+  color: white !important;
+  background-color: transparent !important;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #a5a5a5 !important;
+}

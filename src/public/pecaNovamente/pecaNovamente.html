@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
@@ -34,43 +38,79 @@
     font-weight: bold;
     border: 2px solid white;
   }
+
+  .dropdown-menu {
+  background-color: #a00000 !important;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item {
+  color: white !important;
+  background-color: transparent !important;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #a5a5a5 !important;
+}
 </style>
+
 </head>
 
 <body>
-  <header class=" py-3 px-4 d-flex align-items-center justify-content-between shadow-sm"
-    style="background-color: #a00000 !important;">
-    <div class="logo-container">
-      <img src="../principal/img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img"
-        style="max-height: 80px;">
-    </div>
-    <div class="d-flex align-items-center">
-      <div class="fw-bold text-white px-5 d-flex gap-4" id="linksDoUsuario"></div>
-      <a href="../carrinho/index.html" class="carrinho-icon text-white text-decoration-none">
-        <i class="bi bi-cart3 fs-2"></i>
-        <span class="carrinho-contador" style="display: none;">0</span>
-      </a>
-    </div>
-  </header>
+   <header class="py-4">
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand fs-3" href="index.html">
+                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+                </a>
 
-  <body>
+                <!-- Botão de colapso (mobile) -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <!--NAVBAR-->
+                <!-- Itens do menu -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.html">Alterar Campus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
+                        </li>
+                        <li>
+                            <a href="../carrinho/index.html" class="dropdown-item text-white">
+                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
+                                <span class="carrinho-contador" style="display: none;">0</span>
+                            </a>
+                        </li>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="../principal/index.html">Alterar Campus</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark active" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+                                <li>
+                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
 
     <!--CARDS-->
 
@@ -164,7 +204,9 @@
                 ${[...Array(5)].map((_, i) => `<i class="fa-regular fa-star estrela text-warning" data-index="${i + 1}"></i>`).join('')}
               </div>
               <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
-                <p class="fw-bold">${itemData.quantidade} x R\$${itemData.preco_unitario.toFixed(2).replace('.', ',')}</p>
+                <p class="fw-bold">
+                  ${itemData.quantidade ?? 1} x R\$${(itemData.preco_unitario ?? 0).toFixed(2).replace('.', ',')}
+                </p>
                 <div class="input-group ms-2" style="max-width:130px;">
                   <button ${botaoDesabilitado} class="btn btn-outline-danger btn-diminuir-qnt" data-item-id="${itemData.id}">−</button>
                   <input type="text" readonly class="form-control text-center quantity-input" data-item-id="${itemData.id}" value="${quantidadeNoCarrinho}" style="max-width:50px;">

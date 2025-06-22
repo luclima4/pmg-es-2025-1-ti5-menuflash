@@ -7,6 +7,7 @@
     <title>Início</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -38,63 +39,56 @@
 
 <body>
     <header class="py-4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top" style="background-color: #a00000 !important;">
-        <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand fs-3" href="index.html">
-            <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-        </a>
-
-        <!-- Botão hamburguer (mobile) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavContent"
-            aria-controls="navbarNavContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Tudo que colapsa em mobile -->
-        <div class="collapse navbar-collapse" id="navbarNavContent">
-            <!-- Links padrão -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Alterar Campus</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-            </li>
-            </ul>
-
-            <!-- Desktop: Dropdown Conta -->
-            <div class="dropdown d-none d-lg-block">
-            <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Conta
-            </button>
-            <ul style="background-color: #a00000 ;" class="dropdown-menu dropdown-menu-end text-white border-0" aria-labelledby="dropdownMenuButton">
-                <li><div id="linksDoUsuarioDesktop"></div></li>
-                <li><a style="text-decoration: none;" href="../carrinho/index.html" class="text-white">
-                <i class="bi bi-cart3 me-2"></i> Carrinho
-                <span class="carrinho-contador" style="display: none;">0</span>
-                </a></li>
-            </ul>
-            </div>
-
-            <!-- Mobile: versão que aparece no colapso -->
-            <ul class="navbar-nav d-lg-none">
-                
-            <li><div id="linksDoUsuario" class="dropdown-item text-white"></div></li>
-            <li class="nav-item">
-                <a href="../carrinho/index.html" class="nav-link text-white">
-                <i class="bi bi-cart3 me-2"></i> Carrinho <span class="carrinho-contador" style="display: none;">0</span>
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand fs-3" href="index.html">
+                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                 </a>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </nav>
-</header>
+
+                <!-- Botão de colapso (mobile) -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Itens do menu -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.html">Alterar Campus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
+                        </li>
+                        <li>
+                            <a href="../carrinho/index.html" class="dropdown-item text-white">
+                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
+                                <span class="carrinho-contador" style="display: none;">0</span>
+                            </a>
+                        </li>
+
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+                                <li>
+                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 
 

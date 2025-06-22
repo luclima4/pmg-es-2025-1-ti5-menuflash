@@ -83,23 +83,6 @@
               "subtotal": 5.5
             }
           ]
-        },
-        {
-          "pedido_id": 1750609246028,
-          "lanchonete_nome": "Desconhecida",
-          "data": "2025-06-22",
-          "hora": "13:20",
-          "total": 12,
-          "itens": [
-            {
-              "nome": "Coxinha",
-              "quantidade": 2,
-              "imagem": "../principal/img/itens/coxinha.png",
-              "subtotal": 12
-            }
-          ],
-          "status": "Concluído",
-          "forma_pagamento": "Pix"
         }
       ]
     },
@@ -260,24 +243,7 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": [
-        {
-          "id": 1,
-          "nome": "Água",
-          "imagem": "img/itens/agua.png",
-          "valor": "3.5",
-          "nomeLanchonete": "Prédio 18",
-          "quantidade": 1
-        },
-        {
-          "id": 5,
-          "nome": "Pão de queijo",
-          "imagem": "img/itens/paoDeQueijo.png",
-          "valor": "5.5",
-          "nomeLanchonete": "Central",
-          "quantidade": 1
-        }
-      ]
+      "itens": []
     }
   ],
   "lanchonetes": [
@@ -611,7 +577,7 @@
   },
   "campus": [
     {
-      "nome": "PUC MINAS - Coração Eucarístico",
+      "nome": "PU C MINAS - Coração Eucarístico",
       "mapa": "mapaCoreu.html",
       "lanchonetes": [
         {
