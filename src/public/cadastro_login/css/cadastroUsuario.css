@@ -2,17 +2,11 @@ header > a{
     text-decoration: none;
 }
 #voltar{
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 25px;
     margin: 0;
     padding: 20px;
     
-}
-
-header{
-    position: fixed;
-    top: 20px;
-    right: 20px;
 }
 
 #mainCadastro{
@@ -23,3 +17,28 @@ header{
 html, body{
     height: 100%;
 }
+
+body 
+{
+  background-color: rgb(240, 240, 240);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#btnCadastrar {
+    background-color: #a00000;
+}
+header {
+    background-color: #a00000;
+    width: 100%;
+  }

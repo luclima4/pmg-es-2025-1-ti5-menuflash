@@ -15,43 +15,51 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
     <title>Login</title>
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<body class="d-flex align-items-center" style="background-color: rgb(240, 240, 240);">
 
-    <header>
-        
+    <header class=" py-3 px-4 d-flex align-items-center justify-content-between shadow-sm"
+        style="background-color: #a00000 !important;">
+        <div class="logo-container">
+            <img src="../principal/img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img"
+                style="max-height: 80px;">
+        </div>
+        <div class="d-flex align-items-center">
+            <a href="../cadastro_login/login.html" class="text-white text-decoration-none fw-bold">Voltar</a>
+        </div>
     </header>
 
     <!-- py: padding eixo y -->
     <!-- px: padding eixo x -->
     <main id="mainCadastro" class="py-4 w-100 m-auto">
         <form id="cadastroForm">
-            <h1 class="h2 mb-3 fw-normal">Insira suas Informações</h1>
+            <h1 class="h2 mb-3 fw-normal text-black">Insira suas Informações</h1>
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" placeholder="Nome" id="inputNome" required>
-                <label for="floatingInput">Nome</label>
+                <input type="text" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Nome"
+                    id="inputNome" required>
+                <label for="floatingInput" class="text-secondary">Nome</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="email" class="form-control" placeholder="Email" id="inputEmail" required>
-                <label for="floatingInput">Email</label>
+                <input type="email" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Email"
+                    id="inputEmail" required>
+                <label for="floatingInput" class="text-secondary">Email</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="password" class="form-control" placeholder="Senha" id="inputSenha" required>
-                <label for="floatingInput">Senha</label>
+                <input type="password" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Senha"
+                    id="inputSenha" required>
+                <label for="floatingInput" class="text-secondary">Senha</label>
             </div>
 
             <div id="passwordAlert">
-
             </div>
-            
-            <small><a style="color: rgb(179, 179, 231);" href="login.html">Já tem uma conta? Faça login</a></small>
 
-            <button type="submit" class="btn btn-primary w-100 py-2 mt-2 ">Cadastrar</button>
+            <small><a class="text-secondary" href="login.html">Já tem uma conta? Faça login</a></small>
+            <button type="submit" id="btnCadastrar" class="btn btn-primary w-100 py-2 mt-2 text-light">Cadastrar</button>
         </form>
     </main>
 
@@ -59,8 +67,8 @@
 </body>
 
 <script>
-    
-    
+
+
 
 </script>
 

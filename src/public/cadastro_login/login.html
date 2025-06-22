@@ -19,37 +19,47 @@
     <title>Login</title>
 </head>
 
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<body class="d-flex align-items-center" style="background-color: rgb(240, 240, 240);">
 
-    <header>
-        
+    <header class=" py-3 px-4 d-flex align-items-center justify-content-between shadow-sm"
+        style="background-color: #a00000 !important;">
+        <div class="logo-container">
+            <img src="../principal/img/logoMenuFlash.png" alt="Logo Menu Flash" class="img-fluid logo-img"
+                style="max-height: 80px;">
+        </div>
+        <div class="d-flex align-items-center">
+            <a href="../principal/index.html" class="text-white text-decoration-none fw-bold">Voltar</a>
+        </div>
     </header>
+
 
     <!-- py: padding eixo y -->
     <!-- px: padding eixo x -->
     <main id="mainLogin" class="py-4 w-100 m-auto">
-            <form id="loginForm">
-                <h1 class="h3 mb-3 fw-normal">Insira seu Login</h1>
-                <div class="form-floating mb-2">
-                    <input type="email" class="form-control" placeholder="Email" id="inputEmail">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating mb-2">
-                    <input type="password" class="form-control" placeholder="Senha" id="inputSenha">
-                    <label for="floatingInput">Senha</label>
-                </div>
-                
-                <small><a style="color: rgb(154, 154, 223);" href="cadastroUsuario.html">Crie sua conta</a></small>
-                <button type="submit" class="btn btn-primary w-100 py-2 mt-2 ">Logar</button>
-                
-            </form>
+        <form id="loginForm">
+            <h1 class="h3 mb-3 fw-normal text-black">Insira seu Login</h1>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Email"
+                    id="inputEmail">
+                <label for="floatingInput" class="text-secondary">Email</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Senha"
+                    id="inputSenha">
+                <label for="floatingInput" class="text-secondary">Senha</label>
+            </div>
+
+            <small><a class="text-secondary" href="cadastroUsuario.html">Crie sua conta</a></small>
+            <button id="btnLogar" type="submit" class="btn w-100 py-2 mt-2 text-light">Logar</button>
+
+        </form>
     </main>
 
     <script src="js/login.js"></script>
 </body>
 
 <script>
-    
+
 </script>
 
 </html>

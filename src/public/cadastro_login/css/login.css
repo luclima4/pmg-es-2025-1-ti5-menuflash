@@ -9,17 +9,32 @@ header > a{
     
 }
 
-header{
-    position: fixed;
-    top: 20px;
-    right: 20px;
-}
-
 #mainLogin{
     max-width: 400px;
     padding: 1rem;
 }
 
-html, body{
-    height: 100%;
+body 
+{
+  background-color: rgb(240, 240, 240);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#btnLogar {
+    background-color: #a00000;
+}
+header {
+    background-color: #a00000;
+    width: 100%;
+  }
