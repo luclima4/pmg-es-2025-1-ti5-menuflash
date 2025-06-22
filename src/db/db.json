@@ -5,8 +5,6 @@
       "nome": "Lucas",
       "email": "lucas@gmail.com",
       "senha": "123456",
-      "tipo": "padrão",
-      "favoritos": [],
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
@@ -85,6 +83,23 @@
               "subtotal": 5.5
             }
           ]
+        },
+        {
+          "pedido_id": 1750609246028,
+          "lanchonete_nome": "Desconhecida",
+          "data": "2025-06-22",
+          "hora": "13:20",
+          "total": 12,
+          "itens": [
+            {
+              "nome": "Coxinha",
+              "quantidade": 2,
+              "imagem": "../principal/img/itens/coxinha.png",
+              "subtotal": 12
+            }
+          ],
+          "status": "Concluído",
+          "forma_pagamento": "Pix"
         }
       ]
     },
@@ -94,7 +109,6 @@
       "email": "cris@gmail.com",
       "senha": "123456",
       "tipo": "padrão",
-      "favoritos": [],
       "historico_de_pedidos": [
         {
           "pedido_id": "1",
@@ -219,8 +233,8 @@
     },
     {
       "id": "3",
-      "nome": "Alan",
-      "email": "alan@gmail.com",
+      "nome": "Alanzoka",
+      "email": "alanzoka@gmail.com",
       "senha": "123456",
       "tipo": "administrador",
       "lanchoneteId": "1"
@@ -239,8 +253,6 @@
       "email": "usuario1@gmail.com",
       "senha": "usuario1",
       "tipo": "padrão",
-      "favoritos": [],
-      "historico_de_pedidos": [],
       "lanchoneteId": "3"
     }
   ],
@@ -248,7 +260,24 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": []
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": "3.5",
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 5,
+          "nome": "Pão de queijo",
+          "imagem": "img/itens/paoDeQueijo.png",
+          "valor": "5.5",
+          "nomeLanchonete": "Central",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -256,7 +285,6 @@
       "id": "1",
       "nome": "Prédio 18",
       "campus": "Coração Eucarístico",
-      "favoritos": [],
       "itens": [
         {
           "id": 1,
@@ -266,7 +294,7 @@
           "conteudo": "500ml",
           "imagem": "img/itens/agua.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 17,
           "semLactose": true,
           "semGluten": true
@@ -279,7 +307,7 @@
           "conteudo": "350ml",
           "imagem": "img/itens/guaranaLata.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 11,
           "semLactose": true,
           "semGluten": false
@@ -292,7 +320,7 @@
           "conteudo": "500ml",
           "imagem": "img/itens/acai.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 9,
           "semLactose": false,
           "semGluten": true
@@ -302,11 +330,11 @@
           "titulo": "Coxinha",
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
           "valor": 6.5,
+          "quantidade": 13,
           "conteudo": "",
           "imagem": "img/itens/coxinha.png",
           "disponivel": true,
-          "favoritos": [],
-          "quantidade": 13,
+          "favorito": true,
           "semLactose": false,
           "semGluten": false
         }
@@ -316,7 +344,6 @@
       "id": "2",
       "nome": "Central",
       "campus": "Coração Eucarístico",
-      "favoritos": [],
       "itens": [
         {
           "id": 5,
@@ -326,7 +353,7 @@
           "conteudo": "",
           "imagem": "img/itens/paoDeQueijo.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 20,
           "semLactose": false,
           "semGluten": false
@@ -339,7 +366,7 @@
           "conteudo": "",
           "imagem": "img/itens/empada.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 5,
           "semLactose": false,
           "semGluten": false
@@ -352,7 +379,7 @@
           "conteudo": "350ml",
           "imagem": "img/itens/cocaLata.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 13,
           "semLactose": true,
           "semGluten": true
@@ -365,7 +392,7 @@
           "conteudo": "",
           "imagem": "img/itens/sanduiche.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 6,
           "semLactose": false,
           "semGluten": false
@@ -376,7 +403,6 @@
       "id": "3",
       "nome": "Prédio 29",
       "campus": "Coração Eucarístico",
-      "favoritos": [],
       "itens": [
         {
           "id": 9,
@@ -386,7 +412,7 @@
           "conteudo": "",
           "imagem": "img/itens/trident.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 19,
           "semLactose": true,
           "semGluten": true
@@ -399,7 +425,7 @@
           "conteudo": "",
           "imagem": "img/itens/trento.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 7,
           "semLactose": false,
           "semGluten": false
@@ -412,7 +438,7 @@
           "conteudo": "400ml",
           "imagem": "img/itens/sucoLata.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 18,
           "semLactose": true,
           "semGluten": true
@@ -425,7 +451,7 @@
           "conteudo": "200ml",
           "imagem": "img/itens/coca.png",
           "disponivel": false,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 4,
           "semLactose": true,
           "semGluten": true
@@ -445,7 +471,7 @@
           "conteudo": "500ml",
           "imagem": "img/itens/agua.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 17,
           "semLactose": true,
           "semGluten": true
@@ -458,7 +484,7 @@
           "conteudo": "350ml",
           "imagem": "img/itens/guaranaLata.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 11,
           "semLactose": true,
           "semGluten": false
@@ -471,7 +497,7 @@
           "conteudo": "500ml",
           "imagem": "img/itens/acai.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 9,
           "semLactose": false,
           "semGluten": true
@@ -484,14 +510,11 @@
           "conteudo": "",
           "imagem": "img/itens/coxinha.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 14,
           "semLactose": false,
           "semGluten": false
         }
-      ],
-      "favoritos": [
-        "lucas@gmail.com"
       ]
     },
     {
@@ -507,7 +530,7 @@
           "conteudo": "",
           "imagem": "img/itens/paoDeQueijo.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 20,
           "semLactose": false,
           "semGluten": false
@@ -520,7 +543,7 @@
           "conteudo": "",
           "imagem": "img/itens/empada.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 5,
           "semLactose": false,
           "semGluten": false
@@ -533,7 +556,7 @@
           "conteudo": "350ml",
           "imagem": "img/itens/cocaLata.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": true,
           "quantidade": 13,
           "semLactose": true,
           "semGluten": true
@@ -546,13 +569,12 @@
           "conteudo": "",
           "imagem": "img/itens/sanduiche.png",
           "disponivel": true,
-          "favoritos": [],
+          "favorito": false,
           "quantidade": 6,
           "semLactose": false,
           "semGluten": false
         }
-      ],
-      "favoritos": []
+      ]
     }
   ],
   "carrinho": {
@@ -594,18 +616,15 @@
       "lanchonetes": [
         {
           "id": "1",
-          "nome": "Lanchonete Central",
-          "favoritos": []
+          "nome": "Lanchonete Central"
         },
         {
           "id": "2",
-          "nome": "Lanchonete Prédio 18",
-          "favoritos": []
+          "nome": "Lanchonete Prédio 18"
         },
         {
           "id": "3",
-          "nome": "Lanchonete Prédio 29",
-          "favoritos": []
+          "nome": "Lanchonete Prédio 29"
         }
       ],
       "id": "05c0"
@@ -616,13 +635,11 @@
       "lanchonetes": [
         {
           "id": "4",
-          "nome": "Lanchonete Praçaki",
-          "favoritos": []
+          "nome": "Lanchonete Praçaki"
         },
         {
           "id": "5",
-          "nome": "Lanchonete Praçali",
-          "favoritos": []
+          "nome": "Lanchonete Praçali"
         }
       ],
       "id": "6da5"
