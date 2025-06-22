@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ELEMENTOS DO DOM ---
     const pixSectionEl = document.getElementById('pix-section');
     const cardSectionEl = document.getElementById('card-section');
-    
+
     const btnFinalizeOrder = document.getElementById('btn-finalize-order');
 
     const radioPix = document.getElementById('payment-pix');
@@ -58,12 +58,94 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Remove a lógica de comunicação com o servidor e apenas redireciona
-        localStorage.removeItem('carrinho');
-        localStorage.removeItem('pedidoPendente');
-        window.dispatchEvent(new Event('storageChanged'));
+        const usuarioStr = sessionStorage.getItem('usuarioLogado');
+        if (!usuarioStr) {
+            alert('Usuário não está logado.');
+            return;
+        }
+        const usuarioLogado = JSON.parse(usuarioStr);
 
-        window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
+        // 1) Busca o usuário para pegar o histórico atual
+        fetch(`${jsonServerUrl}/usuarios/${usuarioLogado.id}`)
+            .then(res => {
+                if (!res.ok) throw new Error('Falha ao buscar usuário');
+                return res.json();
+            })
+            .then(usuario => {
+                const historicoAtual = Array.isArray(usuario.historico_de_pedidos)
+                    ? usuario.historico_de_pedidos
+                    : [];
+
+                // 2) Busca as lanchonetes pra descobrir o nome da que o cliente comprou
+                return fetch(`${jsonServerUrl}/lanchonetes`)
+                    .then(res2 => {
+                        if (!res2.ok) throw new Error('Falha ao buscar lanchonetes');
+                        return res2.json();
+                    })
+                    .then(lanchonetes => {
+                        // encontra pelo ID
+                        const lanche = lanchonetes.find(l => String(l.id) === String(pedidoPendente.lanchonete_id));
+                        const nomeLanchonete = lanche ? lanche.nome : 'Desconhecida';
+
+                        // monta data e hora
+                        const agora = new Date();
+                        const data = agora.toISOString().split('T')[0];
+                        const hora = agora.toTimeString().slice(0, 5);
+
+                        // total
+                        const total = pedidoPendente.itens.reduce((acc, i) => {
+                            const preco = parseFloat(i.valor.replace('R$', '').replace(',', '.'));
+                            return acc + (preco * i.quantidade);
+                        }, 0);
+
+                        // corrige caminho das imagens e monta itens
+                        const itensParaHistorico = pedidoPendente.itens.map(i => {
+                            const src = i.imagem.startsWith('img/')
+                                ? `../principal/${i.imagem}`
+                                : i.imagem;
+                            return {
+                                nome: i.nome,
+                                quantidade: i.quantidade,
+                                imagem: src,
+                                subtotal: parseFloat(i.valor.replace('R$', '').replace(',', '.')) * i.quantidade
+                            };
+                        });
+
+                        // 3) Monta o novo registro **incluindo** o nome da lanchonete
+                        const novoRegistro = {
+                            pedido_id: Date.now(),
+                            lanchonete_id: pedidoPendente.lanchonete_id,
+                            lanchonete_nome: nomeLanchonete,     // <<< aqui!
+                            data,
+                            hora,
+                            total,
+                            itens: itensParaHistorico,
+                            status: 'Concluído',
+                            forma_pagamento: metodoPagamentoSelecionado
+                        };
+
+                        // 4) Retorna o PATCH para anexar ao histórico
+                        return fetch(`${jsonServerUrl}/usuarios/${usuario.id}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                historico_de_pedidos: [...historicoAtual, novoRegistro]
+                            })
+                        });
+                    });
+            })
+            .then(resPatch => {
+                if (!resPatch.ok) throw new Error('Falha ao atualizar histórico');
+                // 5) Limpa e redireciona
+                localStorage.removeItem('carrinho');
+                localStorage.removeItem('pedidoPendente');
+                window.dispatchEvent(new Event('storageChanged'));
+                window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
+            })
+            .catch(err => {
+                console.error('Erro ao finalizar pedido:', err);
+                alert('Ocorreu um erro ao finalizar o pedido. Tente novamente mais tarde.');
+            });
     };
 
     // --- EVENT LISTENERS ---
@@ -85,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INICIALIZAÇÃO ---
     carregarPedido();
-    if(pedidoPendente) {
+    if (pedidoPendente) {
         renderizarResumo();
     }
 }); 

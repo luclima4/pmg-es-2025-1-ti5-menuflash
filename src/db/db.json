@@ -188,15 +188,15 @@
           "imagem": "img/itens/acai.png",
           "valor": "7",
           "nomeLanchonete": "Prédio 18",
-          "quantidade": 4
+          "quantidade": 1
         },
         {
-          "id": 2,
-          "nome": "Guaraná lata",
-          "imagem": "img/itens/guaranaLata.png",
-          "valor": "5",
+          "id": 4,
+          "nome": "Coxinha",
+          "imagem": "img/itens/coxinha.png",
+          "valor": "6.5",
           "nomeLanchonete": "Prédio 18",
-          "quantidade": 3
+          "quantidade": 1
         }
       ]
     }
