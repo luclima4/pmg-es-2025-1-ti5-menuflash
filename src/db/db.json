@@ -181,24 +181,7 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": [
-        {
-          "id": 3,
-          "nome": "Açaí",
-          "imagem": "img/itens/acai.png",
-          "valor": "7",
-          "nomeLanchonete": "Prédio 18",
-          "quantidade": 1
-        },
-        {
-          "id": 4,
-          "nome": "Coxinha",
-          "imagem": "img/itens/coxinha.png",
-          "valor": "6.5",
-          "nomeLanchonete": "Prédio 18",
-          "quantidade": 1
-        }
-      ]
+      "itens": []
     }
   ],
   "lanchonetes": [
@@ -250,7 +233,8 @@
           "id": 4,
           "titulo": "Coxinha",
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
-          "valor": 6.5,
+          "valor": "6.5",
+          "quantidade": "7",
           "conteudo": "",
           "disponivel": true,
           "semLactose": false,
