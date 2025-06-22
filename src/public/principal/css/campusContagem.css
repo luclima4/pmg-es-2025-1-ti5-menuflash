@@ -36,3 +36,6 @@ header{
 #botoesLanchonete button {
   min-width: 15rem;
 }
+#navbarNavDropdown {
+  background-color: rgb(240, 240, 240);
+}
