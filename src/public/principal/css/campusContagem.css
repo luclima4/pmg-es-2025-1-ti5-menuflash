@@ -5,15 +5,7 @@ body
 header{
   background-color: #a00000;
 }
-.logo-container 
-{
-    flex: 1;
-    justify-content: center;
-}
-.logo-img 
-{
-    max-height: 130px;
-}
+
 .mapboxgl-popup-content.popup-personalizado,
 .popup-personalizado 
 {
@@ -28,14 +20,22 @@ header{
   min-width: 220px;
 }
 
-#lanchonetes-container a.btn:hover {
-  background-color: white;
-  color: #a00000;
-  border-color: white;
-}
 #botoesLanchonete button {
   min-width: 15rem;
 }
-#navbarNavDropdown {
-  background-color: rgb(240, 240, 240);
+
+.dropdown-menu {
+  background-color: #a00000 !important;
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item {
+  color: white !important;
+  background-color: transparent !important;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
+  color: #a5a5a5 !important;
 }
