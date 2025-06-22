@@ -40,3 +40,22 @@ header {
 footer {
   background-color: #a00000;
 }
+
+
+
+#voltar {
+  position: absolute;
+  font-size: 25px;
+  right: 0;
+  padding: 20px;
+  color: black;
+}
+
+#tituloPrincipal{
+  font-family: "Poppins", sans-serif;
+    margin-top: 7px;
+    font-weight: 200;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    font-size: 30px; 
+}
