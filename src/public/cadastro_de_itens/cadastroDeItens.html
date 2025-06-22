@@ -143,7 +143,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Disponivel</th>
                                 <th scope="col">Titulo</th>
-                                <th scope="col">Imagem</th>
                                 <th scope="col">Descrição</th>
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Valor</th>
@@ -155,7 +154,6 @@
                         <tbody id="tabelaFilmes">
                             <tr>
                                 <th scope="row">1</th>
-                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -287,7 +285,6 @@
             <td>${item.id}</td>
             <td>${item.disponivel ? 'Disponível' : 'Indisponível'}</td>
             <td>${item.titulo}</td>
-            <td><img src="../principal/${item.imagem}" alt="Imagem do item" style="max-height: 60px;"></td>
             <td>${item.descricao}</td>
             <td>${item.quantidade}</td>
             <td>${item.valor}</td>
@@ -305,7 +302,6 @@
                         document.getElementById("previewImagem").src = item.imagem;
                         document.getElementById("previewImagem").style.display = 'none';
                         
-                        document.getElementById("inputImagem").value = "";
 
                         document.getElementById("inputConteudo").value = item.conteudo;
                         document.getElementById("inputDescricao").value = item.descricao;
@@ -323,11 +319,11 @@
                 lerItens(itens => {
                 const maxId = itens.reduce((max, item) => Math.max(max, item.id), 0);
                 const novo = {
-                    id:  maxId + 1,                   // ou outro gerador de ID
+                    id:  maxId + 1,
                     titulo: document.getElementById("inputTitulo").value,
                     descricao: document.getElementById("inputDescricao").value,
-                    valor: document.getElementById("inputValor").value,
-                    quantidade: document.getElementById("inputQuantidade").value,
+                    valor: Number(document.getElementById("inputValor").value),
+                    quantidade: Number(document.getElementById("inputQuantidade").value),
                     conteudo: document.getElementById("inputConteudo").value,
                     disponivel: document.getElementById("selectDisponivel").value === 'disponivel',
                     semLactose: document.getElementById("opcaoA").checked,
