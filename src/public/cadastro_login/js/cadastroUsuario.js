@@ -43,6 +43,7 @@ cadastroForm.addEventListener('submit', event => {
                 email: email,
                 senha: senha,
                 tipo: "padrao",
+                favoritos: [],
                 historico: [],
             }
 

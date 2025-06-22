@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Início - MenuFlash</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
     <style>
         .carrinho-icon {
             position: relative;
@@ -21,7 +17,7 @@
         .carrinho-contador {
             position: absolute;
             top: -5px;
-            right: -10px;
+            right: 0;
             background-color: #dc3545;
             color: white;
             border-radius: 50%;
@@ -32,57 +28,46 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            border: 2px solid white;
+            border: 2px solid #a00000;
+        }
+
+        .campus-card .card-img {
+            transition: transform 0.3s ease;
+        }
+
+        .campus-card:hover .card-img {
+            transform: scale(1.05);
         }
     </style>
 </head>
 
 <body>
-    <header class="py-4">
+    <header>
         <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
             <div class="container-fluid">
-                <!-- Logo -->
                 <a class="navbar-brand fs-3" href="index.html">
                     <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                 </a>
-
-                <!-- Botão de colapso (mobile) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <!-- Itens do menu -->
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="index.html">Alterar Campus</a>
+                            <a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-                        </li>
-                        <li>
-                            <a href="../carrinho/index.html" class="dropdown-item text-white">
-                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
+                        <li class="nav-item me-2">
+                            <a href="../carrinho/index.html" class="carrinho-icon nav-link">
+                                <i class="fas fa-shopping-cart fs-4 text-white"></i>
                                 <span class="carrinho-contador" style="display: none;">0</span>
                             </a>
                         </li>
-
-                        <!-- Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                <li>
-                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
-                                </li>
-                            </ul>
+                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+                                </ul>
                         </li>
                     </ul>
                 </div>
@@ -90,96 +75,46 @@
         </nav>
     </header>
 
-
-
-    <main class="py-5 px-5 container text-center text-white">
-        <div
-            style="display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction:column;">
-            <h1 class="mb-4 text-black">Escolha seu Campus</h1>
-            <div class="row row-cols-1 row-cols-md-2 gy-3 gx-3">
+    <main class="py-5 px-md-5 container text-center" style="margin-top: 80px;">
+        <div>
+            <h1 class="mb-4 text-dark">Escolha seu Campus</h1>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                
                 <div class="col">
-                    <a href="campusCoreu.html">
-                        <div class="card bg-dark text-white border-1 shadow" style="cursor: pointer;"
-                            onclick="irParaMapa('campusCoreu')">
-                            <img src="img\campus-coreu.jpg" class="card-img" alt="Coração Eucarístico"
-                                style="height: 350px; object-fit: cover;">
-                            <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                                <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">Puc Coração Eucarístico
-                                </h4>
+                    <a href="campusCoreu.html" class="text-decoration-none">
+                        <div class="card bg-dark text-white border-0 shadow-sm campus-card">
+                            <img src="img/campus-coreu.jpg" class="card-img" alt="Coração Eucarístico" style="height: 350px; object-fit: cover;">
+                            <div class="card-img-overlay d-flex align-items-center justify-content-center" style="background-color: rgba(0,0,0,0.4);">
+                                <h4 class="card-title">PUC Coração Eucarístico</h4>
                             </div>
                         </div>
                     </a>
                 </div>
 
                 <div class="col">
-                    <a href="campusContagem.html">
-                        <div class="card bg-dark text-white border-1 shadow" style="cursor: pointer;"
-                            onclick="irParaMapa('campusContagem')">
-                            <img src="img/campus-contagem.png" class="card-img" alt="Contagem"
-                                style="height: 350px; object-fit: cover;">
-                            <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                                <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">Puc Contagem</h4>
+                    <a href="campusContagem.html" class="text-decoration-none">
+                        <div class="card bg-dark text-white border-0 shadow-sm campus-card">
+                            <img src="img/campus-contagem.png" class="card-img" alt="Contagem" style="height: 350px; object-fit: cover;">
+                            <div class="card-img-overlay d-flex align-items-center justify-content-center" style="background-color: rgba(0,0,0,0.4);">
+                                <h4 class="card-title">PUC Contagem</h4>
                             </div>
                         </div>
                     </a>
                 </div>
+
             </div>
+        </div>
     </main>
 
-    </div>
-
-    <footer class="bg-light text-black text-center py-4 mt-5" style="background-color: #a00000 !important;">
+    <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
-            <p class="mb-0 text-white">Menu Flash. Todos os direitos reservados &copy; 2025</p>
+            <p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/index.js"></script>
 
-    <script src="../cadastro_login/js/inserirLogin.js"></script>
-
-    <script>
-        // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
-        document.addEventListener('DOMContentLoaded', function () {
-            const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
-
-            if (linkParaLogin) {
-                const urlAtual = window.location.href;
-                // A mágica acontece aqui:
-                // Nós pegamos o href original e adicionamos o parâmetro `redirectUrl`.
-                // Usamos encodeURIComponent para garantir que caracteres especiais na URL não quebrem o link.
-                linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const atualizarContador = () => {
-                const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-                const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
-                const contador = document.querySelector('.carrinho-contador');
-                if (contador) {
-                    contador.textContent = totalItens;
-                    contador.style.display = totalItens > 0 ? 'flex' : 'none';
-                }
-            };
-            atualizarContador();
-            window.addEventListener('storageChanged', atualizarContador);
-            window.addEventListener('storage', atualizarContador); // Para sincronia entre abas
-        });
-
-    </script>
-
-    <script>
-        // Verificar se usuário esta logado
-        pecaNovamente = document.getElementById('pecaNovamente')
-        pecaNovamente.addEventListener('click', event => {
-
-            usuarioLogado = sessionStorage.getItem('')
-        })
-
-    </script>
-
 </body>
-
 </html>
