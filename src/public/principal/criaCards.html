@@ -116,16 +116,21 @@
   <!--CARDS-->
 
   <div class="container my-4">
-    <div class="input-group">
-      <input type="text" id="campoBusca" class="form-control shadow" placeholder="Buscar item por nome...">
-      <button id="btnBusca" class="btn btn-warning shadow">Buscar</button>
-    </div>
-  </div>
+   <div class="input-group">
+     <input type="text" id="campoBusca" class="form-control shadow" placeholder="Buscar item por nome...">
+     <button id="btnBusca" class="btn btn-warning shadow">Buscar</button>
+   </div>
+ </div>
 
-
-  <div class="container">
-    <div id="divCards"></div>
-  </div>
+ <div class="container mb-3 d-flex justify-content-start">
+     <div class="form-check form-switch">
+         <input class="form-check-input" type="checkbox" role="switch" id="filtroFavoritos">
+         <label class="form-check-label" for="filtroFavoritos">Mostrar somente favoritos</label>
+     </div>
+ </div>
+ <div class="container">
+   <div id="divCards"></div>
+ </div>
 
   <!--Modal Detalhes-->
 
@@ -147,8 +152,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
   <script src="js/criaCards.js"></script>
-  <script src="../carrinho/js/carrinho.js"></script>
-  <script src="modal/js/modal.js"></script>
+  <script src="../modal/js/modal.js"></script>  
   <script src="js/botoesLanchonetes.js"></script>
 
   <script>
