@@ -6,78 +6,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Puc Contagem</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/campusContagem.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="css/campus.css">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" /> <!-- MAPBOX CSS -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script> <!-- MAPBOX JS -->
   <style>
-        .carrinho-icon { position: relative; cursor: pointer; }
-        .carrinho-contador {
-            position: absolute; top: -5px; right: -10px;
-            background-color: #dc3545; color: white;
-            border-radius: 50%; width: 22px; height: 22px;
-            font-size: 0.75rem; display: flex; align-items: center;
-            justify-content: center; font-weight: bold; border: 2px solid white;
-        }
-    </style>
+    .carrinho-icon {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .carrinho-contador {
+      position: absolute;
+      top: -5px;
+      right: 0;
+      background-color: #dc3545;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border: 2px solid #a00000;
+    }
+
+    .campus-card .card-img {
+      transition: transform 0.3s ease;
+    }
+
+    .campus-card:hover .card-img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
-     <header class="py-4">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand fs-3" href="../principal/index.html">
-                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-                </a>
+  <header>
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+      style="background-color: #a00000 !important;">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3" href="index.html">
+          <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+        </a>
 
-                <!-- Botão de colapso (mobile) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Itens do menu -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-                        </li>
-                        <li>
-                            <a href="../carrinho/index.html" class="dropdown-item text-white">
-                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
-                                <span class="carrinho-contador" style="display: none;">0</span>
-                            </a>
-                        </li>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                <li>
-                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index.html">Alterar Campus</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-alterar-lanchonete" class="nav-link text-white" href="#" style="display: none;">Alterar
+                Lanchonete</a>
+            </li>
+            <li class="nav-item">
+              <a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html"
+                style="display: none;">Peça Novamente</a>
+            </li>
+
+            <li class="nav-item me-2">
+              <a href="../carrinho/index.html" class="carrinho-icon nav-link">
+                <i class="fas fa-shopping-cart fs-4 text-white"></i>
+                <span class="carrinho-contador" style="display: none;">0</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+              </a>
+              <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main class="text-center py-4 text-white">
-    <h2 id="nome-campus" class="mb-4 text-black">MAPA CONTAGEM</h2>
+    <h2 id="nome-campus" class="mb-4 text-black mt-5 pt-3">MAPA CONTAGEM</h2>
 
     <!-- Mapa -->
     <div class="container d-flex flex-wrap justify-content-center align-items-center gap-4">
@@ -89,9 +108,11 @@
 
     <div class="container py-3 d-flex flex-column aligin-itens-center mt-4">
       <h4 class="fs-4 text-black text-center">Selecione uma lanchonete para visualizar o cardápio</h4>
-      <div style="min-width: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;" id="botoesLanchonete" class="mb-4 mt-3"></div>
+      <div
+        style="min-width: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+        id="botoesLanchonete" class="mb-4 mt-3"></div>
       <div id="divCards" class="d-flex flex-wrap gap-3"></div>
-    </div> 
+    </div>
   </main>
 
   <footer class="bg-light text-black text-center py-4 mt-5" style="background-color: #a00000 !important;">
@@ -103,8 +124,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/campusContagem.js"></script>
   <script src="js/botoesLanchonetes.js"></script>
-  <script src="js/criaCards.js"></script>
-
   <script src="../cadastro_login/js/inserirLogin.js"></script>
 
   <script>
@@ -138,6 +157,12 @@
       window.addEventListener('storage', atualizarContador);
     });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <script src="../cadastro_login/js/inserirLogin.js"></script>
+  <script src="js/index.js"></script>
+  <script src="../modal/js/modal.js"></script>
 </body>
 
 </html>

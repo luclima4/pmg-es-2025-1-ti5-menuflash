@@ -1,89 +1,72 @@
-// Função verificar se usuário esta logado, e inserir elemento correspondente com o tipo de usuário
+// Arquivo: cadastro_login/js/inserirLogin.js
+// Versão corrigida para funcionar com o menu dropdown do Bootstrap 5
 
-// Ver se o usuario esta logado 
-    // Verifica se há um usuário logado no sessionStorage
-  let usuario = null;
-  function checarUsuarioLogado() {
-    const usuarioLogadoStr = sessionStorage.getItem('usuarioLogado');
-    if (!usuarioLogadoStr) return false;
-    usuario = JSON.parse(usuarioLogadoStr);
-    return true;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+    // Encontra o container do menu dropdown na barra de navegação
+    const menuDropdown = document.getElementById("menu-dropdown-usuario");
 
-  // Desloga o usuário e recarrega página
-  function sairUsuario(event) {
-    event.preventDefault();
-    sessionStorage.removeItem('usuarioLogado');
-    location.reload(); 
-  }
+    // Se o container do menu não for encontrado na página, não faz nada.
+    if (!menuDropdown) {
+        return;
+    }
 
-  window.onload = () => {
-    const linksContainer = document.querySelector('#linksDoUsuario');
-    let linksHTML = '';
+    // Verifica se há um usuário logado na sessionStorage
+    const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
 
-    if (checarUsuarioLogado()) {
-      
-      if (usuario.tipo === 'administrador') {
-        linksHTML = `
-          <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
-            <li class="nav-item">
-              <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_de_itens/cadastroDeItens.html">Cadastro de Itens</a>
+    let menuHTML = '';
+
+    if (usuarioLogadoJSON) {
+        // --- CASO 1: Usuário está LOGADO ---
+        const usuario = JSON.parse(usuarioLogadoJSON);
+
+        // Cria os links de Perfil e Sair como itens de lista
+        menuHTML = `
+            <li>
+                <a class="dropdown-item text-white" href="../Perfil/perfil.html">
+                    <i class="fas fa-user-circle me-2"></i> Perfil (${usuario.nome})
+                </a>
             </li>
-            <li class="nav-item">
-              <a class="dropdown-item text-light nav-link text-nowrap" href="../perfil/perfil.html">Perfil</a>
+            <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.3);"></li>
+            <li>
+                <a id="btn-sair" class="dropdown-item text-white" href="#">
+                    <i class="fas fa-sign-out-alt me-2"></i> Sair
+                </a>
             </li>
-            <li class="nav-item">
-              <a id="sairLink" class="dropdown-item text-light nav-link text-nowrap" href="#">Sair</a>
-            </li>
-          </ul>
         `;
-      } else {
-        linksHTML = `
-          <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
-            <li class="nav-item">
-              <a class="dropdown-item text-light nav-link text-nowrap" href="../perfil/perfil.html">Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a id="sairLink" class="dropdown-item text-light nav-link text-nowrap" href="#">Sair</a>
-            </li>
-          </ul>
-        `;
-      }
+        
     } else {
-      // Usuário deslogado: link de Entrar com redirectUrl
-      linksHTML = `
-        <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
-          <li class="nav-item">
-            <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_login/login.html">Entrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_login/cadastroUsuario.html">Cadastre-se</a>
-          </li>
-        </ul>
-      `;
+        // --- CASO 2: Usuário está DESLOGADO ---
+
+        // Cria o link de Login
+        menuHTML = `
+            <li>
+                <a class="dropdown-item text-white" href="../cadastro_login/login.html">
+                    <i class="fas fa-sign-in-alt me-2"></i> Entrar
+                </a>
+            </li>
+        `;
     }
 
-    if (linksContainer) {
-      linksContainer.innerHTML = linksHTML;
+    // Insere o HTML gerado dentro do menu
+    menuDropdown.innerHTML = menuHTML;
+
+    // Adiciona a funcionalidade de clique ao botão "Sair", se ele existir
+    const btnSair = document.getElementById('btn-sair');
+    if (btnSair) {
+        btnSair.addEventListener('click', (e) => {
+            e.preventDefault(); // Impede que o link mude a URL
+            if (confirm("Tem certeza que deseja sair?")) {
+                sessionStorage.removeItem('usuarioLogado');
+                // Redireciona para a página inicial após o logout
+                window.location.href = '../principal/index.html'; 
+            }
+        });
     }
 
-    // Se estiver logado, liga o evento de saída
-    if (checarUsuarioLogado()) {
-      const sairLink = document.querySelector('#sairLink');
-      if (sairLink) {
-        sairLink.addEventListener('click', sairUsuario);
-      }
+    // Lógica para adicionar redirectUrl ao link de login
+    const linkParaLogin = menuDropdown.querySelector('a[href*="login.html"]');
+    if (linkParaLogin) {
+        const urlAtual = window.location.href;
+        linkParaLogin.href += `?redirectUrl=${encodeURIComponent(urlAtual)}`;
     }
-
-
-    const desktopContainer = document.getElementById('linksDoUsuarioDesktop');
-    if (desktopContainer) {
-      desktopContainer.innerHTML = linksHTML;
-    }
-
-    // Mobile nav
-    const mobileContainer = document.getElementById('linksDoUsuarioMobileContainer');
-    if (mobileContainer) {
-      mobileContainer.insertAdjacentHTML('afterbegin', linksHTML);
-    }
-  };
+});
