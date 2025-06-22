@@ -167,6 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         localStorage.setItem('pedidoPendente', JSON.stringify(pedidoPendente));
+        // Limpar o carrinho no servidor
+        if (carrinho) {
+            carrinho.itens = [];
+            await atualizarCarrinhoServidor(carrinho);
+        }
         window.location.href = '../forma-pagamento/index.html';
     });
 
