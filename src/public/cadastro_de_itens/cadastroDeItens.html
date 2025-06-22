@@ -112,8 +112,7 @@
             <!-- Inserir imagem (a imagem não é inserida)-->
             <div class="col-md-4">
                 <label for="inputImagem" class="form-label">Imagem (*)</label>
-                <input type="file" class="form-control" id="inputImagem" accept="image/*" required
-                    onchange="handleImageSelect(event)">
+                <input type="file" class="form-control" id="inputImagem" accept="image/*" required>
 
                 <img id="previewImagem" src="" alt="Pré-visualização" class="mt-2"
                     style="max-height: 120px; display: none;">
@@ -138,7 +137,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Disponivel</th>
-                            <th scope="col">Imagem</th>
                             <th scope="col">Titulo</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Valor</th>
@@ -150,7 +148,6 @@
                     <tbody id="tabelaFilmes">
                         <tr>
                             <th scope="row">1</th>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -280,7 +277,6 @@
                 tr.innerHTML = `
         <td>${item.id}</td>
         <td>${item.disponivel ? 'Disponível' : 'Indisponível'}</td>
-        <td>${item.imagem || ''}</td>
         <td>${item.titulo}</td>
         <td>${item.descricao}</td>
         <td>${item.valor}</td>
@@ -313,13 +309,8 @@
                 disponivel: document.getElementById("selectDisponivel").value === 'disponivel',
                 semLactose: document.getElementById("opcaoA").checked,
                 semGluten: document.getElementById("opcaoB").checked,
-                imagem: ""
+                imagem: imagemBase64
             };
-
-            const inputFile = document.getElementById('inputImagem');
-            if (inputFile.dataset.filename) {
-                novo.imagem = `img/itens/${inputFile.dataset.filename}`;
-            }
 
             cadastrarItem(novo, () => lerItens(renderTable));
         });
@@ -356,25 +347,29 @@
 
         // Para funcionar a inserção de imagem
 
+        let imagemBase64 = ""; // variável global para guardar a imagem convertida
+
         function handleImageSelect(event) {
             const file = event.target.files[0];
             if (!file) return;
 
-            // exibe preview
             const reader = new FileReader();
             reader.onload = e => {
+                imagemBase64 = e.target.result;
+
+                // Mostra preview da imagem
                 const img = document.getElementById('previewImagem');
-                img.src = e.target.result;
+                img.src = imagemBase64;
                 img.style.display = 'block';
             };
             reader.readAsDataURL(file);
-
-            // armazene o nome para enviar no JSON (você mesmo copiará o arquivo para ../principal/img/itens)
-            document.getElementById('inputImagem').dataset.filename = file.name;
         }
+        
 
         // 5) onload
         window.init = init;
+        document.getElementById('inputImagem').addEventListener('change', handleImageSelect);
+        
     </script>
 
 
