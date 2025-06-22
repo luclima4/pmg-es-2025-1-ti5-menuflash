@@ -40,160 +40,161 @@
   }
 
   .dropdown-menu {
-  background-color: #a00000 !important;
-}
+    background-color: #a00000 !important;
+  }
 
-.navbar .nav-link,
-.navbar .dropdown-item {
-  color: white !important;
-  background-color: transparent !important;
-  transition: color 0.2s, text-decoration 0.2s;
-}
+  .navbar .nav-link,
+  .navbar .dropdown-item {
+    color: white !important;
+    background-color: transparent !important;
+    transition: color 0.2s, text-decoration 0.2s;
+  }
 
-.navbar .nav-link:hover,
-.navbar .dropdown-item:hover {
-  color: #a5a5a5 !important;
-}
+  .navbar .nav-link:hover,
+  .navbar .dropdown-item:hover {
+    color: #a5a5a5 !important;
+  }
 </style>
 
 </head>
 
 <body>
-   <header class="py-4">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand fs-3" href="index.html">
-                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-                </a>
+  <header class="py-4">
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+      style="background-color: #a00000 !important;">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand fs-3" href="../principal/index.html">
+          <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+        </a>
 
-                <!-- Botão de colapso (mobile) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Botão de colapso (mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Itens do menu -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="index.html">Alterar Campus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-                        </li>
-                        <li>
-                            <a href="../carrinho/index.html" class="dropdown-item text-white">
-                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
-                                <span class="carrinho-contador" style="display: none;">0</span>
-                            </a>
-                        </li>
+        <!-- Itens do menu -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
+            </li>
+            <li>
+              <a href="../carrinho/index.html" class="dropdown-item text-white">
+                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
+                <span class="carrinho-contador" style="display: none;">0</span>
+              </a>
+            </li>
 
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                <li>
-                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+                <li>
+                  <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
 
-    <!--CARDS-->
+  <!--CARDS-->
 
-    <h1 class="mb-0 text-center pb-0 pt-4">Peça Novamente</h1>
-    <div class="container py-4" id="pecaNovamente">
-      <!-- Header + cards serão inseridos aqui -->
-    </div>
+  <h1 class="mb-0 text-center pb-0 pt-4">Peça Novamente</h1>
+  <div class="container py-4" id="pecaNovamente">
+    <!-- Header + cards serão inseridos aqui -->
+  </div>
 
-    <script src="../cadastro_login/js/inserirLogin.js"></script>
+  <script src="../cadastro_login/js/inserirLogin.js"></script>
+  <script src="../carrinho/js/carrinho.js"></script>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', async () => {
-        const cardPecaNovamente = document.getElementById('pecaNovamente');
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const cardPecaNovamente = document.getElementById('pecaNovamente');
 
-        // Busca o usuário logado do sessionStorage
-        const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
-        if (!usuarioLogadoJSON) {
-          alert('Você precisa estar logado.');
-          return window.location.href = '../cadastro_login/login.html';
+      // Busca o usuário logado do sessionStorage
+      const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
+      if (!usuarioLogadoJSON) {
+        alert('Você precisa estar logado.');
+        return window.location.href = '../cadastro_login/login.html';
+      }
+      const usuario = JSON.parse(usuarioLogadoJSON);
+      const usuario_id = usuario.usuario_id || usuario.id;
+
+      try {
+        // Busca todos os usuários cadastrados
+        const resUsers = await fetch('http://localhost:3000/usuarios');
+        const jsonUsers = await resUsers.json();
+
+        // Corrige estrutura caso jsonUsers esteja diretamente no array ou dentro de "usuarios"
+        const usuarios = jsonUsers.usuarios || jsonUsers;
+        const usuarioEncontrado = usuarios.find(u => u.usuario_id == usuario_id || u.id == usuario_id);
+        if (!usuarioEncontrado) throw new Error('Usuário não encontrado');
+
+        // Seleciona o histórico de pedidos
+        const pedidos = usuarioEncontrado.historico_de_pedidos || [];
+        if (pedidos.length === 0) {
+          cardPecaNovamente.innerHTML = '<p class="text-white">Você ainda não fez nenhum pedido.</p>';
+          return;
         }
-        const usuario = JSON.parse(usuarioLogadoJSON);
-        const usuario_id = usuario.usuario_id || usuario.id;
 
-        try {
-          // Busca todos os usuários cadastrados
-          const resUsers = await fetch('http://localhost:3000/usuarios');
-          const jsonUsers = await resUsers.json();
+        // Ordena do mais recente para o mais antigo
+        pedidos.sort((a, b) => new Date(`${b.data}T${b.hora}`) - new Date(`${a.data}T${a.hora}`));
+        const ultimo = pedidos[0];
 
-          // Corrige estrutura caso jsonUsers esteja diretamente no array ou dentro de "usuarios"
-          const usuarios = jsonUsers.usuarios || jsonUsers;
-          const usuarioEncontrado = usuarios.find(u => u.usuario_id == usuario_id || u.id == usuario_id);
-          if (!usuarioEncontrado) throw new Error('Usuário não encontrado');
-
-          // Seleciona o histórico de pedidos
-          const pedidos = usuarioEncontrado.historico_de_pedidos || [];
-          if (pedidos.length === 0) {
-            cardPecaNovamente.innerHTML = '<p class="text-white">Você ainda não fez nenhum pedido.</p>';
-            return;
-          }
-
-          // Ordena do mais recente para o mais antigo
-          pedidos.sort((a, b) => new Date(`${b.data}T${b.hora}`) - new Date(`${a.data}T${a.hora}`));
-          const ultimo = pedidos[0];
-
-          // Header do pedido
-          cardPecaNovamente.innerHTML = '';
-          const header = document.createElement('div');
-          header.className = 'card-header text-light text-center p-2 mt-1';
-          header.style.backgroundColor = '#a00000';
-          header.style.maxWidth = '500px';
-          header.style.margin = '0 auto'; // Centraliza
-          header.innerHTML = `
+        // Header do pedido
+        cardPecaNovamente.innerHTML = '';
+        const header = document.createElement('div');
+        header.className = 'card-header text-light text-center p-2 mt-1';
+        header.style.backgroundColor = '#a00000';
+        header.style.maxWidth = '500px';
+        header.style.margin = '0 auto'; // Centraliza
+        header.innerHTML = `
         <span>${usuario.nome} – Pedido #${ultimo.pedido_id} – ${ultimo.data} às ${ultimo.hora}</span>`;
-          cardPecaNovamente.appendChild(header);
+        cardPecaNovamente.appendChild(header);
 
-          // Cria a linha para os cards
-          const row = document.createElement('div');
-          row.className = 'row justify-content-center w-100';
-          cardPecaNovamente.appendChild(row);
+        // Cria a linha para os cards
+        const row = document.createElement('div');
+        row.className = 'row justify-content-center w-100';
+        cardPecaNovamente.appendChild(row);
 
-          // Busca todas as lanchonetes (para encontrar os itens atuais)
-          const todosItensResponse = await fetch('http://localhost:3000/lanchonetes');
-          const todosItensJson = await todosItensResponse.json();
-          const todosItens = todosItensJson.itens || todosItensJson;
+        // Busca todas as lanchonetes (para encontrar os itens atuais)
+        const todosItensResponse = await fetch('http://localhost:3000/lanchonetes');
+        const todosItensJson = await todosItensResponse.json();
+        const todosItens = todosItensJson.itens || todosItensJson;
 
-          // Pega o carrinho atual do usuário
-          const carrinho = await getCarrinhoUsuario();
-          const itensCarrinho = carrinho?.itens || [];
+        // Pega o carrinho atual do usuário
+        const carrinho = await getCarrinhoUsuario();
+        const itensCarrinho = carrinho?.itens || [];
 
-          // Gera os cards com base nos itens do último pedido
-          ultimo.itens.forEach(histItem => {
-            const realItem = todosItens.find(i => i.id === histItem.id);
-            const disponivel = realItem ? realItem.disponivel : true;
-            const itemData = realItem || histItem;
+        // Gera os cards com base nos itens do último pedido
+        ultimo.itens.forEach(histItem => {
+          const realItem = todosItens.find(i => i.id === histItem.id);
+          const disponivel = realItem ? realItem.disponivel : true;
+          const itemData = realItem || histItem;
 
-            const quantidadeNoCarrinho = itensCarrinho.find(i => i.id === histItem.id)?.quantidade || 0;
-            const estiloIndisponivel = disponivel ? '' : 'style="filter: opacity(50%)"';
-            const botaoDesabilitado = disponivel ? '' : 'disabled';
+          const quantidadeNoCarrinho = itensCarrinho.find(i => i.id === histItem.id)?.quantidade || 0;
+          const estiloIndisponivel = disponivel ? '' : 'style="filter: opacity(50%)"';
+          const botaoDesabilitado = disponivel ? '' : 'disabled';
 
-            // Criação do card do item
-            const col = document.createElement('div');
-            col.className = 'm-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex';
-            col.innerHTML = `
+          // Criação do card do item
+          const col = document.createElement('div');
+          col.className = 'm-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex';
+          col.innerHTML = `
           <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto" ${estiloIndisponivel} style="width: 320px;">
             <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${itemData.id}">
               <img src="${itemData.imagem}" class="card-img-top" alt="${itemData.titulo}" style="height:160px; object-fit:cover;">
@@ -215,126 +216,183 @@
               </div>
             </div>
           </div>`;
-            row.appendChild(col);
+          row.appendChild(col);
+        });
+
+        // Eventos dos botões + e -
+        row.querySelectorAll('.btn-aumentar-qnt').forEach(btn => {
+          btn.addEventListener('click', async e => {
+            const id = +btn.dataset.itemId;
+            const item = ultimo.itens.find(i => i.id === id);
+            if (item) { await adicionarAoCarrinho(item); atualizar(id); }
           });
+        });
 
-          // Eventos dos botões + e -
-          row.querySelectorAll('.btn-aumentar-qnt').forEach(btn => {
-            btn.addEventListener('click', async e => {
-              const id = +btn.dataset.itemId;
-              const item = ultimo.itens.find(i => i.id === id);
-              if (item) { await adicionarAoCarrinho(item); atualizar(id); }
-            });
+        row.querySelectorAll('.btn-diminuir-qnt').forEach(btn => {
+          btn.addEventListener('click', async e => {
+            const id = +btn.dataset.itemId;
+            const item = ultimo.itens.find(i => i.id === id);
+            if (item) { await removerUnidadeDoCarrinho(item); atualizar(id); }
           });
+        });
 
-          row.querySelectorAll('.btn-diminuir-qnt').forEach(btn => {
-            btn.addEventListener('click', async e => {
-              const id = +btn.dataset.itemId;
-              const item = ultimo.itens.find(i => i.id === id);
-              if (item) { await removerUnidadeDoCarrinho(item); atualizar(id); }
-            });
+        // Atualiza o número no input de quantidade
+        function atualizar(id) {
+          getCarrinhoUsuario().then(c => {
+            const qty = c.itens.find(i => i.id === id)?.quantidade || 0;
+            const input = row.querySelector(`.quantity-input[data-item-id="${id}"]`);
+            if (input) input.value = qty;
           });
-
-          // Atualiza o número no input de quantidade
-          function atualizar(id) {
-            getCarrinhoUsuario().then(c => {
-              const qty = c.itens.find(i => i.id === id)?.quantidade || 0;
-              const input = row.querySelector(`.quantity-input[data-item-id="${id}"]`);
-              if (input) input.value = qty;
-            });
-          }
-
-          // Estrelas de avaliação
-          row.querySelectorAll('.avaliacao-estrelas').forEach(c => {
-            inicializarEstrelasGenerico(c, 'avaliacaoItem_' + c.dataset.id);
-          });
-
-        } catch (err) {
-          console.error(err);
-          cardPecaNovamente.innerHTML = '<p class="text-danger">Erro ao carregar pedidos.</p>';
         }
+
+        // Estrelas de avaliação
+        row.querySelectorAll('.avaliacao-estrelas').forEach(c => {
+          inicializarEstrelasGenerico(c, 'avaliacaoItem_' + c.dataset.id);
+        });
+
+      } catch (err) {
+        console.error(err);
+        cardPecaNovamente.innerHTML = '<p class="text-danger">Erro ao carregar pedidos.</p>';
+      }
+    });
+
+
+
+    // Stub: substitua pelas suas funções reais
+    async function getCarrinhoUsuario() {
+      const usuario = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+      if (!usuario) return null;
+
+      const res = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+      const dados = await res.json();
+      return dados[0]; // ou verifique se é array ou objeto
+    }
+
+
+    async function adicionarAoCarrinho(item) {
+      const usuario = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+      if (!usuario) return;
+
+      const carrinho = await getCarrinhoUsuario();
+      if (!carrinho) return;
+
+      const itens = carrinho.itens || [];
+      const existente = itens.find(i => i.id === item.id);
+
+      if (existente) {
+        existente.quantidade += 1;
+      } else {
+        itens.push({ ...item, quantidade: 1 });
+      }
+
+      await fetch(`http://localhost:3000/carrinhos/${carrinho.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...carrinho, itens })
       });
+    }
 
-      // Stub: substitua pelas suas funções reais
-      async function getCarrinhoUsuario() { return { itens: [] }; }
-      async function adicionarAoCarrinho(item) { console.log('Add', item.id); return; }
-      async function removerUnidadeDoCarrinho(item) { console.log('Remove', item.id); return; }
-      function inicializarEstrelasGenerico(container, key) { /* seu código de estrelas */ }
+    async function removerUnidadeDoCarrinho(item) {
+      const usuario = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+      if (!usuario) return;
 
+      const carrinho = await getCarrinhoUsuario();
+      if (!carrinho) return;
 
+      let itens = carrinho.itens || [];
+      const index = itens.findIndex(i => i.id === item.id);
 
-      // document.addEventListener('DOMContentLoaded', () => {
-      // const cardPecaNovamente = document.getElementById("pecaNovamente");
+      if (index !== -1) {
+        if (itens[index].quantidade > 1) {
+          itens[index].quantidade -= 1;
+        } else {
+          itens.splice(index, 1);
+        }
 
-      // // Pega o usuário logado do sessionStorage
-      // const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
-      // if (!usuarioLogadoJSON) {
-      // alert("Você precisa estar logado para acessar esta página.");
-      // window.location.href = "../cadastro_login/login.html";
-      // return;
-      // }
+        await fetch(`http://localhost:3000/carrinhos/${carrinho.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...carrinho, itens })
+        });
+      }
+    }
 
-      // const usuario = JSON.parse(usuarioLogadoJSON);
-      // const usuario_id = usuario.usuario_id || usuario.id;
-
-      // fetch('http://localhost:3000/usuarios')
-      // .then(res => res.json())
-      // .then(json => {
-      // const usuarios = json.usuarios || json;
-
-      // const usuarioEncontrado = usuarios.find(u => u.usuario_id == usuario_id || u.id == usuario_id);
-      // if (!usuarioEncontrado) {
-      // alert("Usuário não encontrado.");
-      // return;
-      // }
-
-      // carregarPedidos(usuarioEncontrado);
-      // })
-      // .catch(error => {
-      // console.error("Erro ao buscar usuários:", error);
-      // });
-
-      // function carregarPedidos(usuario) {
-      // const pedidos = usuario.historico_de_pedidos || usuario.historico;
-
-      // if (!pedidos || pedidos.length === 0) {
-      // cardPecaNovamente.innerHTML = "<p class='text-white'>Você ainda não fez nenhum pedido.</p>";
-      // return;
-      // }
-
-      // pedidos.sort((a, b) => new Date(`${b.data}T${b.hora}`) - new Date(`${a.data}T${a.hora}`));
-      // const ultimoPedido = pedidos[0];
-
-      // cardPecaNovamente.innerHTML = "";
-
-      // ultimoPedido.itens.forEach(item => {
-      // let cardHTML = `
-      // <div class="card-header text-light p-2 mt-1" style="background-color: #a00000;">
-      // ${usuario.nome} – Pedido #${ultimoPedido.pedido_id} – ${ultimoPedido.data} às ${ultimoPedido.hora}
-      // </div>
-      // <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
-      // <div class="card h-100 w-100 shadow-sm">
-      // <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
-      // <div class="card-body text-center d-flex flex-column">
-      // <h5 class="card-title">${item.nome}</h5>
-      // <p>${item.quantidade} x R\$${item.preco_unitario.toFixed(2).replace('.', ',')}</p>
-      // <div class="d-flex justify-content-between align-items-center">
-      // <span class="fw-bold">R\$${item.subtotal.toFixed(2).replace('.', ',')}</span>
-      // <button disabled type="button" class="btn btn-outline-secondary btn-sm">Adicionar ao carrinho</button>
-      // </div>
-      // </div>
-      // </div>
-      // </div>
-      // `;
-
-      // cardPecaNovamente.innerHTML += cardHTML;
-      // });
-      // }
-      // });
-
-    </script>
+    function inicializarEstrelasGenerico(container, key) { /* seu código de estrelas */ }
 
 
-  </body>
+
+    // document.addEventListener('DOMContentLoaded', () => {
+    // const cardPecaNovamente = document.getElementById("pecaNovamente");
+
+    // // Pega o usuário logado do sessionStorage
+    // const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
+    // if (!usuarioLogadoJSON) {
+    // alert("Você precisa estar logado para acessar esta página.");
+    // window.location.href = "../cadastro_login/login.html";
+    // return;
+    // }
+
+    // const usuario = JSON.parse(usuarioLogadoJSON);
+    // const usuario_id = usuario.usuario_id || usuario.id;
+
+    // fetch('http://localhost:3000/usuarios')
+    // .then(res => res.json())
+    // .then(json => {
+    // const usuarios = json.usuarios || json;
+
+    // const usuarioEncontrado = usuarios.find(u => u.usuario_id == usuario_id || u.id == usuario_id);
+    // if (!usuarioEncontrado) {
+    // alert("Usuário não encontrado.");
+    // return;
+    // }
+
+    // carregarPedidos(usuarioEncontrado);
+    // })
+    // .catch(error => {
+    // console.error("Erro ao buscar usuários:", error);
+    // });
+
+    // function carregarPedidos(usuario) {
+    // const pedidos = usuario.historico_de_pedidos || usuario.historico;
+
+    // if (!pedidos || pedidos.length === 0) {
+    // cardPecaNovamente.innerHTML = "<p class='text-white'>Você ainda não fez nenhum pedido.</p>";
+    // return;
+    // }
+
+    // pedidos.sort((a, b) => new Date(`${b.data}T${b.hora}`) - new Date(`${a.data}T${a.hora}`));
+    // const ultimoPedido = pedidos[0];
+
+    // cardPecaNovamente.innerHTML = "";
+
+    // ultimoPedido.itens.forEach(item => {
+    // let cardHTML = `
+    // <div class="card-header text-light p-2 mt-1" style="background-color: #a00000;">
+    // ${usuario.nome} – Pedido #${ultimoPedido.pedido_id} – ${ultimoPedido.data} às ${ultimoPedido.hora}
+    // </div>
+    // <div class="m-0 p-1 mt-2 col-md-3 col-sm-6 col-xs-8 d-flex">
+    // <div class="card h-100 w-100 shadow-sm">
+    // <img src="${item.imagem}" class="card-img-top" alt="${item.nome}">
+    // <div class="card-body text-center d-flex flex-column">
+    // <h5 class="card-title">${item.nome}</h5>
+    // <p>${item.quantidade} x R\$${item.preco_unitario.toFixed(2).replace('.', ',')}</p>
+    // <div class="d-flex justify-content-between align-items-center">
+    // <span class="fw-bold">R\$${item.subtotal.toFixed(2).replace('.', ',')}</span>
+    // <button disabled type="button" class="btn btn-outline-secondary btn-sm">Adicionar ao carrinho</button>
+    // </div>
+    // </div>
+    // </div>
+    // </div>
+    // `;
+
+    // cardPecaNovamente.innerHTML += cardHTML;
+    // });
+    // }
+    // });
+
+  </script>
+
+
+</body>
 
 </html>
