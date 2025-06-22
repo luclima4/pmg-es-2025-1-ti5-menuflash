@@ -243,7 +243,16 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": []
+      "itens": [
+        {
+          "id": 4,
+          "nome": "Coxinha",
+          "imagem": "img/itens/coxinha.png",
+          "valor": "6",
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 2
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -562,16 +571,16 @@
       },
       {
         "id": 7,
-          "titulo": "Coca-Cola lata",
-          "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
-          "valor": 5.5,
-          "conteudo": "350ml",
-          "imagem": "img/itens/cocaLata.png",
-          "disponivel": true,
-          "favorito": true,
-          "quantidade": 13,
-          "semLactose": true,
-          "semGluten": true
+        "titulo": "Coca-Cola lata",
+        "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+        "valor": 5.5,
+        "conteudo": "350ml",
+        "imagem": "img/itens/cocaLata.png",
+        "disponivel": true,
+        "favorito": true,
+        "quantidade": 13,
+        "semLactose": true,
+        "semGluten": true
       }
     ]
   },

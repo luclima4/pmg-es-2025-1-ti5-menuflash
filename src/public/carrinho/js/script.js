@@ -145,6 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btnLimpar.addEventListener('click', limparCarrinho);
 
     btnFinalizar.addEventListener('click', async () => {
+        // Verificação de login
+        const usuarioLogado = sessionStorage.getItem('usuarioLogado');
+        if (!usuarioLogado) {
+            alert('Você precisa estar logado para finalizar o pedido!');
+            window.location.href = '../cadastro_login/login.html';
+            return;
+        }
         const carrinho = await getCarrinho();
         if (!carrinho || carrinho.itens.length === 0) {
             alert('Seu carrinho está vazio!');
