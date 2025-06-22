@@ -39,18 +39,19 @@
     <main id="mainCadastro" class="py-4 w-100 m-auto">
         <form id="cadastroForm">
             <h1 class="h2 mb-3 fw-normal text-black">Insira suas Informações</h1>
+
             <div class="form-floating mb-2">
-                <input type="text" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Nome"
+                <input type="text" class="form-control bg-light text-dark border-light shadow" placeholder="Nome"
                     id="inputNome" required>
                 <label for="floatingInput" class="text-secondary">Nome</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="email" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Email"
+                <input type="email" class="form-control bg-light text-dark border-light shadow" placeholder="Email"
                     id="inputEmail" required>
                 <label for="floatingInput" class="text-secondary">Email</label>
             </div>
             <div class="form-floating mb-2">
-                <input type="password" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Senha"
+                <input type="password" class="form-control bg-light text-dark border-light shadow" placeholder="Senha"
                     id="inputSenha" required>
                 <label for="floatingInput" class="text-secondary">Senha</label>
             </div>
@@ -58,8 +59,14 @@
             <div id="passwordAlert">
             </div>
 
-            <small><a class="text-secondary" href="login.html">Já tem uma conta? Faça login</a></small>
-            <button type="submit" id="btnCadastrar" class="btn btn-primary w-100 py-2 mt-2 text-light">Cadastrar</button>
+            <div>
+                <small><a style="color: rgb(109, 102, 206);" class="" href="login.html">Já tem uma conta? Faça login</a></small>
+            </div>
+
+            <div class="d-flex justify-content-center">   
+                <button type="submit" id="btnCadastrar" class="btn btn-primary w-50 py-2 mt-2 text-light">Cadastrar</button>
+            </div>
+            
         </form>
     </main>
 

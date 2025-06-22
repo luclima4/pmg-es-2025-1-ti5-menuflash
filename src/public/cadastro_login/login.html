@@ -38,20 +38,28 @@
     <main id="mainLogin" class="py-4 w-100 m-auto">
         <form id="loginForm">
             <h1 class="h3 mb-3 fw-normal text-black">Insira seu Login</h1>
+
             <div class="form-floating mb-2">
-                <input type="email" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Email"
+                <input type="email" class="form-control bg-light text-dark border-light shadow" placeholder="Email"
                     id="inputEmail">
-                <label for="floatingInput" class="text-secondary">Email</label>
+                <label for="inputEmail" class="text-secondary">Email</label>
             </div>
+
             <div class="form-floating mb-2">
-                <input type="password" class="form-control btn btn-light btn-lg m-1 shadow" placeholder="Senha"
+                <input type="password" class="form-control bg-light text-dark border-light shadow" placeholder="Senha"
                     id="inputSenha">
-                <label for="floatingInput" class="text-secondary">Senha</label>
+                <label for="inputSenha" class="text-secondary">Senha</label>
             </div>
 
-            <small><a class="text-secondary" href="cadastroUsuario.html">Crie sua conta</a></small>
-            <button id="btnLogar" type="submit" class="btn w-100 py-2 mt-2 text-light">Logar</button>
+            <!-- Link à esquerda -->
+            <div class="w-100">
+                <small><a style="color: rgb(109, 102, 206);" class="" href="cadastroUsuario.html">Crie sua conta</a></small>
+            </div>
 
+            <!-- Botão centralizado -->
+            <div class="d-flex justify-content-center">
+                <button id="btnLogar" type="submit" class="btn w-50 py-2 mt-2 text-light">Logar</button>
+            </div>
         </form>
     </main>
 
