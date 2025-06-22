@@ -27,13 +27,13 @@
         linksHTML = `
           <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
             <li class="nav-item">
-              <a class="dropdown-item text-light nav-link fs-5 text-nowrap" href="../cadastro_de_itens/cadastroDeItens.html">Cadastro de Itens</a>
+              <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_de_itens/cadastroDeItens.html">Cadastro de Itens</a>
             </li>
             <li class="nav-item">
-              <a class="dropdown-item text-light nav-link fs-5 text-nowrap" href="../perfil/perfil.html">Perfil</a>
+              <a class="dropdown-item text-light nav-link text-nowrap" href="../perfil/perfil.html">Perfil</a>
             </li>
             <li class="nav-item">
-              <a id="sairLink" class="dropdown-item text-light nav-link fs-5 text-nowrap" href="#">Sair</a>
+              <a id="sairLink" class="dropdown-item text-light nav-link text-nowrap" href="#">Sair</a>
             </li>
           </ul>
         `;
@@ -41,10 +41,10 @@
         linksHTML = `
           <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
             <li class="nav-item">
-              <a class="dropdown-item text-light nav-link fs-5 text-nowrap" href="../perfil/perfil.html">Perfil</a>
+              <a class="dropdown-item text-light nav-link text-nowrap" href="../perfil/perfil.html">Perfil</a>
             </li>
             <li class="nav-item">
-              <a id="sairLink" class="dropdown-item text-light nav-link fs-5 text-nowrap" href="#">Sair</a>
+              <a id="sairLink" class="dropdown-item text-light nav-link text-nowrap" href="#">Sair</a>
             </li>
           </ul>
         `;
@@ -52,12 +52,12 @@
     } else {
       // Usuário deslogado: link de Entrar com redirectUrl
       linksHTML = `
-        <ul class="navbar-nav d-flex flex-row gap-4 align-items-center px-3">
+        <ul class="navbar-nav d-flex flex-row gap-4 align-items-center">
           <li class="nav-item">
-            <a class="dropdown-item text-light nav-link fs-5 text-nowrap" href="../cadastro_login/login.html">Entrar</a>
+            <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_login/login.html">Entrar</a>
           </li>
           <li class="nav-item">
-            <a class="dropdown-item text-light nav-link fs-5 text-nowrap" href="../cadastro_login/cadastroUsuario.html">Cadastre-se</a>
+            <a class="dropdown-item text-light nav-link text-nowrap" href="../cadastro_login/cadastroUsuario.html">Cadastre-se</a>
           </li>
         </ul>
       `;
