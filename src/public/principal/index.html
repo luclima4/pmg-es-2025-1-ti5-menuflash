@@ -46,7 +46,7 @@
                         <a class="nav-link text-dark" href="#">Alterar Lanchonete</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
+                        <a id="pecaNovamente" class="nav-link text-dark" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
                     </li>
                 </ul>
             </div>
@@ -54,16 +54,17 @@
     </nav>
 
     <main class="py-5 px-5 container text-center text-white">
-        <h1 class="mb-4 text-black">ESCOLHA SEU CAMPUS</h1>
+        <div style="display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction:column;">
+        <h1 class="mb-4 text-black">Escolha seu Campus</h1>
         <div class="row row-cols-1 row-cols-md-2 gy-3 gx-3">
             <div class="col">
                 <a href="campusCoreu.html">
                     <div class="card bg-dark text-white border-1 shadow" style="cursor: pointer;"
                         onclick="irParaMapa('campusCoreu')">
                         <img src="img\campus-coreu.jpg" class="card-img" alt="Coração Eucarístico"
-                            style="height: 200px; object-fit: cover;">
+                            style="height: 350px; object-fit: cover;">
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">PUC CORAÇÃO EUCARÍSTICO</h4>
+                            <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">Puc Coração Eucarístico</h4>
                         </div>
                     </div>
                 </a>
@@ -74,15 +75,17 @@
                     <div class="card bg-dark text-white border-1 shadow" style="cursor: pointer;"
                         onclick="irParaMapa('campusContagem')">
                         <img src="img/campus-contagem.png" class="card-img" alt="Contagem"
-                            style="height: 200px; object-fit: cover;">
+                            style="height: 350px; object-fit: cover;">
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">PUC CONTAGEM</h4>
+                            <h4 class="card-title bg-dark bg-opacity-75 px-2 py-2 rounded">Puc Contagem</h4>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
     </main>
+
+    </div>
 
     <footer class="bg-light text-black text-center py-4 mt-5" style="background-color: #a00000 !important;">
         <div class="container">
@@ -123,6 +126,16 @@
             window.addEventListener('storageChanged', atualizarContador);
             window.addEventListener('storage', atualizarContador); // Para sincronia entre abas
         });
+
+    </script>
+    
+    <script>
+        // Verificar se usuário esta logado
+        pecaNovamente = document.getElementById('pecaNovamente')
+        pecaNovamente.addEventListener('click', event => {
+
+            usuarioLogado = sessionStorage.getItem('')
+        })
 
     </script>
 
