@@ -260,7 +260,24 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": []
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": "3.5",
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 2
+        },
+        {
+          "id": 2,
+          "nome": "Guaraná lata",
+          "imagem": "img/itens/guaranaLata.png",
+          "valor": "5",
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -313,12 +330,11 @@
           "titulo": "Coxinha",
           "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
           "valor": "6.5",
-          "quantidade": "7",
+          "quantidade": 13,
           "conteudo": "",
           "imagem": "img/itens/coxinha.png",
           "disponivel": true,
           "favorito": true,
-          "quantidade": 13,
           "semLactose": false,
           "semGluten": false
         }
