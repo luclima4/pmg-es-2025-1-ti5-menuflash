@@ -14,38 +14,52 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <header>
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-3" href="index.html">
-                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Alterar Campus</a></li>
-                        <li class="nav-item"><a id="nav-alterar-lanchonete" class="nav-link text-white" href="#" style="display: none;">Alterar Lanchonete</a></li>
-                        <li class="nav-item"><a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html" style="display: none;">Peça Novamente</a></li>
-                        <li class="nav-item me-2">
-                            <a href="../carrinho/index.html" class="carrinho-icon nav-link">
-                                <i class="fas fa-shopping-cart fs-4 text-white"></i>
-                                <span class="carrinho-contador" style="display: none;">0</span>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-                            </a>
-                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body>
+  <header>
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+      style="background-color: #a00000 !important;">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3" href="index.html">
+          <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a>
+            </li>
+
+            <li class="nav-item">
+              <a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html"
+                style="display: none;">Peça Novamente</a>
+            </li>
+
+            <li class="nav-item me-2">
+              <a href="../carrinho/index.html" class="carrinho-icon nav-link">
+                <i class="fas fa-shopping-cart fs-4 text-white"></i>
+                <span class="carrinho-contador" style="display: none;">0</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+              </a>
+              <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
     <main class="container text-center py-4 flex-grow-1" style="margin-top: 80px;">
         <h1 id="nome-campus" class="mb-4 text-dark">Mapa Contagem</h1>
