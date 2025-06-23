@@ -2,41 +2,38 @@
 
 <span style="color:red">Pré-requisitos: <a href="03-Product-design.md"> Especificação do projeto</a></span>, <a href="05-Projeto-interface.md"> Projeto de interface</a>
 
-O plano de testes de software é gerado a partir da especificação do sistema e consiste em casos de teste que deverão ser executados quando a implementação estiver parcial ou totalmente pronta. Apresente os cenários de teste utilizados na realização dos testes da sua aplicação. Escolha cenários de teste que demonstrem os requisitos sendo satisfeitos.
+Os testes da aplicação MenuFlash foram realizados com foco nas principais funcionalidades relacionadas aos requisitos funcionais definidos no projeto. O objetivo foi garantir que as funcionalidades essenciais estivessem operando corretamente e proporcionando uma boa experiência ao usuário.
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico, o grupo deve detalhar quais funcionalidades foram avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
+Foram selecionados membros do próprio grupo para participar dos testes manuais. Os testes foram feitos diretamente no navegador, acessando a versão hospedada da aplicação, simulando o uso real do sistema.
 
-Não deixe de enumerar os casos de teste de forma sequencial e garantir que o(s) requisito(s) associado(s) a cada um deles esteja(m) correto(s) — de acordo com o que foi definido na <a href="03-Product-design.md">Especificação do projeto</a>.
+Exemplo:
 
-Por exemplo:
-
-| **Caso de teste**  | **CT-001 – Cadastrar perfil**  |
-|:---: |:---: |
-| Requisito associado | RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que estes consigam criar e gerenciar seu perfil. |
-| Objetivo do teste | Verificar se o usuário consegue se cadastrar na aplicação. |
-| Passos | - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html <br> - Clicar em "Criar conta" <br> - Preencher os campos obrigatórios (e-mail, nome, sobrenome, celular, CPF, senha, confirmação de senha) <br> - Aceitar os termos de uso <br> - Clicar em "Registrar" |
-| Critério de êxito | - O cadastro foi realizado com sucesso. |
-| Responsável pela elaboração do caso de teste | Nome do integrante da equipe. |
-
-<br>
-
-| **Caso de teste**  | **CT-002 – Efetuar login**  |
-|:---: |:---: |
-| Requisito associado | RF-00Y - A aplicação deve possuir opção de fazer login, sendo o login o endereço de e-mail. |
-| Objetivo do teste | Verificar se o usuário consegue realizar login. |
-| Passos | - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html <br> - Clicar no botão "Entrar" <br> - Preencher o campo de e-mail <br> - Preencher o campo de senha <br> - Clicar em "Login" |
-| Critério de êxito | - O login foi realizado com sucesso. |
-| Responsável pela elaboração do caso de teste | Nome do integrante da equipe. |
+| **Item**                | **Descrição**                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Requisito associado** | RF-001 – Mostrar cardápio de lanchonetes diversas                                                           |
+| **Objetivo do teste**   | Verificar se o usuário consegue acessar o campus, visualizar lanchonetes e navegar até o cardápio           |
+| **Passos**              | 1. Acessar o site <br> 2. Selecionar um campus (ex: Contagem) <br> 3. Visualizar as lanchonetes <br> 4. Clicar em uma lanchonete |
+| **Critério de êxito**   | A página da lanchonete abre com os produtos disponíveis                                                     |
+| **Responsável**         | Larissa Nogueira                                                                                     |
 
 
-## Ferramentas de testes (opcional)
 
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links úteis**:
-> - [IBM - criação e geração de planos de teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e técnicas de testes ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> - [Teste de software: conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e geração de planos de teste de software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de teste para JavaScript](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+| **Item**                | **Descrição**                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Requisito associado** | RF-009 – Carrinho de pedidos                                                                                |
+| **Objetivo do teste**   | Verificar se o usuário consegue adicionar um produto ao carrinho                                            |
+| **Passos**              | 1. Acessar a página de uma lanchonete <br> 2. Escolher um produto <br> 3. Clicar em “Adicionar ao carrinho” |
+| **Critério de êxito**   | O contador do carrinho é atualizado e o item aparece ao acessar o carrinho                                  |
+| **Responsável**         | Heitor Habaeb                                                                                               |
+
+
+
+| **Item**                | **Descrição**                                                                                              |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Requisito associado** | RF-004 – Peça Novamente                                                             |
+| **Objetivo do teste**   | Verificar se o sistema mostra pedidos anteriores e permite repetir                                         |
+| **Passos**              | 1. Fazer login <br> 2. Clicar em “Peça Novamente” <br> 3. Visualizar histórico <br> 4. Clicar em um pedido |
+| **Critério de êxito**   | O pedido é reenviado ao carrinho com os mesmos itens                                                       |
+| **Responsável**         | Larissa Nogueira                                                                                           |
+
+

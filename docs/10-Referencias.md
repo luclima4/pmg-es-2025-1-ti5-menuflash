@@ -2,20 +2,35 @@
 
 Inclua todas as referências (livros, artigos, sites, etc.) utilizadas no desenvolvimento do trabalho.
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+W3SCHOOLS. Bootstrap 5 Tutorial. Disponível em: https://www.w3schools.com/bootstrap5/
+Acesso em: 20 jun. 2025.
 
-⚠️ EXEMPLO ⚠️
+MAPBOX. Mapbox GL JS Docs. Disponível em: https://docs.mapbox.com/mapbox-gl-js
+Acesso em: 20 jun. 2025.
 
-- BENYON, David. **Interação humano-computador**. 2. ed. São Paulo: Pearson Prentice Hall, 2011.
+GITHUB DOCS. GitHub Projects – Organize your work. Disponível em: https://docs.github.com/en/issues/planning-and-tracking-with-projects
+Acesso em: 20 jun. 2025.
 
-- CORMEN, Thomas H et al. **Algoritmos:** teoria e prática. 4. ed. Rio de Janeiro: GEN LTC, 2024.
- 
-- ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019.
+FIGMA. Design and Prototyping Tool. Disponível em: https://www.figma.com
+Acesso em: 20 jun. 2025.
 
-- RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial:** uma abordagem moderna. 4. ed. Rio de Janeiro, RJ: LTC, 2022.
+JSON SERVER. Fake REST API with zero coding. Disponível em: https://github.com/typicode/json-server
+Acesso em: 20 jun. 2025.
 
-- SUTHERLAND, Jeffrey Victor; SUTHERLAND, J. J. **Scrum:** a arte de fazer o dobro do trabalho na metade do tempo. Rio de Janeiro, RJ: Sextante, 2019. 254 p.
+GOOGLE FONTS. Open-source fonts library. Disponível em: https://fonts.google.com
+Acesso em: 20 jun. 2025.
 
-> **Links úteis**:
-> - [Padrão PUC Minas de normalização ABNT](http://portal.pucminas.br/biblioteca/documentos/GUIA-COMPLETO-ABNT-Elaborar-formatar-trabalho-cientificoNOVO.pdf)
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/)
+UXDESIGN.CC. UX Research and Testing Tools. Disponível em: https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7
+Acesso em: 20 jun. 2025.
+
+ROCK CONTENT. Screencast: entenda o que é e como gravar vídeos com ele. Disponível em: https://rockcontent.com/br/blog/screencast/
+Acesso em: 20 jun. 2025.
+
+IBM DEVELOPER. Criação e geração de planos de teste de software. Disponível em: https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html
+Acesso em: 20 jun. 2025.
+
+SERPRO ÁGIL. Práticas e técnicas de testes ágeis. Disponível em: http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf
+Acesso em: 20 jun. 2025.
+
+FUSE.JS. Lightweight fuzzy-search library. Disponível em: https://fusejs.io
+Acesso em: 20 jun. 2025.
