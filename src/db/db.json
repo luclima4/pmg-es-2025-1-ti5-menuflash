@@ -243,7 +243,38 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": []
+      "itens": [
+        {
+          "id": 5,
+          "nome": "Pão de queijo",
+          "imagem": "img/itens/paoDeQueijo.png",
+          "valor": 5.5,
+          "nomeLanchonete": "Central",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "e099",
+      "userId": "4",
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": 3.5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 3,
+          "nome": "Açaí",
+          "imagem": "img/itens/acai.png",
+          "valor": 7,
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [

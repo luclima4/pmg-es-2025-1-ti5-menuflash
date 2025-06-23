@@ -1,435 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/cadastroDeItens.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Cadastro de Itens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/5c015c8b62.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/cadastroDeItens.css">
 </head>
-<style>
-    .dropdown-menu {
-        background-color: #a00000 !important;
-    }
 
-    .navbar .nav-link,
-    .navbar .dropdown-item {
-        color: white !important;
-        background-color: transparent !important;
-        transition: color 0.2s, text-decoration 0.2s;
-    }
+<body class="d-flex flex-column vh-100">
 
-    .navbar .nav-link:hover,
-    .navbar .dropdown-item:hover {
-        color: #a5a5a5 !important;
-    }
-</style>
+    <header>
+        </header>
 
-<body onload="init()" class="d-flex flex-column vh-100">
+    <main class="container flex-grow-1" style="margin-top: 5rem;">
+        <div id="nomeLanchonete" class="py-4 text-center"></div>
 
-    <header class="py-4">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
-            style="background-color: #a00000 !important;">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand fs-3" href="index.html">
-                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-                </a>
-
-                <!-- Botão de colapso (mobile) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Itens do menu -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Alterar Lanchonete</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html">Peça Novamente</a>
-                        </li>
-                        <li>
-                            <a href="../carrinho/index.html" class="dropdown-item text-white">
-                                <i class="bi bi-cart3 me-2 text-white fs-4"></i>
-                                <span class="carrinho-contador" style="display: none;">0</span>
-                            </a>
-                        </li>
-
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                <li>
-                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container" style="margin-top: 3rem;">
-        <div id="nomeLanchonete" class="py-4">
-
-        </div>
-
-        <form id="formFilmes" class="row g-3">
+        <form id="formItens" class="row g-3 p-4 border rounded shadow-sm bg-light mb-5">
             <div class="col-md-1">
-                <label for="inputEmail4" class="form-label">Id</label>
+                <label for="inputId" class="form-label">Id</label>
                 <input type="text" class="form-control" id="inputId" disabled>
             </div>
             <div class="col-md-2">
-                <label for="inputEmail4" class="form-label">Disponibilidade (*)</label>
-                <select class="form-select" name="" id="selectDisponivel">
-                    <option value="disponivel">Disponível</option>
+                <label for="selectDisponivel" class="form-label">Disponibilidade (*)</label>
+                <select class="form-select" id="selectDisponivel">
+                    <option value="disponivel" selected>Disponível</option>
                     <option value="indisponivel">Indisponível</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="inputEmail4" class="form-label">Nome (*)</label>
+                <label for="inputTitulo" class="form-label">Nome (*)</label>
                 <input type="text" class="form-control" id="inputTitulo" placeholder="Nome do item" required>
             </div>
-
             <div class="col-md-2">
-                <label for="inputCity" class="form-label">Conteudo</label>
-                <input type="text" class="form-control" id="inputConteudo" placeholder="Conteudo (ml)">
+                <label for="inputConteudo" class="form-label">Conteúdo</label>
+                <input type="text" class="form-control" id="inputConteudo" placeholder="Ex: 350ml, 100g">
             </div>
-
             <div class="col-md-2">
-                <label for="inputCity" class="form-label">Quantidade</label>
-                <input type="number" class="form-control" id="inputQuantidade" placeholder="Quantidade">
+                <label for="inputQuantidade" class="form-label">Quantidade</label>
+                <input type="number" class="form-control" id="inputQuantidade" placeholder="Estoque">
             </div>
-
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Descrição (*)</label>
-                <input type="text" class="form-control" id="inputDescricao" placeholder="Gêneros" required>
+                <label for="inputDescricao" class="form-label">Descrição (*)</label>
+                <input type="text" class="form-control" id="inputDescricao" placeholder="Descrição do item" required>
             </div>
-            <!-- Incluir lógica para inserir número com R$ no Json -->
-            <div class="col-md-3">
-                <label for="inputAddress" class="form-label">Valor (0.0) (*)</label>
-                <input type="number" class="form-control" id="inputValor" required placeholder="Valor">
+            <div class="col-md-2">
+                <label for="inputValor" class="form-label">Valor (Ex: 5.50) (*)</label>
+                <input type="number" step="0.01" class="form-control" id="inputValor" required placeholder="0.00">
             </div>
-            <div class="col-md-3">
-                <label class="form-label">Opções</label>
+            <div class="col-md-4">
+                <label class="form-label">Opções Adicionais</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="escolha" id="opcaoA" value="semLactose">
+                    <input class="form-check-input" type="checkbox" id="opcaoA" value="semLactose">
                     <label class="form-check-label" for="opcaoA">Sem Lactose</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="escolha" id="opcaoB" value="semGluten">
+                    <input class="form-check-input" type="checkbox" id="opcaoB" value="semGluten">
                     <label class="form-check-label" for="opcaoB">Sem Glúten</label>
                 </div>
             </div>
-
-            <!-- Inserir imagem (a imagem não é inserida)-->
-            <div class="col-md-4">
-                <label for="inputImagem" class="form-label">Imagem (*)</label>
-                <input type="file" class="form-control" id="inputImagem" accept="image/*" required>
+            <div class="col-md-12">
+                <label for="inputImagem" class="form-label">Imagem do Item (*)</label>
+                <input type="file" class="form-control" id="inputImagem" accept="image/*">
                 <input type="hidden" id="imagemBase64Hidden">
-                <img id="previewImagem" src="" class="mt-2" style="max-height: 120px; display: none;">
+                <img id="previewImagem" src="" class="mt-2 img-thumbnail" style="max-height: 120px; display: none;" alt="Preview">
             </div>
-
-            <div class="col-12">
+            <div class="col-12 d-flex gap-2">
                 <button id="btnAdicionar" type="button" class="btn btn-success">Adicionar</button>
                 <button id="btnEditar" type="button" class="btn btn-warning">Editar</button>
                 <button id="btnExcluir" type="button" class="btn btn-danger">Excluir</button>
-                <button id="btnLimpar" type="button" class="btn btn-light">Limpar</button>
+                <button id="btnLimpar" type="button" class="btn btn-secondary">Limpar</button>
             </div>
         </form>
-    </div>
-
-    <!-- Tabela de Itens -->
-    <div class="container" style="margin-top: 2rem;">
-        <div class="col-sm-12">
+        
+        <div class="mt-5">
             <h3>Itens Cadastrados</h3>
             <div class="table-responsive">
-                <table id="tableFilmes" class="table table-striped">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Disponivel</th>
-                            <th scope="col">Titulo</th>
+                            <th scope="col">Disponível</th>
+                            <th scope="col">Título</th>
                             <th scope="col">Descrição</th>
-                            <th scope="col">Quantidade</th>
+                            <th scope="col">Qtd.</th>
                             <th scope="col">Valor</th>
                             <th scope="col">Conteúdo</th>
-                            <th scope="col">Sem Lactose</th>
-                            <th scope="col">Sem Glúten</th>
+                            <th scope="col">S/ Lactose</th>
+                            <th scope="col">S/ Glúten</th>
                         </tr>
                     </thead>
-                    <tbody id="tabelaFilmes">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tabelaItens">
+                        </tbody>
                 </table>
             </div>
         </div>
-    </div>
-
-    <script src="js/cadastroDeItens.js"></script>
-
-    <script>
-        let minhaLanId = null;
-
-        function init() {
-            identificaMinhaLanchonete(() => lerItens(renderTable));
-        }
-
-        // 1) Encontra o admin, pega lanchoneteId e exibe nome
-        function identificaMinhaLanchonete(callback) {
-            fetch('http://localhost:3000/usuarios')
-                .then(res => res.json())
-                .then(usuarios => {
-                    const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado") || '{}');
-                    const admin = usuarios.find(u =>
-                        String(u.id) === String(usuarioLogado.id) && u.tipo === "administrador"
-                    );
-                    if (!admin) {
-                        console.warn("Usuário não é administrador.");
-                        return;
-                    }
-                    minhaLanId = admin.lanchoneteId;
-                    // pega só essa lanchonete pra exibir o nome
-                    fetch(`http://localhost:3000/lanchonetes`)
-                        .then(r2 => r2.json())
-                        .then(lans => {
-                            const lan = lans.find(l => String(l.id) === String(minhaLanId));
-                            if (lan) document.getElementById("nomeLanchonete").innerHTML = `<h2>${lan.nome}</h2>`;
-                            if (callback) callback();
-                        })
-                        .catch(e2 => console.error("Erro ao buscar lanchonetes:", e2));
-                })
-                .catch(err => console.error("Erro ao buscar usuários:", err));
-        }
-
-        // 2) lerItens agora busca /lanchonetes, filtra a certa e retorna só .itens
-        function lerItens(processaDados) {
-            fetch('http://localhost:3000/lanchonetes')
-                .then(res => res.json())
-                .then(lanchonetes => {
-                    const lan = lanchonetes.find(l => String(l.id) === String(minhaLanId));
-                    const itens = lan?.itens || [];
-                    processaDados(itens);
-                })
-                .catch(error => console.log('Erro ao carregar itens', error));
-        }
-
-        function cadastrarItem(item, refresh) {
-            // para inserir, pegamos toda a lanchonete, adicionamos no array e damos um PUT
-            fetch(`http://localhost:3000/lanchonetes`)
-                .then(r => r.json())
-                .then(lans => {
-                    const lan = lans.find(l => String(l.id) === String(minhaLanId));
-                    const novosItens = [...(lan.itens || []), item];
-                    return fetch(`http://localhost:3000/lanchonetes/${minhaLanId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ ...lan, itens: novosItens })
-                    });
-                })
-                .then(_ => {
-                    alert('Item adicionado com sucesso!');
-                    if (refresh) refresh();
-                })
-                .catch(e => console.log('Erro ao adicionar item', e));
-        }
-
-        function editarItem(id, item, refresh) {
-            fetch('http://localhost:3000/lanchonetes')
-                .then(r => r.json())
-                .then(lans => {
-                    const lan = lans.find(l => String(l.id) === String(minhaLanId));
-                    const novosItens = (lan.itens || []).map(i => i.id == id ? item : i);
-                    return fetch(`http://localhost:3000/lanchonetes/${minhaLanId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ ...lan, itens: novosItens })
-                    });
-                })
-                .then(_ => {
-                    alert('Item alterado com sucesso!');
-                    if (refresh) refresh();
-                })
-                .catch(e => console.log('Erro ao alterar item', e));
-        }
-
-        function excluirItem(id, refresh) {
-            fetch('http://localhost:3000/lanchonetes')
-                .then(r => r.json())
-                .then(lans => {
-                    const lan = lans.find(l => String(l.id) === String(minhaLanId));
-                    const novosItens = (lan.itens || []).filter(i => i.id != id);
-                    return fetch(`http://localhost:3000/lanchonetes/${minhaLanId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ ...lan, itens: novosItens })
-                    });
-                })
-                .then(_ => {
-                    alert('Item excluído com sucesso!');
-                    if (refresh) refresh();
-                })
-                .catch(e => console.log('Erro ao excluir item', e));
-        }
-
-        // 3) Renderiza a tabela
-        function renderTable(itens) {
-            const tbody = document.getElementById("tabelaFilmes");
-            tbody.innerHTML = '';
-            itens.forEach(item => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.disponivel ? 'Disponível' : 'Indisponível'}</td>
-            <td>${item.titulo}</td>
-            <td>${item.descricao}</td>
-            <td>${item.quantidade}</td>
-            <td>${item.valor}</td>
-            <td>${item.conteudo}</td>
-            <td>${item.semLactose ? '✔️' : ''}</td>
-            <td>${item.semGluten ? '✔️' : ''}</td>
-        `;
-                tr.addEventListener("click", () => {
-                    document.getElementById("inputId").value = item.id;
-                    document.getElementById("selectDisponivel").value = item.disponivel ? 'disponivel' : 'indisponivel';
-                    document.getElementById("inputTitulo").value = item.titulo;
-
-                    imagemBase64 = item.imagem;
-                    document.getElementById("imagemBase64Hidden").value = item.imagem;
-                    document.getElementById("previewImagem").src = item.imagem;
-                    document.getElementById("previewImagem").style.display = 'none';
-
-
-                    document.getElementById("inputConteudo").value = item.conteudo;
-                    document.getElementById("inputDescricao").value = item.descricao;
-                    document.getElementById("inputQuantidade").value = item.quantidade;
-                    document.getElementById("inputValor").value = item.valor;
-                    document.getElementById("opcaoA").checked = item.semLactose;
-                    document.getElementById("opcaoB").checked = item.semGluten;
-                });
-                tbody.appendChild(tr);
-            });
-        }
-
-        // 4) Botões
-        document.getElementById("btnAdicionar").addEventListener("click", () => {
-            lerItens(itens => {
-                const maxId = itens.reduce((max, item) => Math.max(max, item.id), 0);
-                const novo = {
-                    id: maxId + 1,
-                    titulo: document.getElementById("inputTitulo").value,
-                    descricao: document.getElementById("inputDescricao").value,
-                    valor: Number(document.getElementById("inputValor").value),
-                    quantidade: Number(document.getElementById("inputQuantidade").value),
-                    conteudo: document.getElementById("inputConteudo").value,
-                    disponivel: document.getElementById("selectDisponivel").value === 'disponivel',
-                    semLactose: document.getElementById("opcaoA").checked,
-                    semGluten: document.getElementById("opcaoB").checked,
-                    imagem: document.getElementById("imagemBase64Hidden").value,
-                    favoritos: []
-                };
-
-                cadastrarItem(novo, () => lerItens(renderTable));
-            });
-        })
-
-        document.getElementById("btnEditar").addEventListener("click", () => {
-            const id = document.getElementById("inputId").value;
-            if (!id) return alert("Clique numa linha para selecionar.");
-            const upd = {
-                id: Number(id),
-                titulo: document.getElementById("inputTitulo").value,
-                descricao: document.getElementById("inputDescricao").value,
-                valor: document.getElementById("inputValor").value,
-                quantidade: document.getElementById("inputQuantidade").value,
-                conteudo: document.getElementById("inputConteudo").value,
-                disponivel: document.getElementById("selectDisponivel").value === 'disponivel',
-                semLactose: document.getElementById("opcaoA").checked,
-                semGluten: document.getElementById("opcaoB").checked,
-                imagem: document.getElementById("imagemBase64Hidden").value,
-                favoritos: []
-            };
-            editarItem(id, upd, () => lerItens(renderTable));
-        });
-
-        document.getElementById("btnExcluir").addEventListener("click", () => {
-            const id = document.getElementById("inputId").value;
-            if (!id) return alert("Clique numa linha para selecionar.");
-            if (confirm("Excluir item #" + id + "?")) {
-                excluirItem(id, () => lerItens(renderTable));
-            }
-        });
-
-        document.getElementById("btnLimpar").addEventListener("click", () => {
-            document.getElementById("formFilmes").reset();
-            document.getElementById("inputId").value = '';
-        });
-
-        // Para funcionar a inserção de imagem
-
-        let imagemBase64 = ""; // variável global para guardar a imagem convertida
-
-        function handleImageSelect(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = e => {
-                imagemBase64 = e.target.result;
-
-                // Mostra preview da imagem
-                document.getElementById('imagemBase64Hidden').value = imagemBase64;
-            };
-            reader.readAsDataURL(file);
-        }
-
-
-        // 5) onload
-        window.init = init;
-        document.getElementById('inputImagem').addEventListener('change', handleImageSelect);
-
-    </script>
-
-
-
-
-
-</body>
-
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script> <script src="../cadastro_login/js/inserirLogin.js"></script>
+    <script src="js/cadastroDeItens.js"></script> </body>
 </html>
