@@ -8,68 +8,67 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 
 <style>
     .dropdown-menu {
-    background-color: #a00000 !important;
-  }
+        background-color: #a00000 !important;
+    }
 
-  .navbar .nav-link,
-  .navbar .dropdown-item {
-    color: white !important;
-    background-color: transparent !important;
-    transition: color 0.2s, text-decoration 0.2s;
-  }
+    .navbar .nav-link,
+    .navbar .dropdown-item {
+        color: white !important;
+        background-color: transparent !important;
+        transition: color 0.2s, text-decoration 0.2s;
+    }
 
-  .navbar .nav-link:hover,
-  .navbar .dropdown-item:hover {
-    color: #a5a5a5 !important;
-  }
+    .navbar .nav-link:hover,
+    .navbar .dropdown-item:hover {
+        color: #a5a5a5 !important;
+    }
+
+    #tituloPrincipal{
+        font-family: "Poppins", sans-serif;
+        margin-top: 7px;
+        font-weight: 200;
+        font-style: normal;
+        color: rgb(0, 0, 0);
+        font-size: 30px; 
+    }
+
 </style>
 
 <body>
 
     <header class="py-4">
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
-            style="background-color: #a00000 !important;">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand fs-3" href="index.html">
-                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+        <nav class="navbar fixed-top navbar-dark px-3" style="background-color: #a00000 !important;">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+                <!-- Logo à esquerda -->
+                <a class="navbar-brand fs-3 text-white" href="../principal/index.html" id="tituloPrincipal">
+                    MenuFlash
                 </a>
 
-                <!-- Botão de colapso (mobile) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Itens do menu -->
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <a href="../principal/index.html" class="btn btn-light">
-                            <i class="bi bi-arrow-left"></i> Continuar Comprando
-                        </a>
-
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-                                <li>
-                                    <div id="linksDoUsuario" class="dropdown-item text-white">Perfil</div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                <!-- Botão de voltar à direita -->
+                <div>
+                    <!-- Desktop: seta + texto -->
+                    <a href="../principal/index.html" class="btn btn-light d-none d-lg-inline-flex align-items-center">
+                        <i class="bi bi-arrow-left me-2"></i> Continuar Comprando
+                    </a>
+                    <!-- Mobile: só a seta -->
+                    <a href="../principal/index.html" class="btn btn-light d-inline-flex d-lg-none align-items-center">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
                 </div>
+
             </div>
         </nav>
     </header>
+
+
 
     <main class="container my-5">
         <div class="row">

@@ -1,270 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - MenuFlash</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <title>Cardápio - MenuFlash</title>
+    <link rel="stylesheet" href="../css/main.css"> </head>
+<body class="d-flex flex-column min-vh-100">
 
-  <style>
-    .carrinho-icon {
-      position: relative;
-      cursor: pointer;
-    }
+    <header>
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-3" href="index.html">
+                    <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Alterar Campus</a></li>
+                        <li class="nav-item"><a id="nav-alterar-lanchonete" class="nav-link text-white" href="#" style="display: none;">Alterar Lanchonete</a></li>
+                        <li class="nav-item"><a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html" style="display: none;">Peça Novamente</a></li>
+                        <li class="nav-item me-2">
+                            <a href="../carrinho/index.html" class="carrinho-icon nav-link">
+                                <i class="fas fa-shopping-cart fs-4 text-white"></i>
+                                <span class="carrinho-contador" style="display: none;">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+                            </a>
+                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    .carrinho-contador {
-      position: absolute;
-      top: -5px;
-      right: -10px;
-      background-color: #dc3545;
-      color: white;
-      border-radius: 50%;
-      width: 22px;
-      height: 22px;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      border: 2px solid white;
-    }
-
-    .avaliacao-estrelas {
-      color: gold;
-      font-size: 1.3rem;
-      cursor: pointer;
-    }
-
-    .carrinho-icon {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .carrinho-contador {
-      position: absolute;
-      top: -5px;
-      right: 0;
-      background-color: #dc3545;
-      color: white;
-      border-radius: 50%;
-      width: 22px;
-      height: 22px;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      border: 2px solid #a00000;
-    }
-
-    .campus-card .card-img {
-      transition: transform 0.3s ease;
-    }
-
-    .campus-card:hover .card-img {
-      transform: scale(1.05);
-    }
-  </style>
-
-<body>
-  <header>
-    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
-      style="background-color: #a00000 !important;">
-      <div class="container-fluid">
-        <a class="navbar-brand fs-3" href="index.html">
-          <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-              <a class="nav-link text-white" href="index.html">Alterar Campus</a>
-            </li>
-            <li class="nav-item">
-              <a id="nav-alterar-lanchonete" class="nav-link text-white" href="#" style="display: none;">Alterar
-                Lanchonete</a>
-            </li>
-            <li class="nav-item">
-              <a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html"
-                style="display: none;">Peça Novamente</a>
-            </li>
-
-            <li class="nav-item me-2">
-              <a href="../carrinho/index.html" class="carrinho-icon nav-link">
-                <i class="fas fa-shopping-cart fs-4 text-white"></i>
-                <span class="carrinho-contador" style="display: none;">0</span>
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
-              </a>
-              <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;">
-              </ul>
-            </li>
-          </ul>
+    <main class="container flex-grow-1" style="margin-top: 80px;">
+        <div class="row justify-content-center my-4">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <input type="text" id="campoBusca" class="form-control" placeholder="Buscar item por nome...">
+                    <button id="btnBusca" class="btn btn-warning fw-bold">Buscar</button>
+                </div>
+                <div class="form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" role="switch" id="filtroFavoritos">
+                    <label class="form-check-label text-dark" for="filtroFavoritos">Mostrar somente favoritos</label>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <!--CARDS-->
 
-  <div class="container my-4">
-    <div class="input-group mt-5 pt-3">
-      <input type="text" id="campoBusca" class="form-control shadow mt-4" placeholder="Buscar item por nome...">
-      <button id="btnBusca" class="btn shadow mt-4 text-white" style="background-color: #a00000;">Buscar</button>
-    </div>
-  </div>
+        <div id="divCards" class="container">
+            </div>
+    </main>
 
-  <div class="container mb-3 d-flex justify-content-start">
-    <div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="filtroFavoritos">
-      <label class="form-check-label" for="filtroFavoritos">Mostrar somente favoritos</label>
-    </div>
-  </div>
-  <div class="container">
-    <div id="divCards"></div>
-  </div>
-
-  <!--Modal Detalhes-->
-
-  <div id="insereModal">
     <div class="modal fade" id="modalExemplo" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content " id="modalContent">
-          <!-- Conteúdo inserido via JS -->
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="modalContent">
+                </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <footer class="bg-light text-black text-center py-4 mt-5" style="background-color: #a00000 !important;">
-    <div class="container">
-      <p class="mb-0 text-white">Menu Flash. Todos os direitos reservados &copy; 2025</p>
-    </div>
-  </footer>
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p>
+        </div>
+    </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  <script src="js/criaCards.js"></script>
-  <script src="../modal/js/modal.js"></script>
-
-  <script>
-    //alterar lanchonete na navbar
-    document.addEventListener("DOMContentLoaded", async () => {
-      const params = new URLSearchParams(window.location.search);
-      const idLanchonete = params.get("id");
-      const campusParam = params.get("campus"); // <-- pega o campus da URL
-
-      let paginaCampus = "";
-
-      if (idLanchonete && idLanchonete != 0) {
-        try {
-          const response = await fetch("http://localhost:3000/lanchonetes");
-          const lanchonetes = await response.json();
-
-          const lanchonete = lanchonetes.find(l => l.id == idLanchonete);
-          if (!lanchonete) return;
-
-          if (lanchonete.campus === "Coração Eucarístico") {
-            paginaCampus = "campusCoreu.html";
-          } else if (lanchonete.campus === "Contagem") {
-            paginaCampus = "campusContagem.html";
-          }
-
-        } catch (error) {
-          console.error("Erro ao carregar a lanchonete:", error);
-        }
-
-      } else if (campusParam) {
-        // Se id == 0, usa o campus vindo da URL
-        if (campusParam === "Coração Eucarístico") {
-          paginaCampus = "campusCoreu.html";
-        } else if (campusParam === "Contagem") {
-          paginaCampus = "campusContagem.html";
-        }
-      }
-
-      // Aplica o link à navbar
-      const linkNav = document.querySelector(".nav-link[href='#']");
-      if (linkNav && paginaCampus) {
-        linkNav.href = paginaCampus;
-      }
-    });
-
-  </script>
-
-
-  <script src="../cadastro_login/js/inserirLogin.js"></script>
-  <script src="../modal/js/modal.js"></script>
-
-  <script>
-    // Este script deve rodar em TODAS as páginas que têm o link de "Entrar"
-    document.addEventListener('DOMContentLoaded', function () {
-      const linkParaLogin = document.querySelector('a[href*="login.html"]'); // Um seletor mais genérico
-
-      if (linkParaLogin) {
-        const urlAtual = window.location.href;
-        linkParaLogin.href = linkParaLogin.href + `?redirectUrl=${encodeURIComponent(urlAtual)}`;
-      }
-    });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const atualizarContador = () => {
-        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-        const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
-        const contador = document.querySelector('.carrinho-contador');
-        if (contador) {
-          contador.textContent = totalItens;
-          contador.style.display = totalItens > 0 ? 'flex' : 'none';
-        }
-      };
-
-      // Atualiza ao carregar a página e quando o storage muda
-      atualizarContador();
-      window.addEventListener('storageChanged', atualizarContador);
-    });
-  </script>
-
-  <script>
-    //PECA NOVAMENTE só aparece logado
-    document.addEventListener("DOMContentLoaded", () => {
-      const usuarioLogado = sessionStorage.getItem('usuarioLogado');
-
-      if (usuarioLogado) {
-        const pecaNav = document.getElementById("navPecaNovamente");
-        if (pecaNav) {
-          pecaNav.style.display = "block";
-        }
-      }
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
-  <script src="../cadastro_login/js/inserirLogin.js"></script>
-  <script src="js/index.js"></script>
-  <script src="../modal/js/modal.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../cadastro_login/js/inserirLogin.js"></script>
+    <script src="js/criaCards.js"></script>
+    <script src="../modal/js/modal.js"></script>
 </body>
-
 </html>

@@ -1,4 +1,7 @@
-    document.addEventListener("DOMContentLoaded", () => {
+// Arquivo: public/principal/js/criaCards.js
+// Versão completa e final, com lógica de favoritos e carrinho integradas.
+
+document.addEventListener("DOMContentLoaded", () => {
     console.log("criaCards.js carregado com lógica completa de carrinho e favoritos.");
 
     // --- ELEMENTOS DO DOM ---
@@ -25,7 +28,7 @@
     const getCarrinhoUsuario = async () => {
         const usuario = getUsuarioLogado();
         const currentUserId = usuario ? usuario.id : null;
-        if (!currentUserId) return null; // Não há carrinho se não houver usuário logado
+        if (!currentUserId) return null;
 
         try {
             const response = await fetch(`http://localhost:3000/carrinhos?userId=${currentUserId}`);
@@ -51,7 +54,7 @@
                 body: JSON.stringify(carrinhoData)
             });
             if (!response.ok) throw new Error("Falha na operação com o carrinho.");
-            window.dispatchEvent(new Event('cartUpdated')); // Notifica outras partes da aplicação
+            window.dispatchEvent(new Event('cartUpdated'));
         } catch (error) {
             console.error(`Erro ao ${method === 'POST' ? 'criar' : 'atualizar'} carrinho:`, error);
         }
@@ -72,7 +75,7 @@
         } else {
             carrinho.itens.push({
                 id: item.id,
-                nome: item.titulo, // Mapeamento correto de titulo para nome
+                nome: item.titulo,
                 imagem: item.imagem,
                 valor: item.valor,
                 nomeLanchonete: item.nomeLanchonete,
@@ -97,7 +100,7 @@
                 carrinho.itens.splice(itemIndex, 1);
             }
             await criarOuAtualizarCarrinho(carrinho);
-            mostrarFeedbackRemovido(item.titulo); // Chama o alerta de remoção
+            mostrarFeedbackRemovido(item.titulo);
         }
     };
     
@@ -107,7 +110,7 @@
         const toast = document.createElement('div');
         toast.className = 'feedback-toast';
         toast.style.cssText = `position: fixed; top: 20px; right: 20px; background-color: #198754; color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; z-index: 1050; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); animation: slideIn 0.3s ease-out;`;
-        toast.innerHTML = `<i class="bi bi-check-circle-fill me-2"></i> <strong>${nomeItem}</strong> foi adicionado ao carrinho!`;
+        toast.innerHTML = `<i class="fas fa-check-circle me-2"></i> <strong>${nomeItem}</strong> foi adicionado ao carrinho!`;
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2000);
     };
@@ -117,7 +120,7 @@
         const toast = document.createElement('div');
         toast.className = 'feedback-toast';
         toast.style.cssText = `position: fixed; top: 20px; right: 20px; background-color: #0d6efd; color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; z-index: 1050; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); animation: slideIn 0.3s ease-out;`;
-        toast.innerHTML = `<i class="bi bi-info-circle-fill me-2"></i> <strong>${nomeItem}</strong> foi atualizado no carrinho.`;
+        toast.innerHTML = `<i class="fas fa-info-circle me-2"></i> <strong>${nomeItem}</strong> foi atualizado no carrinho.`;
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2000);
     };
@@ -171,6 +174,13 @@
     };
     
     const adicionarListenersAosCards = () => {
+        // Remove listeners antigos para evitar duplicação de eventos
+        const cardsAntigos = document.querySelectorAll('.card');
+        cardsAntigos.forEach(card => {
+            const cardNovo = card.cloneNode(true);
+            card.parentNode.replaceChild(cardNovo, card);
+        });
+
         document.querySelectorAll('.btn-favoritar').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -209,6 +219,8 @@
         
         let containerParaRenderizar = cardsContainer.querySelector('.row');
         if (!containerParaRenderizar) {
+            const lanchoneteHeader = cardsContainer.querySelector('.text-center');
+            if(lanchoneteHeader) lanchoneteHeader.remove();
             cardsContainer.innerHTML = ''; 
             containerParaRenderizar = document.createElement('div');
             containerParaRenderizar.className = "row justify-content-center w-100";
@@ -217,7 +229,7 @@
         containerParaRenderizar.innerHTML = '';
 
         if (itens.length === 0) {
-            containerParaRenderizar.innerHTML = `<p class="text-center mt-3">Nenhum item encontrado.</p>`;
+            containerParaRenderizar.innerHTML = `<p class="text-center mt-3 text-white">Nenhum item encontrado.</p>`;
             return;
         }
         
@@ -291,6 +303,11 @@
             const idLanchonete = params.get("id");
             const campusSelecionado = params.get('campus');
 
+            if (idLanchonete) {
+                const lanchoneteEncontrada = data.find(l => l.id == idLanchonete);
+                if (lanchoneteEncontrada) sessionStorage.setItem("campusAnterior", lanchoneteEncontrada.campus);
+            }
+            
             if (idLanchonete == 0 && campusSelecionado) {
                 const lanchonetesDoCampus = data.filter(l => l.campus === campusSelecionado);
                 lanchonetesDoCampus.forEach(lanchonete => {
@@ -298,16 +315,16 @@
                         itensParaRenderizar.push({ ...item, nomeLanchonete: lanchonete.nome, lanchoneteId: lanchonete.id });
                     });
                 });
-            } else {
+            } else if (idLanchonete) {
                 const lanchonete = data.find(l => l.id == idLanchonete);
                 if (!lanchonete) {
-                    cardsContainer.innerHTML = '<p class="text-center">Lanchonete não encontrada.</p>';
+                    cardsContainer.innerHTML = '<p class="text-center text-white">Lanchonete não encontrada.</p>';
                     return;
                 }
                 
                 const lanchoneteHeader = document.createElement("div");
-                lanchoneteHeader.className = " mt-4 w-100 text-center";
-                lanchoneteHeader.innerHTML = `<h3>${lanchonete.nome}</h3>`;
+                lanchoneteHeader.className = " mt-4 w-100 text-center text-white";
+                lanchoneteHeader.innerHTML = `<h2>${lanchonete.nome}</h2>`;
                 cardsContainer.innerHTML = '';
                 cardsContainer.appendChild(lanchoneteHeader);
                 
