@@ -8,3 +8,13 @@
 .campus-card:hover .card-img {
     filter: brightness(70%);
 }
+
+
+#tituloPrincipal{
+    font-family: "Poppins", sans-serif;
+    margin-top: 7px;
+    font-weight: 200;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    font-size: 30px; 
+}

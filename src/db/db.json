@@ -243,16 +243,7 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": [
-        {
-          "id": 5,
-          "nome": "Pão de queijo",
-          "imagem": "img/itens/paoDeQueijo.png",
-          "valor": 5.5,
-          "nomeLanchonete": "Central",
-          "quantidade": 1
-        }
-      ]
+      "itens": []
     },
     {
       "id": "e099",
@@ -275,6 +266,11 @@
           "quantidade": 1
         }
       ]
+    },
+    {
+      "id": "cb0c",
+      "userId": "3",
+      "itens": []
     }
   ],
   "lanchonetes": [
