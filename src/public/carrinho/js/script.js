@@ -129,7 +129,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const init = async () => {
         const usuario = getUsuarioLogado();
         if (!usuario) {
-            document.body.innerHTML = `<div class="alert alert-danger text-center m-5">Você precisa estar logado para acessar o carrinho.</div>`;
+            document.body.innerHTML = `
+                <header>
+                    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+                        style="background-color: #a00000 !important;">
+                        <div class="container-fluid">
+                            <a class="navbar-brand fs-3" href="../principal/index.html">
+                                <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
+                            </a>
+                            <!-- Botão de voltar à direita -->
+                            <div>
+                                <!-- Desktop: seta + texto -->
+                                <a href="../principal/index.html" class="btn btn-light d-none d-lg-inline-flex align-items-center">
+                                    <i class="bi bi-arrow-left me-2"></i> Voltar
+                                </a>
+                                <!-- Mobile: só a seta -->
+                                <a href="../principal/index.html" class="btn btn-light d-inline-flex d-lg-none align-items-center">
+                                    <i class="bi bi-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+                <div>
+                <div class="alert alert-danger text-center m-5 pt-5">Você precisa estar logado para acessar o carrinho.</div>
+                </div>
+                `;
             return;
         }
 
@@ -160,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await removerItem(itemId);
         }
     });
-    
+
     if (btnLimpar) btnLimpar.addEventListener('click', limparCarrinho);
 
     if (btnFinalizar) {
