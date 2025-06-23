@@ -270,7 +270,16 @@
     {
       "id": "cb0c",
       "userId": "3",
-      "itens": []
+      "itens": [
+        {
+          "id": 4,
+          "nome": "Coxinha",
+          "imagem": "img/itens/coxinha.png",
+          "valor": 6,
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
