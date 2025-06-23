@@ -237,6 +237,33 @@
       "senha": "usuario1",
       "tipo": "administrador",
       "lanchoneteId": "3"
+    },
+    {
+      "id": 6,
+      "nome": "Lucas",
+      "email": "lucas1@gmail.com",
+      "senha": "123456",
+      "tipo": "padrao",
+      "favoritos": [],
+      "historico": []
+    },
+    {
+      "id": 7,
+      "nome": "Lucas",
+      "email": "lucas2@gmail.com",
+      "senha": "123456",
+      "tipo": "padrao",
+      "favoritos": [],
+      "historico": []
+    },
+    {
+      "id": 8,
+      "nome": "Matheus",
+      "email": "matheus@gmail.com",
+      "senha": "123456",
+      "tipo": "padrao",
+      "favoritos": [],
+      "historico": []
     }
   ],
   "carrinhos": [
@@ -271,6 +298,66 @@
       "id": "cb0c",
       "userId": "3",
       "itens": []
+    },
+    {
+      "id": "4494",
+      "userId": 7,
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": 3.5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 2,
+          "nome": "Guaraná lata",
+          "imagem": "img/itens/guaranaLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "4f95",
+      "userId": 8,
+      "itens": [
+        {
+          "id": 11,
+          "nome": "Suco lata",
+          "imagem": "img/itens/sucoLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        },
+        {
+          "id": 10,
+          "nome": "Trento",
+          "imagem": "img/itens/trento.png",
+          "valor": 4.5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        },
+        {
+          "id": 2,
+          "nome": "Guaraná lata",
+          "imagem": "img/itens/guaranaLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 2
+        },
+        {
+          "id": 3,
+          "nome": "Açaí",
+          "imagem": "img/itens/acai.png",
+          "valor": 7,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -290,7 +377,11 @@
           "favorito": false,
           "quantidade": 17,
           "semLactose": true,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": [
+            "lucas@gmail.com",
+            "lucas2@gmail.com"
+          ]
         },
         {
           "id": 2,
@@ -303,7 +394,11 @@
           "favorito": true,
           "quantidade": 11,
           "semLactose": true,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": [
+            "lucas@gmail.com",
+            "lucas2@gmail.com"
+          ]
         },
         {
           "id": 3,
@@ -316,7 +411,8 @@
           "favorito": true,
           "quantidade": 9,
           "semLactose": false,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": []
         },
         {
           "id": 4,
@@ -329,7 +425,10 @@
           "disponivel": true,
           "favorito": true,
           "semLactose": false,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         }
       ]
     },
