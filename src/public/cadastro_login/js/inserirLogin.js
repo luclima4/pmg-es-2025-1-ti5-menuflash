@@ -1,5 +1,5 @@
 // Arquivo: cadastro_login/js/inserirLogin.js
-// Versão corrigida para funcionar com o menu dropdown do Bootstrap 5
+// Versão completa e final com link dinâmico para administradores.
 
 document.addEventListener("DOMContentLoaded", () => {
     // Encontra o container do menu dropdown na barra de navegação
@@ -12,21 +12,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Verifica se há um usuário logado na sessionStorage
     const usuarioLogadoJSON = sessionStorage.getItem('usuarioLogado');
-
     let menuHTML = '';
 
     if (usuarioLogadoJSON) {
         // --- CASO 1: Usuário está LOGADO ---
         const usuario = JSON.parse(usuarioLogadoJSON);
+        let adminLink = ''; // Prepara uma variável para o link do admin
 
-        // Cria os links de Perfil e Sair como itens de lista
+        // Verifica se o usuário é do tipo 'administrador'
+        if (usuario.tipo === 'administrador') {
+            adminLink = `
+                <li>
+                    <a class="dropdown-item text-white" href="../cadastro_de_itens/index.html">
+                        <i class="fas fa-edit me-2"></i> Gerenciar Itens
+                    </a>
+                </li>
+            `;
+        }
+
+        // Cria os links padrão para todos os usuários logados
         menuHTML = `
             <li>
                 <a class="dropdown-item text-white" href="../Perfil/perfil.html">
                     <i class="fas fa-user-circle me-2"></i> Perfil (${usuario.nome})
                 </a>
             </li>
-            <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.3);"></li>
+            ${adminLink} <li><hr class="dropdown-divider" style="border-color: rgba(255,255,255,0.3);"></li>
             <li>
                 <a id="btn-sair" class="dropdown-item text-white" href="#">
                     <i class="fas fa-sign-out-alt me-2"></i> Sair
@@ -36,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
     } else {
         // --- CASO 2: Usuário está DESLOGADO ---
-
         // Cria o link de Login
         menuHTML = `
             <li>
@@ -67,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const linkParaLogin = menuDropdown.querySelector('a[href*="login.html"]');
     if (linkParaLogin) {
         const urlAtual = window.location.href;
-        linkParaLogin.href += `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+        // Evita adicionar o redirectUrl se já estiver na página de login
+        if(!urlAtual.includes('login.html')) {
+            linkParaLogin.href += `?redirectUrl=${encodeURIComponent(urlAtual)}`;
+        }
     }
 });
