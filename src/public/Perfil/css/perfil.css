@@ -56,3 +56,12 @@
         margin-top: -1.5rem; /* Puxa o valor para cima */
     }
 }
+
+#tituloPrincipal{
+    font-family: "Poppins", sans-serif;
+    margin-top: 7px;
+    font-weight: 200;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    font-size: 30px; 
+}

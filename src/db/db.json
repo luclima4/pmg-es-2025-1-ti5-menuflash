@@ -248,6 +248,28 @@
     {
       "id": "e099",
       "userId": "4",
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": 3.5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 3,
+          "nome": "Açaí",
+          "imagem": "img/itens/acai.png",
+          "valor": 7,
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "cb0c",
+      "userId": "3",
       "itens": []
     }
   ],
