@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const formatarMoeda = (valor) => Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    
+
     // --- FUNÇÕES DE RENDERIZAÇÃO E AÇÃO ---
     const renderizarCarrinho = (carrinho) => {
         if (!itensContainer || !carrinhoVazioEl) return;
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btnFinalizar) btnFinalizar.disabled = true;
             return;
         }
-        
+
         carrinhoVazioEl.style.display = 'none';
         if (btnFinalizar) btnFinalizar.disabled = false;
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const precoUnitario = Number(item.preco_unitario || item.valor);
             const subtotalItem = precoUnitario * item.quantidade;
             const caminhoCorretoImagem = (item.imagem && item.imagem.startsWith('../')) ? item.imagem : `../principal/${item.imagem || ''}`;
-            
+
             return `
                 <div class="item-carrinho d-flex justify-content-between align-items-center p-3 border-bottom">
                     <div class="d-flex align-items-center">
@@ -94,9 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
         if (totalEl) totalEl.textContent = formatarMoeda(subtotal);
     };
 
-    const atualizarItem = async (itemId, novaQuantidade) => { /* ... (código existente) ... */ };
-    const removerItem = async (itemId) => { /* ... (código existente) ... */ };
-    const limparCarrinho = async () => { /* ... (código existente) ... */ };
+    const atualizarItem = async (itemId, novaQuantidade) => {
+        const carrinho = await getCarrinhoUsuario();
+        if (!carrinho) return;
+        const item = carrinho.itens.find(i => i.id == itemId);
+        if (!item) return;
+
+        item.quantidade = novaQuantidade;
+        item.subtotal = Number(item.preco_unitario || item.valor) * novaQuantidade;
+
+        await atualizarCarrinhoServidor(carrinho);
+        renderizarCarrinho(carrinho);
+    };
+
+    const removerItem = async (itemId) => {
+        const carrinho = await getCarrinhoUsuario();
+        if (!carrinho) return;
+        carrinho.itens = carrinho.itens.filter(i => i.id != itemId);
+
+        await atualizarCarrinhoServidor(carrinho);
+        renderizarCarrinho(carrinho);
+    };
+
+    const limparCarrinho = async () => {
+        const carrinho = await getCarrinhoUsuario();
+        if (!carrinho) return;
+
+        carrinho.itens = [];
+        await atualizarCarrinhoServidor(carrinho);
+        renderizarCarrinho(carrinho);
+    };
 
     // --- INICIALIZAÇÃO E EVENTOS ---
     const init = async () => {
@@ -105,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.innerHTML = `<div class="alert alert-danger text-center m-5">Você precisa estar logado para acessar o carrinho.</div>`;
             return;
         }
-        
+
         if (btnContinuarComprando) {
             const lanchoneteAnteriorId = sessionStorage.getItem("lanchoneteAnterior");
             if (lanchoneteAnteriorId) {
@@ -114,15 +141,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnContinuarComprando.href = `../principal/index.html`;
             }
         }
-        
+
         const carrinho = await getCarrinhoUsuario();
         renderizarCarrinho(carrinho);
     };
 
-    itensContainer.addEventListener('change', e => { /* ... (código existente) ... */ });
-    itensContainer.addEventListener('click', e => { /* ... (código existente) ... */ });
-    if (btnLimpar) btnLimpar.addEventListener('click', limparCarrinho);
+    itensContainer.addEventListener('change', async e => {
+        if (e.target.classList.contains('quantidade-input')) {
+            const itemId = e.target.dataset.id;
+            const novaQuantidade = Number(e.target.value);
+            if (novaQuantidade >= 1) await atualizarItem(itemId, novaQuantidade);
+        }
+    });
+
+    itensContainer.addEventListener('click', async e => {
+        if (e.target.closest('.btn-remover')) {
+            const itemId = e.target.closest('.btn-remover').dataset.id;
+            await removerItem(itemId);
+        }
+    });
     
+    if (btnLimpar) btnLimpar.addEventListener('click', limparCarrinho);
+
     if (btnFinalizar) {
         btnFinalizar.addEventListener('click', async () => {
             const usuarioLogado = getUsuarioLogado();
@@ -130,19 +170,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Sua sessão expirou. Por favor, faça login novamente.');
                 return window.location.href = '../cadastro_login/login.html';
             }
-            
+
             const carrinho = await getCarrinhoUsuario();
             if (!carrinho || carrinho.itens.length === 0) {
                 alert('Seu carrinho está vazio!');
                 return;
             }
-            
+
             const pedidoPendente = {
                 itens: carrinho.itens,
                 observacao: observacaoEl.value || "",
                 userId: usuarioLogado.id
             };
-            
+
             localStorage.setItem('pedidoPendente', JSON.stringify(pedidoPendente));
             window.location.href = '../forma-pagamento/index.html';
         });
