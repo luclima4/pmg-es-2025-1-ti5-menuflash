@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <li class="list-group-item item-responsivo d-flex justify-content-between align-items-center px-0 py-2">
                     <div class="d-flex align-items-center">
                         <img src="${normalizarCaminhoImagem(item.imagem)}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" alt="${item.nome}">
-                        <span class="mx-2 flex-grow-1">${item.quantidade}x ${item.nome}</span>
+                        <span class="mx-2 flex-grow-1">${item.quantidade}x ${item.titulo}</span>
                     </div>
                     <span class="font-weight-bold item-valor">R$ ${Number(item.subtotal).toFixed(2).replace('.', ',')}</span>
                 </li>
