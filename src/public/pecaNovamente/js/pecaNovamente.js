@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <h6 class="card-title">${item.titulo || item.nome}</h6>
                                     <p class="card-text fw-bold mt-auto">R$ ${Number(item.preco_unitario || item.valor).toFixed(2).replace('.', ',')}</p>
                                     <div class="input-group justify-content-center mt-2">
-                                        <button class="btn btn-sm btn-primary btn-adicionar-item" data-item='${JSON.stringify(item)}'>
+                                        <button class="btn btn-sm btn-adicionar-item text-light" style="background-color: #a00000" data-item='${JSON.stringify(item)}'>
                                             <i class="fas fa-cart-plus me-2"></i> Adicionar
                                         </button>
                                     </div>
