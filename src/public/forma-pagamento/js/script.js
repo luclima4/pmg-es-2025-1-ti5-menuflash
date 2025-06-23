@@ -52,100 +52,64 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
-    const finalizarPedido = () => {
+    const finalizarPedido = async () => {
         if (!metodoPagamentoSelecionado) {
             alert('Por favor, selecione um método de pagamento.');
             return;
         }
 
-        const usuarioStr = sessionStorage.getItem('usuarioLogado');
-        if (!usuarioStr) {
-            alert('Usuário não está logado.');
+        // Busca o carrinho do usuário
+        let carrinho = null;
+        try {
+            const response = await fetch(`${jsonServerUrl}/carrinhos?userId=1`);
+            const carrinhos = await response.json();
+            carrinho = carrinhos[0];
+        } catch (error) {
+            console.error('Erro ao buscar carrinho:', error);
+        }
+        if (!carrinho || !carrinho.itens || carrinho.itens.length === 0) {
+            alert('Carrinho vazio!');
             return;
         }
-        const usuarioLogado = JSON.parse(usuarioStr);
 
-        // 1) Busca o usuário para pegar o histórico atual
-        fetch(`${jsonServerUrl}/usuarios/${usuarioLogado.id}`)
-            .then(res => {
-                if (!res.ok) throw new Error('Falha ao buscar usuário');
-                return res.json();
-            })
-            .then(usuario => {
-                const historicoAtual = Array.isArray(usuario.historico_de_pedidos)
-                    ? usuario.historico_de_pedidos
-                    : [];
+        // Monta o pedido
+        const pedidoPendente = {
+            id: `pedido_${new Date().getTime()}`,
+            itens: carrinho.itens,
+            data: new Date().toISOString(),
+            status: 'pendente',
+            metodoPagamento: metodoPagamentoSelecionado
+        };
 
-                // 2) Busca as lanchonetes pra descobrir o nome da que o cliente comprou
-                return fetch(`${jsonServerUrl}/lanchonetes`)
-                    .then(res2 => {
-                        if (!res2.ok) throw new Error('Falha ao buscar lanchonetes');
-                        return res2.json();
-                    })
-                    .then(lanchonetes => {
-                        // encontra pelo ID
-                        const lanche = lanchonetes.find(l => String(l.id) === String(pedidoPendente.lanchonete_id));
-                        const nomeLanchonete = lanche ? lanche.nome : 'Desconhecida';
-
-                        // monta data e hora
-                        const agora = new Date();
-                        const data = agora.toISOString().split('T')[0];
-                        const hora = agora.toTimeString().slice(0, 5);
-
-                        // total
-                        const total = pedidoPendente.itens.reduce((acc, i) => {
-                            const preco = parseFloat(i.valor.replace('R$', '').replace(',', '.'));
-                            return acc + (preco * i.quantidade);
-                        }, 0);
-
-                        // corrige caminho das imagens e monta itens
-                        const itensParaHistorico = pedidoPendente.itens.map(i => {
-                            const src = i.imagem.startsWith('img/')
-                                ? `../principal/${i.imagem}`
-                                : i.imagem;
-                            return {
-                                nome: i.nome,
-                                quantidade: i.quantidade,
-                                imagem: src,
-                                subtotal: parseFloat(i.valor.replace('R$', '').replace(',', '.')) * i.quantidade
-                            };
-                        });
-
-                        // 3) Monta o novo registro **incluindo** o nome da lanchonete
-                        const novoRegistro = {
-                            pedido_id: Date.now(),
-                            lanchonete_id: pedidoPendente.lanchonete_id,
-                            lanchonete_nome: nomeLanchonete,     // <<< aqui!
-                            data,
-                            hora,
-                            total,
-                            itens: itensParaHistorico,
-                            status: 'Concluído',
-                            forma_pagamento: metodoPagamentoSelecionado
-                        };
-
-                        // 4) Retorna o PATCH para anexar ao histórico
-                        return fetch(`${jsonServerUrl}/usuarios/${usuario.id}`, {
-                            method: 'PATCH',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                historico_de_pedidos: [...historicoAtual, novoRegistro]
-                            })
-                        });
-                    });
-            })
-            .then(resPatch => {
-                if (!resPatch.ok) throw new Error('Falha ao atualizar histórico');
-                // 5) Limpa e redireciona
-                localStorage.removeItem('carrinho');
-                localStorage.removeItem('pedidoPendente');
-                window.dispatchEvent(new Event('storageChanged'));
-                window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
-            })
-            .catch(err => {
-                console.error('Erro ao finalizar pedido:', err);
-                alert('Ocorreu um erro ao finalizar o pedido. Tente novamente mais tarde.');
+        // Salva o pedido no db.json
+        try {
+            await fetch(`${jsonServerUrl}/pedidos`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(pedidoPendente)
             });
+        } catch (error) {
+            console.error('Erro ao salvar pedido:', error);
+        }
+
+        // Limpa o carrinho do usuário
+        try {
+            await fetch(`${jsonServerUrl}/carrinhos/${carrinho.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...carrinho, itens: [] })
+            });
+        } catch (error) {
+            console.error('Erro ao limpar carrinho:', error);
+        }
+
+        // Limpa localStorage
+        localStorage.removeItem('carrinho');
+        localStorage.removeItem('pedidoPendente');
+        window.dispatchEvent(new Event('storageChanged'));
+
+        // Redireciona para a página de acompanhamento
+        window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
     };
 
     // --- EVENT LISTENERS ---
