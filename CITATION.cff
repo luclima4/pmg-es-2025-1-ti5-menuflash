@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: Please cite this software using these metadata.
+message: Este projeto foi desenvolvido para fins acadêmicos na PUC Minas. Caso utilize ou mencione este software, por favor, cite conforme os metadados abaixo.
 title: MenuFlash
 authors:
   - family-names: Santos
@@ -19,10 +19,10 @@ authors:
   - name-suffix: Professor
     affiliation: PUC Minas    
 keywords:
-    - coloque aqui a palavra-chave 1
-    - coloque aqui a palavra-chave 2
-    - coloque aqui a palavra-chave 3
-repository-code: coloque o link do seu repositório
+  - sistema de pedidos
+  - lanchonete universitária
+  - projeto interdisciplinar
+repository-code: https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-menuflash
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2024-09-01
