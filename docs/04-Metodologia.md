@@ -3,89 +3,76 @@
 
 <span style="color:red">Pré-requisitos: <a href="03-Product-design.md"> Product design</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para abordar o problema. Inclua definições sobre os ambientes de trabalho utilizados pela equipe para desenvolver o projeto. Isso abrange a relação dos ambientes utilizados, a estrutura para a gestão do código-fonte, além da definição do processo e das ferramentas por meio dos quais a equipe se organiza (gestão de equipes).
+### Relação de ambientes de trabalho
 
-## Relação de ambientes de trabalho
+Os artefatos do projeto MenuFlash foram desenvolvidos utilizando diferentes plataformas, com o objetivo de organizar, desenvolver e hospedar todas as etapas da aplicação. A tabela abaixo resume os ambientes adotados e seus propósitos:
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas. A relação dos ambientes com seus respectivos propósitos deverá ser apresentada em uma tabela que especifique e detalhe Ambiente, Plataforma e Link de Acesso. Defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
+| Ambiente                    | Plataforma      | Link de acesso                                                        |
+|-----------------------------|-----------------|------------------------------------------------------------------------|
+| Processo de Design Thinking | Miro            | [Link do Miro](https://miro.com/welcomeonboard/dzl1L3FxTEs0aEpnaUg4bkUzM0hCdXlyUXBVTTNFd1djdytpNUFFYjgrVVlFRnRnYmZlWGh3eWVQU0p4OXk1QVU3b0JiZ1pmU3RLMHhyZGtqOTh0UTR5YWV1YldhWkpOVmtBazlvZEdVZnZTcTlCWXV2NHBJMSttd1NMR0pjTCtBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=12564068258) |
+| Repositório de código-fonte | GitHub          | [Repositório GitHub](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) |
+| Documentos do projeto       | GitHub          | [Documentação](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) |
+| Gerenciamento do projeto    | GitHub Projects | [Kanban GitHub](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW/projects) |
+| Projeto de interface        | Figma           | [Protótipo no Figma](https://www.figma.com/design/T6MGgP9B9tfb1dWsLrRAKz/MenuFlash?node-id=0-1&t=sRj3WJvIx5UlKzCV-1) |
+| Hospedagem do site          | Vercel          | *(em desenvolvimento)*                                               |
 
-## Controle de versão
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+### Controle de versão
 
-A ferramenta de controle de versão adotada no projeto foi o [Git](https://git-scm.com/), sendo que o [GitHub](https://github.com) foi utilizado para hospedagem do repositório.
+A ferramenta de controle de versão utilizada no projeto foi o Git, com o repositório hospedado no GitHub. A equipe adotou uma estrutura de branches que permite o desenvolvimento colaborativo e seguro, seguindo a seguinte convenção:
 
-O projeto segue a seguinte convenção para o nome de branches:
+- `main`: versão estável e pronta para produção;
+- `Develop`: versão principal de desenvolvimento, onde são integradas as funcionalidades das branches dos membros;
+- `Cristiane, eric, Larissa, Lucas, Lucas_Develop, Heitor, menu` : branches individuais - cada integrante da equipe criou sua própria branch para desenvolver suas respectivas funcionalidades sem interferir no progresso dos demais.
+ 
+**Configuração do Projeto e Gerência de Versionamento**
+A configuração do projeto no GitHub foi estruturada com branches nomeadas de acordo com cada integrante da equipe, permitindo que cada funcionalidade fosse desenvolvida de forma separada, sem impactar o trabalho dos demais. Além disso, foram utilizadas duas branches principais:
 
-- `main`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
-- `dev`: versão de desenvolvimento do software
+- `develop`: onde foram reunidas as funcionalidades em desenvolvimento;
+- `main`: reservada para as versões mais estáveis do sistema.
 
-Quanto à gerência de issues, o projeto adota a seguinte convenção para etiquetas:
+**Commits**
+Os commits, apesar de não seguirem um padrão técnico formal como `feat`: ou `fix:`, sempre incluíram descrições claras do que foi alterado. As mensagens normalmente indicavam o tipo de mudança feita, como correções de bugs, melhorias visuais ou implementação de novas funcionalidades, facilitando o entendimento do histórico do projeto por todos os membros.
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
+**Merges**
+Os merges foram feitos de forma organizada. Cada integrante desenvolveu e testou sua parte em uma branch individual, que depois era integrada à `Develop`. Após testar tudo e garantir que o site estava funcionando corretamente, o código foi enviado para a main, evitando conflitos e garantindo uma versão final estável.
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gestão de tags, merges, commits e branches é realizada. Discuta também como a gestão de issues foi feita.
-
-> **Links úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e GitHub](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
-> - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
+**Gerência de Issues**
+Embora não tenha sido utilizada uma ferramenta formal como GitHub Issues, a equipe aplicou os princípios do Design Thinking para identificar, priorizar e distribuir tarefas. Além disso, a comunicação constante via WhatsApp e reuniões presenciais garantiu o alinhamento entre os membros quanto a bugs, melhorias e novas funcionalidades.
 
 ## Planejamento do projeto
 
 ###  Divisão de papéis
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+A equipe se organizou com base na metodologia Scrum, adotando os seguintes papéis:
 
-> A equipe utiliza o Scrum como base para definição do processo de desenvolvimento. [Adicione informações abaixo sobre a divisão de papéis entre os membros da equipe.]
+*Scrum Master:* Larissa Nogueira – responsável por acompanhar o andamento do time e remover impedimentos.
 
-- Scrum Master: nome de um membro da equipe, principal responsável pela gestão do projeto.
-- Product Owner: nome de um membro da equipe, representante dos interesses de todos os envolvidos (stakeholders), define as funcionalidades do produto e prioriza os itens de Product Backlog.
-- Equipe de Desenvolvimento: nomes de todos os membros da equipe, pois todos os membros deverão implementar no mínimo duas telas/funcionalidades.
-- Equipe de Design: nomes dos membros da equipe que trabalharão com design.
+*Product Owner:* Cristiane de Oliveira – responsável por representar os interesses dos usuários e priorizar as funcionalidades.
 
-> **Links úteis**:
-> - [11 passos essenciais para implantar Scrum no seu projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-> - [Os papéis do Scrum e a verdade sobre cargos nessa técnica](https://www.atlassian.com/br/agile/scrum/roles)
+*Equipe de Desenvolvimento:* Cristiane de Oliveira, Eric Abreu, Heitor Habaeb, Larissa Nogueira e Lucas Lima – todos participaram da implementação de funcionalidades e telas.
+
+*Equipe de Design:* Cristiane de Oliveira, Eric Abreu, Heitor Habaeb, Larissa Nogueira e Lucas Lima – todos contribuíram com a criação da interface do sistema.
 
 ### Processo
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+A equipe utilizou o Design Thinking nas etapas iniciais para entender as necessidades dos usuários e definir as funcionalidades do sistema. Durante o desenvolvimento, foi adotado o Scrum, com sprints e divisão de papéis clara.
 
-Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo deverá fazer uso do recurso de gerenciamento de projeto oferecido pelo GitHub, o GitHub Projects, que permite acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução. 
+Para gerenciar as tarefas, o grupo utilizou o Trello, com um quadro Kanban contendo colunas como "A fazer", "Em andamento" e "Concluído", facilitando a organização e o acompanhamento do projeto.
 
-Coloque uma imagem da estrutura da ferramenta de controle de tarefas (Kanban) e o link do GitHub Projects.
- 
-> **Links úteis**:
-> - [GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [Planejamento e gestão ágil de projetos](https://pucminas.instructure.com/courses/87878/pages/unidade-2-tema-2-utilizacao-de-ferramentas-para-controle-de-versoes-de-software)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Como criar backlogs no GitHub](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial slack](https://slack.com/intl/en-br/)
+IMAGEM
 
 ### Ferramentas
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+| Ambiente                    | Plataforma         | Link de acesso                                                        | Justificativa                                                                    |
+|----------------------------|--------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| Processo de Design Thinking | Miro               | [Link do Miro](https://miro.com/welcomeonboard/dzl1L3FxTEs0aEpnaUg4bkUzM0hCdXlyUXBVTTNFd1djdytpNUFFYjgrVVlFRnRnYmZlWGh3eWVQU0p4OXk1QVU3b0JiZ1pmU3RLMHhyZGtqOTh0UTR5YWV1YldhWkpOVmtBazlvZEdVZnZTcTlCWXV2NHBJMSttd1NMR0pjTCtBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=12564068258) | Utilizado para organizar ideias e mapear o problema com base no Design Thinking. |
+| Repositório de código-fonte | GitHub             | [Repositório GitHub](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) | Armazenamento do código, versionamento e colaboração entre os membros.           |
+| Documentos do projeto       | GitHub             | [Link da Documentação](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) | Organização da documentação técnica e entrega do trabalho.                       |
+| Gerenciamento do projeto    | Trello             | *(Uso interno – quadro compartilhado entre membros)*                 | Quadro Kanban com tarefas divididas em colunas "A fazer", "Fazendo" e "Feito".  |
+| Projeto de interface        | Figma              | [Protótipo no Figma](https://www.figma.com/design/T6MGgP9B9tfb1dWsLrRAKz/MenuFlash?node-id=0-1&t=sRj3WJvIx5UlKzCV-1) | Criação do layout e visual das interfaces do sistema.                            |
+| Hospedagem do site          | Vercel             | *(Link ainda não disponível)*                                         | Plataforma usada para deploy gratuito de projetos front-end.                     |
+| Editor de código            | Visual Studio Code | *(Uso local)*                                                         | Utilizado para desenvolver o sistema com HTML, CSS e JavaScript.                 |
+| Comunicação                 | WhatsApp           | *(Uso interno)*                                                       | Principal canal de comunicação entre os membros da equipe.                       |
 
-Liste todas as ferramentas que foram empregadas no projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) editor de código, (2) ferramentas de comunicação, (3) ferramentas de diagramação, (4) plataformas de hospedagem, entre outras.
 
-⚠️ EXEMPLO ⚠️ os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue.
-
-| Ambiente                            | Plataforma                         | Link de acesso                       |
-|-------------------------------------|------------------------------------|--------------------------------------|
-| Processo de Design Thinking         | Miro                               | https://....   ⚠️ EXEMPLO ⚠️        |
-| Repositório de código fonte         | GitHub                             | https://....   ⚠️ EXEMPLO ⚠️        |
-| Documentos do projeto               | GitHub                             | http://....    ⚠️ EXEMPLO ⚠️        |
-| Gerenciamento do projeto            | GitHub Projects                    | http://....    ⚠️ EXEMPLO ⚠️        |
-| Projeto de interface                | Figma                              | http://....    ⚠️ EXEMPLO ⚠️        |
-| Hospedagem                          | Vercel                             | http://....    ⚠️ EXEMPLO ⚠️        |
- 
