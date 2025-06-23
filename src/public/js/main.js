@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            if (!response.ok) {
+                // Se a busca falhar, esconde o contador para evitar mostrar um número errado.
+                contadorEl.style.display = 'none';
+                return;
+            }
+
             const carrinhos = await response.json();
             const carrinho = carrinhos[0];
 
@@ -78,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gerenciarLinksDoMenu();
     atualizarContadorCarrinho();
 
-    // Ouve o evento 'cartUpdated' que disparamos em outros scripts (criaCards.js, modal.js)
+    // Ouve o evento 'cartUpdated' que disparamos nos outros scripts (criaCards.js, modal.js)
     // para atualizar o contador em tempo real, sem precisar recarregar a página.
     window.addEventListener('cartUpdated', () => {
         console.log("Evento 'cartUpdated' recebido no main.js. Atualizando contador.");

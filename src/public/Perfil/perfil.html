@@ -1,210 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - MenuFlash</title>
-
+    <title>Meu Perfil - MenuFlash</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="css/perfil.css">
 </head>
-
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <header>
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
-            style="background-color: #a00000 !important;">
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
             <div class="container-fluid">
                 <a class="navbar-brand fs-3" href="../principal/index.html">
                     <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                 </a>
-
-                <!-- Botão de voltar à direita -->
-                <div>
-                    <!-- Desktop: seta + texto -->
-                    <a href="../principal/index.html" class="btn btn-light d-none d-lg-inline-flex align-items-center">
-                        <i class="bi bi-arrow-left me-2"></i> Voltar
-                    </a>
-                    <!-- Mobile: só a seta -->
-                    <a href="../principal/index.html" class="btn btn-light d-inline-flex d-lg-none align-items-center">
-                        <i class="bi bi-arrow-left"></i>
-                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item"><a class="nav-link text-white" href="../principal/index.html">Voltar ao Início</a></li>
+                        <li class="nav-item me-2">
+                            <a href="../carrinho/index.html" class="carrinho-icon nav-link">
+                                <i class="fas fa-shopping-cart fs-4 text-white"></i>
+                                <span class="carrinho-contador" style="display: none;">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
+                            </a>
+                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;"></ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-
-
-    <div class="container my-4 my-md-5 mt-5 pt-5">
-        <h2 class="font-weight-bold mb-4">
-            Informações do Perfil
-        </h2>
+    <main class="container my-4 my-md-5 flex-grow-1" style="margin-top: 80px !important;">
+        <h2 class="font-weight-bold py-3 mb-4">Informações do Perfil</h2>
         <div class="card overflow-hidden">
             <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="card-header border-bottom mb-3 d-lg-none">
-                        <button class="btn btn-light w-100" type="button" data-bs-toggle="collapse" data-bs-target="#menuPerfil" aria-expanded="false" aria-controls="menuPerfil">
-                            <i class="fas fa-bars me-2"></i> Menu do Perfil
-                        </button>
-                    </div>
-                    <div class="collapse d-lg-block" id="menuPerfil">
-                        <div class="list-group list-group-flush account-settings-links">
-                            <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account-general">Informações Pessoais</a>
-                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-change-password">Trocar Senha</a>
-                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-info">Favoritos</a>
-                            <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-social-links">Histórico de Pedidos</a>
-                        </div>
+                <div class="col-lg-3 border-end">
+                     <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account-general">Informações Pessoais</a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-change-password">Trocar Senha</a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-favorites">Favoritos</a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#account-history">Histórico de Pedidos</a>
                     </div>
                 </div>
-
                 <div class="col-lg-9">
                     <div class="tab-content p-3 p-md-4">
                         <div class="tab-pane fade active show" id="account-general">
-                            <div class="form-group mb-3">
-                                <label class="form-label">Nome</label>
-                                <input type="text" id="userName" class="form-control" value="">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">E-mail</label>
-                                <input type="text" id="userEmail" class="form-control" value="">
-                            </div>
+                            <div class="form-group mb-3"><label class="form-label">Nome</label><input type="text" id="userName" class="form-control"></div>
+                            <div class="form-group mb-3"><label class="form-label">E-mail</label><input type="text" id="userEmail" class="form-control"></div>
                         </div>
-
                         <div class="tab-pane fade" id="account-change-password">
-                            <div class="form-group mb-3">
-                                <label class="form-label">Senha atual</label>
-                                <input id="inputSenha" type="password" class="form-control">
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Nova Senha</label>
-                                <input id="inputNovaSenha1" type="password" class="form-control" disabled>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="form-label">Repita a nova senha</label>
-                                <input id="inputNovaSenha2" type="password" class="form-control" disabled>
-                            </div>
+                            <div class="form-group mb-3"><label class="form-label">Senha atual</label><input id="inputSenha" type="password" class="form-control"></div>
+                            <div class="form-group mb-3"><label class="form-label">Nova Senha</label><input id="inputNovaSenha1" type="password" class="form-control" disabled></div>
+                            <div class="form-group mb-3"><label class="form-label">Repita a nova senha</label><input id="inputNovaSenha2" type="password" class="form-control" disabled></div>
                         </div>
-
-                        <div class="tab-pane fade" id="account-info">
-                            <div id="containerFavoritos" class="form-group">
-                                </div>
+                        <div class="tab-pane fade" id="account-favorites">
+                            <div id="containerFavoritos"></div>
                         </div>
-
-                        <div class="tab-pane fade" id="account-social-links">
-                            <div id="insereHistorico">
-                                </div>
+                        <div class="tab-pane fade" id="account-history">
+                            <div id="insereHistorico"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="d-flex flex-column flex-sm-row justify-content-end mt-4 gap-2">
-            <button id="btnCancel" type="button" class="btn btn-outline-secondary order-2 order-sm-1">Cancelar</button>
-            <button id="btnSaveChanges" type="button" class="btn order-1 order-sm-2 text-light" style="background-color: #a00000;">Salvar Mudanças</button>
+        <div class="text-end mt-4">
+            <button id="btnCancel" type="button" class="btn btn-outline-secondary">Cancelar</button>
+            <button id="btnSaveChanges" type="button" class="btn btn-primary">Salvar Mudanças</button>
         </div>
-    </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container"><p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p></div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="../js/main.js"></script>
+    <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/perfil.js"></script>
-    
-    <script>
-     document.addEventListener("DOMContentLoaded", () => {
-            const usuarioJSON = sessionStorage.getItem("usuarioLogado");
-            if (!usuarioJSON) return window.location.href = "login.html";
-            window.usuario = JSON.parse(usuarioJSON);
-
-            document.getElementById("userName").value = usuario.nome;
-            document.getElementById("userEmail").value = usuario.email;
-
-            const inputSenha = document.getElementById("inputSenha");
-            const inputNova1 = document.getElementById("inputNovaSenha1");
-            const inputNova2 = document.getElementById("inputNovaSenha2");
-            [inputSenha, inputNova1, inputNova2].forEach(i => i.value = "");
-            inputNova1.disabled = inputNova2.disabled = true;
-
-            inputSenha.addEventListener("input", () => {
-                const ok = inputSenha.value === usuario.senha;
-                inputNova1.disabled = inputNova2.disabled = !ok;
-            });
-        });
-
-        document.getElementById("btnSaveChanges").addEventListener("click", () => {
-            const novoNome = document.getElementById("userName").value.trim();
-            const novoEmail = document.getElementById("userEmail").value.trim();
-            const inputSenha = document.getElementById("inputSenha");
-            const inputNova1 = document.getElementById("inputNovaSenha1");
-            const inputNova2 = document.getElementById("inputNovaSenha2");
-
-            const payload = {};
-            if (novoNome !== usuario.nome) payload.nome = novoNome;
-            if (novoEmail !== usuario.email) payload.email = novoEmail;
-
-            // Troca de senha?
-            if (inputSenha.value || inputNova1.value || inputNova2.value) {
-                if (inputSenha.value !== usuario.senha) {
-                    return alert("Senha atual incorreta.");
-                }
-                if (!inputNova1.value || inputNova1.value !== inputNova2.value) {
-                    return alert("As novas senhas não conferem.");
-                }
-                if (inputNova1.value.length < 6) {
-                    return alert("A nova senha deve ter no mínimo 6 caracteres.");
-                }
-                payload.senha = inputNova1.value;
-            }
-
-            if (Object.keys(payload).length === 0) {
-                return alert("Nenhuma alteração a ser salva.");
-            }
-
-            fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            })
-                .then(res => {
-                    if (!res.ok) throw new Error(`Status ${res.status}`);
-                    return res.json();
-                })
-                .then(usuarioAtualizado => {
-                    sessionStorage.setItem("usuarioLogado", JSON.stringify(usuarioAtualizado));
-                    window.usuario = usuarioAtualizado;
-
-                    // limpa campos de senha
-                    document.getElementById("inputSenha").value = "";
-                    inputNova1.value = inputNova2.value = "";
-                    inputNova1.disabled = inputNova2.disabled = true;
-
-                    alert("Informação atualizada com sucesso!");
-                })
-                .catch(err => {
-                    console.error("Erro ao atualizar informação:", err);
-                    alert("Não foi possível salvar as mudanças. Tente novamente.");
-
-
-                });
-        });
-
-        document.getElementById("btnCancel").addEventListener("click", () => {
-            document.getElementById("userName").value = usuario.nome;
-            document.getElementById("userEmail").value = usuario.email;
-            const inputSenha = document.getElementById("inputSenha");
-            const inputNova1 = document.getElementById("inputNovaSenha1");
-            const inputNova2 = document.getElementById("inputNovaSenha2");
-            [inputSenha, inputNova1, inputNova2].forEach(i => i.value = "");
-            inputNova1.disabled = inputNova2.disabled = true;
-        });
-    </script>
 </body>
 </html>
