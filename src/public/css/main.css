@@ -58,3 +58,35 @@ header .navbar {
 footer {
     background-color: #a00000 !important;
 }
+
+/* Estilos que estavam no HTML e agora são globais */
+.carrinho-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.carrinho-contador {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid #a00000;
+}
+
+#tituloPrincipal {
+    font-family: "Poppins", sans-serif;
+    margin-top: 7px;
+    font-weight: 200;
+    font-style: normal;
+    /* A cor já é definida como 'text-white' no HTML, mais flexível */
+    font-size: 30px;
+}
