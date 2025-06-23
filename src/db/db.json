@@ -246,11 +246,31 @@
       "itens": [
         {
           "id": 5,
-          "nome": "Pão de queijo",
-          "imagem": "img/itens/paoDeQueijo.png",
-          "valor": 5.5,
-          "nomeLanchonete": "Central",
-          "quantidade": 1
+          "titulo": "Pão de queijo",
+          "descricao": "Tradicional pão de queijo mineiro, crocante por fora e macio por dentro.",
+          "conteudo": "",
+          "disponivel": true,
+          "favorito": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "../principal/img/itens/paoDeQueijo.png",
+          "quantidade": 2,
+          "preco_unitario": 5.5,
+          "subtotal": 5.5
+        },
+        {
+          "id": 7,
+          "titulo": "Coca-Cola lata",
+          "descricao": "Clássica Coca-Cola gelada na lata, ideal para acompanhar qualquer lanche.",
+          "conteudo": "350ml",
+          "disponivel": true,
+          "favorito": true,
+          "semLactose": true,
+          "semGluten": true,
+          "imagem": "../principal/img/itens/cocaLata.png",
+          "quantidade": 1,
+          "preco_unitario": 5.5,
+          "subtotal": 5.5
         }
       ]
     },
