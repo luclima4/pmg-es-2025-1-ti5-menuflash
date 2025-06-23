@@ -1,6 +1,8 @@
 // Arquivo: public/principal/js/index.js
+// Este script agora serve como o "script principal" para o header e funcionalidades globais.
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script principal carregado.");
 
     // --- LÓGICA DO CONTADOR DO CARRINHO ---
 
@@ -36,54 +38,60 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch (error) {
             console.error("Erro ao atualizar contador do carrinho:", error);
-            contadorEl.style.display = 'none';
+            if(contadorEl) contadorEl.style.display = 'none';
         }
     };
 
-
-    // --- LÓGICA DO MENU DE NAVEGAÇÃO ---
+    // --- LÓGICA DOS LINKS DINÂMICOS DO MENU ---
 
     const gerenciarLinksDoMenu = () => {
         const usuario = getUsuarioLogado();
         const linkPecaNovamente = document.getElementById('nav-peca-novamente');
         const linkAlterarLanchonete = document.getElementById('nav-alterar-lanchonete');
 
-        if (usuario) {
-            // Usuário está logado, links são funcionais
-            if(linkPecaNovamente) linkPecaNovamente.style.display = 'block';
-        } else {
-            // Usuário não está logado, esconde ou desabilita links
-            if(linkPecaNovamente) linkPecaNovamente.style.display = 'none';
+        // Mostra "Peça Novamente" apenas se o usuário estiver logado
+        if (usuario && linkPecaNovamente) {
+            linkPecaNovamente.style.display = 'block';
         }
 
-        // O link "Alterar Lanchonete" só deve aparecer se uma lanchonete já foi escolhida
+        // Mostra "Alterar Lanchonete" apenas se uma lanchonete já foi visitada nesta sessão
         const lanchoneteAnterior = sessionStorage.getItem("lanchoneteAnterior");
-        if (linkAlterarLanchonete) {
-            if (lanchoneteAnterior) {
-                linkAlterarLanchonete.style.display = 'block';
-                // Define o link para voltar para a página do campus correto
-                const campusAnterior = sessionStorage.getItem("campusAnterior");
-                if (campusAnterior === "Coração Eucarístico") {
-                    linkAlterarLanchonete.href = "campusCoreu.html";
-                } else if (campusAnterior === "Contagem") {
-                    linkAlterarLanchonete.href = "campusContagem.html";
-                }
-            } else {
-                linkAlterarLanchonete.style.display = 'none';
+        if (lanchoneteAnterior && linkAlterarLanchonete) {
+            linkAlterarLanchonete.style.display = 'block';
+            
+            // Define o link para voltar para a página do campus correto
+            const campusAnterior = sessionStorage.getItem("campusAnterior");
+            if (campusAnterior === "Coração Eucarístico") {
+                linkAlterarLanchonete.href = "campusCoreu.html";
+            } else if (campusAnterior === "Contagem") {
+                linkAlterarLanchonete.href = "campusContagem.html";
             }
         }
     };
-    
 
-    // --- INICIALIZAÇÃO ---
+    // --- INICIALIZAÇÃO E EVENTOS ---
 
     // Atualiza tudo quando a página carrega
     atualizarContadorCarrinho();
     gerenciarLinksDoMenu();
 
-    // Adiciona um listener para atualizar o contador quando o carrinho mudar em outra aba
+    // Ouve o evento 'cartUpdated' que disparamos em outros scripts
+    // para atualizar o contador em tempo real, sem precisar recarregar a página.
     window.addEventListener('cartUpdated', () => {
-        console.log("Evento 'cartUpdated' recebido. Atualizando contador.");
         atualizarContadorCarrinho();
     });
+
+    // --- LÓGICA ESPECIAL APENAS PARA A PÁGINA INDEX.HTML ---
+    // Faz os cards da página inicial serem clicáveis
+    const linkCoreu = document.getElementById('link-campus-coreu');
+    const linkContagem = document.getElementById('link-campus-contagem');
+
+    if(linkCoreu && linkContagem) { // Este código só rodará se os cards existirem na página
+        linkCoreu.addEventListener('click', () => {
+            window.location.href = 'campusCoreu.html'; 
+        });
+        linkContagem.addEventListener('click', () => {
+            window.location.href = 'campusContagem.html';
+        });
+    }
 });

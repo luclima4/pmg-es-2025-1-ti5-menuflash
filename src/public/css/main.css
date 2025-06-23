@@ -1,0 +1,60 @@
+/* Estilos globais para todo o projeto MenuFlash */
+
+/* --- GERAL --- */
+/* Define um layout flex para o corpo todo, garantindo que o footer fique no final */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5; /* Cor de fundo padrão para todas as páginas */
+    color: #4E5155; /* Cor de texto padrão */
+}
+
+main {
+    flex: 1; /* Faz com que o conteúdo principal ocupe o espaço disponível, empurrando o footer para baixo */
+}
+
+/* --- HEADER E NAVBAR --- */
+
+/* A cor do header já é definida no HTML, mas podemos garantir aqui caso precise */
+header .navbar {
+    background-color: #a00000 !important;
+}
+
+#tituloPrincipal {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.75rem; /* Um pouco menor para se adaptar melhor */
+}
+
+/* Estilo para os links da barra de navegação */
+.navbar .nav-link {
+    transition: color 0.2s;
+}
+
+.navbar .nav-link:hover {
+    color: #ddd !important; /* Um cinza claro para o efeito hover */
+}
+
+/* Estilo para o menu dropdown do usuário */
+.dropdown-menu {
+    background-color: #a00000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-item {
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: #a00000 !important;
+}
