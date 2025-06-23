@@ -236,3 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     inicializarPagina();
 });
+
+
+
+
