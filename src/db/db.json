@@ -673,6 +673,7 @@
       "itens": []
     },
     {
+<<<<<<< Updated upstream
       "id": "0eab",
       "userId": "53db",
       "itens": []
@@ -686,6 +687,28 @@
       "id": "c814",
       "userId": "4922",
       "itens": []
+=======
+      "id": "4f95",
+      "userId": 8,
+      "itens": [
+        {
+          "id": 11,
+          "nome": "Suco lata",
+          "imagem": "img/itens/sucoLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        },
+        {
+          "id": 10,
+          "nome": "Trento",
+          "imagem": "img/itens/trento.png",
+          "valor": 4.5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        }
+      ]
+>>>>>>> Stashed changes
     }
   ],
   "lanchonetes": [
