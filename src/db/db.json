@@ -657,7 +657,8 @@
           "imagem": "img/itens/coxinha.png",
           "valor": 6,
           "nomeLanchonete": "Paçaki",
-          "quantidade": 1
+          "quantidade": 1,
+          "subtotal": 6
         }
       ]
     },
