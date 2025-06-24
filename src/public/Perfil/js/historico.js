@@ -31,7 +31,7 @@ fetch('http://localhost:3000/usuarios')
         let pedidosHTML = '';
         pedidos.forEach(pedido => {
           // Encontra a lanchonete por ID
-          const lanche = lanchonetes.find(l => String(l.id) === String(pedido.lanchonete_id));
+          const lanche = lanchonetes.find(l => String(l.id) === String(pedido.id));
           const nomeLanchonete = lanche ? lanche.nome : 'Desconhecida';
 
           // Formata data
@@ -42,7 +42,7 @@ fetch('http://localhost:3000/usuarios')
           const itensHTML = pedido.itens.map(item => `
             <li class="list-group-item px-0 py-1 d-flex justify-content-between">
               <img src="${item.imagem}" style="width: 5rem; height: 5rem;" alt="">
-              <span> ${item.quantidade}x ${item.nome}</span>
+              <span> ${item.quantidade} x ${item.titulo}</span>
               <span>R$ ${item.subtotal.toFixed(2).replace('.', ',')}</span>
             </li>
           `).join('');
@@ -51,7 +51,7 @@ fetch('http://localhost:3000/usuarios')
             <div class="card mb-3" style="border: 4px solid rgba(44, 62, 80, 0.25); border-radius: 10px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
               <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
                 <div>
-                  <h5 class="card-title fw-bold">Pedido #${pedido.pedido_id}</h5>
+                  <h5 class="card-title fw-bold">Pedido #${pedido.id}</h5>
                   <p class="card-text mb-1"><strong>Lanchonete:</strong> ${nomeLanchonete}</p>
                   <p class="card-text mb-1"><strong>Data:</strong> ${dataFormatada} às ${pedido.hora}</p>
                   <p class="card-text mb-1"><strong>Total:</strong> R$ ${pedido.total.toFixed(2).replace('.', ',')}</p>

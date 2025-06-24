@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!usuario || !usuario.id) return alert("Sessão expirada. Faça o login novamente.");
         
         const pedidoFinal = {
-            pedido_id: `pedido_${new Date().getTime()}`,
+            id: new Date().getTime(),
             data: new Date().toISOString().split('T')[0],
             hora: new Date().toLocaleTimeString('pt-BR'),
             total: pedidoPendente.total,
             forma_pagamento: metodoPagamentoSelecionado,
-            status: "Em preparação",
+            status: "Entregue",
             lanchonete_id: pedidoPendente.itens[0]?.lanchoneteId || 'N/A',
             itens: pedidoPendente.itens.map(i => ({ id: i.id, titulo: i.nome, imagem: i.imagem, quantidade: i.quantidade, preco_unitario: Number(i.preco_unitario||i.valor), subtotal: Number(i.preco_unitario||i.valor)*i.quantidade }))
         };

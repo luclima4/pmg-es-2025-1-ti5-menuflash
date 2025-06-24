@@ -7,8 +7,8 @@
       "senha": "123456",
       "historico_de_pedidos": [
         {
-          "pedido_id": "1",
-          "lanchonete_id": "3",
+          "id": "1",
+          "lanchonete_id": "2",
           "data": "2025-05-18",
           "hora": "20:15:09",
           "total": 17,
@@ -46,7 +46,7 @@
           ]
         },
         {
-          "pedido_id": "2",
+          "id": "2",
           "lanchonete_id": "2",
           "data": "2025-05-20",
           "hora": "13:30:57",
@@ -85,65 +85,14 @@
           ]
         },
         {
-          "pedido_id": "pedido_1750717054945",
-          "data": "2025-06-23",
-          "hora": "19:17:34",
-          "total": 24,
+          "id": 1750793862723,
+          "data": "2025-06-24",
+          "hora": "16:37:42",
+          "total": 6.5,
           "forma_pagamento": "Pix",
-          "status": "Em preparação",
+          "status": "Entregue",
           "lanchonete_id": "N/A",
           "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 1,
-              "preco_unitario": 5,
-              "subtotal": 5
-            },
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 1,
-              "preco_unitario": 7,
-              "subtotal": 7
-            },
-            {
-              "id": 7,
-              "titulo": "Coca-Cola lata",
-              "imagem": "img/itens/cocaLata.png",
-              "quantidade": 1,
-              "preco_unitario": 5.5,
-              "subtotal": 5.5
-            },
-            {
-              "id": 6,
-              "titulo": "Empada",
-              "imagem": "img/itens/empada.png",
-              "quantidade": 1,
-              "preco_unitario": 6.5,
-              "subtotal": 6.5
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750717355200",
-          "data": "2025-06-23",
-          "hora": "19:22:35",
-          "total": 16.5,
-          "forma_pagamento": "Cartão",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 2,
-              "preco_unitario": 5,
-              "subtotal": 10
-            },
             {
               "id": 4,
               "titulo": "Coxinha",
@@ -151,60 +100,6 @@
               "quantidade": 1,
               "preco_unitario": 6.5,
               "subtotal": 6.5
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750722722428",
-          "data": "2025-06-23",
-          "hora": "20:52:02",
-          "total": 23,
-          "forma_pagamento": "Pix",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 2,
-              "preco_unitario": 5,
-              "subtotal": 10
-            },
-            {
-              "id": 4,
-              "titulo": "Coxinha",
-              "imagem": "img/itens/coxinha.png",
-              "quantidade": 2,
-              "preco_unitario": 6.5,
-              "subtotal": 13
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750722943812",
-          "data": "2025-06-23",
-          "hora": "20:55:43",
-          "total": 10.5,
-          "forma_pagamento": "Cartão",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 1,
-              "preco_unitario": 7,
-              "subtotal": 7
-            },
-            {
-              "id": 1,
-              "titulo": "Água",
-              "imagem": "img/itens/agua.png",
-              "quantidade": 1,
-              "preco_unitario": 3.5,
-              "subtotal": 3.5
             }
           ]
         }
@@ -218,7 +113,7 @@
       "tipo": "padrão",
       "historico_de_pedidos": [
         {
-          "pedido_id": "1",
+          "id": "1",
           "lanchonete_id": "1",
           "data": "2025-05-18",
           "hora": "20:15:09",
@@ -258,7 +153,7 @@
           ]
         },
         {
-          "pedido_id": "2",
+          "id": "2",
           "lanchonete_id": "2",
           "data": "2025-05-20",
           "hora": "13:30:57",
@@ -297,7 +192,7 @@
           ]
         },
         {
-          "pedido_id": "3",
+          "id": "3",
           "lanchonete_id": "1",
           "data": "2025-06-01",
           "hora": "18:45:34",
@@ -335,34 +230,6 @@
               "subtotal": 6
             }
           ]
-        },
-        {
-          "id": "pedido_1750654695933",
-          "userId": "2",
-          "itens": [
-            {
-              "id": 2,
-              "nome": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "valor": 5,
-              "nomeLanchonete": "Prédio 18",
-              "quantidade": 3
-            },
-            {
-              "id": 4,
-              "nome": "Coxinha",
-              "imagem": "img/itens/coxinha.png",
-              "valor": 6.5,
-              "nomeLanchonete": "Prédio 18",
-              "quantidade": 2
-            }
-          ],
-          "observacao": "",
-          "data": "2025-06-23T04:58:15.933Z",
-          "status": "Concluído",
-          "total": 28,
-          "forma_pagamento": "Pix",
-          "hora": "01:58:17"
         }
       ]
     },
@@ -389,234 +256,6 @@
       "senha": "usuario1",
       "tipo": "administrador",
       "lanchoneteId": "3"
-    },
-    {
-      "id": "53db",
-      "nome": "Eric Abreu",
-      "email": "eric@gmail.com",
-      "senha": "121212",
-      "tipo": "padrão",
-      "favoritos": [],
-      "historico_de_pedidos": [
-        {
-          "id": "pedido_1750655827096",
-          "userId": "53db",
-          "itens": [
-            {
-              "id": 3,
-              "nome": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "valor": 7,
-              "nomeLanchonete": "Paçaki",
-              "quantidade": 5
-            },
-            {
-              "id": 1,
-              "nome": "Água",
-              "imagem": "img/itens/agua.png",
-              "valor": 3.5,
-              "nomeLanchonete": "Paçaki",
-              "quantidade": 4
-            }
-          ],
-          "observacao": "",
-          "data": "2025-06-23T05:17:07.096Z",
-          "status": "Concluído",
-          "total": 49,
-          "forma_pagamento": "Pix",
-          "hora": "02:17:09"
-        },
-        {
-          "pedido_id": "pedido_1750659021507",
-          "data": "2025-06-23",
-          "hora": "03:10:21",
-          "total": 29,
-          "forma_pagamento": "Pix",
-          "status": "Concluído",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 3,
-              "preco_unitario": 5,
-              "subtotal": 15
-            },
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 2,
-              "preco_unitario": 7,
-              "subtotal": 14
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750659287627",
-          "data": "2025-06-23",
-          "hora": "03:14:47",
-          "total": 29,
-          "forma_pagamento": "Pix",
-          "status": "Concluído",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 3,
-              "preco_unitario": 5,
-              "subtotal": 15
-            },
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 2,
-              "preco_unitario": 7,
-              "subtotal": 14
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750659736596",
-          "data": "2025-06-23",
-          "hora": "03:22:16",
-          "total": 29,
-          "forma_pagamento": "Pix",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 3,
-              "preco_unitario": 5,
-              "subtotal": 15
-            },
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 2,
-              "preco_unitario": 7,
-              "subtotal": 14
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "26cb",
-      "nome": "miguel",
-      "email": "miguel@gmail.com",
-      "senha": "121212",
-      "tipo": "padrão",
-      "favoritos": [],
-      "historico_de_pedidos": [
-        {
-          "pedido_id": "pedido_1750659880256",
-          "data": "2025-06-23",
-          "hora": "03:24:40",
-          "total": 43,
-          "forma_pagamento": "Pix",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "img/itens/guaranaLata.png",
-              "quantidade": 5,
-              "preco_unitario": 5,
-              "subtotal": 25
-            },
-            {
-              "id": 4,
-              "titulo": "Coxinha",
-              "imagem": "img/itens/coxinha.png",
-              "quantidade": 3,
-              "preco_unitario": 6,
-              "subtotal": 18
-            }
-          ]
-        },
-        {
-          "pedido_id": "pedido_1750660112502",
-          "data": "2025-06-23",
-          "hora": "03:28:32",
-          "total": 66.5,
-          "forma_pagamento": "Pix",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 7,
-              "preco_unitario": 7,
-              "subtotal": 49
-            },
-            {
-              "id": 1,
-              "titulo": "Água",
-              "imagem": "img/itens/agua.png",
-              "quantidade": 5,
-              "preco_unitario": 3.5,
-              "subtotal": 17.5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4922",
-      "nome": "teste",
-      "email": "teste@gmail.com",
-      "senha": "121212",
-      "tipo": "padrão",
-      "favoritos": [],
-      "historico_de_pedidos": [
-        {
-          "pedido_id": "pedido_1750661246146",
-          "data": "2025-06-23",
-          "hora": "03:47:26",
-          "total": 46,
-          "forma_pagamento": "Pix",
-          "status": "Em preparação",
-          "lanchonete_id": "N/A",
-          "itens": [
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "img/itens/acai.png",
-              "quantidade": 3,
-              "preco_unitario": 7,
-              "subtotal": 21
-            },
-            {
-              "id": 4,
-              "titulo": "Coxinha",
-              "imagem": "img/itens/coxinha.png",
-              "quantidade": 3,
-              "preco_unitario": 6,
-              "subtotal": 18
-            },
-            {
-              "id": 1,
-              "titulo": "Água",
-              "imagem": "img/itens/agua.png",
-              "quantidade": 2,
-              "preco_unitario": 3.5,
-              "subtotal": 7
-            }
-          ]
-        }
-      ]
     }
   ],
   "carrinhos": [
@@ -624,91 +263,6 @@
       "id": "0d59",
       "userId": "1",
       "itens": []
-    },
-    {
-      "id": "e099",
-      "userId": "4",
-      "itens": [
-        {
-          "id": 1,
-          "nome": "Água",
-          "imagem": "img/itens/agua.png",
-          "valor": 3.5,
-          "nomeLanchonete": "Prédio 18",
-          "quantidade": 1
-        },
-        {
-          "id": 3,
-          "nome": "Açaí",
-          "imagem": "img/itens/acai.png",
-          "valor": 7,
-          "nomeLanchonete": "Paçaki",
-          "quantidade": 1
-        }
-      ]
-    },
-    {
-      "id": "cb0c",
-      "userId": "3",
-      "itens": [
-        {
-          "id": 4,
-          "nome": "Coxinha",
-          "imagem": "img/itens/coxinha.png",
-          "valor": 6,
-          "nomeLanchonete": "Paçaki",
-          "quantidade": 1,
-          "subtotal": 6
-        }
-      ]
-    },
-    {
-      "id": "cde7",
-      "userId": "2",
-      "itens": []
-    },
-    {
-      "id": "b601",
-      "userId": 6,
-      "itens": []
-    },
-    {
-<<<<<<< Updated upstream
-      "id": "0eab",
-      "userId": "53db",
-      "itens": []
-    },
-    {
-      "id": "255d",
-      "userId": "26cb",
-      "itens": []
-    },
-    {
-      "id": "c814",
-      "userId": "4922",
-      "itens": []
-=======
-      "id": "4f95",
-      "userId": 8,
-      "itens": [
-        {
-          "id": 11,
-          "nome": "Suco lata",
-          "imagem": "img/itens/sucoLata.png",
-          "valor": 5,
-          "nomeLanchonete": "Prédio 29",
-          "quantidade": 1
-        },
-        {
-          "id": 10,
-          "nome": "Trento",
-          "imagem": "img/itens/trento.png",
-          "valor": 4.5,
-          "nomeLanchonete": "Prédio 29",
-          "quantidade": 1
-        }
-      ]
->>>>>>> Stashed changes
     }
   ],
   "lanchonetes": [
