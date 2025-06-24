@@ -1,5 +1,6 @@
 // ============================================================
 // ------------------- Cadastro de usuários -------------------  
+// PRECISO QUE INSIRA ID STRING   -------------------  
 // ============================================================
 const apiURL_usuarios = '/usuarios'
 
@@ -43,7 +44,6 @@ cadastroForm.addEventListener('submit', event => {
                 email: email,
                 senha: senha,
                 tipo: "padrao",
-                favoritos: [],
                 historico: [],
             }
 

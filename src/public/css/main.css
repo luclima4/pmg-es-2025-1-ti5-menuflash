@@ -1,15 +1,17 @@
+/* Arquivo: public/css/main.css */
 /* Estilos globais para todo o projeto MenuFlash */
 
 /* --- GERAL --- */
-/* Define um layout flex para o corpo todo, garantindo que o footer fique no final */
-html, body {
+html {
     height: 100%;
-    margin: 0;
-    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5; /* Cor de fundo cinza claro padrão */
+    color: #212529; /* Cor de texto escura padrão (preto suave) */
     display: flex;
     flex-direction: column;
-    background-color: #f5f5f5; /* Cor de fundo padrão para todas as páginas */
-    color: #4E5155; /* Cor de texto padrão */
+    min-height: 100vh; /* Garante que o corpo ocupe no mínimo a altura toda da tela */
 }
 
 main {
@@ -17,8 +19,6 @@ main {
 }
 
 /* --- HEADER E NAVBAR --- */
-
-/* A cor do header já é definida no HTML, mas podemos garantir aqui caso precise */
 header .navbar {
     background-color: #a00000 !important;
 }
@@ -27,39 +27,22 @@ header .navbar {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 1.75rem; /* Um pouco menor para se adaptar melhor */
-}
-
-/* Estilo para os links da barra de navegação */
-.navbar .nav-link {
-    transition: color 0.2s;
+    font-size: 1.75rem;
 }
 
 .navbar .nav-link:hover {
-    color: #ddd !important; /* Um cinza claro para o efeito hover */
+    color: #ddd !important;
 }
 
-/* Estilo para o menu dropdown do usuário */
 .dropdown-menu {
     background-color: #a00000 !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dropdown-item {
-    transition: background-color 0.2s;
 }
 
 .dropdown-item:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-
-/* --- FOOTER --- */
-footer {
-    background-color: #a00000 !important;
-}
-
-/* Estilos que estavam no HTML e agora são globais */
 .carrinho-icon {
     position: relative;
     cursor: pointer;
@@ -82,11 +65,7 @@ footer {
     border: 2px solid #a00000;
 }
 
-#tituloPrincipal {
-    font-family: "Poppins", sans-serif;
-    margin-top: 7px;
-    font-weight: 200;
-    font-style: normal;
-    /* A cor já é definida como 'text-white' no HTML, mais flexível */
-    font-size: 30px;
+/* --- FOOTER --- */
+footer {
+    background-color: #343a40 !important; /* Um cinza escuro para o footer */
 }

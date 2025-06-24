@@ -1,37 +1,50 @@
-// ============================================================
-// ------------------- Verificação de Login -------------------  
-// ============================================================
+// Arquivo: cadastro_login/js/login.js
+// Versão corrigida, mais segura e eficiente.
 
-const apiURL_usuarios = '/usuarios'
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    if (!loginForm) return;
 
-let loginForm = document.getElementById('loginForm')
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        const email = document.getElementById('inputEmail').value;
+        const senha = document.getElementById('inputSenha').value;
 
-loginForm.addEventListener('submit', event => {
-    event.preventDefault()
+        if (!email || !senha) {
+            return alert('Por favor, preencha todos os campos.');
+        }
 
-    let loginUsuario = {
-        email: document.getElementById('inputEmail').value,
-        senha: document.getElementById('inputSenha').value
-    }
-    // Verificar se existe o usuário
-    fetch(apiURL_usuarios)
-        .then(res => res.json())
-        .then(usuarios => {
+        try {
+            // Pede ao servidor para encontrar um usuário com este email E esta senha
+            const response = await fetch(`http://localhost:3000/usuarios?email=${email}&senha=${senha}`);
+            if (!response.ok) throw new Error("Erro de rede.");
+            
+            const usuariosEncontrados = await response.json();
 
-            const loginCorreto = usuarios.find(u => u.email === loginUsuario.email && u.senha === loginUsuario.senha)
+            if (usuariosEncontrados.length > 0) {
+                // Login bem-sucedido!
+                const usuarioCompleto = usuariosEncontrados[0]; // O primeiro resultado é o nosso usuário
 
-            if (loginCorreto) {
-                alert('Login feito com sucesso!')
-                sessionStorage.setItem('usuarioLogado', JSON.stringify(loginCorreto))
-                window.location.href = '../principal/index.html'
+                // AQUI ESTÁ A CORREÇÃO: Salva o objeto COMPLETO (com ID) na sessão.
+                sessionStorage.setItem('usuarioLogado', JSON.stringify(usuarioCompleto));
+                
+                alert(`Bem-vindo(a), ${usuarioCompleto.nome}!`);
+
+                // Verifica se há uma URL de redirecionamento para voltar à página anterior
+                const params = new URLSearchParams(window.location.search);
+                const redirectUrl = params.get('redirectUrl');
+
+                // Redireciona para a página anterior ou para a página principal
+                window.location.href = redirectUrl || '../principal/index.html';
+
             } else {
-                alert('Email ou senha incorreto.')
+                // Login falhou
+                alert('Email ou senha inválidos.');
             }
-
-        })
-        .catch(error => {
-            console.log('Erro ao verificar login', error);
-            alert('Ocorreu um erro ao tentar fazer login.');
-        })
-})
-
+        } catch (error) {
+            console.error('Erro ao tentar fazer login:', error);
+            alert('Ocorreu um erro no servidor. Tente novamente.');
+        }
+    });
+});
