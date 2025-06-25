@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputNovaSenha1 = document.getElementById("inputNovaSenha1");
     const inputNovaSenha2 = document.getElementById("inputNovaSenha2");
     const containerFavoritos = document.getElementById("containerFavoritos");
-    const containerHistorico = document.getElementById('insereHistorico');
+    const containerHistorico = document.getElementById('inserirHistorico');
 
 
     // --- FUNÇÕES AUXILIARES ---

@@ -244,6 +244,80 @@
       "id": "0d59",
       "userId": "1",
       "itens": []
+<<<<<<< HEAD
+    },
+    {
+      "id": "e099",
+      "userId": "4",
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": 3.5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 3,
+          "nome": "Açaí",
+          "imagem": "img/itens/acai.png",
+          "valor": 7,
+          "nomeLanchonete": "Paçaki",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "cb0c",
+      "userId": "3",
+      "itens": []
+    },
+    {
+      "id": "4494",
+      "userId": 7,
+      "itens": [
+        {
+          "id": 1,
+          "nome": "Água",
+          "imagem": "img/itens/agua.png",
+          "valor": 3.5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        },
+        {
+          "id": 2,
+          "nome": "Guaraná lata",
+          "imagem": "img/itens/guaranaLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 18",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "4f95",
+      "userId": 8,
+      "itens": [
+        {
+          "id": 11,
+          "nome": "Suco lata",
+          "imagem": "img/itens/sucoLata.png",
+          "valor": 5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        },
+        {
+          "id": 10,
+          "nome": "Trento",
+          "imagem": "img/itens/trento.png",
+          "valor": 4.5,
+          "nomeLanchonete": "Prédio 29",
+          "quantidade": 1
+        }
+      ]
+=======
+>>>>>>> 9f7b1e5635946172c27ca34ba10748106d72025e
     }
   ],
   "lanchonetes": [
@@ -276,7 +350,14 @@
           "favorito": true,
           "quantidade": 11,
           "semLactose": true,
+<<<<<<< HEAD
+          "semGluten": false,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
+=======
           "semGluten": false
+>>>>>>> 9f7b1e5635946172c27ca34ba10748106d72025e
         },
         {
           "id": 3,
@@ -289,7 +370,14 @@
           "favorito": true,
           "quantidade": 9,
           "semLactose": false,
+<<<<<<< HEAD
+          "semGluten": true,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
+=======
           "semGluten": true
+>>>>>>> 9f7b1e5635946172c27ca34ba10748106d72025e
         },
         {
           "id": 4,
@@ -351,7 +439,8 @@
           "favorito": true,
           "quantidade": 13,
           "semLactose": true,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": []
         },
         {
           "id": 8,
@@ -612,27 +701,6 @@
         }
       ],
       "id": "6da5"
-    }
-  ],
-  "avaliacoes": [
-    {
-      "id": "1",
-      "tipo": "lanchonete",
-      "referenciaId": 101,
-      "notas": [
-        5,
-        4,
-        3
-      ]
-    },
-    {
-      "id": "2",
-      "tipo": "item",
-      "referenciaId": 202,
-      "notas": [
-        4,
-        5
-      ]
     }
   ]
 }

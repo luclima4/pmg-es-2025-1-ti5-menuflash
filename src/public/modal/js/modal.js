@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener("click", function (event) {
-        if (event.target.closest("a[data-id]")) {
-            const id = event.target.closest("a[data-id]").getAttribute("data-id");
-            mostraDetalhes(id);
-        }
-    });
+  document.addEventListener("click", function (event) {
+    if (event.target.closest("a[data-id]")) {
+      const id = event.target.closest("a[data-id]").getAttribute("data-id");
+      mostraDetalhes(id);
+    }
+  });
 });
 
 function mostraDetalhes(id) {
@@ -26,7 +26,7 @@ function mostraDetalhes(id) {
       // 3. Monta badges
       const badges = [];
       if (item.semLactose) badges.push(`<span class="badge bg-success">Sem Lactose</span>`);
-      if (item.semGluten)  badges.push(`<span class="badge bg-success">Sem Glúten</span>`);
+      if (item.semGluten) badges.push(`<span class="badge bg-success">Sem Glúten</span>`);
 
       // 4. Monta o modal de forma única
       const modalContent = `
@@ -39,6 +39,9 @@ function mostraDetalhes(id) {
           <p>${item.descricao}</p>
           <p>${item.conteudo}</p>
           ${badges.join(' ')}
+          <div class="avaliacao-estrelas mb-3" data-tipo="item" data-id="${item.id}">
+             ${[1, 2, 3, 4, 5].map(i => `<i class="fa-regular fa-star estrela" data-index="${i}"></i>`).join('')}
+          </div>
         </div>
         <div class="modal-footer d-flex justify-content-between align-items-center">
           <h5><strong>R$ ${typeof item.valor === 'number' ? item.valor.toFixed(2).replace('.', ',') : 'N/A'}</strong><h5>
@@ -49,6 +52,11 @@ function mostraDetalhes(id) {
       const container = document.getElementById("modalContent");
       container.innerHTML = modalContent;
 
+      // Inicializa as estrelas do modal
+      const estrelasModalContainer = container.querySelector(`.avaliacao-estrelas[data-id="${item.id}"]`);
+      if (estrelasModalContainer) {
+        inicializarEstrelasGenerico(estrelasModalContainer, `avaliacaoItem_${item.id}`);
+      }
 
       function atualizaQtd() {
         const c = JSON.parse(localStorage.getItem('carrinho')) || [];
