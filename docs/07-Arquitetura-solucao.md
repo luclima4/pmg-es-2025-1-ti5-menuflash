@@ -56,12 +56,10 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 ```json
   {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
+    "id": "1",
+    "nome": "Lucas",
+    "email": "lucas@gmail.com",
+    "senha": "123456"
   }
 ```
 
@@ -70,6 +68,86 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 > Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação, quanto outras estruturas que foram criadas para algum tipo de configuração.
 >
 > Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
+
+- Estrutura: usuarios
+- Permite que usuários façam login com e-mail e senha
+
+```json
+  {
+    "id": "1",
+    "nome": "Lucas",
+    "email": "lucas@gmail.com",
+    "senha": "123456"
+  }
+```
+
+- Estrutura: campus
+- O usuário pode selecionar um campus e visualizar as lanchonetes disponíveis nele
+
+```json
+  {
+    "nome": "PUC MINAS - Contagem",
+    "mapa": "mapaContagem.html",
+    "lanchonetes": [
+      {
+        "id": "4",
+        "nome": "Lanchonete Praçaki"
+      }
+    ]
+  }
+```
+
+- Estrutura: lanchonetes
+- Mostra todos os itens disponíveis em uma lanchonete com suas informações e permite ações como adicionar ao carrinho
+
+```json
+  {
+    "id": "2",
+    "nome": "Central",
+    "itens": [
+      {
+        "id": 7,
+        "titulo": "Coca-Cola lata",
+        "valor": 5.5,
+        "disponivel": true
+      }
+    ]
+  }
+```
+
+- Estrutura: carrinho
+- Armazena os itens adicionados pelo usuário, permitindo ajustes de quantidade
+
+```json
+  {
+    "userId": "1",
+    "itens": [
+      {
+        "id": 5,
+        "quantidade": 1,
+        "subtotal": 5.5
+      }
+    ]
+  }
+```
+
+- Estrutura: usuarios[].historico_de_pedidos
+- Ao finalizar a compra, o pedido é salvo no histórico do usuário com detalhes
+
+```json
+  {
+    "pedido_id": "2",
+    "data": "2025-05-20",
+    "total": 11,
+    "itens": [
+      {
+        "id": 5,
+        "titulo": "Pão de queijo"
+      }
+    ]
+  }
+```
+
 >
 > **Orientações:**
 >
