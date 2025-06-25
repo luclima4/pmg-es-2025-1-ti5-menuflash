@@ -1,5 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const usuario = (() => {
+        try {
+            return JSON.parse(sessionStorage.getItem('usuarioLogado'));
+        } catch {
+            return null;
+        }
+    })();
+
+    // 2) Se for administrador, redireciona direto para a página que carrega o criaCards.js
+    if (usuario && usuario.tipo === 'administrador') {
+        // ajuste o caminho praonde estiver seu criaCards.html
+        window.location.href = '../principal/criaCards.html';
+        return; // para não executar mais nada
+    }
+
+    
+
     const cardsContainer = document.getElementById('divCards');
     if (!cardsContainer) return;
 
