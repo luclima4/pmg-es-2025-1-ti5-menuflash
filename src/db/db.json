@@ -243,6 +243,7 @@
     {
       "id": "0d59",
       "userId": "1",
+<<<<<<< Updated upstream
       "lanchoneteAtualId": "2",
       "itens": [
         {
@@ -255,6 +256,9 @@
           "quantidade": 1
         }
       ]
+=======
+      "itens": []
+>>>>>>> Stashed changes
     }
   ],
   "lanchonetes": [
