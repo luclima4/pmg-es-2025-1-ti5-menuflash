@@ -207,9 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const cardHTML = `
                     <div class="m-0 p-1 mt-2 col-lg-3 col-md-4 col-sm-6 d-flex">
-                        <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto" style="width: 100%;">
+                        <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto" style="width: 80%;">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}">
-                                <img src="${imagemCorrigida}" class="card-img-top" alt="${item.titulo}" style="height: 160px; object-fit: cover;">
+                                <img src="${imagemCorrigida}" class="card-img-top" alt="${item.titulo}">
                             </a>
                             <div class="card-body text-center d-flex flex-column px-3 py-3">
                                 <h5 class="card-title fw-semibold text-truncate mb-1" title="${item.titulo}">${item.titulo}</h5>

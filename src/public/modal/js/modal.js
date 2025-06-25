@@ -39,9 +39,10 @@ function mostraDetalhes(id) {
           <p>${item.descricao}</p>
           <p>${item.conteudo}</p>
           ${badges.join(' ')}
-          <div class="avaliacao-estrelas mb-3" data-tipo="item" data-id="${item.id}">
+          <div class="avaliacao-estrelas mt-2" data-tipo="item" data-id="${item.id}">
              ${[1, 2, 3, 4, 5].map(i => `<i class="fa-regular fa-star estrela" data-index="${i}"></i>`).join('')}
           </div>
+          <p class="text-muted small">Deixe aqui sua avaliação</p></div>
         </div>
         <div class="modal-footer d-flex justify-content-between align-items-center">
           <h5><strong>R$ ${typeof item.valor === 'number' ? item.valor.toFixed(2).replace('.', ',') : 'N/A'}</strong><h5>
