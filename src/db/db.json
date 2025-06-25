@@ -243,8 +243,18 @@
     {
       "id": "0d59",
       "userId": "1",
-      "lanchoneteAtualId": "2",
-      "itens": []
+      "lanchoneteAtualId": "1",
+      "itens": [
+        {
+          "id": 2,
+          "nome": "Guaraná lata",
+          "imagem": "img/itens/guaranaLata.png",
+          "preco_unitario": 5,
+          "nomeLanchonete": "Prédio 18",
+          "lanchoneteId": "1",
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -277,7 +287,9 @@
           "semLactose": true,
           "semGluten": false,
           "imagem": "img/itens/guaranaLata.png",
-          "favoritos": []
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 3,
@@ -290,7 +302,9 @@
           "semLactose": false,
           "semGluten": true,
           "imagem": "img/itens/acai.png",
-          "favoritos": []
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 4,

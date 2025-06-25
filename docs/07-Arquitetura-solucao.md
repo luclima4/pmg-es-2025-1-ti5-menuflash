@@ -6,38 +6,192 @@
 
 ##### Funcionalidade Obrigatória - Login e cadastro
 
+Permite o cadastro e autenticação de usuários no sistema, diferenciando perfis padrão e administradores.
 
+*Estrutura de dados:* [usuarios] (#estrutura-de-dados---usuarios)
+*Instruções de acesso:*
+* Acesse o site e clique em "Entrar" ou "Cadastrar";
+* Preencha o formulário de login ou cadastro;
+
+*Tela da funcionalidade:*
+
+![Tela de login](images/login.png)
+![Tela de cadastro](images/cadastro.png)
 
 ##### Funcionalidade 1 - Mostrar cardápio de cada lanchonete
 
+Exibe os produtos disponíveis em cada lanchonete do campus selecionado.
+
+*Estrutura de dados:* [lanchonetes]
+*Instruções de acesso:*
+* Na home, selecione um campus;
+* Escolha uma lanchonete para visualizar os produtos.
+
+*Tela da funcionalidade:*
+
+![Tela de cardápio](images/cardapio-lanchonete1.png)
+![Tela de cardápio](images/cardapio-lanchonete.png)
+
 ##### Funcionalidade 2 - Histórico de pedidos
+
+Exibe os pedidos anteriores feitos pelo usuário logado, com data, hora, itens e valores.
+
+*Estrutura de dados:* historico_de_pedidos dentro de usuarios
+*Instruções de acesso:*
+* Faça login;
+* Acesse o menu, clique em perfil e depois em "Histórico de Pedidos".
+
+*Tela da funcionalidade:*
+
+![Tela de histórico de pedidos](images/historico-pedidos.png)
 
 ##### Funcionalidade 3 - Modal com imagem, legenda, descrição e preço do produto.
 
+Exibe um modal ao clicar em um produto, mostrando detalhes como imagem, descrição, conteúdo e preço.
+
+*Estrutura de dados:* lanchonetes.itens
+*Instruções de acesso:*
+
+* Clique sobre o card do produto desejado.
+
+*Tela da funcionalidade:*
+
+![Tela de modal](images/modal.png)
+
 ##### Funcionalidade 4 - Peça novamente
+
+Página onde permite visualizar e repetir pedidos anteriores.
+
+*Estrutura de dados:* historico_de_pedidos
+*Instruções de acesso:*
+* Faça login;
+* Clique em "Peça novamente" para visualizar um pedido anterior ou repeti-lo.
+
+*Tela da funcionalidade:*
+
+![Tela peça novamente](images/peca-novamente.png)
 
 ##### Funcionalidade 5 - Favoritos
 
+Permite marcar/desmarcar itens como favoritos e acessar a lista de favoritos posteriormente.
+
+*Estrutura de dados:* usuarios[].favoritos ou itens[].favoritos
+
+*Instruções de acesso:*
+* Clique no ícone de coração em um produto;
+* Acesse a página "Favoritos" dentro do perfil para visualizar sua lista de favoritos.
+
+*Tela da funcionalidade:*
+
+![Tela favoritos](images/favoritos1.png)
+![Tela favoritos](images/favoritos2.png)
+
 ##### Funcionalidade 6 - Formas de pagamento (cartão/ pix)
+
+Exibe e registra a forma de pagamento escolhida no momento da finalização do pedido.
+
+*Estrutura de dados:* forma_pagamento em historico_de_pedidos
+*Instruções de acesso:*
+* Após adicionar produtos ao carrinho, clique em "Finalizar pedido" e escolha a forma de pagamento.
+
+*Tela da funcionalidade:*
+
+![Tela formas de pagamento](images/pagamento.png)
+![Tela formas de pagamento](images/pagamento2.png)
 
 ##### Funcionalidade 7 - Mapa do campus com indicação das lanchonetes
 
+Exibe mapa interativo com os locais das lanchonetes nos campus.
+
+*Estrutura de dados:*
+*Instruções de acesso:*
+* Na tela inicial, escolha o campus para visualizar seu respectivo mapa.
+
+*Tela da funcionalidade:* 
+![Tela de mapa](images/mapas.png)
+
 ##### Funcionalidade 8 - Carrinho de pedidos
+
+Armazena os itens que o usuário deseja comprar, com opções para alterar quantidade ou remover.
+
+*Estrutura de dados:* carrinhos
+*Instruções* de acesso:*
+* Adicione* um item ao carrinho;
+* Clique no ícone de carrinho no topo da página.
+
+*Tela da funcionalidade:* 
+![Tela de carrinho](images/carrinho.png)
 
 ##### Funcionalidade 9 - Identificação de itens com restrição alimentar
 
+Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem glúten.
+
+*Estrutura de dados:*
+*Instruções de acesso:*
+* Ao visualizar um cardápio ou modal de produto, verifique os ícones informativos.
+
+*Tela da funcionalidade:* 
+![Tela de restricao](images/restricao.png)
+
 ##### Funcionalidade 10 - Avaliação de itens
+
+Permite que usuários atribuam notas aos produtos dentro do modal.
+
+*Estrutura de dados:* 
+*Instruções de acesso:*
+* Ao acessar o modal de um produto, clique nas estrelas para avaliar.
+
+*Tela da funcionalidade:* 
+![Tela de avaliação](images/restricao.png)
 
 ##### Funcionalidade 11 - Campo de pesquisa
 
+Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
+
+*Estrutura de dados:* 
+*Instruções de acesso:*
+* Digite no campo de busca na tela de cardápio.
+
+*Tela da funcionalidade:* 
+![Tela de avaliação](images/barra-busca.png)
+
 ##### Funcionalidade 12 - Perfil do usuário
 
+Mostra os dados do usuário logado, como nome, e-mail, favoritos, histórico de pedidos.
+
+*Estrutura de dados:* usuarios
+*Instruções de acesso:*
+* Clique no ícone do perfil no menu superior.
+
+*Tela da funcionalidade:* 
+![Tela de avaliação](images/perfil.png)
+
+##### Funcionalidade 13 - Trocar senha do usuário
+
+Permite que o usuário altere sua senha.
+
+*Estrutura de dados:* 
+*Instruções de acesso:*
+* Acesse o perfil e clique em "Trocar Senha";
+* Preencha os campos com a senha atual e a nova senha.
+
+*Tela da funcionalidade:* 
+![Tela de troca senha](images/troca-senha.png)
 
 
+### Estruturas de dados
 
+Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info.
 
+##### Estrutura de dados - 
 
+### Módulos e APIs
 
+Esta seção apresenta os módulos e APIs utilizados na solução.
+
+## Hospedagem
+
+Explique como a hospedagem e o lançamento da plataforma foram realizados.
 
 
 
