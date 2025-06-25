@@ -64,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // CORREÇÃO: Usa 'preco_unitario' (padrão novo) ou 'valor' (padrão antigo)
             const precoUnitario = Number(item.preco_unitario || item.valor);
             const subtotalItem = precoUnitario * item.quantidade;
-            const caminhoCorretoImagem = (item.imagem && item.imagem.startsWith('../')) ? item.imagem : `../principal/${item.imagem || ''}`;
+
+            const imagemBase = (item.imagem || '').replace(/^(?:\.\.\/)+/, '').replace(/^principal\//, '');
+            const caminhoCorretoImagem = `../principal/${imagemBase}`;
 
             return `
                 <div class="item-carrinho d-flex justify-content-between align-items-center p-3 border-bottom">
@@ -197,15 +199,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const carrinho = await getCarrinhoUsuario();
+            const lanchoneteAnteriorId = sessionStorage.getItem("lanchoneteAnterior") || '';
             if (!carrinho || carrinho.itens.length === 0) {
                 alert('Seu carrinho está vazio!');
                 return;
             }
 
             const pedidoPendente = {
-                itens: carrinho.itens,
-                observacao: observacaoEl.value || "",
-                userId: usuarioLogado.id
+            itens: carrinho.itens.map(item => ({
+                ...item,
+                lanchoneteId: lanchoneteAnteriorId   // aqui você joga o ID dentro de cada item
+            })),
+            observacao: observacaoEl.value || "",
+            userId: usuarioLogado.id
             };
 
             localStorage.setItem('pedidoPendente', JSON.stringify(pedidoPendente));
