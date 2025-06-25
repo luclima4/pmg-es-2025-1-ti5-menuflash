@@ -207,6 +207,33 @@
               "subtotal": 3.5
             }
           ]
+        },
+        {
+          "pedido_id": "pedido_1750821634301",
+          "data": "2025-06-25",
+          "hora": "00:20:34",
+          "total": 12,
+          "forma_pagamento": "Pix",
+          "status": "Em preparação",
+          "lanchonete_id": "N/A",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 3,
+              "titulo": "Açaí",
+              "imagem": "img/itens/acai.png",
+              "quantidade": 1,
+              "preco_unitario": 7,
+              "subtotal": 7
+            }
+          ]
         }
       ]
     },
@@ -650,17 +677,7 @@
     {
       "id": "cb0c",
       "userId": "3",
-      "itens": [
-        {
-          "id": 4,
-          "nome": "Coxinha",
-          "imagem": "img/itens/coxinha.png",
-          "valor": 6,
-          "nomeLanchonete": "Paçaki",
-          "quantidade": 1,
-          "subtotal": 6
-        }
-      ]
+      "itens": []
     },
     {
       "id": "cde7",
@@ -800,7 +817,8 @@
           "favorito": true,
           "quantidade": 13,
           "semLactose": true,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": []
         },
         {
           "id": 8,
@@ -1076,27 +1094,6 @@
         }
       ],
       "id": "6da5"
-    }
-  ],
-  "avaliacoes": [
-    {
-      "id": "1",
-      "tipo": "lanchonete",
-      "referenciaId": 101,
-      "notas": [
-        5,
-        4,
-        3
-      ]
-    },
-    {
-      "id": "2",
-      "tipo": "item",
-      "referenciaId": 202,
-      "notas": [
-        4,
-        5
-      ]
     }
   ]
 }

@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     itensHTML += `
                         <div class="col">
                             <div class="card h-100 shadow-sm">
-                                <img src="${caminhoCorretoImagem}" class="card-img-top" style="height: 150px; object-fit: cover;" alt="${item.titulo || item.nome}">
+                                <img src="${caminhoCorretoImagem}" class="card-img-top" style="height: 260px; object-fit: cover;" alt="${item.titulo || item.nome}">
                                 <div class="card-body text-center d-flex flex-column">
                                     <h6 class="card-title">${item.titulo || item.nome}</h6>
                                     <p class="card-text fw-bold mt-auto">R$ ${Number(item.preco_unitario || item.valor).toFixed(2).replace('.', ',')}</p>
