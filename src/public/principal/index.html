@@ -64,12 +64,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav d-flex align-items-center flex-column flex-lg-row gap-2">
 
+                        <div id="pecaNovamenteDiv">
                         <li class="nav-item">
-                            <a id="nav-peca-novamente" class="nav-link text-white text-center" href="pecaNovamente.html"
-                                style="display: none;">
+                            <a id="nav-peca-novamente" class="nav-link text-white" href="pecaNovamente.html" style="display: none;">
                                 Peça Novamente
                             </a>
-                        </li>
+                            </li>
+                        </div>
 
                         <li class="nav-item position-relative">
                             <a href="../carrinho/index.html" class="nav-link p-0 text-center">
@@ -143,6 +144,28 @@
     <script src="js/index.js"></script>
     <script src="../modal/js/modal.js"></script>
     
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let pecaNovamenteDiv = document.getElementById('pecaNovamenteDiv')
+
+      const usuario = (() => {
+        try {
+          return JSON.parse(sessionStorage.getItem('usuarioLogado'));
+        } catch {
+          return null;
+        }
+      })();
+
+      // 2) Se for administrador, redireciona direto para a página que carrega o criaCards.js
+      if (usuario && usuario.tipo === 'administrador') {
+
+        pecaNovamenteDiv.style.display = 'none'
+
+        return; // para não executar mais nada
+      }
+    })
+  </script>
+
 </body>
 
 

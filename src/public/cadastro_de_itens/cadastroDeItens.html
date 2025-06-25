@@ -41,7 +41,15 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                         <li class="nav-item"><a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a></li>
                         <li class="nav-item"><a id="nav-alterar-lanchonete" class="nav-link text-white" href="#" style="display: none;">Alterar Lanchonete</a></li>
-                        <li class="nav-item"><a id="nav-peca-novamente" class="nav-link text-white" href="../pecaNovamente/pecaNovamente.html" style="display: none;">Peça Novamente</a></li>
+
+                        <div id="pecaNovamenteDiv">
+                            <li class="nav-item">
+                                <a id="nav-peca-novamente" class="nav-link text-white" href="pecaNovamente.html" style="display: none;">
+                                    Peça Novamente
+                                </a>
+                            </li>
+                        </div>
+
                         <li class="nav-item me-2">
                             <a href="../carrinho/index.html" class="carrinho-icon nav-link">
                                 <i class="fas fa-shopping-cart fs-4 text-white"></i>
@@ -149,5 +157,27 @@
     <script src="../js/main.js"></script>
     <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/cadastroDeItens.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let pecaNovamenteDiv = document.getElementById('pecaNovamenteDiv')
+
+      const usuario = (() => {
+        try {
+          return JSON.parse(sessionStorage.getItem('usuarioLogado'));
+        } catch {
+          return null;
+        }
+      })();
+
+      // 2) Se for administrador, redireciona direto para a página que carrega o criaCards.js
+      if (usuario && usuario.tipo === 'administrador') {
+
+        pecaNovamenteDiv.style.display = 'none'
+
+        return; // para não executar mais nada
+      }
+    })
+  </script>
 </body>
 </html>
