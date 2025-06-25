@@ -673,21 +673,6 @@
       "itens": []
     },
     {
-<<<<<<< Updated upstream
-      "id": "0eab",
-      "userId": "53db",
-      "itens": []
-    },
-    {
-      "id": "255d",
-      "userId": "26cb",
-      "itens": []
-    },
-    {
-      "id": "c814",
-      "userId": "4922",
-      "itens": []
-=======
       "id": "4f95",
       "userId": 8,
       "itens": [
@@ -708,7 +693,6 @@
           "quantidade": 1
         }
       ]
->>>>>>> Stashed changes
     }
   ],
   "lanchonetes": [

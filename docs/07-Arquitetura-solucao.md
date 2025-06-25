@@ -2,15 +2,49 @@
 
 <span style="color:red">Pré-requisitos: <a href="05-Projeto-interface.md"> Projeto de interface</a></span>
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
-
-![Arquitetura da solução](images/exemplo-arquitetura.png)
-
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.
+##### Funcionalidade Obrigatória - Login e cadastro
 
-##### Funcionalidade 1 - Cadastro de contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Mostrar cardápio de lanchonetes diversas
+
+##### Funcionalidade 2 - Histórico de pedidos
+
+##### Funcionalidade 3 - Card com imagem, legenda, descrição e preço do produto
+
+##### Funcionalidade 4 - Peça novamente
+
+##### Funcionalidade 5 - Favoritos
+
+##### Funcionalidade 6 - Formas de pagamento
+
+##### Funcionalidade 7 - Mapa do campus + lanchonetes
+
+##### Funcionalidade 8 - Carrinho de pedidos
+
+##### Funcionalidade 9 - Especificação de itens com restrição alimentar
+
+##### Funcionalidade 10 - Campo de pesquisa
+
+##### Funcionalidade 11 - Perfil do usuário
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
