@@ -6,27 +6,30 @@
 
 ##### Funcionalidade Obrigatória - Login e cadastro
 
-##### Funcionalidade 1 - Mostrar cardápio de lanchonetes diversas
+##### Funcionalidade 1 - Mostrar cardápio de cada lanchonete
 
 ##### Funcionalidade 2 - Histórico de pedidos
 
-##### Funcionalidade 3 - Card com imagem, legenda, descrição e preço do produto
+##### Funcionalidade 3 - Modal com imagem, legenda, descrição e preço do produto.
 
 ##### Funcionalidade 4 - Peça novamente
 
 ##### Funcionalidade 5 - Favoritos
 
-##### Funcionalidade 6 - Formas de pagamento
+##### Funcionalidade 6 - Formas de pagamento (cartão/ pix)
 
-##### Funcionalidade 7 - Mapa do campus + lanchonetes
+##### Funcionalidade 7 - Mapa do campus com indicação das lanchonetes
 
 ##### Funcionalidade 8 - Carrinho de pedidos
 
-##### Funcionalidade 9 - Especificação de itens com restrição alimentar
+##### Funcionalidade 9 - Identificação de itens com restrição alimentar
 
-##### Funcionalidade 10 - Campo de pesquisa
+##### Funcionalidade 10 - Avaliação de itens
 
-##### Funcionalidade 11 - Perfil do usuário
+##### Funcionalidade 11 - Campo de pesquisa
+
+##### Funcionalidade 12 - Perfil do usuário
+
 
 
 
