@@ -200,10 +200,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemId = parseInt(btnAumentar.dataset.itemId, 10);
             const card = btnAumentar.closest('.card');
             const titulo = card.querySelector('.card-title').textContent;
-            const imagem = card.querySelector('img').src;
+            // 
+            let caminho = card.querySelector('img').getAttribute('src');
+            if (!caminho.startsWith('../principal/')) {
+                caminho = `../principal/${caminho}`;
+            }
             const preco = parseFloat(card.querySelector('.fw-bold').textContent.replace('R$ ', '').replace(',', '.'));
 
-            await adicionarAoCarrinho({ id: itemId, titulo, imagem, valor: preco });
+            await adicionarAoCarrinho({ id: itemId, titulo, imagem : caminho , valor: preco });
             const input = card.querySelector(`.quantity-input[data-item-id='${itemId}']`);
             const carrinho = await getCarrinhoUsuario();
             const item = carrinho?.itens.find(i => i.id === itemId);

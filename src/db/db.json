@@ -243,7 +243,15 @@
     {
       "id": "0d59",
       "userId": "1",
-      "itens": []
+      "itens": [
+        {
+          "id": 5,
+          "nome": "Pão de queijo",
+          "imagem": "../principal/img/itens/paoDeQueijo.png",
+          "preco_unitario": 5.5,
+          "quantidade": 1
+        }
+      ]
     }
   ],
   "lanchonetes": [
@@ -263,7 +271,8 @@
           "favorito": false,
           "quantidade": 17,
           "semLactose": true,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": []
         },
         {
           "id": 2,
@@ -276,7 +285,8 @@
           "favorito": true,
           "quantidade": 11,
           "semLactose": true,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": []
         },
         {
           "id": 3,
@@ -365,7 +375,8 @@
           "favorito": false,
           "quantidade": 6,
           "semLactose": false,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": []
         }
       ]
     },
