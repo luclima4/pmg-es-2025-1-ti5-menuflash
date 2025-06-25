@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,21 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="d-flex flex-column min-vh-100 bg-light">
 
     <header>
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+            style="background-color: #a00000 !important;">
             <div class="container-fluid">
                 <a class="navbar-brand fs-3" href="../principal/index.html">
                     <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                 </a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                         <li class="nav-item">
-                            <a class="nav-link text-white" href="../carrinho/index.html"><i class="fas fa-arrow-left me-2"></i> Voltar para o Carrinho</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../carrinho/index.html"><i
+                                    class="fas fa-arrow-left me-2"></i> Voltar para o Carrinho</a>
                         </li>
                     </ul>
                 </div>
@@ -32,22 +36,25 @@
         <div class="payment-container mx-auto" style="max-width: 600px;">
             <h1 class="h2">Como você gostaria de pagar?</h1>
             <p class="lead text-muted">Selecione uma das opções abaixo para concluir seu pedido.</p>
-            
+
             <div id="order-summary" class="text-start my-4 p-3 border rounded bg-white shadow-sm">
-                </div>
+            </div>
 
             <div class="btn-group w-100" role="group">
                 <input type="radio" class="btn-check" name="payment-method" id="payment-pix" autocomplete="off">
-                <label class="btn btn-outline-primary p-3" for="payment-pix"><i class="fas fa-qrcode me-2"></i> Pix</label>
+                <label class="btn btn-outline-primary p-3" for="payment-pix"><i class="fas fa-qrcode me-2"></i>
+                    Pix</label>
 
                 <input type="radio" class="btn-check" name="payment-method" id="payment-card" autocomplete="off">
-                <label class="btn btn-outline-primary p-3" for="payment-card"><i class="far fa-credit-card me-2"></i> Cartão</label>
+                <label class="btn btn-outline-primary p-3" for="payment-card"><i class="far fa-credit-card me-2"></i>
+                    Cartão</label>
             </div>
 
             <div id="pix-section" class="mt-4" style="display: none;">
                 <h4 class="h5">Pague com Pix</h4>
                 <p>Escaneie o QR Code abaixo com o app do seu banco.</p>
-                <img src="QRcode exemplo.png" alt="QR Code para pagamento Pix" class="img-fluid border rounded p-2" style="max-width: 250px;">
+                <img src="QRcode exemplo.png" alt="QR Code para pagamento Pix" class="img-fluid border rounded p-2"
+                    style="max-width: 250px;">
             </div>
 
             <div id="card-section" class="mt-4 text-start" style="display: none;">
@@ -55,7 +62,8 @@
                 <form id="card-form" class="mt-3">
                     <div class="mb-3">
                         <label for="card-number" class="form-label">Número do Cartão</label>
-                        <input type="text" id="card-number" class="form-control" placeholder="0000 0000 0000 0000" required>
+                        <input type="text" id="card-number" class="form-control" placeholder="0000 0000 0000 0000"
+                            required>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -69,22 +77,27 @@
                     </div>
                     <div class="mb-3">
                         <label for="card-name" class="form-label">Nome do Titular</label>
-                        <input type="text" id="card-name" class="form-control" placeholder="Nome como no cartão" required>
+                        <input type="text" id="card-name" class="form-control" placeholder="Nome como no cartão"
+                            required>
                     </div>
                 </form>
             </div>
 
             <div id="finalize-section" class="d-grid gap-2 mt-4">
-                <button id="btn-finalize-order" class="btn btn-success btn-lg" disabled>Confirmar Pagamento e Finalizar</button>
+                <button id="btn-finalize-order" class="btn btn-success btn-lg" disabled>Confirmar Pagamento e
+                    Finalizar</button>
             </div>
         </div>
     </main>
-    
+
     <footer style="background-color: #a00000 !important;" class="text-white text-center py-3">
-        <div class="container"><p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p></div>
+        <div class="container">
+            <p class="mb-0">Menu Flash. Todos os direitos reservados &copy; 2025</p>
+        </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
+
 </html>

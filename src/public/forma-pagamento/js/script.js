@@ -1,6 +1,3 @@
-// Arquivo: forma-pagamento/js/script.js
-// Versão final com limpeza de carrinho e cálculo corrigido.
-
 document.addEventListener('DOMContentLoaded', () => {
     const pixSectionEl = document.getElementById('pix-section');
     const cardSectionEl = document.getElementById('card-section');
@@ -10,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const orderSummaryEl = document.getElementById('order-summary');
     let pedidoPendente = null;
     let metodoPagamentoSelecionado = null;
-    
+
     const getUsuarioLogado = () => { try { const u = sessionStorage.getItem('usuarioLogado'); return u ? JSON.parse(u) : null; } catch (e) { return null; } };
     const getCarrinhoUsuario = async () => { const u = getUsuarioLogado(); if (!u) return null; try { const r = await fetch(`http://localhost:3000/carrinhos?userId=${u.id}`); return (await r.json())[0]; } catch (e) { return null; } };
-    const atualizarCarrinhoServidor = async (c) => { if (!c) return; try { await fetch(`http://localhost:3000/carrinhos/${c.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(c) }); window.dispatchEvent(new Event('cartUpdated')); } catch (e) {} };
+    const atualizarCarrinhoServidor = async (c) => { if (!c) return; try { await fetch(`http://localhost:3000/carrinhos/${c.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(c) }); window.dispatchEvent(new Event('cartUpdated')); } catch (e) { } };
     const formatarMoeda = (v) => Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     const carregarPedido = () => {
@@ -34,85 +31,75 @@ document.addEventListener('DOMContentLoaded', () => {
             return acc + (preco * item.quantidade);
         }, 0);
         pedidoPendente.total = total;
-        orderSummaryEl.innerHTML = `<h5 class="mb-3">Resumo do seu Pedido</h5><ul class="list-group list-group-flush">${pedidoPendente.itens.map(item => `<li class="list-group-item d-flex justify-content-between align-items-center px-0"><span>${item.quantidade}x ${item.nome}</span><span class="text-muted">${formatarMoeda(Number(item.preco_unitario||item.valor)*item.quantidade)}</span></li>`).join('')}</ul><hr><div class="d-flex justify-content-between align-items-center mt-3 fw-bold h5"><span>Total a Pagar:</span><span>${formatarMoeda(total)}</span></div>`;
+        orderSummaryEl.innerHTML = `<h5 class="mb-3">Resumo do seu Pedido</h5><ul class="list-group list-group-flush">${pedidoPendente.itens.map(item => `<li class="list-group-item d-flex justify-content-between align-items-center px-0"><span>${item.quantidade}x ${item.nome}</span><span class="text-muted">${formatarMoeda(Number(item.preco_unitario || item.valor) * item.quantidade)}</span></li>`).join('')}</ul><hr><div class="d-flex justify-content-between align-items-center mt-3 fw-bold h5"><span>Total a Pagar:</span><span>${formatarMoeda(total)}</span></div>`;
     };
 
-    // 
     const finalizarPedido = async () => {
-    if (!metodoPagamentoSelecionado) 
-        return alert('Por favor, selecione um método de pagamento.');
+        if (!metodoPagamentoSelecionado)
+            return alert('Por favor, selecione um método de pagamento.');
 
-    const usuario = getUsuarioLogado();
-    if (!usuario || !usuario.id) 
-        return alert("Sessão expirada. Faça o login novamente.");
+        const usuario = getUsuarioLogado();
+        if (!usuario || !usuario.id)
+            return alert("Sessão expirada. Faça o login novamente.");
 
-    try {
-        // 1) Busca os dados atuais do usuário
-        const userResponse = await fetch(`http://localhost:3000/usuarios/${usuario.id}`);
-        if (!userResponse.ok) throw new Error("Usuário não encontrado.");
-        const dadosUsuario = await userResponse.json();
+        try {
+            const userResponse = await fetch(`http://localhost:3000/usuarios/${usuario.id}`);
+            if (!userResponse.ok) throw new Error("Usuário não encontrado.");
+            const dadosUsuario = await userResponse.json();
 
-        // 2) Garante que exista o array de pedidos
-        const historico = Array.isArray(dadosUsuario.historico_de_pedidos)
-            ? dadosUsuario.historico_de_pedidos
-            : [];
+            const historico = Array.isArray(dadosUsuario.historico_de_pedidos)
+                ? dadosUsuario.historico_de_pedidos
+                : [];
 
-        // 3) Calcula o próximo ID (n+1) como inteiro
-        const maxId = historico.reduce((max, p) => {
-            // p.pedido_id pode ser string ou number, então forçamos parseInt
-            const idNum = parseInt(p.pedido_id ?? p.id, 10);
-            return isNaN(idNum) ? max : Math.max(max, idNum);
-        }, 0);
-        const nextId = (maxId + 1).toString();  // converte para string
+            const maxId = historico.reduce((max, p) => {
+                const idNum = parseInt(p.pedido_id ?? p.id, 10);
+                return isNaN(idNum) ? max : Math.max(max, idNum);
+            }, 0);
+            const nextId = (maxId + 1).toString();
 
-        // 4) Monta o objeto de pedido usando `pedido_id` como string
-        const pedidoFinal = {
-            pedido_id: nextId,
-            data: new Date().toISOString().split('T')[0],
-            hora: new Date().toLocaleTimeString('pt-BR'),
-            total: pedidoPendente.total,
-            forma_pagamento: metodoPagamentoSelecionado,
-            status: "Entregue",
-            lanchonete_id: pedidoPendente.itens[0]?.lanchoneteId || 'N/A',
-            itens: pedidoPendente.itens.map(i => ({
-                id: i.id,
-                titulo: i.nome,
-                imagem: `../principal/${i.imagem}`,
-                quantidade: i.quantidade,
-                preco_unitario: Number(i.preco_unitario || i.valor),
-                subtotal: Number(i.preco_unitario || i.valor) * i.quantidade
-            }))
-        };
+            const pedidoFinal = {
+                pedido_id: nextId,
+                data: new Date().toISOString().split('T')[0],
+                hora: new Date().toLocaleTimeString('pt-BR'),
+                total: pedidoPendente.total,
+                forma_pagamento: metodoPagamentoSelecionado,
+                status: "Entregue",
+                lanchonete_id: pedidoPendente.itens[0]?.lanchoneteId || 'N/A',
+                itens: pedidoPendente.itens.map(i => ({
+                    id: i.id,
+                    titulo: i.nome,
+                    imagem: `../principal/${i.imagem}`,
+                    quantidade: i.quantidade,
+                    preco_unitario: Number(i.preco_unitario || i.valor),
+                    subtotal: Number(i.preco_unitario || i.valor) * i.quantidade
+                }))
+            };
 
-        // 5) Adiciona ao histórico e envia o PUT
-        dadosUsuario.historico_de_pedidos = [...historico, pedidoFinal];
-        await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dadosUsuario)
-        });
+            dadosUsuario.historico_de_pedidos = [...historico, pedidoFinal];
+            await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dadosUsuario)
+            });
 
-        // (Resto do código permanece igual: limpeza de carrinho, redirect etc.)
-        const carrinhoParaLimpar = await getCarrinhoUsuario();
-        if (carrinhoParaLimpar) {
-            carrinhoParaLimpar.itens = [];
-            await atualizarCarrinhoServidor(carrinhoParaLimpar);
+            const carrinhoParaLimpar = await getCarrinhoUsuario();
+            if (carrinhoParaLimpar) {
+                carrinhoParaLimpar.itens = [];
+                await atualizarCarrinhoServidor(carrinhoParaLimpar);
+            }
+            localStorage.removeItem('pedidoPendente');
+            alert("Pedido finalizado com sucesso!");
+            window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
+
+        } catch (error) {
+            console.error('Erro ao finalizar pedido:', error);
+            alert("Ocorreu um erro ao finalizar seu pedido.");
         }
-        localStorage.removeItem('pedidoPendente');
-        alert("Pedido finalizado com sucesso!");
-        window.location.href = '../acompanhar-pedido/acompanhar-pedido.html';
+    };
 
-    } catch (error) {
-        console.error('Erro ao finalizar pedido:', error);
-        alert("Ocorreu um erro ao finalizar seu pedido.");
-    }
-};
 
-    
-    // 
-
-    if(radioPix) radioPix.addEventListener('change', () => { metodoPagamentoSelecionado = 'Pix'; cardSectionEl.style.display = 'none'; pixSectionEl.style.display = 'block'; btnFinalizeOrder.disabled = false; });
-    if(radioCard) radioCard.addEventListener('change', () => { metodoPagamentoSelecionado = 'Cartão'; pixSectionEl.style.display = 'none'; cardSectionEl.style.display = 'block'; btnFinalizeOrder.disabled = false; });
-    if(btnFinalizeOrder) btnFinalizeOrder.addEventListener('click', finalizarPedido);
+    if (radioPix) radioPix.addEventListener('change', () => { metodoPagamentoSelecionado = 'Pix'; cardSectionEl.style.display = 'none'; pixSectionEl.style.display = 'block'; btnFinalizeOrder.disabled = false; });
+    if (radioCard) radioCard.addEventListener('change', () => { metodoPagamentoSelecionado = 'Cartão'; pixSectionEl.style.display = 'none'; cardSectionEl.style.display = 'block'; btnFinalizeOrder.disabled = false; });
+    if (btnFinalizeOrder) btnFinalizeOrder.addEventListener('click', finalizarPedido);
     if (carregarPedido()) renderizarResumo();
 });

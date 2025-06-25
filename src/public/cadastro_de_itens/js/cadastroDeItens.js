@@ -1,12 +1,8 @@
-// Arquivo: cadastro_de_itens/js/cadastroDeItens.js
-
 document.addEventListener("DOMContentLoaded", () => {
-    // --- VARIÁVEIS DE ESTADO GLOBAIS ---
-    let minhaLanchonete = null; // Guarda o objeto completo da lanchonete do admin
-    let todosOsItens = [];     // Guarda a lista de itens da lanchonete
-    let imagemBase64 = "";      // Guarda a imagem convertida para Base64
+    let minhaLanchonete = null; 
+    let todosOsItens = [];     
+    let imagemBase64 = "";     
 
-    // --- ELEMENTOS DO FORMULÁRIO ---
     const form = document.getElementById("formItens");
     const inputId = document.getElementById("inputId");
     const selectDisponivel = document.getElementById("selectDisponivel");
@@ -20,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputImagem = document.getElementById("inputImagem");
     const imagemBase64Hidden = document.getElementById("imagemBase64Hidden");
     const previewImagem = document.getElementById("previewImagem");
-
-    // --- FUNÇÕES PRINCIPAIS (INICIALIZAÇÃO E RENDERIZAÇÃO) ---
 
     // Função principal que inicia tudo
     const init = async () => {
@@ -84,14 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
         checkLactose.checked = item.semLactose;
         checkGluten.checked = item.semGluten;
         
-        // Lida com a imagem
         imagemBase64 = item.imagem;
         imagemBase64Hidden.value = item.imagem;
         previewImagem.src = item.imagem;
         previewImagem.style.display = item.imagem ? 'block' : 'none'; // CORRIGIDO
     };
 
-    // Limpa os campos do formulário
     const limparFormulario = () => {
         form.reset();
         inputId.value = '';
@@ -101,10 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputTitulo.focus();
     };
 
-
-    // --- FUNÇÕES CRUD (CREATE, READ, UPDATE, DELETE) ---
-
-    // Salva as alterações (Adicionar ou Editar) na lanchonete
+    // CRUD
     const salvarAlteracoesNaAPI = async () => {
         try {
             const response = await fetch(`http://localhost:3000/lanchonetes/${minhaLanchonete.id}`, {
@@ -198,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
     
-    // --- LÓGICA DE IMAGEM ---
     const handleImageSelect = (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -206,20 +194,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const reader = new FileReader();
         reader.onload = e => {
             imagemBase64 = e.target.result;
-            imagemBase64Hidden.value = imagemBase64; // Guarda no campo hidden
+            imagemBase64Hidden.value = imagemBase64; 
             previewImagem.src = imagemBase64;
             previewImagem.style.display = 'block';
         };
         reader.readAsDataURL(file);
     };
 
-    // --- EVENT LISTENERS ---
     document.getElementById("btnAdicionar").addEventListener("click", adicionarItem);
     document.getElementById("btnEditar").addEventListener("click", editarItem);
     document.getElementById("btnExcluir").addEventListener("click", excluirItem);
     document.getElementById("btnLimpar").addEventListener("click", limparFormulario);
     inputImagem.addEventListener('change', handleImageSelect);
 
-    // Inicia a aplicação
     init();
 });

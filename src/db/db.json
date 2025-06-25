@@ -83,6 +83,25 @@
               "subtotal": 5.5
             }
           ]
+        },
+        {
+          "pedido_id": "3",
+          "data": "2025-06-25",
+          "hora": "14:51:43",
+          "total": 11,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "2",
+          "itens": [
+            {
+              "id": 7,
+              "titulo": "Coca-Cola lata",
+              "imagem": "../principal/../principal/img/itens/cocaLata.png",
+              "quantidade": 2,
+              "preco_unitario": 5.5,
+              "subtotal": 11
+            }
+          ]
         }
       ]
     },
@@ -244,17 +263,7 @@
       "id": "0d59",
       "userId": "1",
       "lanchoneteAtualId": "2",
-      "itens": [
-        {
-          "id": 5,
-          "nome": "Pão de queijo",
-          "imagem": "../principal/img/itens/paoDeQueijo.png",
-          "preco_unitario": 5.5,
-          "nomeLanchonete": "Central",
-          "lanchoneteId": "2",
-          "quantidade": 1
-        }
-      ]
+      "itens": []
     }
   ],
   "lanchonetes": [

@@ -1,8 +1,5 @@
-// Arquivo: principal/js/campusCoreu.js
-// Versão final e limpa, que cuida APENAS do mapa e dos marcadores.
-
 document.addEventListener("DOMContentLoaded", () => {
-    const MAP_CONTAINER_ID = 'mapa'; 
+    const MAP_CONTAINER_ID = 'mapa';
     const campusConfig = {
         center: [-43.9922, -19.9227],
         zoom: 15.5

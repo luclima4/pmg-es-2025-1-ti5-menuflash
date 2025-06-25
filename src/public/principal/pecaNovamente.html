@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,32 +14,37 @@
 
     <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
-    
+
     <style>
-        #tituloPrincipal{
+        #tituloPrincipal {
             font-family: "Poppins", sans-serif;
             margin-top: 7px;
             font-weight: 200;
             font-style: normal;
             color: rgb(0, 0, 0);
-            font-size: 30px; 
+            font-size: 30px;
         }
     </style>
 
     <header>
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #a00000 !important;">
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
+            style="background-color: #a00000 !important;">
             <div class="container-fluid">
                 <a class="navbar-brand fs-3" href="../principal/index.html">
                     <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item"><a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a></li>
-                        <li class="nav-item"><a id="nav-peca-novamente" class="nav-link text-white" href="pecaNovamente.html" style="display: none;">Peça Novamente</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="../principal/index.html">Alterar
+                                Campus</a></li>
+                        <li class="nav-item"><a id="nav-peca-novamente" class="nav-link text-white"
+                                href="pecaNovamente.html" style="display: none;">Peça Novamente</a></li>
                         <li class="nav-item me-2">
                             <a href="../carrinho/index.html" class="carrinho-icon nav-link">
                                 <i class="fas fa-shopping-cart fs-4 text-white"></i>
@@ -46,10 +52,12 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user text-white fs-4" title="Login"></i>
                             </a>
-                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end" style="background-color: #a00000;"></ul>
+                            <ul id="menu-dropdown-usuario" class="dropdown-menu dropdown-menu-end"
+                                style="background-color: #a00000;"></ul>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +67,7 @@
 
     <main class="container flex-grow-1" style="margin-top: 100px;">
         <h1 class="text-center mb-4 text-dark">Peça Novamente</h1>
-        
+
         <div id="divCards">
         </div>
     </main>
@@ -82,4 +90,5 @@
     <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/pecaNovamente.js"></script>
 </body>
+
 </html>

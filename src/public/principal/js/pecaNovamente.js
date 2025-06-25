@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
 
-        if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) { 
-            carrinhoData.lanchoneteAtualId = null; 
+        if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) {
+            carrinhoData.lanchoneteAtualId = null;
         }
 
         try {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!usuario) return alert("Você precisa estar logado para adicionar itens ao carrinho.");
 
         let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [], lanchoneteAtualId: null };
-        
+
         if (carrinho.itens.length > 0) {
             const lanchoneteNoCarrinhoId = carrinho.lanchoneteAtualId || (carrinho.itens[0] ? carrinho.itens[0].lanchoneteId : null);
             if (item.lanchoneteId && lanchoneteNoCarrinhoId && item.lanchoneteId !== lanchoneteNoCarrinhoId) {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
         }
-        
+
         if (carrinho.itens.length === 0 && item.lanchoneteId) {
             carrinho.lanchoneteAtualId = item.lanchoneteId;
         }
@@ -218,11 +218,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-
     cardsContainer.addEventListener('click', async (e) => {
         const target = e.target;
         const usuario = getUsuarioLogado();
-        if (!usuario) { 
+        if (!usuario) {
             alert("Você precisa estar logado para interagir com o carrinho.");
             return;
         }
@@ -230,10 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const btnAumentar = target.closest('.btn-aumentar-qnt');
         if (btnAumentar) {
             const itemId = parseInt(btnAumentar.dataset.itemId, 10);
-            
+
             const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
             const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
-            
+
             let itemParaProcessar = null;
             let lanchoneteIdDoItem = null;
             let nomeLanchoneteDoItem = null;
@@ -248,12 +247,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     break;
                 }
             }
-                
+
             if (itemParaProcessar) {
                 itemParaProcessar.lanchoneteId = lanchoneteIdDoItem;
                 itemParaProcessar.nomeLanchonete = nomeLanchoneteDoItem;
                 itemParaProcessar.valor = itemParaProcessar.preco_unitario || itemParaProcessar.valor;
-                
+
                 await adicionarAoCarrinho(itemParaProcessar);
                 const input = btnAumentar.closest('.card').querySelector(`.quantity-input[data-item-id='${itemId}']`);
                 const carrinho = await getCarrinhoUsuario();
@@ -268,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemId = parseInt(btnDiminuir.dataset.itemId, 10);
             const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
             const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
-            
+
             let itemParaProcessar = null;
             let lanchoneteIdDoItem = null;
             let nomeLanchoneteDoItem = null;

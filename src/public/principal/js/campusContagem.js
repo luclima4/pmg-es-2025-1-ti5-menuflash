@@ -1,6 +1,3 @@
-// Arquivo: principal/js/campusContagem.js
-// Versão final que cuida APENAS do mapa e dos marcadores.
-
 document.addEventListener("DOMContentLoaded", () => {
     const MAP_CONTAINER_ID = 'mapa';
     const campusConfig = {
@@ -9,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const lanchonetesParaMarcar = [
-      { nome: 'Lanchonete Praçaki', coords: [-44.07620599367716, -19.939352989756927] },
-      { nome: 'Lanchonete Praçala', coords: [-44.07643901192358, -19.941048287246733] }
+        { nome: 'Lanchonete Paçaki', coords: [-44.07620599367716, -19.939352989756927] },
+        { nome: 'Lanchonete Paçai', coords: [-44.07643901192358, -19.941048287246733] }
     ];
 
     const mapaContainer = document.getElementById(MAP_CONTAINER_ID);
@@ -31,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Adiciona os marcadores e popups
     lanchonetesParaMarcar.forEach(lanchonete => {
         const popupHTML = `<div style="color: #333; font-weight: bold; padding: 2px 5px;">${lanchonete.nome}</div>`;
-        
+
         new mapboxgl.Marker({ color: "#a00000" })
             .setLngLat(lanchonete.coords)
             .setPopup(

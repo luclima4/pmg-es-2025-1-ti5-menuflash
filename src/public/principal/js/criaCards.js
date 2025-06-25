@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- ELEMENTOS DO DOM ---
     const cardsContainer = document.getElementById('divCards');
     const campoBusca = document.getElementById('campoBusca');
     const btnBusca = document.getElementById('btnBusca');
     const filtroFavoritos = document.getElementById('filtroFavoritos');
 
-    // --- ESTADO ---
     let todosOsItens = [];
     let nomeLanchoneteAtual = "Cardápio";
-
-    // --- FUNÇÕES DE LÓGICA (AUTENTICAÇÃO, CARRINHO, FAVORITOS, FEEDBACK) ---
 
     const getUsuarioLogado = () => {
         try {
@@ -49,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
 
-        // lanchoneteAtualId é inicializado se o carrinho for novo
         if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) {
             carrinhoData.lanchoneteAtualId = null;
         }
@@ -79,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (item.lanchoneteId && lanchoneteNoCarrinhoId && item.lanchoneteId !== lanchoneteNoCarrinhoId) {
                 alert(`Adicione no carrinho apenas itens de uma lanchonete.`);
-                return; // Impede a adição
+                return;
             }
         }
 

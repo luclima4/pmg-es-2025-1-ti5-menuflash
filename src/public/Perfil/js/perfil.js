@@ -1,8 +1,4 @@
-// Arquivo: Perfil/js/perfil.js
-// Versão final com todas as funcionalidades: CRUD de usuário, histórico e favoritos.
-
 document.addEventListener("DOMContentLoaded", () => {
-    // --- SETUP INICIAL ---
     const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado") || 'null');
     if (!usuarioLogado || !usuarioLogado.id) {
         alert("Sessão inválida. Por favor, faça login novamente.");
@@ -10,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // --- ELEMENTOS DO DOM ---
     const userNameInput = document.getElementById("userName");
     const userEmailInput = document.getElementById("userEmail");
     const btnSaveChanges = document.getElementById("btnSaveChanges");
@@ -21,16 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const containerFavoritos = document.getElementById("containerFavoritos");
     const containerHistorico = document.getElementById('inserirHistorico');
 
-
-    // --- FUNÇÕES AUXILIARES ---
     const formatarMoeda = (valor) => Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     const normalizarCaminhoImagem = (caminho) => {
-        if (!caminho) return ''; // Retorna string vazia se não houver imagem
+        if (!caminho) return '';
         const caminhoLimpo = caminho.replace('../principal/', '');
         return `../principal/${caminhoLimpo}`;
     };
 
-    // --- LÓGICA DE CARREGAMENTO DE DADOS ---
     const carregarHistorico = (historico, todasAsLanchonetes) => {
         if (!containerHistorico) return;
         if (!historico || historico.length === 0) {
@@ -38,14 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const pedidosOrdenados = historico.sort((a, b) => new Date(b.data || 0) - new Date(a.data || 0));
-        
+
         containerHistorico.innerHTML = `
             <h5 class="mb-4">Seu Histórico de Pedidos</h5>
             ${pedidosOrdenados.map(pedido => {
-                const lanchonete = todasAsLanchonetes.find(l => String(l.id) === String(pedido.lanchonete_id));
-                const nomeLanchonete = lanchonete ? lanchonete.nome : 'Lanchonete';
-                const dataFormatada = new Date(pedido.data).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
-                const itensHTML = pedido.itens.map(item => `
+            const lanchonete = todasAsLanchonetes.find(l => String(l.id) === String(pedido.lanchonete_id));
+            const nomeLanchonete = lanchonete ? lanchonete.nome : 'Lanchonete';
+            const dataFormatada = new Date(pedido.data).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+            const itensHTML = pedido.itens.map(item => `
                     <li class="list-group-item d-flex justify-content-between align-items-center p-1">
                         <div class="d-flex align-items-center">
                             <img src="${normalizarCaminhoImagem(item.imagem)}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; margin-right: 10px;" alt="${item.titulo}">
@@ -53,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <span class="text-muted">${formatarMoeda(item.subtotal)}</span>
                     </li>`).join('');
-                return `
+            return `
                     <div class="card mb-3">
                         <div class="card-header bg-light d-flex justify-content-between flex-wrap">
                             <strong>Pedido #${pedido.pedido_id.split('_')[1]}</strong>
@@ -66,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <ul class="list-group list-group-flush">${itensHTML}</ul>
                         </div>
                     </div>`;
-            }).join('')}`;
+        }).join('')}`;
     };
-    
+
     const carregarFavoritos = (usuario, todasAsLanchonetes) => {
         if (!containerFavoritos) return;
         const meusFavoritos = [];
@@ -110,17 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     };
 
-    // --- LÓGICA DE AÇÕES (CRUD, FAVORITOS) ---
     const salvarMudancas = async () => {
         const payload = {};
         const nomeAtualizado = userNameInput.value.trim();
         const emailAtualizado = userEmailInput.value.trim();
 
         if (nomeAtualizado !== usuarioLogado.nome) payload.nome = nomeAtualizado;
-        
+
         if (emailAtualizado !== usuarioLogado.email) {
             if (!emailAtualizado.includes('@')) return alert("Por favor, insira um e-mail válido.");
-            
+
             const checkEmailResponse = await fetch(`http://localhost:3000/usuarios?email=${emailAtualizado}`);
             const existingUsers = await checkEmailResponse.json();
             if (existingUsers.length > 0 && existingUsers[0].id !== usuarioLogado.id) {
@@ -139,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (inputNovaSenha1.value.length < 6) return alert("A nova senha deve ter no mínimo 6 caracteres.");
             payload.senha = inputNovaSenha1.value;
         }
-        
+
         if (Object.keys(payload).length === 0) return alert("Nenhuma alteração para salvar.");
 
         try {
@@ -149,10 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(payload)
             });
             if (!response.ok) throw new Error("Falha ao salvar as alterações.");
-            
+
             const usuarioAtualizado = await response.json();
             sessionStorage.setItem('usuarioLogado', JSON.stringify(usuarioAtualizado));
-            
+
             alert("Perfil atualizado com sucesso! A página será recarregada.");
             location.reload();
         } catch (error) {
@@ -170,14 +161,14 @@ document.addEventListener("DOMContentLoaded", () => {
         inputNovaSenha1.disabled = true;
         inputNovaSenha2.disabled = true;
     };
-    
+
     const toggleFavorito = async (itemId, lanchoneteId) => {
         try {
             const response = await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`);
             const lanchonete = await response.json();
             const itemParaModificar = lanchonete.itens.find(i => i.id == itemId);
             if (!itemParaModificar || !Array.isArray(itemParaModificar.favoritos)) return;
-            
+
             const emailIndex = itemParaModificar.favoritos.indexOf(usuarioLogado.email);
             if (emailIndex > -1) itemParaModificar.favoritos.splice(emailIndex, 1);
 
@@ -186,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(lanchonete)
             });
-            
+
             inicializarPagina();
         } catch (error) {
             console.error("Erro ao desfavoritar:", error);
@@ -194,7 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- INICIALIZAÇÃO E EVENT LISTENERS ---
     const inicializarPagina = async () => {
         resetarFormulario();
         try {
@@ -203,16 +193,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 fetch('http://localhost:3000/lanchonetes')
             ]);
             if (!userResponse.ok || !lanchonetesResponse.ok) throw new Error("Falha ao carregar dados.");
-            
+
             const usuarioCompleto = await userResponse.json();
             const todasAsLanchonetes = await lanchonetesResponse.json();
-            
+
             carregarHistorico(usuarioCompleto.historico_de_pedidos, todasAsLanchonetes);
             carregarFavoritos(usuarioCompleto, todasAsLanchonetes);
         } catch (error) {
             console.error("Erro ao inicializar:", error);
-            if(containerHistorico) containerHistorico.innerHTML = `<p class="text-danger">Não foi possível carregar seu histórico.</p>`;
-            if(containerFavoritos) containerFavoritos.innerHTML = `<p class="text-danger">Não foi possível carregar seus favoritos.</p>`;
+            if (containerHistorico) containerHistorico.innerHTML = `<p class="text-danger">Não foi possível carregar seu histórico.</p>`;
+            if (containerFavoritos) containerFavoritos.innerHTML = `<p class="text-danger">Não foi possível carregar seus favoritos.</p>`;
         }
     };
 
@@ -228,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = e.target.closest('.btn-desfavoritar');
         if (target) {
             const { itemId, lanchoneteId, itemTitulo } = target.dataset;
-            if(confirm(`Tem certeza que deseja remover "${itemTitulo}" dos favoritos?`)) {
+            if (confirm(`Tem certeza que deseja remover "${itemTitulo}" dos favoritos?`)) {
                 toggleFavorito(itemId, lanchoneteId);
             }
         }

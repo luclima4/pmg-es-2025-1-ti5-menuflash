@@ -1,8 +1,8 @@
-
 .card {
     border: none;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
+
 .account-settings-links .list-group-item {
     border: 0;
     padding: 0.9rem 1.5rem;
@@ -10,37 +10,31 @@
 }
 
 .account-settings-links .list-group-item.active {
-    background-color: #0d6efd; /* Cor primária do Bootstrap 5 */
+    background-color: #0d6efd;
     color: #fff;
     border-radius: 0.25rem;
 }
 
-/* --- ESTILOS RESPONSIVOS --- */
-
-/* Telas de Tablet e menores (abaixo de 992px) */
 @media (max-width: 991.98px) {
     .account-settings-links {
         border-right: none !important;
         margin-bottom: 1rem;
     }
 
-    /* O menu colapsável no topo para mobile */
     #menuPerfil.collapse:not(.show) {
         display: none !important;
     }
 }
 
-/* Telas de Celular (abaixo de 576px) */
 @media (max-width: 575.98px) {
     h2 {
-        font-size: 1.75rem; /* Diminui o título principal */
+        font-size: 1.75rem;
     }
 
     .card-body {
-        padding: 1rem; /* Menos preenchimento interno */
+        padding: 1rem;
     }
 
-    /* Ajusta os itens nas listas de favoritos e histórico */
     .list-group-item.item-responsivo {
         flex-direction: column;
         align-items: flex-start !important;
@@ -48,22 +42,22 @@
     }
 
     .list-group-item.item-responsivo .btn {
-        width: 100%; /* Botão ocupa a largura total */
+        width: 100%;
     }
 
     .list-group-item.item-responsivo .item-valor {
-        align-self: flex-end; /* Alinha o valor à direita */
-        margin-top: -1.5rem; /* Puxa o valor para cima */
+        align-self: flex-end;
+        margin-top: -1.5rem;
     }
 }
 
-#tituloPrincipal{
+#tituloPrincipal {
     font-family: "Poppins", sans-serif;
     margin-top: 7px;
     font-weight: 200;
     font-style: normal;
     color: rgb(0, 0, 0);
-    font-size: 30px; 
+    font-size: 30px;
 }
 
 .row-bordered {

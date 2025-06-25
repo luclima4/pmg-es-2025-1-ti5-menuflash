@@ -1,25 +1,26 @@
-header > a{
-    text-decoration: none;
-}
-#voltar{
-    color: rgb(0, 0, 0);
-    font-size: 25px;
-    margin: 0;
-    padding: 20px;
-    
+header>a {
+  text-decoration: none;
 }
 
-#mainCadastro{
-    max-width: 400px;
-    padding: 1rem;
+#voltar {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  margin: 0;
+  padding: 20px;
+
 }
 
-html, body{
-    height: 100%;
+#mainCadastro {
+  max-width: 400px;
+  padding: 1rem;
 }
 
-body 
-{
+html,
+body {
+  height: 100%;
+}
+
+body {
   background-color: rgb(240, 240, 240);
   height: 100%;
   margin: 0;
@@ -27,6 +28,7 @@ body
   display: flex;
   flex-direction: column;
 }
+
 html {
   height: 100%;
   margin: 0;
@@ -36,18 +38,19 @@ html {
 }
 
 #btnCadastrar {
-    background-color: #a00000;
+  background-color: #a00000;
 }
-header {
-    background-color: #a00000;
-    width: 100%;
-  }
 
-  #tituloPrincipal{
-    font-family: "Poppins", sans-serif;
-    margin-top: 7px;
-    font-weight: 200;
-    font-style: normal;
-    color: rgb(255, 255, 255);
-    font-size: 30px; 
+header {
+  background-color: #a00000;
+  width: 100%;
+}
+
+#tituloPrincipal {
+  font-family: "Poppins", sans-serif;
+  margin-top: 7px;
+  font-weight: 200;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
 }

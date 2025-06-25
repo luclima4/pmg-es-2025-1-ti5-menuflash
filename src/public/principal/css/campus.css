@@ -1,5 +1,3 @@
-/* Estilos específicos para as páginas de seleção de lanchonete (mapa) */
-
 .mapboxgl-popup-content.popup-personalizado,
 .popup-personalizado {
     background-color: white;
@@ -8,8 +6,6 @@
     font-family: Arial, sans-serif;
     padding: 5px;
 }
-
-/* Estilo dos botões de lanchonete */
 #botoesLanchonete .btn {
     min-width: 15rem;
     margin-bottom: 0.5rem;

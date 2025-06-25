@@ -1,20 +1,64 @@
-/* Estilos específicos para a página inicial (seleção de campus) */
-
-.campus-card .card-img {
-    filter: brightness(50%);
-    transition: filter 0.3s ease;
+.campus-card {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.campus-card:hover .card-img {
-    filter: brightness(70%);
+.campus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.campus-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.campus-card a:hover img {
+    transform: scale(1.05);
+}
+
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.campus-card .card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0;
 }
 
 
-#tituloPrincipal{
+#tituloPrincipal {
     font-family: "Poppins", sans-serif;
     margin-top: 7px;
     font-weight: 200;
     font-style: normal;
     color: rgb(0, 0, 0);
-    font-size: 30px; 
+    font-size: 30px;
+}
+
+@media (max-width: 575.98px) {
+    .campus-card img {
+        height: 100px;
+    }
+
+    .campus-card .card-title {
+        font-size: 1.3rem;
+    }
+
+    .campus-card {
+        margin-bottom: 1rem !important;
+    }
 }

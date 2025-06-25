@@ -1,24 +1,19 @@
-/* Arquivo: public/css/main.css */
-/* Estilos globais para todo o projeto MenuFlash */
-
-/* --- GERAL --- */
 html {
     height: 100%;
 }
 
 body {
-    background-color: #f5f5f5; /* Cor de fundo cinza claro padrão */
-    color: #212529; /* Cor de texto escura padrão (preto suave) */
+    background-color: #f5f5f5;
+    color: #212529;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o corpo ocupe no mínimo a altura toda da tela */
+    min-height: 100vh;
 }
 
 main {
-    flex: 1; /* Faz com que o conteúdo principal ocupe o espaço disponível, empurrando o footer para baixo */
+    flex: 1;
 }
 
-/* --- HEADER E NAVBAR --- */
 header .navbar {
     background-color: #a00000 !important;
 }
@@ -65,7 +60,6 @@ header .navbar {
     border: 2px solid #a00000;
 }
 
-/* --- FOOTER --- */
 footer {
-    background-color: #343a40 !important; /* Um cinza escuro para o footer */
+    background-color: #343a40 !important;
 }
