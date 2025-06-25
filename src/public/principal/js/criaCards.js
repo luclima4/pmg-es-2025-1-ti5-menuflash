@@ -43,15 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const criarOuAtualizarCarrinho = async (carrinhoData) => {
         if (!carrinhoData || !carrinhoData.userId) return;
-        
+
         let carrinhoExistente = null;
         try {
-             const res = await fetch(`http://localhost:3000/carrinhos?userId=${carrinhoData.userId}`);
-             carrinhoExistente = (await res.json())[0];
-        } catch(e) {}
+            const res = await fetch(`http://localhost:3000/carrinhos?userId=${carrinhoData.userId}`);
+            carrinhoExistente = (await res.json())[0];
+        } catch (e) { }
 
         const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
+
+        // lanchoneteAtualId é inicializado se o carrinho for novo
+        if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) {
+            carrinhoData.lanchoneteAtualId = null;
+        }
 
         try {
             await fetch(url, {
@@ -70,9 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!usuario) return alert("Você precisa estar logado para adicionar itens ao carrinho.");
         if (usuario.tipo === 'administrador') return alert("Administradores não podem adicionar itens ao carrinho.");
 
-        let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [] };
+        let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [], lanchoneteAtualId: null };
         const itemExistente = carrinho.itens.find(i => i.id === item.id);
-        
+
+        // ***** LÓGICA PARA VERIFICAR LANCHONETE *****
+        // Se o carrinho já tem itens, verifica se o item a ser adicionado é da mesma lanchonete
+        if (carrinho.itens.length > 0) {
+            const lanchoneteNoCarrinhoId = carrinho.lanchoneteAtualId || (carrinho.itens[0] ? carrinho.itens[0].lanchoneteId : null);
+
+            // Se o novo item tem um ID de lanchonete e é diferente do que já está no carrinho
+            if (item.lanchoneteId && lanchoneteNoCarrinhoId && item.lanchoneteId !== lanchoneteNoCarrinhoId) {
+                alert(`Seu carrinho já contém itens da lanchonete ${carrinho.itens[0].nomeLanchonete || 'anterior'}. Por favor, limpe o carrinho antes de adicionar itens de outra lanchonete.`);
+                return; // Impede a adição
+            }
+        }
+
+        // Se o carrinho está vazio E o item possui lanchoneteId
+        if (carrinho.itens.length === 0 && item.lanchoneteId) {
+            carrinho.lanchoneteAtualId = item.lanchoneteId; // Define a lanchonete atual do carrinho
+        }
+
         if (itemExistente) {
             itemExistente.quantidade++;
         } else {
@@ -82,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 imagem: item.imagem,
                 preco_unitario: item.valor,
                 nomeLanchonete: item.nomeLanchonete,
+                lanchoneteId: item.lanchoneteId,
                 quantidade: 1
             });
         }
@@ -96,18 +119,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let carrinho = await getCarrinhoUsuario();
         if (!carrinho || !carrinho.itens.length) return;
-        
+
         const itemIndex = carrinho.itens.findIndex(i => i.id === item.id);
         if (itemIndex > -1) {
             carrinho.itens[itemIndex].quantidade--;
             if (carrinho.itens[itemIndex].quantidade <= 0) {
                 carrinho.itens.splice(itemIndex, 1);
             }
+            // Se o carrinho ficar vazio, resetamos o lanchoneteAtualId
+            if (carrinho.itens.length === 0) {
+                carrinho.lanchoneteAtualId = null;
+            }
             await criarOuAtualizarCarrinho(carrinho);
             mostrarFeedbackRemovido(item.titulo);
         }
     };
-    
+
     const mostrarFeedbackAdicionado = (nomeItem) => {
         document.querySelectorAll('.feedback-toast').forEach(t => t.remove());
         const toast = document.createElement('div');
@@ -132,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuario = getUsuarioLogado();
         if (!usuario || !usuario.email) return alert("Você precisa estar logado para favoritar.");
         if (usuario.tipo === 'administrador') return alert("Administradores não podem favoritar itens.");
-        
+
         try {
             const response = await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`);
             if (!response.ok) throw new Error("A lanchonete não foi encontrada.");
@@ -140,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemParaModificar = lanchonete.itens.find(i => i.id == itemId);
             if (!itemParaModificar) return;
             if (!Array.isArray(itemParaModificar.favoritos)) itemParaModificar.favoritos = [];
-            
+
             const emailIndex = itemParaModificar.favoritos.indexOf(usuario.email);
             if (emailIndex > -1) {
                 itemParaModificar.favoritos.splice(emailIndex, 1);
@@ -156,13 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const itemLocal = todosOsItens.find(i => i.id == itemId);
             if (itemLocal) itemLocal.favoritos = itemParaModificar.favoritos;
-            
+
             aplicarFiltrosEBusca();
         } catch (error) {
             console.error("Erro ao favoritar:", error);
         }
     };
-    
+
     // --- RENDERIZAÇÃO E EVENTOS ---
     const atualizarDisplayItem = async (itemId) => {
         const input = document.querySelector(`.quantity-input[data-item-id='${itemId}']`);
@@ -178,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const carrinho = await getCarrinhoUsuario();
         const itensCarrinho = carrinho ? carrinho.itens : [];
         const usuario = getUsuarioLogado();
-        
+
         cardsContainer.innerHTML = '';
 
         const header = document.createElement('div');
@@ -194,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
             containerDeCards.innerHTML = `<p class="text-center mt-3 text-dark">Nenhum item encontrado.</p>`;
             return;
         }
-        
+
         containerDeCards.innerHTML = itens.map(item => {
             const itemNoCarrinho = itensCarrinho.find(i => i.id === item.id);
             const quantidadeNoCarrinho = itemNoCarrinho ? itemNoCarrinho.quantidade : 0;
@@ -259,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
             const idLanchonete = params.get("id");
             const campusSelecionado = params.get('campus');
-            
+
             let itensFiltrados = [];
             if (idLanchonete == 0 && campusSelecionado) {
                 nomeLanchoneteAtual = `Todas as Lanchonetes - ${campusSelecionado}`;
@@ -290,11 +317,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (cardsContainer) cardsContainer.innerHTML = `<p class="text-danger text-center p-5">Erro ao carregar dados.</p>`;
         }
     };
-    
+
     // Delegação de Eventos: um único listener no container pai
     cardsContainer.addEventListener('click', async (e) => {
         const target = e.target;
-        
+
         const btnFavorito = target.closest('.btn-favoritar');
         if (btnFavorito) {
             e.preventDefault();
@@ -328,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
         campoBusca.addEventListener('keypress', (e) => { if (e.key === 'Enter') aplicarFiltrosEBusca(); });
     }
     if (filtroFavoritos) filtroFavoritos.addEventListener('change', aplicarFiltrosEBusca);
-    
+
     inicializar();
 });
 

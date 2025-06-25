@@ -243,13 +243,25 @@
     {
       "id": "0d59",
       "userId": "1",
+      "lanchoneteAtualId": "2",
       "itens": [
         {
-          "id": 5,
-          "nome": "Pão de queijo",
-          "imagem": "../principal/img/itens/paoDeQueijo.png",
-          "preco_unitario": 5.5,
+          "id": 6,
+          "nome": "Empada",
+          "imagem": "img/itens/empada.png",
+          "preco_unitario": 6.5,
+          "nomeLanchonete": "Central",
+          "lanchoneteId": "2",
           "quantidade": 1
+        },
+        {
+          "id": 7,
+          "nome": "Coca-Cola lata",
+          "imagem": "img/itens/cocaLata.png",
+          "preco_unitario": 5.5,
+          "nomeLanchonete": "Central",
+          "lanchoneteId": "2",
+          "quantidade": 2
         }
       ]
     }
