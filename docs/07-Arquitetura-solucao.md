@@ -6,6 +6,8 @@
 
 ##### Funcionalidade Obrigatória - Login e cadastro
 
+
+
 ##### Funcionalidade 1 - Mostrar cardápio de cada lanchonete
 
 ##### Funcionalidade 2 - Histórico de pedidos
