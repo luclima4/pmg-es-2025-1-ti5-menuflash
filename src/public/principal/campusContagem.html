@@ -53,10 +53,13 @@
                 <a class="nav-link text-white" href="../principal/index.html">Alterar Campus</a>
               </li>
 
+              <div id="pecaNovamenteDiv">
               <li class="nav-item">
-                <a id="nav-peca-novamente" class="nav-link text-white" href="pecaNovamente.html"
-                  style="display: none;">Peça Novamente</a>
-              </li>
+              <a id="nav-peca-novamente" class="nav-link text-white" href="pecaNovamente.html" style="display: none;">
+                Peça Novamente
+              </a>
+            </li>
+            </div>
 
               <li class="nav-item position-relative">
                 <a href="../carrinho/index.html" class="nav-link">
@@ -109,6 +112,29 @@
     <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/campusContagem.js"></script>
     <script src="js/botoesLanchonetes.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let pecaNovamenteDiv = document.getElementById('pecaNovamenteDiv')
+
+      const usuario = (() => {
+        try {
+          return JSON.parse(sessionStorage.getItem('usuarioLogado'));
+        } catch {
+          return null;
+        }
+      })();
+
+      // 2) Se for administrador, redireciona direto para a página que carrega o criaCards.js
+      if (usuario && usuario.tipo === 'administrador') {
+
+        pecaNovamenteDiv.style.display = 'none'
+
+        return; // para não executar mais nada
+      }
+    })
+  </script>
+
   </body>
 
 </html>

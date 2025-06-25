@@ -36,7 +36,8 @@ cadastroForm.addEventListener('submit', event => {
                 return
             }
 
-            let novoId = usuarios.length > 0 ? Number(usuarios[usuarios.length - 1].id) + 1 : 1;
+            let ultimoId = usuarios.length > 0 ? usuarios[usuarios.length - 1].id : "0";
+            let novoId = String(Number(ultimoId) + 1);
 
             let cadastroUsuario = {
                 id: novoId,
