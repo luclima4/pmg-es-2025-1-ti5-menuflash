@@ -142,18 +142,9 @@
     <script src="../cadastro_login/js/inserirLogin.js"></script>
     <script src="js/index.js"></script>
     <script src="../modal/js/modal.js"></script>
+    
 </body>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const navPeca = document.getElementById('nav-peca-novamente');
-    const usuario = JSON.parse(sessionStorage.getItem('usuarioLogado') || 'null');
-    if (usuario && usuario.tipo !== 'administrador') {
-      // não é admin → libera a visualização
-      navPeca.style.display = 'block';
-    }
-    // se for admin ou não estiver logado, permanece oculto
-  });
-</script>
+
 
 </html>

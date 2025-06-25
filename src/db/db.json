@@ -83,68 +83,6 @@
               "subtotal": 5.5
             }
           ]
-        },
-        {
-          "pedido_id": "3",
-          "data": "2025-06-25",
-          "hora": "14:51:43",
-          "total": 11,
-          "forma_pagamento": "Pix",
-          "status": "Entregue",
-          "lanchonete_id": "2",
-          "itens": [
-            {
-              "id": 7,
-              "titulo": "Coca-Cola lata",
-              "imagem": "../principal/../principal/img/itens/cocaLata.png",
-              "quantidade": 2,
-              "preco_unitario": 5.5,
-              "subtotal": 11
-            }
-          ]
-        },
-        {
-          "pedido_id": "4",
-          "data": "2025-06-25",
-          "hora": "15:11:50",
-          "total": 25,
-          "forma_pagamento": "Pix",
-          "status": "Entregue",
-          "lanchonete_id": "2",
-          "itens": [
-            {
-              "id": 7,
-              "titulo": "Coca-Cola lata",
-              "imagem": "../principal/../principal/img/itens/cocaLata.png",
-              "quantidade": 1,
-              "preco_unitario": 5.5,
-              "subtotal": 5.5
-            },
-            {
-              "id": 6,
-              "titulo": "Empada",
-              "imagem": "../principal/img/itens/empada.png",
-              "quantidade": 1,
-              "preco_unitario": 6.5,
-              "subtotal": 6.5
-            },
-            {
-              "id": 5,
-              "titulo": "Pão de queijo",
-              "imagem": "../principal/img/itens/paoDeQueijo.png",
-              "quantidade": 1,
-              "preco_unitario": 5.5,
-              "subtotal": 5.5
-            },
-            {
-              "id": 8,
-              "titulo": "Sanduíche",
-              "imagem": "../principal/img/itens/sanduiche.png",
-              "quantidade": 1,
-              "preco_unitario": 7.5,
-              "subtotal": 7.5
-            }
-          ]
         }
       ]
     },
