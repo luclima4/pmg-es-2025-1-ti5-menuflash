@@ -263,8 +263,6 @@
       "id": "0d59",
       "userId": "1",
       "itens": []
-<<<<<<< Updated upstream
-=======
     },
     {
       "id": "e099",
@@ -370,7 +368,9 @@
           "quantidade": 11,
           "semLactose": true,
           "semGluten": false,
-          "favoritos": []
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 3,
@@ -384,7 +384,9 @@
           "quantidade": 9,
           "semLactose": false,
           "semGluten": true,
-          "favoritos": []
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 4,
