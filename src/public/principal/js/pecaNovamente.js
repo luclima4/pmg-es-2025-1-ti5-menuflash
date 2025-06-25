@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("criaCards.js carregado com lógica final e corrigida.");
 
     const cardsContainer = document.getElementById('divCards');
     if (!cardsContainer) return;
 
     let nomeLanchoneteAtual = "Últimos Pedidos";
+    let todasAsLanchonetes = [];
 
     const getUsuarioLogado = () => {
         try {
@@ -43,6 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
 
+        if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) { 
+            carrinhoData.lanchoneteAtualId = null; 
+        }
+
         try {
             await fetch(url, {
                 method: method,
@@ -59,7 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const usuario = getUsuarioLogado();
         if (!usuario) return alert("Você precisa estar logado para adicionar itens ao carrinho.");
 
-        let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [] };
+        let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [], lanchoneteAtualId: null };
+        
+        if (carrinho.itens.length > 0) {
+            const lanchoneteNoCarrinhoId = carrinho.lanchoneteAtualId || (carrinho.itens[0] ? carrinho.itens[0].lanchoneteId : null);
+            if (item.lanchoneteId && lanchoneteNoCarrinhoId && item.lanchoneteId !== lanchoneteNoCarrinhoId) {
+                const nomeLanchoneteCarrinho = carrinho.itens[0]?.nomeLanchonete || 'anterior';
+                alert(`Adicione no carrinho apenas itens de uma lanchonete.`);
+                return;
+            }
+        }
+        
+        if (carrinho.itens.length === 0 && item.lanchoneteId) {
+            carrinho.lanchoneteAtualId = item.lanchoneteId;
+        }
+
         const itemExistente = carrinho.itens.find(i => i.id === item.id);
 
         if (itemExistente) {
@@ -71,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 imagem: item.imagem,
                 preco_unitario: item.valor,
                 nomeLanchonete: item.nomeLanchonete,
+                lanchoneteId: item.lanchoneteId,
                 quantidade: 1
             });
         }
@@ -89,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             carrinho.itens[itemIndex].quantidade--;
             if (carrinho.itens[itemIndex].quantidade <= 0) {
                 carrinho.itens.splice(itemIndex, 1);
+            }
+            if (carrinho.itens.length === 0) {
+                carrinho.lanchoneteAtualId = null;
             }
             await criarOuAtualizarCarrinho(carrinho);
         }
@@ -114,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => toast.remove(), 2000);
     };
 
-    //animação para aparecer deslizando
     const style = document.createElement('style');
     style.textContent = `@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }`;
     document.head.appendChild(style);
@@ -128,6 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
+            const lanchonetesResponse = await fetch('http://localhost:3000/lanchonetes');
+            todasAsLanchonetes = await lanchonetesResponse.json();
             const response = await fetch(`http://localhost:3000/usuarios/${usuario.id}`);
             const usuarioCompleto = await response.json();
             const historico = (usuarioCompleto.historico_de_pedidos || []).slice().reverse().slice(0, 2);
@@ -137,13 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cardsContainer.innerHTML = '';
 
-            // Header geral
             const containerDeCards = document.createElement('div');
             containerDeCards.className = "w-100";
             cardsContainer.appendChild(containerDeCards);
 
             historico.forEach(pedido => {
-                // Header do pedido
                 const pedidoHeader = document.createElement('div');
                 pedidoHeader.className = "pedido-header bg-light p-3 mb-3 rounded-3 shadow-sm";
                 pedidoHeader.innerHTML = `
@@ -151,12 +172,18 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
                 containerDeCards.appendChild(pedidoHeader);
 
-                // Container dos itens desse pedido
                 const itensContainer = document.createElement('div');
                 itensContainer.className = "row justify-content-center mb-4";
                 containerDeCards.appendChild(itensContainer);
 
-                pedido.itens.forEach(item => {
+                pedido.itens.forEach(itemOriginal => {
+                    const lanchoneteDoPedido = todasAsLanchonetes.find(l => String(l.id) === String(pedido.lanchonete_id));
+                    const item = {
+                        ...itemOriginal,
+                        lanchoneteId: pedido.lanchonete_id,
+                        nomeLanchonete: lanchoneteDoPedido ? lanchoneteDoPedido.nome : 'Lanchonete Desconhecida'
+                    };
+
                     const quantidadeNoPedido = item.quantidade || 1;
                     const quantidadeNoCarrinho = (itensCarrinho.find(i => i.id === item.id) || {}).quantidade || 0;
                     const imagemCorrigida = item.imagem.replace('../principal/', '');
@@ -194,41 +221,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cardsContainer.addEventListener('click', async (e) => {
         const target = e.target;
+        const usuario = getUsuarioLogado();
+        if (!usuario) { 
+            alert("Você precisa estar logado para interagir com o carrinho.");
+            return;
+        }
 
         const btnAumentar = target.closest('.btn-aumentar-qnt');
         if (btnAumentar) {
             const itemId = parseInt(btnAumentar.dataset.itemId, 10);
-            const card = btnAumentar.closest('.card');
-            const titulo = card.querySelector('.card-title').textContent;
-            // 
-            let caminho = card.querySelector('img').getAttribute('src');
-            if (!caminho.startsWith('../principal/')) {
-                caminho = `../principal/${caminho}`;
-            }
-            const preco = parseFloat(card.querySelector('.fw-bold').textContent.replace('R$ ', '').replace(',', '.'));
+            
+            const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
+            const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
+            
+            let itemParaProcessar = null;
+            let lanchoneteIdDoItem = null;
+            let nomeLanchoneteDoItem = null;
 
-            await adicionarAoCarrinho({ id: itemId, titulo, imagem : caminho , valor: preco });
-            const input = card.querySelector(`.quantity-input[data-item-id='${itemId}']`);
-            const carrinho = await getCarrinhoUsuario();
-            const item = carrinho?.itens.find(i => i.id === itemId);
-            if (input && item) input.value = item.quantidade;
-            mostrarFeedbackAdicionado(titulo);
+            for (const pedido of historicoCompleto) {
+                const foundItem = pedido.itens.find(i => i.id === itemId);
+                if (foundItem) {
+                    itemParaProcessar = { ...foundItem };
+                    lanchoneteIdDoItem = pedido.lanchonete_id;
+                    const lanchoneteData = todasAsLanchonetes.find(l => String(l.id) === String(lanchoneteIdDoItem));
+                    nomeLanchoneteDoItem = lanchoneteData ? lanchoneteData.nome : 'Lanchonete Desconhecida';
+                    break;
+                }
+            }
+                
+            if (itemParaProcessar) {
+                itemParaProcessar.lanchoneteId = lanchoneteIdDoItem;
+                itemParaProcessar.nomeLanchonete = nomeLanchoneteDoItem;
+                itemParaProcessar.valor = itemParaProcessar.preco_unitario || itemParaProcessar.valor;
+                
+                await adicionarAoCarrinho(itemParaProcessar);
+                const input = btnAumentar.closest('.card').querySelector(`.quantity-input[data-item-id='${itemId}']`);
+                const carrinho = await getCarrinhoUsuario();
+                const itemNoCarrinho = carrinho?.itens.find(i => i.id === itemId);
+                if (input && itemNoCarrinho) input.value = itemNoCarrinho.quantidade;
+                mostrarFeedbackAdicionado(itemParaProcessar.titulo);
+            }
         }
 
         const btnDiminuir = target.closest('.btn-diminuir-qnt');
         if (btnDiminuir) {
             const itemId = parseInt(btnDiminuir.dataset.itemId, 10);
-            const card = btnDiminuir.closest('.card');
-            const titulo = card.querySelector('.card-title').textContent;
-            const imagem = card.querySelector('img').src;
-            const preco = parseFloat(card.querySelector('.fw-bold').textContent.replace('R$ ', '').replace(',', '.'));
+            const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
+            const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
+            
+            let itemParaProcessar = null;
+            let lanchoneteIdDoItem = null;
+            let nomeLanchoneteDoItem = null;
 
-            await removerUnidadeDoCarrinho({ id: itemId, titulo, imagem, valor: preco });
-            const input = card.querySelector(`.quantity-input[data-item-id='${itemId}']`);
-            const carrinho = await getCarrinhoUsuario();
-            const item = carrinho?.itens.find(i => i.id === itemId);
-            if (input) input.value = item ? item.quantidade : 0;
-            mostrarFeedbackRemovido(titulo);
+            for (const pedido of historicoCompleto) {
+                const foundItem = pedido.itens.find(i => i.id === itemId);
+                if (foundItem) {
+                    itemParaProcessar = { ...foundItem };
+                    lanchoneteIdDoItem = pedido.lanchonete_id;
+                    const lanchoneteData = todasAsLanchonetes.find(l => String(l.id) === String(lanchoneteIdDoItem));
+                    nomeLanchoneteDoItem = lanchoneteData ? lanchoneteData.nome : 'Lanchonete Desconhecida';
+                    break;
+                }
+            }
+
+            if (itemParaProcessar) {
+                itemParaProcessar.lanchoneteId = lanchoneteIdDoItem;
+                itemParaProcessar.nomeLanchonete = nomeLanchoneteDoItem;
+                itemParaProcessar.valor = itemParaProcessar.preco_unitario || itemParaProcessar.valor;
+
+                await removerUnidadeDoCarrinho(itemParaProcessar);
+                const input = btnDiminuir.closest('.card').querySelector(`.quantity-input[data-item-id='${itemId}']`);
+                const carrinho = await getCarrinhoUsuario();
+                const itemNoCarrinho = carrinho?.itens.find(i => i.id === itemId);
+                if (input) input.value = itemNoCarrinho ? itemNoCarrinho.quantidade : 0;
+                mostrarFeedbackRemovido(itemParaProcessar.titulo);
+            }
         }
     });
 

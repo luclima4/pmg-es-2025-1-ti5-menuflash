@@ -1,8 +1,4 @@
-// Arquivo: public/principal/js/criaCards.js
-// VERSÃO DEFINITIVA com renderização, carrinho, favoritos e alertas corrigidos.
-
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("criaCards.js carregado com lógica final e corrigida.");
 
     // --- ELEMENTOS DO DOM ---
     const cardsContainer = document.getElementById('divCards');
@@ -78,21 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
         let carrinho = await getCarrinhoUsuario() || { userId: usuario.id, itens: [], lanchoneteAtualId: null };
         const itemExistente = carrinho.itens.find(i => i.id === item.id);
 
-        // ***** LÓGICA PARA VERIFICAR LANCHONETE *****
-        // Se o carrinho já tem itens, verifica se o item a ser adicionado é da mesma lanchonete
         if (carrinho.itens.length > 0) {
             const lanchoneteNoCarrinhoId = carrinho.lanchoneteAtualId || (carrinho.itens[0] ? carrinho.itens[0].lanchoneteId : null);
 
-            // Se o novo item tem um ID de lanchonete e é diferente do que já está no carrinho
             if (item.lanchoneteId && lanchoneteNoCarrinhoId && item.lanchoneteId !== lanchoneteNoCarrinhoId) {
-                alert(`Seu carrinho já contém itens da lanchonete ${carrinho.itens[0].nomeLanchonete || 'anterior'}. Por favor, limpe o carrinho antes de adicionar itens de outra lanchonete.`);
+                alert(`Adicione no carrinho apenas itens de uma lanchonete.`);
                 return; // Impede a adição
             }
         }
 
-        // Se o carrinho está vazio E o item possui lanchoneteId
         if (carrinho.itens.length === 0 && item.lanchoneteId) {
-            carrinho.lanchoneteAtualId = item.lanchoneteId; // Define a lanchonete atual do carrinho
+            carrinho.lanchoneteAtualId = item.lanchoneteId;
         }
 
         if (itemExistente) {
@@ -126,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (carrinho.itens[itemIndex].quantidade <= 0) {
                 carrinho.itens.splice(itemIndex, 1);
             }
-            // Se o carrinho ficar vazio, resetamos o lanchoneteAtualId
             if (carrinho.itens.length === 0) {
                 carrinho.lanchoneteAtualId = null;
             }
@@ -190,7 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // --- RENDERIZAÇÃO E EVENTOS ---
     const atualizarDisplayItem = async (itemId) => {
         const input = document.querySelector(`.quantity-input[data-item-id='${itemId}']`);
         if (input) {
@@ -305,7 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     nomeLanchoneteAtual = "Lanchonete não encontrada";
                 }
             } else {
-                // Se nenhum parâmetro for passado, mostra uma mensagem ou fica em branco.
                 nomeLanchoneteAtual = "Selecione uma lanchonete";
             }
 
@@ -318,7 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Delegação de Eventos: um único listener no container pai
     cardsContainer.addEventListener('click', async (e) => {
         const target = e.target;
 
