@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (confirm("Tem certeza que deseja sair?")) {
                 sessionStorage.removeItem('usuarioLogado');
                 // Redireciona para a página inicial após o logout
-                window.location.href = '../principal/index.html'; 
+                window.location.href = '/index.html'; 
             }
         });
     }

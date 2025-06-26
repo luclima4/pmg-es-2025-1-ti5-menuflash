@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pedidoStr = localStorage.getItem('pedidoPendente');
         if (!pedidoStr) {
             alert("Nenhum pedido em andamento encontrado.");
-            window.location.href = '../principal/index.html';
+            window.location.href = '/index.html';
             return false;
         }
         pedidoPendente = JSON.parse(pedidoStr);

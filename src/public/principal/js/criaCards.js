@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardsContainer.innerHTML = '';
 
         const header = document.createElement('div');
-        header.className = "w-100 text-center text-dark mt-4";
+        header.className = "w-100 text-center text-dark mb-4 mt-2";
         header.innerHTML = `<h2>${titulo}</h2>`;
         cardsContainer.appendChild(header);
 

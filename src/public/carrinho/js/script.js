@@ -136,17 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark"
                         style="background-color: #a00000 !important;">
                         <div class="container-fluid">
-                            <a class="navbar-brand fs-3" href="../principal/index.html">
+                            <a class="navbar-brand fs-3" href="/index.html">
                                 <h3 class="text-white mb-0" id="tituloPrincipal">MenuFlash</h3>
                             </a>
                             <!-- Botão de voltar à direita -->
                             <div>
                                 <!-- Desktop: seta + texto -->
-                                <a href="../principal/index.html" class="btn btn-light d-none d-lg-inline-flex align-items-center">
+                                <a href="/index.html" class="btn btn-light d-none d-lg-inline-flex align-items-center">
                                     <i class="bi bi-arrow-left me-2"></i> Voltar
                                 </a>
                                 <!-- Mobile: só a seta -->
-                                <a href="../principal/index.html" class="btn btn-light d-inline-flex d-lg-none align-items-center">
+                                <a href="/index.html" class="btn btn-light d-inline-flex d-lg-none align-items-center">
                                     <i class="bi bi-arrow-left"></i>
                                 </a>
                             </div>
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (lanchoneteAnteriorId) {
                 btnContinuarComprando.href = `../principal/criaCards.html?id=${lanchoneteAnteriorId}`;
             } else {
-                btnContinuarComprando.href = `../principal/index.html`;
+                btnContinuarComprando.href = `/index.html`;
             }
         }
 

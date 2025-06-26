@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const redirectUrl = params.get('redirectUrl');
 
                 // Redireciona para a página anterior ou para a página principal
-                window.location.href = redirectUrl || '../principal/index.html';
+                window.location.href = redirectUrl || '/index.html';
 
             } else {
                 // Login falhou

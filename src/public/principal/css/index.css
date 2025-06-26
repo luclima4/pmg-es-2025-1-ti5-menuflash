@@ -49,16 +49,23 @@
     font-size: 30px;
 }
 
-@media (max-width: 575.98px) {
-    .campus-card img {
-        height: 100px;
-    }
+@media (max-width: 576px) {
+  .card {
+    width: 100% !important;
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
-    .campus-card .card-title {
-        font-size: 1.3rem;
-    }
+  .card img {
+    height: 100% !important;
+    object-fit: cover;
+  }
 
-    .campus-card {
-        margin-bottom: 1rem !important;
-    }
+  .card .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card .card-body {
+    padding: 0.75rem;
+  }
 }
