@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (usuario.tipo === 'administrador') {
             adminLink = `
                 <li>
-                    <a class="dropdown-item text-white" href="../cadastro_de_itens/cadastroDeItens">
+                    <a class="dropdown-item text-white" href="../cadastro_de_itens/cadastroDeItens.html">
                         <i class="fas fa-edit me-2"></i> Gerenciar Itens
                     </a>
                 </li>
