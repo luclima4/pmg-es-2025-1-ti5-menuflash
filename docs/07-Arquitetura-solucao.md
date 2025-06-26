@@ -8,7 +8,8 @@
 
 Permite o cadastro e autenticação de usuários no sistema, diferenciando perfis padrão e administradores.
 
-*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
+*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)
+
 *Instruções de acesso:*
 * Acesse o site e clique em "Entrar" ou "Cadastrar";
 * Preencha o formulário de login ou cadastro;
@@ -22,7 +23,8 @@ Permite o cadastro e autenticação de usuários no sistema, diferenciando perfi
 
 Exibe os produtos disponíveis em cada lanchonete do campus selecionado.
 
-*Estrutura de dados:* [Lanchonetes](#estrutura-de-dados---lanchonetes)  
+*Estrutura de dados:* [Lanchonetes](#estrutura-de-dados---lanchonetes)
+
 *Instruções de acesso:*
 * Na home, selecione um campus;
 * Escolha uma lanchonete para visualizar os produtos.
@@ -36,7 +38,8 @@ Exibe os produtos disponíveis em cada lanchonete do campus selecionado.
 
 Exibe os pedidos anteriores feitos pelo usuário logado, com data, hora, itens e valores.
 
-*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos) 
+*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos)
+
 *Instruções de acesso:*
 * Faça login;
 * Acesse o menu, clique em perfil e depois em "Histórico de Pedidos".
@@ -49,7 +52,8 @@ Exibe os pedidos anteriores feitos pelo usuário logado, com data, hora, itens e
 
 Exibe um modal ao clicar em um produto, mostrando detalhes como imagem, descrição, conteúdo e preço.
 
-*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)  
+*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)
+
 *Instruções de acesso:*
 * Clique sobre o card do produto desejado.
 
@@ -61,7 +65,8 @@ Exibe um modal ao clicar em um produto, mostrando detalhes como imagem, descriç
 
 Página onde permite visualizar e repetir pedidos anteriores.
 
-*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos)  
+*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos)
+
 *Instruções de acesso:*
 * Faça login;
 * Clique em "Peça novamente" para visualizar um pedido anterior ou repeti-lo.
@@ -74,7 +79,7 @@ Página onde permite visualizar e repetir pedidos anteriores.
 
 Permite marcar/desmarcar itens como favoritos e acessar a lista de favoritos posteriormente.
 
-*Estrutura de dados:* [Itens.Favorito](#estrutura-de-dados---itens) 
+*Estrutura de dados:* [Itens.Favorito](#estrutura-de-dados---itens)
 
 *Instruções de acesso:*
 * Clique no ícone de coração em um produto;
@@ -89,7 +94,7 @@ Permite marcar/desmarcar itens como favoritos e acessar a lista de favoritos pos
 
 Exibe e registra a forma de pagamento escolhida no momento da finalização do pedido.
 
-*Estrutura de dados:* [Histórico de pedidos.Forma Pagamento ](#estrutura-de-dados---histórico-de-pedidos)  
+*Estrutura de dados:* [Histórico de pedidos.Forma Pagamento ](#estrutura-de-dados---histórico-de-pedidos)
 
 *Instruções de acesso:*
 * Após adicionar produtos ao carrinho, clique em "Finalizar pedido" e escolha a forma de pagamento.
@@ -104,10 +109,12 @@ Exibe e registra a forma de pagamento escolhida no momento da finalização do p
 Exibe mapa interativo com os locais das lanchonetes nos campus.
 
 *Estrutura de dados:* Sem estrutura de dados, mapas gerados por API.
+
 *Instruções de acesso:*
 * Na tela inicial, escolha o campus para visualizar seu respectivo mapa.
 
 *Tela da funcionalidade:* 
+
 ![Tela de mapa](images/mapas.png)
 
 ##### Funcionalidade 8 - Carrinho de pedidos
@@ -115,22 +122,26 @@ Exibe mapa interativo com os locais das lanchonetes nos campus.
 Armazena os itens que o usuário deseja comprar, com opções para alterar quantidade ou remover.
 
 *Estrutura de dados:* [Carrinho](#estrutura-de-dados---carrinho)
+
 *Instruções* de acesso:*
 * Adicione* um item ao carrinho;
 * Clique no ícone de carrinho no topo da página.
 
 *Tela da funcionalidade:* 
+
 ![Tela de carrinho](images/carrinho.png)
 
 ##### Funcionalidade 9 - Identificação de itens com restrição alimentar
 
 Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem glúten.
 
-*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)  
+*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)
+
 *Instruções de acesso:*
 * Ao visualizar um cardápio ou modal de produto, verifique os ícones informativos.
 
 *Tela da funcionalidade:* 
+
 ![Tela de restricao](images/restricao.png)
 
 ##### Funcionalidade 10 - Avaliação de itens
@@ -138,10 +149,12 @@ Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem gl
 Permite que usuários atribuam notas aos produtos dentro do modal.
 
 *Estrutura de dados:* Sem estrutura de dados, tudo foi guardado utilizando localStorage.
+
 *Instruções de acesso:*
 * Ao acessar o modal de um produto, clique nas estrelas para avaliar.
 
 *Tela da funcionalidade:* 
+
 ![Tela de avaliação](images/restricao.png)
 
 ##### Funcionalidade 11 - Campo de pesquisa
@@ -149,10 +162,12 @@ Permite que usuários atribuam notas aos produtos dentro do modal.
 Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
 
 *Estrutura de dados:* Sem estrutura de dados.
+
 *Instruções de acesso:*
 * Digite no campo de busca na tela de cardápio.
 
 *Tela da funcionalidade:* 
+
 ![Tela de avaliação](images/barra-busca.png)
 
 ##### Funcionalidade 12 - Perfil do usuário
@@ -160,24 +175,27 @@ Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
 Mostra os dados do usuário logado, como nome, e-mail, favoritos, histórico de pedidos.
 
 *Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
+
 *Instruções de acesso:*
 * Clique no ícone do perfil no menu superior.
 
 *Tela da funcionalidade:* 
+
 ![Tela de avaliação](images/perfil.png)
 
 ##### Funcionalidade 13 - Trocar senha do usuário
 
 Permite que o usuário altere sua senha.
 
-*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
+*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários) 
+
 *Instruções de acesso:*
 * Acesse o perfil e clique em "Trocar Senha";
 * Preencha os campos com a senha atual e a nova senha.
 
 *Tela da funcionalidade:* 
-![Tela de troca senha](images/troca-senha.png)
 
+![Tela de troca senha](images/troca-senha.png)
 
 ### Estruturas de dados
 
