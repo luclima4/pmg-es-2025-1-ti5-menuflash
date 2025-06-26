@@ -8,7 +8,7 @@
 
 Permite o cadastro e autenticação de usuários no sistema, diferenciando perfis padrão e administradores.
 
-*Estrutura de dados:* [usuarios] (#estrutura-de-dados---usuarios)
+*Estrutura de dados:* usuarios] (#estrutura-de-dados---usuarios)[
 *Instruções de acesso:*
 * Acesse o site e clique em "Entrar" ou "Cadastrar";
 * Preencha o formulário de login ou cadastro;
@@ -183,69 +183,9 @@ Permite que o usuário altere sua senha.
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info.
 
-##### Estrutura de dados - 
+##### Estrutura de dados - Usuários
 
-### Módulos e APIs
-
-Esta seção apresenta os módulos e APIs utilizados na solução.
-
-## Hospedagem
-
-Explique como a hospedagem e o lançamento da plataforma foram realizados.
-
-
-
-
-
-
-
-
-
-
-
-
-
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
-
-* **Estrutura de dados:** [Contatos](#estrutura-de-dados---contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login;
-  * Acesse o menu principal e escolha a opção "Cadastros";
-  * Em seguida, escolha a opção "Contatos".
-* **Tela da funcionalidade**:
-
-![Tela de funcionalidade](images/exemplo-funcionalidade.png)
-
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários, quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) títulos e descrição da funcionalidade; (2) estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
-
-### Estruturas de dados
-
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info.
-
-##### Estrutura de dados - Contatos
-
-Contatos da aplicação
-
-```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
-```
-
-##### Estrutura de dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema.
+Registro dos usuários do sistema, utilizado para login e para o perfil do sistema.
 
 ```json
   {
@@ -256,42 +196,32 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
   }
 ```
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação, quanto outras estruturas que foram criadas para algum tipo de configuração.
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
+##### Estrutura de dados - Histórico de pedidos
+usuarios[].historico_de_pedidos
 
-- Estrutura: usuarios
-- Permite que usuários façam login com e-mail e senha
+Ao finalizar a compra, o pedido é salvo no histórico do usuário com detalhes.
 
 ```json
   {
-    "id": "1",
-    "nome": "Lucas",
-    "email": "lucas@gmail.com",
-    "senha": "123456"
-  }
-```
-
-- Estrutura: campus
-- O usuário pode selecionar um campus e visualizar as lanchonetes disponíveis nele
-
-```json
-  {
-    "nome": "PUC MINAS - Contagem",
-    "mapa": "mapaContagem.html",
-    "lanchonetes": [
+    "pedido_id": "2",
+    "data": "2025-05-20",
+    "total": 11,
+    "itens": [
       {
-        "id": "4",
-        "nome": "Lanchonete Praçaki"
+        "id": 5,
+        "titulo": "Pão de queijo"
       }
     ]
   }
 ```
 
-- Estrutura: lanchonetes
-- Mostra todos os itens disponíveis em uma lanchonete com suas informações e permite ações como adicionar ao carrinho
+##### Estrutura de dados - Itens
+
+usuários[].historico_de_pedidos[].itens:
+
+##### Estrutura de dados - Lanchonetes
+
+Mostra os itens disponíveis em uma lanchonete e suas informações, também permite ações como adicionar ao carrinho.
 
 ```json
   {
@@ -308,8 +238,9 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
   }
 ```
 
-- Estrutura: carrinho
-- Armazena os itens adicionados pelo usuário, permitindo ajustes de quantidade
+##### Estrutura de dados - Carrinho
+
+Armazena os itens adicionados pelo usuário, permitindo ajustes de quantidade.
 
 ```json
   {
@@ -324,28 +255,22 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
   }
 ```
 
-- Estrutura: usuarios[].historico_de_pedidos
-- Ao finalizar a compra, o pedido é salvo no histórico do usuário com detalhes
+##### Estrutura de dados - Campus
+
+O usuário pode selecionar um campus e visualizar as lanchonetes disponíveis nele.
 
 ```json
   {
-    "pedido_id": "2",
-    "data": "2025-05-20",
-    "total": 11,
-    "itens": [
+    "nome": "PUC MINAS - Contagem",
+    "mapa": "mapaContagem.html",
+    "lanchonetes": [
       {
-        "id": 5,
-        "titulo": "Pão de queijo"
+        "id": "4",
+        "nome": "Lanchonete Praçaki"
       }
     ]
   }
 ```
-
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
 
 ### Módulos e APIs
 
