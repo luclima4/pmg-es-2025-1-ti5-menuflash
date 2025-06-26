@@ -8,7 +8,7 @@
 
 Permite o cadastro e autenticação de usuários no sistema, diferenciando perfis padrão e administradores.
 
-*Estrutura de dados:* usuarios] (#estrutura-de-dados---usuarios)[
+*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
 *Instruções de acesso:*
 * Acesse o site e clique em "Entrar" ou "Cadastrar";
 * Preencha o formulário de login ou cadastro;
@@ -22,7 +22,7 @@ Permite o cadastro e autenticação de usuários no sistema, diferenciando perfi
 
 Exibe os produtos disponíveis em cada lanchonete do campus selecionado.
 
-*Estrutura de dados:* [lanchonetes]
+*Estrutura de dados:* [Lanchonetes](#estrutura-de-dados---lanchonetes)  
 *Instruções de acesso:*
 * Na home, selecione um campus;
 * Escolha uma lanchonete para visualizar os produtos.
@@ -36,7 +36,7 @@ Exibe os produtos disponíveis em cada lanchonete do campus selecionado.
 
 Exibe os pedidos anteriores feitos pelo usuário logado, com data, hora, itens e valores.
 
-*Estrutura de dados:* historico_de_pedidos dentro de usuarios
+*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos) 
 *Instruções de acesso:*
 * Faça login;
 * Acesse o menu, clique em perfil e depois em "Histórico de Pedidos".
@@ -49,9 +49,8 @@ Exibe os pedidos anteriores feitos pelo usuário logado, com data, hora, itens e
 
 Exibe um modal ao clicar em um produto, mostrando detalhes como imagem, descrição, conteúdo e preço.
 
-*Estrutura de dados:* lanchonetes.itens
+*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)  
 *Instruções de acesso:*
-
 * Clique sobre o card do produto desejado.
 
 *Tela da funcionalidade:*
@@ -62,7 +61,7 @@ Exibe um modal ao clicar em um produto, mostrando detalhes como imagem, descriç
 
 Página onde permite visualizar e repetir pedidos anteriores.
 
-*Estrutura de dados:* historico_de_pedidos
+*Estrutura de dados:* [Histórico de pedidos](#estrutura-de-dados---histórico-de-pedidos)  
 *Instruções de acesso:*
 * Faça login;
 * Clique em "Peça novamente" para visualizar um pedido anterior ou repeti-lo.
@@ -75,7 +74,7 @@ Página onde permite visualizar e repetir pedidos anteriores.
 
 Permite marcar/desmarcar itens como favoritos e acessar a lista de favoritos posteriormente.
 
-*Estrutura de dados:* usuarios[].favoritos ou itens[].favoritos
+*Estrutura de dados:* [Itens.Favorito](#estrutura-de-dados---itens) 
 
 *Instruções de acesso:*
 * Clique no ícone de coração em um produto;
@@ -90,7 +89,8 @@ Permite marcar/desmarcar itens como favoritos e acessar a lista de favoritos pos
 
 Exibe e registra a forma de pagamento escolhida no momento da finalização do pedido.
 
-*Estrutura de dados:* forma_pagamento em historico_de_pedidos
+*Estrutura de dados:* [Histórico de pedidos.Forma Pagamento ](#estrutura-de-dados---histórico-de-pedidos)  
+
 *Instruções de acesso:*
 * Após adicionar produtos ao carrinho, clique em "Finalizar pedido" e escolha a forma de pagamento.
 
@@ -103,7 +103,7 @@ Exibe e registra a forma de pagamento escolhida no momento da finalização do p
 
 Exibe mapa interativo com os locais das lanchonetes nos campus.
 
-*Estrutura de dados:* Foi utilizada uma API
+*Estrutura de dados:* Sem estrutura de dados, mapas gerados por API.
 *Instruções de acesso:*
 * Na tela inicial, escolha o campus para visualizar seu respectivo mapa.
 
@@ -114,7 +114,7 @@ Exibe mapa interativo com os locais das lanchonetes nos campus.
 
 Armazena os itens que o usuário deseja comprar, com opções para alterar quantidade ou remover.
 
-*Estrutura de dados:* carrinhos
+*Estrutura de dados:* [Carrinho](#estrutura-de-dados---carrinho)
 *Instruções* de acesso:*
 * Adicione* um item ao carrinho;
 * Clique no ícone de carrinho no topo da página.
@@ -126,7 +126,7 @@ Armazena os itens que o usuário deseja comprar, com opções para alterar quant
 
 Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem glúten.
 
-*Estrutura de dados:* [Itens]
+*Estrutura de dados:* [Itens](#estrutura-de-dados---itens)  
 *Instruções de acesso:*
 * Ao visualizar um cardápio ou modal de produto, verifique os ícones informativos.
 
@@ -137,7 +137,7 @@ Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem gl
 
 Permite que usuários atribuam notas aos produtos dentro do modal.
 
-*Estrutura de dados:* local storage
+*Estrutura de dados:* Sem estrutura de dados, tudo foi guardado utilizando localStorage.
 *Instruções de acesso:*
 * Ao acessar o modal de um produto, clique nas estrelas para avaliar.
 
@@ -148,7 +148,7 @@ Permite que usuários atribuam notas aos produtos dentro do modal.
 
 Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
 
-*Estrutura de dados:* local storage
+*Estrutura de dados:* Sem estrutura de dados.
 *Instruções de acesso:*
 * Digite no campo de busca na tela de cardápio.
 
@@ -159,7 +159,7 @@ Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
 
 Mostra os dados do usuário logado, como nome, e-mail, favoritos, histórico de pedidos.
 
-*Estrutura de dados:* usuarios
+*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
 *Instruções de acesso:*
 * Clique no ícone do perfil no menu superior.
 
@@ -170,7 +170,7 @@ Mostra os dados do usuário logado, como nome, e-mail, favoritos, histórico de 
 
 Permite que o usuário altere sua senha.
 
-*Estrutura de dados:* [usuário]
+*Estrutura de dados:* [Usuários](#estrutura-de-dados---usuários)  
 *Instruções de acesso:*
 * Acesse o perfil e clique em "Trocar Senha";
 * Preencha os campos com a senha atual e a nova senha.
@@ -180,8 +180,6 @@ Permite que o usuário altere sua senha.
 
 
 ### Estruturas de dados
-
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info.
 
 ##### Estrutura de dados - Usuários
 
@@ -197,41 +195,38 @@ Registro dos usuários do sistema, utilizado para login e para o perfil do siste
 ```
 
 ##### Estrutura de dados - Histórico de pedidos
-usuarios[].historico_de_pedidos
 
 Ao finalizar a compra, o pedido é salvo no histórico do usuário com detalhes.
 
 ```json
-  {
-    "pedido_id": "2",
-    "data": "2025-05-20",
-    "total": 11,
-    "itens": [
-      {
-        "id": 5,
-        "titulo": "Pão de queijo"
-      }
-    ]
-  }
+    {
+    "pedido_id": "1",
+    "lanchonete_id": "3",
+    "data": "2025-05-18",
+    "hora": "20:15:09",
+    "total": 17,
+    "forma_pagamento": "Pix",
+    "status": "Entregue",
+    }
 ```
 
 ##### Estrutura de dados - Itens
 
 ```json
-{
-"id": 4,
-"titulo": "Coxinha",
-"descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
-"conteudo": "",
-"disponivel": true,
-"favorito": true,
-"semLactose": false,
-"semGluten": false,
-"imagem": "../principal/img/itens/coxinha.png",
-"quantidade": 2,
-"preco_unitario": 6.5,
-"subtotal": 13
-}
+  {
+    "id": 4,
+    "titulo": "Coxinha",
+    "descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+    "conteudo": "",
+    "disponivel": true,
+    "favorito": true,
+    "semLactose": false,
+    "semGluten": false,
+    "imagem": "../principal/img/itens/coxinha.png",
+    "quantidade": 2,
+    "preco_unitario": 6.5,
+    "subtotal": 13
+  }
 ```
 
 ##### Estrutura de dados - Lanchonetes
@@ -291,29 +286,28 @@ O usuário pode selecionar um campus e visualizar as lanchonetes disponíveis ne
 
 Esta seção apresenta os módulos e APIs utilizados na solução.
 
+**Images:**
+
+* Mapbox - https://www.mapbox.com/
+
 **Fonts:**
 
-Google API - [https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap]
-
-**Mapa:**
-
-Mapa - [https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css]
+* Google Fonts - https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap
+* Google Fonts - https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap
 
 **Scripts:**
 
-* Bootstrap - [https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css]
+* jQuery - https://code.jquery.com/jquery-3.7.1.min.js
+* Bootstrap 5 - https://getbootstrap.com/
+* JSON Server - https://github.com/typicode/json-server
+* LocalStorage e SessionStorage - https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
 
+**Deployment:**
 
-> O projeto utiliza principalmente módulos e APIs do próprio JavaScript para o frontend, como o fetch para realizar requisições HTTP. As chamadas de API são feitas para um servidor local e utilizar um backend simulado pedo db.json
-API REST local: As requisições são feitas para endpoints como /carrinhos, /usuarios e /lanchonetes
-Módulo fetch: Utilizado em diversos arquivos .js para consumir a API.
+* Vercel - https://vercel.com
 
 ## Hospedagem
 
-O site, conforme o projeto atual, foi pensada para rodar localmente, tanto o frontend quanto o backend simulado.
+A hospedagem e o lançamento da plataforma MenuFlash foram realizados por meio da plataforma Vercel – https://vercel.com, uma ferramenta gratuita e amplamente utilizada para deploy de aplicações front-end.
 
-> **Links úteis**:
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando seu site no Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+Link de acesso - https://menuflash-eight.vercel.app/

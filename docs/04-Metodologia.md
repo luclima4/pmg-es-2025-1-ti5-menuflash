@@ -14,7 +14,7 @@ Os artefatos do projeto MenuFlash foram desenvolvidos utilizando diferentes plat
 | Documentos do projeto       | GitHub          | [Documentação](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) |
 | Gerenciamento do projeto    | GitHub Projects | [Kanban GitHub](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW/projects) |
 | Projeto de interface        | Figma           | [Protótipo no Figma](https://www.figma.com/design/T6MGgP9B9tfb1dWsLrRAKz/MenuFlash?node-id=0-1&t=sRj3WJvIx5UlKzCV-1) |
-| Hospedagem do site          | Vercel          | *(em desenvolvimento)*                                               |
+| Hospedagem do site          | Vercel          | [Vercel](https://menuflash-eight.vercel.app/)                          |
 
 
 ### Controle de versão
@@ -71,7 +71,7 @@ IMAGEM
 | Documentos do projeto       | GitHub             | [Link da Documentação](https://github.com/ICEI-PUC-Minas-PCO-SI/pmg-es-2025-1-ti5-pmg-es-2025-1-ti5-Template-TIAW) | Organização da documentação técnica e entrega do trabalho.                       |
 | Gerenciamento do projeto    | Trello             | *(Uso interno – quadro compartilhado entre membros)*                 | Quadro Kanban com tarefas divididas em colunas "A fazer", "Fazendo" e "Feito".  |
 | Projeto de interface        | Figma              | [Protótipo no Figma](https://www.figma.com/design/T6MGgP9B9tfb1dWsLrRAKz/MenuFlash?node-id=0-1&t=sRj3WJvIx5UlKzCV-1) | Criação do layout e visual das interfaces do sistema.                            |
-| Hospedagem do site          | Vercel             | *(Link ainda não disponível)*                                         | Plataforma usada para deploy gratuito de projetos front-end.                     |
+| Hospedagem do site          | Vercel             | [Vercel](https://menuflash-eight.vercel.app/)| Plataforma usada para deploy gratuito de projetos front-end.                     |
 | Editor de código            | Visual Studio Code | *(Uso local)*                                                         | Utilizado para desenvolver o sistema com HTML, CSS e JavaScript.                 |
 | Comunicação                 | WhatsApp           | *(Uso interno)*                                                       | Principal canal de comunicação entre os membros da equipe.                       |
 

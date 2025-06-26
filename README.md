@@ -27,7 +27,9 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 A aplicação MenuFlash está hospedada e disponível para acesso por meio do link abaixo:
 
-LINK VERCEL
+## Link Vercel
+
+(https://menuflash-eight.vercel.app/)
 
 ### utilizar:
 Acesse o site no navegador.
@@ -38,12 +40,12 @@ Utilize as funcionalidades disponíveis como login, adicionar ao carrinho, favor
 ### Usuários de teste:
 
 Usuário padrão
-Email: usuario1@gmail.com
-Senha: usuario1
+Email: lucas@gmail.com
+Senha: 123456
 Tipo de conta: padrão
 
 Usuário administrador
-Email: neymar@gmail.com
+Email: alanzoka@gmail.com
 Senha: 123456
 Tipo de conta: administrador
 
