@@ -1,8 +1,13 @@
 .campus-card {
     width: 100%;
+    height: 250px;
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .campus-card:hover {
@@ -11,22 +16,28 @@
 }
 
 .campus-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
+    z-index: 0;
     transition: transform 0.3s ease;
 }
 
-.campus-card a:hover img {
+.campus-card:hover img {
     transform: scale(1.05);
 }
 
 .card-img-overlay {
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 100%;
     padding: 1rem;
 }
 
@@ -34,10 +45,13 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-    margin-bottom: 0;
+    margin: 0;
+    line-height: 1.2;
+    word-break: break-word;
 }
+
 
 
 #tituloPrincipal {
