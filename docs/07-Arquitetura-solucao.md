@@ -103,7 +103,7 @@ Exibe e registra a forma de pagamento escolhida no momento da finalização do p
 
 Exibe mapa interativo com os locais das lanchonetes nos campus.
 
-*Estrutura de dados:*
+*Estrutura de dados:* Foi utilizada uma API
 *Instruções de acesso:*
 * Na tela inicial, escolha o campus para visualizar seu respectivo mapa.
 
@@ -126,7 +126,7 @@ Armazena os itens que o usuário deseja comprar, com opções para alterar quant
 
 Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem glúten.
 
-*Estrutura de dados:*
+*Estrutura de dados:* [Itens]
 *Instruções de acesso:*
 * Ao visualizar um cardápio ou modal de produto, verifique os ícones informativos.
 
@@ -137,7 +137,7 @@ Dentro do modal, exibe ícones indicando se o produto é sem lactose e/ou sem gl
 
 Permite que usuários atribuam notas aos produtos dentro do modal.
 
-*Estrutura de dados:* 
+*Estrutura de dados:* local storage
 *Instruções de acesso:*
 * Ao acessar o modal de um produto, clique nas estrelas para avaliar.
 
@@ -148,7 +148,7 @@ Permite que usuários atribuam notas aos produtos dentro do modal.
 
 Filtra os produtos disponíveis conforme o termo digitado pelo usuário.
 
-*Estrutura de dados:* 
+*Estrutura de dados:* local storage
 *Instruções de acesso:*
 * Digite no campo de busca na tela de cardápio.
 
@@ -170,7 +170,7 @@ Mostra os dados do usuário logado, como nome, e-mail, favoritos, histórico de 
 
 Permite que o usuário altere sua senha.
 
-*Estrutura de dados:* 
+*Estrutura de dados:* [usuário]
 *Instruções de acesso:*
 * Acesse o perfil e clique em "Trocar Senha";
 * Preencha os campos com a senha atual e a nova senha.
@@ -217,7 +217,22 @@ Ao finalizar a compra, o pedido é salvo no histórico do usuário com detalhes.
 
 ##### Estrutura de dados - Itens
 
-usuários[].historico_de_pedidos[].itens:
+```json
+{
+"id": 4,
+"titulo": "Coxinha",
+"descricao": "Coxinha de frango com massa crocante e recheio cremoso, um clássico brasileiro.",
+"conteudo": "",
+"disponivel": true,
+"favorito": true,
+"semLactose": false,
+"semGluten": false,
+"imagem": "../principal/img/itens/coxinha.png",
+"quantidade": 2,
+"preco_unitario": 6.5,
+"subtotal": 13
+}
+```
 
 ##### Estrutura de dados - Lanchonetes
 
@@ -276,27 +291,26 @@ O usuário pode selecionar um campus e visualizar as lanchonetes disponíveis ne
 
 Esta seção apresenta os módulos e APIs utilizados na solução.
 
-**Images**:
-
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
-
 **Fonts:**
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+Google API - [https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap]
+
+**Mapa:**
+
+Mapa - [https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css]
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Bootstrap - [https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css]
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
 
+> O projeto utiliza principalmente módulos e APIs do próprio JavaScript para o frontend, como o fetch para realizar requisições HTTP. As chamadas de API são feitas para um servidor local e utilizar um backend simulado pedo db.json
+API REST local: As requisições são feitas para endpoints como /carrinhos, /usuarios e /lanchonetes
+Módulo fetch: Utilizado em diversos arquivos .js para consumir a API.
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foram realizados.
+O site, conforme o projeto atual, foi pensada para rodar localmente, tanto o frontend quanto o backend simulado.
 
 > **Links úteis**:
 > - [Website com GitHub Pages](https://pages.github.com/)
