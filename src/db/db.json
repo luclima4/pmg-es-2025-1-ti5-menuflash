@@ -83,6 +83,287 @@
               "subtotal": 5.5
             }
           ]
+        },
+        {
+          "pedido_id": "3",
+          "data": "2025-06-25",
+          "hora": "18:17:43",
+          "total": 11,
+          "forma_pagamento": "Cartão",
+          "status": "Entregue",
+          "lanchonete_id": "4",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 4,
+              "titulo": "Coxinha",
+              "imagem": "../principal/img/itens/coxinha.png",
+              "quantidade": 1,
+              "preco_unitario": 6,
+              "subtotal": 6
+            }
+          ]
+        },
+        {
+          "pedido_id": "4",
+          "data": "2025-06-25",
+          "hora": "18:26:40",
+          "total": 3.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "1",
+          "itens": [
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            }
+          ]
+        },
+        {
+          "pedido_id": "5",
+          "data": "2025-06-25",
+          "hora": "18:33:48",
+          "total": 14,
+          "forma_pagamento": "Cartão",
+          "status": "Entregue",
+          "lanchonete_id": "5",
+          "itens": [
+            {
+              "id": 6,
+              "titulo": "Empada",
+              "imagem": "../principal/img/itens/empada.png",
+              "quantidade": 1,
+              "preco_unitario": 6.5,
+              "subtotal": 6.5
+            },
+            {
+              "id": 8,
+              "titulo": "Sanduíche",
+              "imagem": "../principal/img/itens/sanduiche.png",
+              "quantidade": 1,
+              "preco_unitario": 7.5,
+              "subtotal": 7.5
+            }
+          ]
+        },
+        {
+          "pedido_id": "6",
+          "data": "2025-06-25",
+          "hora": "18:37:50",
+          "total": 11,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "4",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 4,
+              "titulo": "Coxinha",
+              "imagem": "../principal/img/itens/coxinha.png",
+              "quantidade": 1,
+              "preco_unitario": 6,
+              "subtotal": 6
+            }
+          ]
+        },
+        {
+          "pedido_id": "7",
+          "data": "2025-06-25",
+          "hora": "18:43:23",
+          "total": 13.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "1",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 2,
+              "preco_unitario": 5,
+              "subtotal": 10
+            },
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            }
+          ]
+        },
+        {
+          "pedido_id": "8",
+          "data": "2025-06-25",
+          "hora": "18:52:10",
+          "total": 8.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "1",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            }
+          ]
+        },
+        {
+          "pedido_id": "9",
+          "data": "2025-06-25",
+          "hora": "18:56:24",
+          "total": 9.5,
+          "forma_pagamento": "Cartão",
+          "status": "Entregue",
+          "lanchonete_id": "4",
+          "itens": [
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            },
+            {
+              "id": 4,
+              "titulo": "Coxinha",
+              "imagem": "../principal/img/itens/coxinha.png",
+              "quantidade": 1,
+              "preco_unitario": 6,
+              "subtotal": 6
+            }
+          ]
+        },
+        {
+          "pedido_id": "10",
+          "data": "2025-06-25",
+          "hora": "19:01:15",
+          "total": 11,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "4",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 4,
+              "titulo": "Coxinha",
+              "imagem": "../principal/img/itens/coxinha.png",
+              "quantidade": 1,
+              "preco_unitario": 6,
+              "subtotal": 6
+            }
+          ]
+        },
+        {
+          "pedido_id": "11",
+          "data": "2025-06-25",
+          "hora": "19:05:08",
+          "total": 9.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "4",
+          "itens": [
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            },
+            {
+              "id": 4,
+              "titulo": "Coxinha",
+              "imagem": "../principal/img/itens/coxinha.png",
+              "quantidade": 1,
+              "preco_unitario": 6,
+              "subtotal": 6
+            }
+          ]
+        },
+        {
+          "pedido_id": "12",
+          "data": "2025-06-25",
+          "hora": "19:07:13",
+          "total": 7,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "1",
+          "itens": [
+            {
+              "id": 3,
+              "titulo": "Açaí",
+              "imagem": "../principal/img/itens/acai.png",
+              "quantidade": 1,
+              "preco_unitario": 7,
+              "subtotal": 7
+            }
+          ]
+        },
+        {
+          "pedido_id": "13",
+          "data": "2025-06-25",
+          "hora": "19:11:15",
+          "total": 8.5,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "1",
+          "itens": [
+            {
+              "id": 2,
+              "titulo": "Guaraná lata",
+              "imagem": "../principal/img/itens/guaranaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5,
+              "subtotal": 5
+            },
+            {
+              "id": 1,
+              "titulo": "Água",
+              "imagem": "../principal/img/itens/agua.png",
+              "quantidade": 1,
+              "preco_unitario": 3.5,
+              "subtotal": 3.5
+            }
+          ]
         }
       ]
     },
@@ -307,7 +588,7 @@
     {
       "id": "0d59",
       "userId": "1",
-      "lanchoneteAtualId": "2",
+      "lanchoneteAtualId": null,
       "itens": []
     },
     {
@@ -328,7 +609,7 @@
           "titulo": "Água",
           "descricao": "Água mineral natural, perfeita para manter a hidratação durante o dia.",
           "valor": 3.5,
-          "quantidade": 17,
+          "quantidade": 6,
           "conteudo": "500ml",
           "disponivel": true,
           "semLactose": true,
@@ -521,7 +802,10 @@
           "favorito": false,
           "quantidade": 17,
           "semLactose": true,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 2,
@@ -534,7 +818,10 @@
           "favorito": true,
           "quantidade": 11,
           "semLactose": true,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 3,
@@ -547,7 +834,10 @@
           "favorito": true,
           "quantidade": 9,
           "semLactose": false,
-          "semGluten": true
+          "semGluten": true,
+          "favoritos": [
+            "lucas@gmail.com"
+          ]
         },
         {
           "id": 4,
@@ -580,7 +870,8 @@
           "favorito": true,
           "quantidade": 20,
           "semLactose": false,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": []
         },
         {
           "id": 6,
@@ -593,7 +884,8 @@
           "favorito": false,
           "quantidade": 5,
           "semLactose": false,
-          "semGluten": false
+          "semGluten": false,
+          "favoritos": []
         },
         {
           "id": 7,
