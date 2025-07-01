@@ -364,6 +364,33 @@
               "subtotal": 3.5
             }
           ]
+        },
+        {
+          "pedido_id": "14",
+          "data": "2025-07-01",
+          "hora": "20:05:23",
+          "total": 12,
+          "forma_pagamento": "Pix",
+          "status": "Entregue",
+          "lanchonete_id": "2",
+          "itens": [
+            {
+              "id": 7,
+              "titulo": "Coca-Cola lata",
+              "imagem": "../principal/img/itens/cocaLata.png",
+              "quantidade": 1,
+              "preco_unitario": 5.5,
+              "subtotal": 5.5
+            },
+            {
+              "id": 6,
+              "titulo": "Empada",
+              "imagem": "../principal/img/itens/empada.png",
+              "quantidade": 1,
+              "preco_unitario": 6.5,
+              "subtotal": 6.5
+            }
+          ]
         }
       ]
     },
@@ -513,75 +540,11 @@
     },
     {
       "id": "5",
-      "nome": "usuario1",
-      "email": "usuario1@gmail.com",
-      "senha": "usuario1",
-      "tipo": "padrão",
-      "lanchoneteId": "3"
-    },
-    {
-      "id": "6",
-      "nome": "Pele",
-      "email": "pele@gmail.com",
+      "nome": "Ronaldo",
+      "email": "ronaldo@gmail.com",
       "senha": "123456",
-      "tipo": "padrao",
-      "historico": [],
-      "historico_de_pedidos": [
-        {
-          "pedido_id": "1",
-          "data": "2025-06-25",
-          "hora": "16:04:43",
-          "total": 12,
-          "forma_pagamento": "Pix",
-          "status": "Entregue",
-          "lanchonete_id": "1",
-          "itens": [
-            {
-              "id": 2,
-              "titulo": "Guaraná lata",
-              "imagem": "../principal/img/itens/guaranaLata.png",
-              "quantidade": 1,
-              "preco_unitario": 5,
-              "subtotal": 5
-            },
-            {
-              "id": 3,
-              "titulo": "Açaí",
-              "imagem": "../principal/img/itens/acai.png",
-              "quantidade": 1,
-              "preco_unitario": 7,
-              "subtotal": 7
-            }
-          ]
-        },
-        {
-          "pedido_id": "2",
-          "data": "2025-06-25",
-          "hora": "16:05:23",
-          "total": 12,
-          "forma_pagamento": "Cartão",
-          "status": "Entregue",
-          "lanchonete_id": "5",
-          "itens": [
-            {
-              "id": 6,
-              "titulo": "Empada",
-              "imagem": "../principal/img/itens/empada.png",
-              "quantidade": 1,
-              "preco_unitario": 6.5,
-              "subtotal": 6.5
-            },
-            {
-              "id": 5,
-              "titulo": "Pão de queijo",
-              "imagem": "../principal/img/itens/paoDeQueijo.png",
-              "quantidade": 1,
-              "preco_unitario": 5.5,
-              "subtotal": 5.5
-            }
-          ]
-        }
-      ]
+      "tipo": "administrador",
+      "lanchoneteId": "3"
     }
   ],
   "carrinhos": [
@@ -594,6 +557,12 @@
     {
       "id": "7a93",
       "userId": "6",
+      "itens": [],
+      "lanchoneteAtualId": "1"
+    },
+    {
+      "id": "110a",
+      "userId": "7",
       "itens": [],
       "lanchoneteAtualId": "1"
     }
@@ -819,9 +788,7 @@
           "quantidade": 11,
           "semLactose": true,
           "semGluten": false,
-          "favoritos": [
-            "lucas@gmail.com"
-          ]
+          "favoritos": []
         },
         {
           "id": 3,
@@ -835,9 +802,7 @@
           "quantidade": 9,
           "semLactose": false,
           "semGluten": true,
-          "favoritos": [
-            "lucas@gmail.com"
-          ]
+          "favoritos": []
         },
         {
           "id": 4,
