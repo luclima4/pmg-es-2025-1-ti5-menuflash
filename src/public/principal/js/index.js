@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`https://tiaw-json.vercel.app/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`https://json-server-menuflash.onrender.com/carrinhos?userId=${usuario.id}`);
             const carrinhos = await response.json();
             const carrinho = carrinhos[0];
 

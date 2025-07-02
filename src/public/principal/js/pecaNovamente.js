@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const ApiBase = 'https://tiaw-json.vercel.app';
+    const ApiBase = 'https://json-server-menuflash.onrender.com';
     const usuario = (() => {
         try {
             return JSON.parse(sessionStorage.getItem('usuarioLogado'));

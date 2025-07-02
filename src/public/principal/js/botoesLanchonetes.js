@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  const apiUrl = 'https://tiaw-json.vercel.app/lanchonetes';
+  const apiUrl = 'https://json-server-menuflash.onrender.com/lanchonetes';
   const botoesContainer = document.getElementById('botoesLanchonete');
 
   if (!botoesContainer) {
