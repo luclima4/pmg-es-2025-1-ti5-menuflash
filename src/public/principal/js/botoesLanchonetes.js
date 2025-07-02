@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const apiUrl = 'http://localhost:3000/lanchonetes';
+  
+  const apiUrl = `${ApiBase}/lanchonetes`;
   const botoesContainer = document.getElementById('botoesLanchonete');
 
   if (!botoesContainer) {

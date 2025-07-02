@@ -1,4 +1,5 @@
 function inicializarEstrelasGenerico(container, chaveLocal) {
+
     const estrelas = container.querySelectorAll(".estrela");
     const notaSalva = localStorage.getItem(chaveLocal);
 
