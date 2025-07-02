@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let metodoPagamentoSelecionado = null;
 
     const getUsuarioLogado = () => { try { const u = sessionStorage.getItem('usuarioLogado'); return u ? JSON.parse(u) : null; } catch (e) { return null; } };
-    const getCarrinhoUsuario = async () => { const u = getUsuarioLogado(); if (!u) return null; try { const r = await fetch(`http://localhost:3000/carrinhos?userId=${u.id}`); return (await r.json())[0]; } catch (e) { return null; } };
-    const atualizarCarrinhoServidor = async (c) => { if (!c) return; try { await fetch(`http://localhost:3000/carrinhos/${c.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(c) }); window.dispatchEvent(new Event('cartUpdated')); } catch (e) { } };
+    const getCarrinhoUsuario = async () => { const u = getUsuarioLogado(); if (!u) return null; try { const r = await fetch(`https://tiaw-json.vercel.app/carrinhos?userId=${u.id}`); return (await r.json())[0]; } catch (e) { return null; } };
+    const atualizarCarrinhoServidor = async (c) => { if (!c) return; try { await fetch(`https://tiaw-json.vercel.app/carrinhos/${c.id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(c) }); window.dispatchEvent(new Event('cartUpdated')); } catch (e) { } };
     const formatarMoeda = (v) => Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     const carregarPedido = () => {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return alert("Sessão expirada. Faça o login novamente.");
 
         try {
-            const userResponse = await fetch(`http://localhost:3000/usuarios/${usuario.id}`);
+            const userResponse = await fetch(`https://tiaw-json.vercel.app/usuarios/${usuario.id}`);
             if (!userResponse.ok) throw new Error("Usuário não encontrado.");
             const dadosUsuario = await userResponse.json();
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             dadosUsuario.historico_de_pedidos = [...historico, pedidoFinal];
-            await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
+            await fetch(`https://tiaw-json.vercel.app/usuarios/${usuario.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dadosUsuario)

@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (emailAtualizado !== usuarioLogado.email) {
             if (!emailAtualizado.includes('@')) return alert("Por favor, insira um e-mail válido.");
 
-            const checkEmailResponse = await fetch(`http://localhost:3000/usuarios?email=${emailAtualizado}`);
+            const checkEmailResponse = await fetch(`https://tiaw-json.vercel.app/usuarios?email=${emailAtualizado}`);
             const existingUsers = await checkEmailResponse.json();
             if (existingUsers.length > 0 && existingUsers[0].id !== usuarioLogado.id) {
                 return alert("Este e-mail já está em uso por outra conta.");
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Object.keys(payload).length === 0) return alert("Nenhuma alteração para salvar.");
 
         try {
-            const response = await fetch(`http://localhost:3000/usuarios/${usuarioLogado.id}`, {
+            const response = await fetch(`https://tiaw-json.vercel.app/usuarios/${usuarioLogado.id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const toggleFavorito = async (itemId, lanchoneteId) => {
         try {
-            const response = await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/lanchonetes/${lanchoneteId}`);
             const lanchonete = await response.json();
             const itemParaModificar = lanchonete.itens.find(i => i.id == itemId);
             if (!itemParaModificar || !Array.isArray(itemParaModificar.favoritos)) return;
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const emailIndex = itemParaModificar.favoritos.indexOf(usuarioLogado.email);
             if (emailIndex > -1) itemParaModificar.favoritos.splice(emailIndex, 1);
 
-            await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`, {
+            await fetch(`https://tiaw-json.vercel.app/lanchonetes/${lanchoneteId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(lanchonete)
@@ -189,8 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
         resetarFormulario();
         try {
             const [userResponse, lanchonetesResponse] = await Promise.all([
-                fetch(`http://localhost:3000/usuarios/${usuarioLogado.id}`),
-                fetch('http://localhost:3000/lanchonetes')
+                fetch(`https://tiaw-json.vercel.app/usuarios/${usuarioLogado.id}`),
+                fetch('https://tiaw-json.vercel.app/lanchonetes')
             ]);
             if (!userResponse.ok || !lanchonetesResponse.ok) throw new Error("Falha ao carregar dados.");
 

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const usuario = getUsuarioLogado();
         if (!usuario) return null;
         try {
-            const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/carrinhos?userId=${usuario.id}`);
             const carrinhos = await response.json();
             return carrinhos[0];
         } catch (error) { return null; }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const atualizarCarrinhoServidor = async (carrinho) => {
         if (!carrinho) return;
         try {
-            await fetch(`http://localhost:3000/carrinhos/${carrinho.id}`, {
+            await fetch(`https://tiaw-json.vercel.app/carrinhos/${carrinho.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(carrinho)

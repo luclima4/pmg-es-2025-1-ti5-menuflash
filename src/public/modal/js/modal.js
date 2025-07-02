@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function mostraDetalhes(id) {
-  fetch('http://localhost:3000/lanchonetes')
+  fetch('https://tiaw-json.vercel.app/lanchonetes')
     .then(r => r.json())
     .then(lanchonetes => {
       let item, lan;

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/carrinhos?userId=${usuario.id}`);
             if (!response.ok) {
                 contadorEl.style.display = 'none';
                 return;

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/lanchonetes/${usuarioLogado.lanchoneteId}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/lanchonetes/${usuarioLogado.lanchoneteId}`);
             if (!response.ok) throw new Error("Não foi possível encontrar a sua lanchonete.");
             
             minhaLanchonete = await response.json();
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CRUD
     const salvarAlteracoesNaAPI = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/lanchonetes/${minhaLanchonete.id}`, {
+            const response = await fetch(`https://tiaw-json.vercel.app/lanchonetes/${minhaLanchonete.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(minhaLanchonete)

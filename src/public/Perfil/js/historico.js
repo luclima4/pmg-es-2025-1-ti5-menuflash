@@ -1,5 +1,5 @@
 // Histórico de itens (sem mudanças no estilo de fetch)
-fetch('http://localhost:3000/usuarios')
+fetch('https://tiaw-json.vercel.app/usuarios')
   .then(res => res.json())
   .then(usuarios => {
     const usuarioLogadoString = sessionStorage.getItem("usuarioLogado");
@@ -20,7 +20,7 @@ fetch('http://localhost:3000/usuarios')
     }
 
     // Agora busca as lanchonetes
-    fetch('http://localhost:3000/lanchonetes')
+    fetch('https://tiaw-json.vercel.app/lanchonetes')
       .then(res2 => res2.json())
       .then(lanchonetes => {
         // Ordena do mais recente para o mais antigo
