@@ -218,11 +218,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             return `
                 <div class="m-0 p-1 mt-2 col-lg-3 col-md-4 col-sm-6 d-flex">
-                    <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto" ${estiloIndisponivel} style="width: 100%;">
+                    <div class="card shadow rounded-4 border-0 overflow-hidden mx-auto ${!item.disponivel ? 'card-indisponivel' : ''}" style="width: 100%;">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalExemplo" data-id="${item.id}">
                             <img src="${imagemCorrigida}" class="card-img-top" alt="${item.titulo}" style="height: 270px; object-fit: cover;">
                         </a>
                         <div class="card-body text-center d-flex flex-column px-3 py-3">
+                        <p class="text-muted small mb-1">${item.nomeLanchonete}</p>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h5 class="card-title fw-semibold text-truncate mb-0 me-2" title="${item.titulo}">${item.titulo}</h5>
                                 <a href="#" class="btn-favoritar" data-item-id="${item.id}" data-lanchonete-id="${item.lanchoneteId}" title="Favoritar item">

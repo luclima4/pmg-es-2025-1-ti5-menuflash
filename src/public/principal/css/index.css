@@ -52,8 +52,6 @@
     word-break: break-word;
 }
 
-
-
 #tituloPrincipal {
     font-family: "Poppins", sans-serif;
     margin-top: 7px;
@@ -61,6 +59,11 @@
     font-style: normal;
     color: rgb(0, 0, 0);
     font-size: 30px;
+}
+
+.card-indisponivel {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @media (max-width: 576px) {
