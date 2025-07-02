@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const ApiBase = 'https://tiaw-json.vercel.app';
     const cardsContainer = document.getElementById('divCards');
     const campoBusca = document.getElementById('campoBusca');
     const btnBusca = document.getElementById('btnBusca');
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!usuario || !usuario.id) return null;
 
         try {
-            const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`${ApiBase}/carrinhos?userId=${usuario.id}`);
             if (!response.ok) throw new Error("Erro na rede ao buscar carrinho");
             const carrinhos = await response.json();
             return carrinhos[0];
@@ -38,11 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let carrinhoExistente = null;
         try {
-            const res = await fetch(`http://localhost:3000/carrinhos?userId=${carrinhoData.userId}`);
+            const res = await fetch(`${ApiBase}/carrinhos?userId=${carrinhoData.userId}`);
             carrinhoExistente = (await res.json())[0];
         } catch (e) { }
 
-        const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
+        const url = `${ApiBase}/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
 
         if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) {
@@ -147,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (usuario.tipo === 'administrador') return alert("Administradores não podem favoritar itens.");
 
         try {
-            const response = await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`);
+            const response = await fetch(`${ApiBase}/lanchonetes/${lanchoneteId}`);
             if (!response.ok) throw new Error("A lanchonete não foi encontrada.");
             const lanchonete = await response.json();
             const itemParaModificar = lanchonete.itens.find(i => i.id == itemId);
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 itemParaModificar.favoritos.push(usuario.email);
             }
 
-            await fetch(`http://localhost:3000/lanchonetes/${lanchoneteId}`, {
+            await fetch(`${ApiBase}/lanchonetes/${lanchoneteId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(lanchonete)
@@ -266,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inicializar = async () => {
         try {
-            const response = await fetch('http://localhost:3000/lanchonetes');
+            const response = await fetch(`${ApiBase}/lanchonetes`);
             if (!response.ok) throw new Error("Não foi possível carregar os dados.");
             const data = await response.json();
             const params = new URLSearchParams(window.location.search);
