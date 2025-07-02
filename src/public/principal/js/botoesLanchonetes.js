@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  const apiUrl = `${ApiBase}/lanchonetes`;
+  const apiUrl = 'https://tiaw-json.vercel.app/lanchonetes';
   const botoesContainer = document.getElementById('botoesLanchonete');
 
   if (!botoesContainer) {
