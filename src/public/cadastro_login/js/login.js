@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Pede ao servidor para encontrar um usuário com este email E esta senha
-            const response = await fetch(`http://localhost:3000/usuarios?email=${email}&senha=${senha}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/usuarios?email=${email}&senha=${senha}`);
             if (!response.ok) throw new Error("Erro de rede.");
             
             const usuariosEncontrados = await response.json();

@@ -2,7 +2,7 @@
 // ------------------- Cadastro de usuários -------------------  
 // PRECISO QUE INSIRA ID STRING   -------------------  
 // ============================================================
-const apiURL_usuarios = '/usuarios'
+const apiURL_usuarios = 'https://tiaw-json.vercel.app/usuarios'
 
 let cadastroForm = document.getElementById('cadastroForm')
 const inputSenha = document.querySelector('#inputSenha') 
