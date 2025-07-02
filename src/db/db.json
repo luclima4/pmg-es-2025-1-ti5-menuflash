@@ -659,6 +659,58 @@
           "semGluten": false,
           "imagem": "img/itens/coxinha.png",
           "favoritos": []
+        },
+        {
+          "id": 13,
+          "titulo": "Café",
+          "descricao": "Café expresso feito na hora.",
+          "valor": 3.5,
+          "quantidade": 25,
+          "conteudo": "100ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/cafe.png",
+          "favoritos": []
+        },
+        {
+          "id": 14,
+          "titulo": "Energético Monster",
+          "descricao": "Energético Monster para te dar energia.",
+          "valor": 9,
+          "quantidade": 9,
+          "conteudo": "473ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/monster.png",
+          "favoritos": []
+        },
+        {
+          "id": 15,
+          "titulo": "Energético Red Bull",
+          "descricao": "Energético Red Bull para te dar energia.",
+          "valor": 9,
+          "quantidade": 12,
+          "conteudo": "250ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/redbull.png",
+          "favoritos": []
+        },
+        {
+          "id": 16,
+          "titulo": "Bala Halls",
+          "descricao": "Bala Halls para o melhor hálito.",
+          "valor": 2,
+          "quantidade": 20,
+          "conteudo": "",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/halls.png",
+          "favoritos": []
         }
       ]
     },
@@ -724,6 +776,62 @@
           "semLactose": false,
           "semGluten": false,
           "favoritos": []
+        },
+        {
+          "id": 17,
+          "titulo": "Suco Natural",
+          "descricao": "Suco Natural sabores: laranja, morango e maracujá.",
+          "valor": 9.5,
+          "conteudo": "400ml",
+          "imagem": "img/itens/sucoNatural.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 8,
+          "semLactose": true,
+          "semGluten": true,
+          "favoritos": []
+        },
+        {
+          "id": 18,
+          "titulo": "Água com gás",
+          "descricao": "Água com gás para refrescar seu dia.",
+          "valor": 3.5,
+          "conteudo": "500ml",
+          "imagem": "img/itens/aguaGas.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 23,
+          "semLactose": true,
+          "semGluten": true,
+          "favoritos": []
+        },
+        {
+          "id": 19,
+          "titulo": "Whey Protein",
+          "descricao": "Whey Protein bebida láctea.",
+          "valor": 7.5,
+          "conteudo": "",
+          "imagem": "img/itens/whey.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 8,
+          "semLactose": true,
+          "semGluten": false,
+          "favoritos": []
+        },
+        {
+          "id": 20,
+          "titulo": "Gatorade",
+          "descricao": "Gatorade para se manter hidratado.",
+          "valor": 5,
+          "conteudo": "500ml",
+          "imagem": "img/itens/gatorade.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 6,
+          "semLactose": true,
+          "semGluten": false,
+          "favoritos": []
         }
       ]
     },
@@ -780,9 +888,61 @@
           "imagem": "img/itens/coca.png",
           "disponivel": false,
           "favorito": false,
-          "quantidade": 4,
+          "quantidade": 0,
           "semLactose": true,
           "semGluten": true
+        },
+        {
+          "id": 21,
+          "titulo": "Sorvete Casquinha",
+          "descricao": "Sorvete na casquinha para refrescar e adoçar seu dia.",
+          "valor": 3.5,
+          "conteudo": "",
+          "imagem": "img/itens/sorvete.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 30,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 22,
+          "titulo": "Toddynho",
+          "descricao": "Toddynho para adoçar ser dia com gostinho de infância.",
+          "valor": 7,
+          "conteudo": "200ml",
+          "imagem": "img/itens/toddynho.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 9,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 23,
+          "titulo": "Enrolado de Presunto e Queijo",
+          "descricao": "Enrolado de Presunto e Queijo saboroso e quentinho.",
+          "valor": 4,
+          "conteudo": "",
+          "imagem": "img/itens/enrolado.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 5,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 24,
+          "titulo": "Bolo de pote",
+          "descricao": "Bolo de pote para adoçar seu dia.",
+          "valor": 9.5,
+          "conteudo": "",
+          "imagem": "img/itens/bolo.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 5,
+          "semLactose": false,
+          "semGluten": false
         }
       ]
     },
@@ -851,6 +1011,58 @@
           "quantidade": 14,
           "semLactose": false,
           "semGluten": false
+        },
+        {
+          "id": 9,
+          "titulo": "Trident",
+          "descricao": "Goma de mascar Trident, sabor refrescante para manter o hálito agradável.",
+          "valor": 2,
+          "conteudo": "",
+          "imagem": "img/itens/trident.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 19,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 10,
+          "titulo": "Trento",
+          "descricao": "Chocolate Trento crocante com recheio delicioso, perfeito para a sobremesa.",
+          "valor": 4.5,
+          "conteudo": "",
+          "imagem": "img/itens/trento.png",
+          "disponivel": true,
+          "favorito": false,
+          "quantidade": 7,
+          "semLactose": false,
+          "semGluten": false
+        },
+        {
+          "id": 11,
+          "titulo": "Suco lata",
+          "descricao": "Suco de frutas natural enlatado, refrescante e nutritivo.",
+          "valor": 5,
+          "conteudo": "400ml",
+          "imagem": "img/itens/sucoLata.png",
+          "disponivel": true,
+          "favorito": true,
+          "quantidade": 18,
+          "semLactose": true,
+          "semGluten": true
+        },
+        {
+          "id": 12,
+          "titulo": "Coca-Cola 200ml",
+          "descricao": "Versão menor da Coca-Cola, ideal para quem quer refrescar com moderação.",
+          "valor": 4,
+          "conteudo": "200ml",
+          "imagem": "img/itens/coca.png",
+          "disponivel": false,
+          "favorito": false,
+          "quantidade": 0,
+          "semLactose": true,
+          "semGluten": true
         }
       ]
     },
@@ -912,6 +1124,58 @@
           "quantidade": 6,
           "semLactose": false,
           "semGluten": false
+        },
+        {
+          "id": 13,
+          "titulo": "Café",
+          "descricao": "Café expresso feito na hora.",
+          "valor": 3.5,
+          "quantidade": 25,
+          "conteudo": "100ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/cafe.png",
+          "favoritos": []
+        },
+        {
+          "id": 14,
+          "titulo": "Energético Monster",
+          "descricao": "Energético Monster para te dar energia.",
+          "valor": 9,
+          "quantidade": 9,
+          "conteudo": "473ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/monster.png",
+          "favoritos": []
+        },
+        {
+          "id": 15,
+          "titulo": "Energético Red Bull",
+          "descricao": "Energético Red Bull para te dar energia.",
+          "valor": 9,
+          "quantidade": 12,
+          "conteudo": "250ml",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/redbull.png",
+          "favoritos": []
+        },
+        {
+          "id": 16,
+          "titulo": "Bala Halls",
+          "descricao": "Bala Halls para o melhor hálito.",
+          "valor": 2,
+          "quantidade": 20,
+          "conteudo": "",
+          "disponivel": true,
+          "semLactose": false,
+          "semGluten": false,
+          "imagem": "img/itens/halls.png",
+          "favoritos": []
         }
       ]
     }
