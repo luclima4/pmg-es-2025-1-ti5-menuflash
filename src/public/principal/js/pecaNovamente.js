@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const ApiBase = 'https://tiaw-json.vercel.app';
     const usuario = (() => {
         try {
             return JSON.parse(sessionStorage.getItem('usuarioLogado'));
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!usuario || !usuario.id) return null;
 
         try {
-            const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`${ApiBase}/carrinhos?userId=${usuario.id}`);
             if (!response.ok) throw new Error("Erro na rede ao buscar carrinho");
             const carrinhos = await response.json();
             return carrinhos[0];
@@ -53,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let carrinhoExistente = null;
         try {
-            const res = await fetch(`http://localhost:3000/carrinhos?userId=${carrinhoData.userId}`);
+            const res = await fetch(`${ApiBase}/carrinhos?userId=${carrinhoData.userId}`);
             carrinhoExistente = (await res.json())[0];
         } catch (e) { }
 
-        const url = `http://localhost:3000/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
+        const url = `${ApiBase}/carrinhos${carrinhoExistente ? `/${carrinhoExistente.id}` : ''}`;
         const method = carrinhoExistente ? 'PUT' : 'POST';
 
         if (!carrinhoExistente && carrinhoData.lanchoneteAtualId === undefined) {
@@ -166,9 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const lanchonetesResponse = await fetch('http://localhost:3000/lanchonetes');
+            const lanchonetesResponse = await fetch(`${ApiBase}/lanchonetes`);
             todasAsLanchonetes = await lanchonetesResponse.json();
-            const response = await fetch(`http://localhost:3000/usuarios/${usuario.id}`);
+            const response = await fetch(`${ApiBase}/usuarios/${usuario.id}`);
             const usuarioCompleto = await response.json();
             const historico = (usuarioCompleto.historico_de_pedidos || []).slice().reverse().slice(0, 2);
 
@@ -247,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnAumentar) {
             const itemId = parseInt(btnAumentar.dataset.itemId, 10);
 
-            const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
+            const usuarioCompleto = await fetch(`${ApiBase}/usuarios/${usuario.id}`).then(res => res.json());
             const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
 
             let itemParaProcessar = null;
@@ -282,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const btnDiminuir = target.closest('.btn-diminuir-qnt');
         if (btnDiminuir) {
             const itemId = parseInt(btnDiminuir.dataset.itemId, 10);
-            const usuarioCompleto = await fetch(`http://localhost:3000/usuarios/${usuario.id}`).then(res => res.json());
+            const usuarioCompleto = await fetch(`${ApiBase}/usuarios/${usuario.id}`).then(res => res.json());
             const historicoCompleto = usuarioCompleto.historico_de_pedidos || [];
 
             let itemParaProcessar = null;

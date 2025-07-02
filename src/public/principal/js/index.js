@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script principal carregado.");
 
     const getUsuarioLogado = () => {
         try {
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/carrinhos?userId=${usuario.id}`);
+            const response = await fetch(`https://tiaw-json.vercel.app/carrinhos?userId=${usuario.id}`);
             const carrinhos = await response.json();
             const carrinho = carrinhos[0];
 
@@ -69,12 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         atualizarContadorCarrinho();
     });
 
-    // --- LÓGICA ESPECIAL APENAS PARA A PÁGINA INDEX.HTML ---
     // Faz os cards da página inicial serem clicáveis
     const linkCoreu = document.getElementById('link-campus-coreu');
     const linkContagem = document.getElementById('link-campus-contagem');
 
-    if (linkCoreu && linkContagem) { // Este código só rodará se os cards existirem na página
+    if (linkCoreu && linkContagem) { 
         linkCoreu.addEventListener('click', () => {
             window.location.href = 'campusCoreu.html';
         });
